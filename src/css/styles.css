@@ -1,0 +1,13 @@
+@keyframes example {
+  0%   {background-color: teal;}
+  25%  {background-color: red;}
+  50%  {background-color: orange;}
+  100% {background-color: blue;}
+}
+
+.card {
+  background-color: red;
+  animation-name: example;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}

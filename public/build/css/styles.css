@@ -1,0 +1,45 @@
+@-webkit-keyframes example {
+  0%   {
+    background-color: teal;
+  }
+
+  25%  {
+    background-color: red;
+  }
+
+  50%  {
+    background-color: orange;
+  }
+
+  100% {
+    background-color: blue;
+  }
+}
+
+@keyframes example {
+  0%   {
+    background-color: teal;
+  }
+
+  25%  {
+    background-color: red;
+  }
+
+  50%  {
+    background-color: orange;
+  }
+
+  100% {
+    background-color: blue;
+  }
+}
+
+.card {
+  background-color: red;
+  -webkit-animation-name: example;
+          animation-name: example;
+  -webkit-animation-duration: 10s;
+          animation-duration: 10s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}

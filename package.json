@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build-css": "tailwindcss build src/styles.css -o public/styles.css"
+    "build-tailwind": "postcss src/css/tailwind.css -o public/build/css/tailwind.css",
+    "build-css": "postcss src/css/styles.css -o public/build/css/styles.css",
+    "serve": "live-server public"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,8 @@
   },
   "homepage": "https://github.com/KristianHargas/hragy-notes#readme",
   "dependencies": {
+    "autoprefixer": "^9.8.6",
+    "postcss-cli": "^8.1.0",
     "tailwindcss": "^1.9.5"
   }
 }
