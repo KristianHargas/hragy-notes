@@ -1,0 +1,24 @@
+{
+  "name": "hragy-notes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "tailwindcss build src/styles.css -o public/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KristianHargas/hragy-notes.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KristianHargas/hragy-notes/issues"
+  },
+  "homepage": "https://github.com/KristianHargas/hragy-notes#readme",
+  "dependencies": {
+    "tailwindcss": "^1.9.5"
+  }
+}
