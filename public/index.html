@@ -7,28 +7,55 @@
 
   <link rel="stylesheet" href="build/css/tailwind.css">
   <link rel="stylesheet" href="build/css/styles.css">
+  <script src="script.js" defer></script>
 </head>
 
 <body class="bg-gray-100">
   <!-- Toolbar -->
   <header class="border-b-2 border-red-700">
-    <div class="p-3">
-      <!-- Logo -->
-      <a href="#" class="inline-flex items-center px-4 py-2 bg-red-700 rounded-full">
-        <!-- https://www.flaticon.com/free-icon/clipboard_2910752?term=notes&page=1&position=18 -->
-        <img class="h-8" src="img/note-icon.svg" alt="Note icon.">
-        <span class="pl-2 mt-1 font-kalam text-xl text-white font-bold tracking-widest">hragynotes</span>
-      </a>
-    </div>
+    <nav class="md:flex md:justify-between md:container md:mx-auto md:px-6 md:py-3">
+      <!-- Logo with hamburger button -->
+      <div class="flex justify-between items-center py-3 px-4 md:p-0">
+        <!-- Logo -->
+        <div>
+          <a href="#" class="inline-flex items-center px-4 py-2 bg-red-700 rounded-full">
+            <img class="h-8" src="img/note-icon.svg" alt="Note icon.">
+            <span class="pl-2 mt-1 font-kalam text-xl text-white font-bold tracking-widest">hragynotes</span>
+          </a>
+        </div>
+
+        <!-- Hamburger button -->
+        <div class="md:hidden">
+          <button id="hamburger_btn" type="button" class="text-gray-800 focus:outline-none">
+            <svg class="w-10 h-10 fill-current" viewBox="0 0 24 24">
+              <path id="hamburger_icon" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+              <path id="close_menu_icon" class="hidden"
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Navigation links -->
+      <ul id="mobile_menu" class="px-4 pt-2 pb-4 md:p-0 hidden md:flex md:items-center">
+        <li><a href="#"
+            class="block px-4 py-2 mb-1 md:mb-0 font-semibold text-xl text-gray-800 rounded-full hover:text-red-700 focus:bg-gray-300 md:focus:bg-transparent md:hover:underline">Register</a>
+        </li>
+        <li><a href="#"
+            class="block px-4 py-2 md:ml-1 font-semibold text-xl text-gray-800 rounded-full hover:text-red-700 focus:bg-gray-300 md:focus:bg-transparent md:hover:underline">Log
+            In</a>
+        </li>
+      </ul>
+    </nav>
   </header>
 
   <!-- Main content -->
   <main>
-    <!-- Section with brief description and Sign Up / Sign In links -->
+    <!-- Section with brief description (landing page) and Sign Up / Sign In links -->
     <div class="bg-red-100">
-      <div class="md:container md:mx-auto px-4 md:px-8 py-8 md:py-12">
+      <div class="md:container md:mx-auto px-4 md:px-6 py-8 md:py-10">
         <div class="grid grid-cols-12 gap-5">
-          <!-- Section with descrition text and with links -->
+          <!-- Section with description text and with links -->
           <section class="flex items-center col-span-12 md:col-span-7 lg:col-span-8">
             <div>
               <h1
@@ -61,7 +88,6 @@
             </div>
           </section>
           <div class="flex mt-8 md:mt-0 col-start-4 col-span-6 md:col-span-5 lg:col-span-4">
-            <!-- <img src="img/notes.svg" alt="Notepad with a pen."> -->
             <img class="" src="img/notes-landing.svg" alt="Notepad with a pen.">
           </div>
         </div>
@@ -69,9 +95,9 @@
     </div>
 
     <!-- Section with features offered -->
-    <div class="border-t-2 border-gray-500">
-      <div class="md:container md:mx-auto px-5 md:px-8 py-8 md:py-10">
-        <h2 class="mb-8 text-center text-red-800 font-bold text-2xl sm:text-3xl lg:text-4xl tracking-wide">No
+    <div class="">
+      <div class="md:container md:mx-auto px-4 md:px-6 py-8 md:py-8">
+        <h2 class="mb-8 text-center text-gray-800 font-bold text-2xl sm:text-3xl lg:text-4xl tracking-wide">No
           need to use
           your brain
           anymore
@@ -79,7 +105,7 @@
         <div class="grid grid-cols-3 gap-5">
           <div class="justify-center p-4 col-span-3 md:col-span-1">
             <img class="block mx-auto mb-3 w-24" src="img/note.svg" alt="Note.">
-            <h3 class="mb-1 underline text-center text-gray-800 text-2xl tracking-wide font-bold">Take
+            <h3 class="mb-1 text-center text-gray-800 text-2xl tracking-wide font-semibold">Take
               notes</h3>
             <p class="text-center font-normal text-lg md:text-xl text-gray-800">Molestias fuga minus nemo saepe illo
               voluptatum
@@ -87,7 +113,7 @@
           </div>
           <div class="justify-center p-4 col-span-3 md:col-span-1">
             <img class="block mx-auto mb-4 w-24" src="img/checklist.svg" alt="Note.">
-            <h3 class="mb-1 underline text-center text-gray-800 text-2xl tracking-wide font-bold">Make
+            <h3 class="mb-1 text-center text-gray-800 text-2xl tracking-wide font-semibold">Make
               To-Do lists
             </h3>
             <p class="text-center font-normal text-lg md:text-xl text-gray-800">Molestias fuga minus nemo saepe illo
@@ -96,7 +122,7 @@
           </div>
           <div class="justify-center p-4 col-span-3 md:col-span-1">
             <img class="block mx-auto mb-4 w-24" src="img/event.svg" alt="Note.">
-            <h3 class="mb-1 underline text-center text-gray-800 text-2xl tracking-wide font-bold">Schedule
+            <h3 class="mb-1 text-center text-gray-800 text-2xl tracking-wide font-semibold">Schedule
               events</h3>
             <p class="text-center font-normal text-lg md:text-xl text-gray-800">Molestias fuga minus nemo saepe illo
               voluptatum
