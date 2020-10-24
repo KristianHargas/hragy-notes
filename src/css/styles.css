@@ -1,13 +1,12 @@
-@keyframes example {
-  0%   {background-color: teal;}
-  25%  {background-color: red;}
-  50%  {background-color: orange;}
-  100% {background-color: blue;}
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Palanquin:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&display=swap');
+
+body {
+  font-family: 'Palanquin', sans-serif;
+  /* font-family: 'Public Sans', sans-serif; */
 }
 
-.card {
-  background-color: red;
-  animation-name: example;
-  animation-duration: 10s;
-  animation-iteration-count: infinite;
+.font-kalam {
+  font-family: 'Kalam', cursive;
 }

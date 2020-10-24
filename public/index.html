@@ -3,26 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test</title>
+  <title>hragynotes</title>
 
   <link rel="stylesheet" href="build/css/tailwind.css">
   <link rel="stylesheet" href="build/css/styles.css">
 </head>
 
-<body>
-  <div class="flex justify-center mt-4">
-    <div
-      class="card rounded shadow p-5 bg-white max-w-md font-sans text-lg font-medium tracking-wider leading-relaxed bg-teal-500 text-white">
-      Your
-      bones don't
-      break, mine do.
-      That's clear.
-      Your
-      cells react to
-      bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you
-      and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown.
-      However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.</div>
-  </div>
+<body class="bg-gray-100">
+  <!-- Toolbar -->
+  <header class="border-b-2 border-red-700">
+    <div class="p-3">
+      <!-- Logo -->
+      <a href="#" class="inline-flex items-center px-4 py-2 bg-red-700 rounded-full">
+        <!-- https://www.flaticon.com/free-icon/clipboard_2910752?term=notes&page=1&position=18 -->
+        <img class="h-8" src="img/note-icon.svg" alt="Note icon.">
+        <span class="pl-2 mt-1 font-kalam text-xl text-white font-bold tracking-widest">hragynotes</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main>
+    <!-- Section with brief description and Sign Up / Sign In links -->
+    <div class="bg-red-100">
+      <div class="md:container md:mx-auto px-4 md:px-8 py-8 md:py-12">
+        <div class="grid grid-cols-12 gap-5">
+          <!-- Section with descrition text and with links -->
+          <section class="flex items-center col-span-12 md:col-span-7 lg:col-span-8">
+            <div>
+              <h1
+                class="text-center md:text-left text-gray-800 mb-4 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-wide">
+                Forgetting
+                everything?
+              </h1>
+              <p
+                class="mb-10 text-center md:text-left text-xl sm:text-2xl lg:text-3xl font-normal text-gray-700 leading-8 sm:leading-9 md:leading-10">
+                Lorem
+                ipsum dolor
+                sit,
+                amet consectetur
+                adipisicing
+                elit. Quidem, tempore quo. Natus id commodi illum ipsa esse voluptatum, deleniti facere provident,
+                tempora
+                voluptatibus impedit repellat fugiat harum ipsam deserunt libero?
+              </p>
+              <div class="text-center md:text-left">
+                <a href="#"
+                  class="inline-block uppercase border-red-700 text-white border-4 bg-red-700 px-12 py-1 font-bold text-lg sm:text-xl tracking-widest hover:shadow-lg">Sign
+                  in</a>
+              </div>
+              <div class="mt-5 text-center md:text-left">
+                <a href="#"
+                  class="inline-block uppercase border-red-700 text-red-700 border-4 bg-gray-100 px-12 py-1 font-bold text-lg sm:text-xl tracking-widest hover:shadow-lg">
+                  Sign
+                  up</a>
+              </div>
+            </div>
+          </section>
+          <div class="flex mt-8 md:mt-0 col-start-4 col-span-6 md:col-span-5 lg:col-span-4">
+            <!-- <img src="img/notes.svg" alt="Notepad with a pen."> -->
+            <img class="" src="img/notes-landing.svg" alt="Notepad with a pen.">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section with features offered -->
+    <div class="border-t-2 border-gray-500">
+      <div class="md:container md:mx-auto px-5 md:px-8 py-8 md:py-10">
+        <h2 class="mb-8 text-center text-red-800 font-bold text-2xl sm:text-3xl lg:text-4xl tracking-wide">No
+          need to use
+          your brain
+          anymore
+        </h2>
+        <div class="grid grid-cols-3 gap-5">
+          <div class="justify-center p-4 col-span-3 md:col-span-1">
+            <img class="block mx-auto mb-3 w-24" src="img/note.svg" alt="Note.">
+            <h3 class="mb-1 underline text-center text-gray-800 text-2xl tracking-wide font-bold">Take
+              notes</h3>
+            <p class="text-center font-normal text-lg md:text-xl text-gray-800">Molestias fuga minus nemo saepe illo
+              voluptatum
+              autem, officiis minima sequi impedit aliquam laudantium id sint voluptates odio.</p>
+          </div>
+          <div class="justify-center p-4 col-span-3 md:col-span-1">
+            <img class="block mx-auto mb-4 w-24" src="img/checklist.svg" alt="Note.">
+            <h3 class="mb-1 underline text-center text-gray-800 text-2xl tracking-wide font-bold">Make
+              To-Do lists
+            </h3>
+            <p class="text-center font-normal text-lg md:text-xl text-gray-800">Molestias fuga minus nemo saepe illo
+              voluptatum
+              autem, officiis minima sequi impedit aliquam laudantium id sint voluptates odio.</p>
+          </div>
+          <div class="justify-center p-4 col-span-3 md:col-span-1">
+            <img class="block mx-auto mb-4 w-24" src="img/event.svg" alt="Note.">
+            <h3 class="mb-1 underline text-center text-gray-800 text-2xl tracking-wide font-bold">Schedule
+              events</h3>
+            <p class="text-center font-normal text-lg md:text-xl text-gray-800">Molestias fuga minus nemo saepe illo
+              voluptatum
+              autem, officiis minima sequi impedit aliquam laudantium id sint voluptates odio.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
 </body>
 
 </html>

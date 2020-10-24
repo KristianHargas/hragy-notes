@@ -1,45 +1,14 @@
-@-webkit-keyframes example {
-  0%   {
-    background-color: teal;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
 
-  25%  {
-    background-color: red;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Palanquin:wght@100;200;300;400;500;600;700&display=swap');
 
-  50%  {
-    background-color: orange;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&display=swap');
 
-  100% {
-    background-color: blue;
-  }
+body {
+  font-family: 'Palanquin', sans-serif;
+  /* font-family: 'Public Sans', sans-serif; */
 }
 
-@keyframes example {
-  0%   {
-    background-color: teal;
-  }
-
-  25%  {
-    background-color: red;
-  }
-
-  50%  {
-    background-color: orange;
-  }
-
-  100% {
-    background-color: blue;
-  }
-}
-
-.card {
-  background-color: red;
-  -webkit-animation-name: example;
-          animation-name: example;
-  -webkit-animation-duration: 10s;
-          animation-duration: 10s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+.font-kalam {
+  font-family: 'Kalam', cursive;
 }
