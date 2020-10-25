@@ -58,11 +58,11 @@ body {
 }
 
 .menu-btn::before {
-  transform: translateY(-0.8rem) translateX(-1.25rem);
+  transform: translateY(-0.7rem) translateX(-1.25rem);
 }
 
 .menu-btn::after {
-  transform: translateY(0.8rem) translateX(-1.25rem);
+  transform: translateY(0.7rem) translateX(-1.25rem);
 }
 
 .menu-btn-wrapper.open .menu-btn {

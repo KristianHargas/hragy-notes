@@ -36,10 +36,10 @@
       <!-- Navigation links -->
       <ul id="nav_menu" class="px-4 pt-2 pb-4 md:p-0 hidden md:flex md:items-center">
         <li><a href="#"
-            class="block no-select px-4 py-2 mb-1 md:mb-0 font-semibold text-xl text-gray-800 rounded-full hover:text-red-700 focus:bg-gray-300 md:focus:bg-transparent md:hover:underline">Register</a>
+            class="block no-select px-4 py-2 mb-1 md:mb-0 font-semibold text-xl text-gray-800 rounded md:hover:text-red-700 focus:bg-gray-300 md:focus:bg-transparent md:hover:underline">Register</a>
         </li>
         <li><a href="#"
-            class="block no-select px-4 py-2 md:ml-1 font-semibold text-xl text-gray-800 rounded-full hover:text-red-700 focus:bg-gray-300 md:focus:bg-transparent md:hover:underline">Log
+            class="block no-select px-4 py-2 md:ml-1 font-semibold text-xl text-gray-800 rounded md:hover:text-red-700 focus:bg-gray-300 md:focus:bg-transparent md:hover:underline">Sign
             In</a>
         </li>
       </ul>
@@ -50,13 +50,13 @@
   <main class="mb-auto">
     <!-- Section with brief description (landing page) and Sign Up / Sign In links -->
     <div class="bg-red-100">
-      <div class="md:container md:mx-auto px-4 md:px-6 py-8 md:py-10">
+      <div class="md:container md:mx-auto px-4 md:px-6 py-8 md:py-12">
         <div class="grid grid-cols-12 gap-5">
           <!-- Section with description text and with links -->
           <section class="flex items-center col-span-12 md:col-span-7 lg:col-span-8">
             <div>
               <h1
-                class="text-center md:text-left text-gray-800 mb-4 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-wide">
+                class="text-center md:text-left text-gray-800 mb-4 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-wide leading-tight">
                 Forgetting
                 everything?
               </h1>
@@ -73,14 +73,13 @@
               </p>
               <div class="text-center md:text-left">
                 <a href="#"
-                  class="inline-block no-select uppercase border-red-700 text-white border-4 bg-red-700 px-12 py-1 font-bold text-lg sm:text-xl tracking-widest hover:shadow-lg">Sign
+                  class="inline-block w-56 text-center rounded no-select uppercase border-red-700 text-white border-4 bg-red-700 px-12 py-1 font-bold text-lg sm:text-xl tracking-widest hover:shadow-lg">Sign
                   in</a>
               </div>
               <div class="mt-5 text-center md:text-left">
                 <a href="#"
-                  class="inline-block no-select uppercase border-red-700 text-red-700 border-4 bg-gray-100 px-12 py-1 font-bold text-lg sm:text-xl tracking-widest hover:shadow-lg">
-                  Sign
-                  up</a>
+                  class="inline-block w-56 text-center rounded no-select uppercase border-red-700 text-red-700 border-4 bg-gray-100 px-12 py-1 font-bold text-lg sm:text-xl tracking-widest hover:shadow-lg">
+                  Register</a>
               </div>
             </div>
           </section>
@@ -92,19 +91,20 @@
     </div>
 
     <!-- Section with features offered -->
-    <div class="">
-      <div class="md:container md:mx-auto px-4 md:px-6 py-8 md:py-8">
-        <h2 class="mb-8 text-center text-gray-800 font-bold text-2xl sm:text-3xl lg:text-4xl tracking-wide">No
-          need to use
-          your brain
-          anymore
+    <div>
+      <div class="md:container md:mx-auto px-4 py-12">
+        <h2
+          class="mb-10 text-center text-gray-800 font-bold text-2xl sm:text-3xl lg:text-4xl tracking-wide leading-tight">
+          No
+          need to memorize
+          anything anymore
         </h2>
         <div class="grid grid-cols-3 gap-5">
           <div class="justify-center p-4 col-span-3 md:col-span-1">
             <img class="block mx-auto mb-3 w-24" src="img/note.svg" alt="Note.">
             <h3 class="mb-1 text-center text-gray-800 text-2xl tracking-wide font-semibold">Take
               notes</h3>
-            <p class="text-center font-normal text-lg md:text-xl text-gray-800">Molestias fuga minus nemo saepe illo
+            <p class="text-center font-normal text-lg sm:text-xl text-gray-800">Molestias fuga minus nemo saepe illo
               voluptatum
               autem, officiis minima sequi impedit aliquam laudantium id sint voluptates odio.</p>
           </div>
@@ -113,7 +113,7 @@
             <h3 class="mb-1 text-center text-gray-800 text-2xl tracking-wide font-semibold">Make
               To-Do lists
             </h3>
-            <p class="text-center font-normal text-lg md:text-xl text-gray-800">Molestias fuga minus nemo saepe illo
+            <p class="text-center font-normal text-lg sm:text-xl text-gray-800">Molestias fuga minus nemo saepe illo
               voluptatum
               autem, officiis minima sequi impedit aliquam laudantium id sint voluptates odio.</p>
           </div>
@@ -121,13 +121,48 @@
             <img class="block mx-auto mb-4 w-24" src="img/event.svg" alt="Note.">
             <h3 class="mb-1 text-center text-gray-800 text-2xl tracking-wide font-semibold">Schedule
               events</h3>
-            <p class="text-center font-normal text-lg md:text-xl text-gray-800">Molestias fuga minus nemo saepe illo
+            <p class="text-center font-normal text-lg sm:text-xl text-gray-800">Molestias fuga minus nemo saepe illo
               voluptatum
               autem, officiis minima sequi impedit aliquam laudantium id sint voluptates odio.</p>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Section with services provided -->
+    <section>
+      <div class="bg-red-100">
+        <div class="md:flex md:items-center md:justify-between md:container md:mx-auto px-8 py-12">
+          <div class="md:w-1/2 md:pr-4">
+            <h2 class="text-gray-800 font-bold leading-tight tracking-wide text-2xl sm:text-3xl md:text-4xl">Everything
+              in sync</h2>
+            <p class="text-gray-800 mt-4 text-lg sm:text-xl">Id sint reiciendis eligendi distinctio aliquid,
+              cumque inventore provident quaerat nulla facere voluptas molestias tenetur veniam nisi perspiciatis.
+              Veniam
+              corrupti eligendi libero.</p>
+          </div>
+          <div class="mt-10 md:m-0 w-56 sm:w-64 md:max-w-xs mx-auto md:w-1/2 md:pl-4">
+            <img src="img/sync.svg" alt="Sync icon.">
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="md:flex md:flex-row-reverse md:items-center md:justify-between md:container md:mx-auto px-8 py-12">
+          <div class="md:w-1/2 md:pl-4">
+            <h2 class="text-gray-800 font-bold leading-tight tracking-wide text-2xl sm:text-3xl md:text-4xl">Collaborate
+              and share</h2>
+            <p class="text-gray-800 mt-4 text-lg sm:text-xl">Id sint reiciendis eligendi distinctio aliquid,
+              cumque inventore provident quaerat nulla facere voluptas molestias tenetur veniam nisi perspiciatis.
+              Veniam
+              corrupti eligendi libero.</p>
+          </div>
+          <div class="mt-10 md:m-0 w-56 sm:w-64 md:max-w-xs mx-auto md:w-1/2 md:pr-4">
+            <img src="img/collaboration.svg" alt="Sync icon.">
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->
