@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build-tailwind": "postcss src/css/tailwind.css -o public/build/css/tailwind.css",
-    "build-css": "postcss src/css/styles.css -o public/build/css/styles.css",
+    "build:tailwind": "postcss src/css/tailwind.css -o public/build/css/tailwind.css",
+    "build:css": "postcss src/css/styles.css -o public/build/css/styles.css --watch",
     "serve": "live-server public"
   },
   "repository": {
@@ -23,5 +23,8 @@
     "autoprefixer": "^9.8.6",
     "postcss-cli": "^8.1.0",
     "tailwindcss": "^1.9.5"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1"
   }
 }

@@ -11,7 +11,7 @@
   <script src="script.js" defer></script>
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-gray-100 min-h-screen flex flex-col">
   <!-- Toolbar -->
   <header class="sticky border-b-2 border-red-700 bg-gray-100 sticky-top">
     <nav class="md:flex md:justify-between md:container md:mx-auto md:px-6 md:py-3">
@@ -19,7 +19,7 @@
       <div class="flex justify-between items-center py-3 px-4 md:p-0">
         <!-- Logo -->
         <div>
-          <a href="#" class="inline-flex items-center px-4 py-2 bg-red-700 rounded-full">
+          <a href="#" class="inline-flex no-select items-center px-4 py-2 bg-red-700 rounded-full">
             <img class="h-8" src="img/note-icon.svg" alt="Note icon.">
             <span class="pl-2 mt-1 font-kalam text-xl text-white font-bold tracking-widest">hragynotes</span>
           </a>
@@ -27,19 +27,19 @@
 
         <!-- Hamburger button -->
         <div class="md:hidden">
-          <button id="hamburger_btn" type="button" class="focus:outline-none menu-btn-wrapper">
+          <button id="hamburger_btn" type="button" class="focus:outline-none no-select menu-btn-wrapper">
             <div class="menu-btn"></div>
           </button>
         </div>
       </div>
 
       <!-- Navigation links -->
-      <ul id="mobile_menu" class="px-4 pt-2 pb-4 md:p-0 hidden md:flex md:items-center">
+      <ul id="nav_menu" class="px-4 pt-2 pb-4 md:p-0 hidden md:flex md:items-center">
         <li><a href="#"
-            class="block px-4 py-2 mb-1 md:mb-0 font-semibold text-xl text-gray-800 rounded-full hover:text-red-700 focus:bg-gray-300 md:focus:bg-transparent md:hover:underline">Register</a>
+            class="block no-select px-4 py-2 mb-1 md:mb-0 font-semibold text-xl text-gray-800 rounded-full hover:text-red-700 focus:bg-gray-300 md:focus:bg-transparent md:hover:underline">Register</a>
         </li>
         <li><a href="#"
-            class="block px-4 py-2 md:ml-1 font-semibold text-xl text-gray-800 rounded-full hover:text-red-700 focus:bg-gray-300 md:focus:bg-transparent md:hover:underline">Log
+            class="block no-select px-4 py-2 md:ml-1 font-semibold text-xl text-gray-800 rounded-full hover:text-red-700 focus:bg-gray-300 md:focus:bg-transparent md:hover:underline">Log
             In</a>
         </li>
       </ul>
@@ -47,7 +47,7 @@
   </header>
 
   <!-- Main content -->
-  <main>
+  <main class="mb-auto">
     <!-- Section with brief description (landing page) and Sign Up / Sign In links -->
     <div class="bg-red-100">
       <div class="md:container md:mx-auto px-4 md:px-6 py-8 md:py-10">
@@ -73,12 +73,12 @@
               </p>
               <div class="text-center md:text-left">
                 <a href="#"
-                  class="inline-block uppercase border-red-700 text-white border-4 bg-red-700 px-12 py-1 font-bold text-lg sm:text-xl tracking-widest hover:shadow-lg">Sign
+                  class="inline-block no-select uppercase border-red-700 text-white border-4 bg-red-700 px-12 py-1 font-bold text-lg sm:text-xl tracking-widest hover:shadow-lg">Sign
                   in</a>
               </div>
               <div class="mt-5 text-center md:text-left">
                 <a href="#"
-                  class="inline-block uppercase border-red-700 text-red-700 border-4 bg-gray-100 px-12 py-1 font-bold text-lg sm:text-xl tracking-widest hover:shadow-lg">
+                  class="inline-block no-select uppercase border-red-700 text-red-700 border-4 bg-gray-100 px-12 py-1 font-bold text-lg sm:text-xl tracking-widest hover:shadow-lg">
                   Sign
                   up</a>
               </div>
@@ -129,6 +129,12 @@
       </div>
     </div>
   </main>
+
+  <!-- Footer -->
+  <footer
+    class="border-t-2 border-gray-500 bg-gray-200 text-gray-700 font-semibold text-center text-sm md:text-base py-2">
+    Copyright &copy; 2020 Hragy
+  </footer>
 </body>
 
 </html>

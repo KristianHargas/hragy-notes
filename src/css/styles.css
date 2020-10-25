@@ -14,6 +14,11 @@ body {
   top: 0;
 }
 
+.no-select {
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* Hamburger button to close button transition */
 /* https://github.com/codeSTACKr/hamburger-animation/blob/master/style.css */
 .menu-btn-wrapper {
@@ -30,8 +35,8 @@ body {
   width: 2.5rem;
   height: 0.3rem;
   border-radius: 0.5rem;
-  background-color: darkslategrey;
-  transition: all .3s ease-in-out;
+  background-color: #2d3748;
+  transition: all .2s ease-in-out;
 }
 
 .menu-btn::before,
@@ -40,9 +45,9 @@ body {
   position: absolute;
   width: 2.5rem;
   height: 0.3rem;
-  background-color: darkslategrey;
+  background-color: #2d3748;
   border-radius: 0.5rem;
-  transition: all .3s ease-in-out;
+  transition: all .2s ease-in-out;
 }
 
 .menu-btn::before {
@@ -64,4 +69,9 @@ body {
 
 .menu-btn-wrapper.open .menu-btn::after {
   transform: rotate(-45deg);
+}
+
+/* Navigation menu slide in animation */
+.test {
+  background-color: hotpink;
 }
