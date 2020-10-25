@@ -75,8 +75,3 @@ body {
 .menu-btn-wrapper.open .menu-btn::after {
   transform: rotate(-45deg) translate(1.25rem, 1.25rem);
 }
-
-/* Navigation menu slide in animation */
-.test {
-  background-color: hotpink;
-}
