@@ -1,0 +1,18 @@
+# For Laravel project scaffolding, from project root run:
+# dcr --rm -v $(pwd):/var/www/html --user $(id -u):$(id -g) composer create-project --prefer-dist laravel/laravel src 
+# For Laravel 7 run:
+# dcr --rm -v $(pwd):/var/www/html --user $(id -u):$(id -g) composer create-project --prefer-dist laravel/laravel="7.*.*" src
+
+# Vue and Auth scaffold
+# Laravel 7
+dcr --rm -v $(pwd)/src:/var/www/html --user $(id -u):$(id -g) composer require laravel/ui:^2.4
+# Laravel 8
+dcr --rm -v $(pwd)/src:/var/www/html --user $(id -u):$(id -g) composer require laravel/ui:^2.4
+# Both
+dcr --rm artisan ui vue --auth
+
+# Laravel 8 + Vue 3
+git clone https://github.com/boussadjra/laravel-vue-3-starter.git src
+dcr --rm -v $(pwd)/src:/var/www/html --user $(id -u):$(id -g) composer install
+dcr --rm npm install
+dcr --rm artisan ui:auth
