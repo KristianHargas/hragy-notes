@@ -247,16 +247,15 @@
 export default {
   data() {
     return {
-      menuOpen: false,
-    };
+      menuOpen: false
+    }
   },
   methods: {
     toggleMenu() {
-      this.menuOpen = !this.menuOpen;
-    },
-  },
-};
+      this.menuOpen = !this.menuOpen
+    }
+  }
+}
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

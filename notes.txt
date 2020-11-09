@@ -16,3 +16,58 @@ git clone https://github.com/boussadjra/laravel-vue-3-starter.git src
 dcr --rm -v $(pwd)/src:/var/www/html --user $(id -u):$(id -g) composer install
 dcr --rm npm install
 dcr --rm artisan ui:auth
+
+# Vue 3 linting
+# https://simohamed.tech/blog/vue3-lint/
+> to also support js linting, install Prettier extension and add to settings.json:
+  "[vue]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+
+# For PHP formatting
+> phpfmt extension
+> make sure php executable is installed
+> try to format manually and select phpfmt as default formatter:
+  "[php]": {
+        "editor.defaultFormatter": "kokororin.vscode-phpfmt"
+  }
+
+# Javascript linting and formatting
+> install Prettier extension
+> settings.json
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+
+# settings.json
+{
+    "workbench.iconTheme": "vscode-icons",
+    "editor.fontSize": 20,
+    "workbench.colorTheme": "Tomorrow Night Blue",
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "vetur.format.defaultFormatter.html": "prettier",
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+    // "editor.codeActionsOnSave": {
+    //     "source.fixAll.eslint": true
+    // },
+    "terminal.integrated.fontSize": 16,
+    "editor.fontFamily": "'Fira Code'",
+    "editor.fontLigatures": true,
+    "editor.minimap.enabled": false,
+    "breadcrumbs.enabled": true,
+    "vetur.validation.template": false,
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "vue"
+    ],
+    "[php]": {
+        "editor.defaultFormatter": "kokororin.vscode-phpfmt"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[vue]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
