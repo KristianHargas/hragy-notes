@@ -12,28 +12,10 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/{any?}', function () {
     return view('app');
 })->where('any', '^(?!api\/)[\/\w\.-]*');
 
 Auth::routes();
-
-// Route::get('/', function () {
-//     return view('home');
-// });
-
-// Route::get('/register', function () {
-//     return view('register');
-// });
-
-// Route::get('/login', function () {
-//     return view('login');
-// });
-
-// Route::get('/app', function () {
-//     return view('app');
-// });
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
