@@ -71,3 +71,7 @@ dcr --rm artisan ui:auth
     "[vue]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
+
+# To remove laravel/ui package:
+> firstly remove all auth controllers and views, remove Auth::routes() from web.php, then:
+> dcr --rm -v $(pwd)/src:/var/www/html --user $(id -u):$(id -g) composer remove laravel/ui
