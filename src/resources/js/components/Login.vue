@@ -102,15 +102,11 @@ export default {
 
       console.log(this.formData)
       let res = await axios.post('/login', this.formData)
-      console.log(res)
-
-      console.log('Fetching test data...')
-      res = await axios.get('/api/test')
-      console.log(res)
+      console.log(res.data)
 
       console.log('Fetching user data...')
       res = await axios.get('/api/user')
-      console.log(res)
+      console.log(res.data)
     }
   }
 }

@@ -14,12 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/test', function (Request $request) {
-    return [
-        'message' => 'hmmmm',
-    ];
-});
-
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
