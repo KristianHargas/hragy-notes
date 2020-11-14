@@ -12,6 +12,7 @@
             <a
               href="#"
               class="inline-flex no-select items-center px-4 py-2 bg-red-700 rounded-full"
+              @click="fetchUserData"
             >
               <img
                 class="h-8"
@@ -253,6 +254,11 @@ export default {
   methods: {
     toggleMenu() {
       this.menuOpen = !this.menuOpen
+    },
+    async fetchUserData() {
+      console.log('Fetching user data...')
+      const res = await axios.get('/api/user')
+      console.log(res)
     }
   }
 }

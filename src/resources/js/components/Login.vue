@@ -36,6 +36,7 @@
             type="email"
             name="email"
             id="email"
+            v-model="formData.email"
           />
         </div>
         <div class="mt-3">
@@ -49,6 +50,7 @@
             type="password"
             name="password"
             id="password"
+            v-model="formData.password"
           />
         </div>
 
@@ -62,6 +64,7 @@
 
         <button
           class="block no-select mt-8 w-full text-lg sm:max-w-xs sm:mx-auto bg-red-700 text-gray-100 py-3 rounded uppercase tracking-wider font-semibold hover:shadow-lg"
+          @click.prevent="login"
         >
           Sign in
         </button>
@@ -82,8 +85,35 @@
 </template>
 
 <script>
-export default {}
+import axios from 'axios'
+
+export default {
+  data() {
+    return {
+      formData: {
+        email: '',
+        password: ''
+      }
+    }
+  },
+  methods: {
+    async login() {
+      await axios.get('/sanctum/csrf-cookie')
+
+      console.log(this.formData)
+      let res = await axios.post('/login', this.formData)
+      console.log(res)
+
+      console.log('Fetching test data...')
+      res = await axios.get('/api/test')
+      console.log(res)
+
+      console.log('Fetching user data...')
+      res = await axios.get('/api/user')
+      console.log(res)
+    }
+  }
+}
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
