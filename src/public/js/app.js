@@ -32220,26 +32220,27 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                console.log('Logging in...');
+                _context.next = 3;
                 return axios__WEBPACK_IMPORTED_MODULE_1___default().get('/sanctum/csrf-cookie');
 
-              case 2:
+              case 3:
                 console.log(_this.formData);
-                _context.next = 5;
+                _context.next = 6;
                 return axios__WEBPACK_IMPORTED_MODULE_1___default().post('/login', _this.formData);
 
-              case 5:
+              case 6:
                 res = _context.sent;
                 console.log(res.data);
                 console.log('Fetching user data...');
-                _context.next = 10;
+                _context.next = 11;
                 return axios__WEBPACK_IMPORTED_MODULE_1___default().get('/api/user');
 
-              case 10:
+              case 11:
                 res = _context.sent;
                 console.log(res.data);
 
-              case 12:
+              case 13:
               case "end":
                 return _context.stop();
             }

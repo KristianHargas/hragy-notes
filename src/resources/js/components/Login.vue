@@ -98,6 +98,8 @@ export default {
   },
   methods: {
     async login() {
+      console.log('Logging in...')
+
       await axios.get('/sanctum/csrf-cookie')
 
       console.log(this.formData)
