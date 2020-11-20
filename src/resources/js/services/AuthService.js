@@ -10,6 +10,10 @@ export const register = async function (data) {
   await axios.post('/register', data)
 }
 
+export const logout = async function () {
+  await axios.post('/logout')
+}
+
 export const user = function () {
   return axios.get('/api/user')
 }

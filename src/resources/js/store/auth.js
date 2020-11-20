@@ -43,16 +43,34 @@ export default {
     },
 
     async autoLogin({ commit, dispatch }) {
-      commit('AUTO_LOGIN_DONE')
-
       if (LocalAuth.isLoggedIn()) {
-        // if this fails, the error is propagated up to the caller
-        await dispatch('loadUser')
-        commit('SET_IS_LOGGED_IN', true)
+        try {
+          await dispatch('loadUser')
+          commit('SET_IS_LOGGED_IN', true)
+        } catch (err) {
+          dispatch('logoutLocally')
+        }
       } else {
-        // throw an exception if auto login proccess fails
-        throw new Error('401')
+        dispatch('logoutLocally')
       }
+
+      commit('AUTO_LOGIN_DONE')
+    },
+
+    logoutLocally({ commit }) {
+      LocalAuth.logout()
+      commit('SET_USER', {})
+      commit('SET_IS_LOGGED_IN', false)
+    },
+
+    async logout({ commit, dispatch }) {
+      try {
+        await AuthService.logout()
+      } catch (err) {
+        //
+      }
+
+      dispatch('logoutLocally')
     }
   }
 }

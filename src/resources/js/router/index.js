@@ -51,13 +51,7 @@ const router = createRouter({
 
 router.beforeEach(async (to, from, next) => {
   // Always try to auto login after each page reload, because the previous state is lost.
-  if (!store.state.auth.autoLoginDone) {
-    try {
-      await store.dispatch('auth/autoLogin')
-    } catch (err) {
-      // If autologin fails then isLoggedIn = false and user = {}.
-    }
-  }
+  if (!store.state.auth.autoLoginDone) await store.dispatch('auth/autoLogin')
 
   // Check if page requires authentication.
   if (to.matched.some((record) => record.meta.requiresAuth)) {
