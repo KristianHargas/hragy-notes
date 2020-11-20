@@ -8,34 +8,14 @@
         <!-- Logo with hamburger button -->
         <div class="flex justify-between items-center py-3 px-4 md:p-0">
           <!-- Logo -->
-          <div>
-            <a
-              href="#"
-              class="inline-flex no-select items-center px-4 py-2 bg-red-700 rounded-full"
-            >
-              <img
-                class="h-8"
-                src="../../static/img/note-icon.svg"
-                alt="Note icon."
-              />
-              <span
-                class="pl-2 mt-1 font-kalam text-xl text-white font-bold tracking-widest"
-                >hragynotes</span
-              >
-            </a>
-          </div>
+          <Logo :to="{ name: 'Home' }"></Logo>
 
           <!-- Hamburger button -->
-          <div class="md:hidden">
-            <div
-              :class="{ open: menuOpen }"
-              @click="toggleMenu"
-              id="hamburger_btn"
-              class="focus:outline-none no-select menu-btn-wrapper"
-            >
-              <div class="menu-btn"></div>
-            </div>
-          </div>
+          <HamburgerButton
+            class="md:hidden"
+            :open="menuOpen"
+            @toggle="menuOpen = !menuOpen"
+          ></HamburgerButton>
         </div>
 
         <!-- Navigation links -->
@@ -244,7 +224,12 @@
 </template>
 
 <script>
+import HamburgerButton from '../shared/components/HamburgerButton'
+
 export default {
+  components: {
+    HamburgerButton
+  },
   data() {
     return {
       menuOpen: false

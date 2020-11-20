@@ -13,7 +13,16 @@
   <aside
     class="navigation-drawer w-72 shadow-lg bg-gray-100 transition duration-200 ease-out transform -translate-x-full lg:translate-x-0"
     :class="{ open: navigationDrawer }"
-  ></aside>
+  >
+    <ul class="p-4">
+      <li
+        class="text-xl no-select text-center cursor-pointer bg-gray-200 rounded py-2 font-semibold text-gray-800 hover:bg-gray-300 focus:bg-gray-300"
+        @click="logout"
+      >
+        Logout
+      </li>
+    </ul>
+  </aside>
 
   <!-- Main content -->
   <main class="top-margin lg:ml-72"></main>
