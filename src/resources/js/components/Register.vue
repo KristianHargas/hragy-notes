@@ -68,6 +68,11 @@
           ></FormInput>
         </div>
 
+        <FormErrors
+          :errors="errors.others"
+          class="mt-8 text-center"
+        ></FormErrors>
+
         <FormButton
           class="w-full sm:max-w-xs sm:mx-auto mt-8"
           :loading="loading"
@@ -99,11 +104,13 @@ import {
 } from '../shared/utils/response'
 import FormInput from '../shared/components/FormInput'
 import FormButton from '../shared/components/FormButton'
+import FormErrors from '../shared/components/FormErrors'
 
 export default {
   components: {
     FormInput,
-    FormButton
+    FormButton,
+    FormErrors
   },
   data() {
     return {
@@ -117,7 +124,7 @@ export default {
         name: [],
         email: [],
         password: [],
-        network: []
+        others: []
       },
       loading: false
     }
@@ -143,7 +150,7 @@ export default {
           hasValidationErr(err, 'password') &&
             (this.errors.password = getValidationErrArr(err, 'password'))
         } else {
-          this.errors.network.push('Server or network error')
+          this.errors.others.push('Network or server error, try again later.')
         }
       }
 
@@ -153,7 +160,7 @@ export default {
       this.errors.name = []
       this.errors.email = []
       this.errors.password = []
-      this.errors.network = []
+      this.errors.others = []
     }
   }
 }

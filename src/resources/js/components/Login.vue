@@ -5,25 +5,11 @@
     >
       <!-- Header with logo and title -->
       <header>
-        <div>
-          <router-link
-            :to="{ name: 'Home' }"
-            class="inline-flex no-select items-center px-4 py-2 bg-red-700 rounded-full"
-          >
-            <img
-              class="h-8"
-              src="../../static/img/note-icon.svg"
-              alt="Note icon."
-            />
-            <span
-              class="pl-2 mt-1 font-kalam text-xl text-white font-bold tracking-widest"
-              >hragynotes</span
-            >
-          </router-link>
-        </div>
+        <Logo :to="{ name: 'Home' }"></Logo>
         <h1 class="mt-5 mb-8 text-gray-800 font-medium text-2xl">Sign In</h1>
       </header>
 
+      <!-- Main form -->
       <form>
         <div>
           <label
@@ -31,27 +17,28 @@
             for="email"
             >Email</label
           >
-          <input
-            class="block w-full text-gray-800 bg-white text-base p-3 focus:outline-none border-2 border-gray-400 rounded focus:border-gray-600"
-            type="email"
-            name="email"
-            id="email"
+          <FormInput
             v-model="formData.email"
-          />
+            type="email"
+            id="email"
+            name="email"
+            :errors="errors.email"
+          ></FormInput>
         </div>
+
         <div class="mt-4">
           <label
             class="block text-sm font-medium text-gray-700 mb-1"
             for="password"
             >Password</label
           >
-          <input
-            class="block w-full text-gray-800 bg-white text-base p-3 focus:outline-none border-2 border-gray-400 rounded focus:border-gray-600"
-            type="password"
-            name="password"
-            id="password"
+          <FormInput
             v-model="formData.password"
-          />
+            type="password"
+            id="password"
+            name="password"
+            :errors="errors.password"
+          ></FormInput>
         </div>
 
         <div class="mt-4">
@@ -62,12 +49,17 @@
           >
         </div>
 
-        <button
-          class="block no-select mt-8 w-full text-lg sm:max-w-xs sm:mx-auto bg-red-700 text-gray-100 py-3 rounded uppercase tracking-wider font-semibold hover:shadow-lg"
-          @click.prevent="login"
+        <FormErrors
+          :errors="errors.others"
+          class="mt-8 text-center"
+        ></FormErrors>
+
+        <FormButton
+          class="w-full sm:max-w-xs sm:mx-auto mt-8"
+          :loading="loading"
+          @submit="login"
+          >Sign In</FormButton
         >
-          Sign in
-        </button>
       </form>
 
       <div class="mt-8 text-center text-base font-medium text-gray-700">
@@ -86,29 +78,66 @@
 
 <script>
 import axios from 'axios'
+import {
+  is422,
+  getValidationErrArr,
+  hasValidationErr
+} from '../shared/utils/response'
+import FormInput from '../shared/components/FormInput'
+import FormButton from '../shared/components/FormButton'
+import FormErrors from '../shared/components/FormErrors'
 
 export default {
+  components: {
+    FormInput,
+    FormButton,
+    FormErrors
+  },
   data() {
     return {
       formData: {
         email: '',
         password: ''
-      }
+      },
+      errors: {
+        email: [],
+        password: [],
+        others: []
+      },
+      loading: false
     }
   },
   methods: {
     async login() {
-      console.log('Logging in...')
+      this.loading = true
+      this.resetErrors()
 
-      await axios.get('/sanctum/csrf-cookie')
+      try {
+        await axios.get('/sanctum/csrf-cookie')
+        const res = await axios.post('/login', this.formData)
 
-      console.log(this.formData)
-      let res = await axios.post('/login', this.formData)
-      console.log(res.data)
+        // redirect
+      } catch (err) {
+        if (is422(err)) {
+          hasValidationErr(err, 'email') &&
+            (this.errors.email = getValidationErrArr(err, 'email'))
 
-      console.log('Fetching user data...')
-      res = await axios.get('/api/user')
-      console.log(res.data)
+          hasValidationErr(err, 'password') &&
+            (this.errors.password = getValidationErrArr(err, 'password'))
+
+          hasValidationErr(err, 'auth') &&
+            (this.errors.others = getValidationErrArr(err, 'auth'))
+        } else {
+          this.errors.others.push('Network or server error, try again later.')
+        }
+      }
+
+      this.loading = false
+    },
+    resetErrors() {
+      this.errors.email = []
+      this.errors.password = []
+      this.errors.others = []
     }
   }
 }
