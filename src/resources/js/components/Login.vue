@@ -39,7 +39,7 @@
             v-model="formData.email"
           />
         </div>
-        <div class="mt-3">
+        <div class="mt-4">
           <label
             class="block text-sm font-medium text-gray-700 mb-1"
             for="password"
