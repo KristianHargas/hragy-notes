@@ -22,7 +22,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return new JsonResponse($request->user(), 200);
+        return new JsonResponse([], 204);
     }
 
     /**

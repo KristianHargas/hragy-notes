@@ -1,18 +1,15 @@
 import { createStore } from 'vuex'
+import auth from './auth'
 
 const store = createStore({
-  state() {
-    return {
-      count: 1
-    }
-  },
-  mutations: {
-    INC(state) {
-      state.count++
-    },
-    DEC(state) {
-      state.count--
-    }
+  state: () => ({}),
+
+  mutations: {},
+
+  actions: {},
+
+  modules: {
+    auth
   }
 })
 

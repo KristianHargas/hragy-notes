@@ -36,6 +36,6 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
-        return new JsonResponse($user, 200);
+        return new JsonResponse([], 204);
     }
 }

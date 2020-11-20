@@ -113,10 +113,8 @@ export default {
       this.resetErrors()
 
       try {
-        await axios.get('/sanctum/csrf-cookie')
-        const res = await axios.post('/login', this.formData)
-
-        // redirect
+        await this.$store.dispatch('auth/login', this.formData)
+        this.$router.replace({ name: 'Dashboard' })
       } catch (err) {
         if (is422(err)) {
           hasValidationErr(err, 'email') &&
