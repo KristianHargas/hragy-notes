@@ -11,21 +11,46 @@
 
   <!-- Navigation drawer -->
   <aside
-    class="navigation-drawer w-72 shadow-lg bg-gray-100 transition duration-200 ease-out transform -translate-x-full lg:translate-x-0"
+    class="navigation-drawer p-4 w-72 shadow-lg bg-red-100 transition duration-200 ease-out transform -translate-x-full lg:translate-x-0"
     :class="{ open: navigationDrawer }"
   >
-    <ul class="p-4">
-      <li
-        class="text-xl no-select text-center cursor-pointer bg-gray-200 rounded py-2 font-semibold text-gray-800 hover:bg-gray-300 focus:bg-gray-300"
+    <section>
+      <span
+        class="block text-gray-800 text-2xl font-semibold"
+        v-text="user.name"
+      ></span>
+      <span
+        class="block text-gray-600 text-lg font-medium"
+        v-text="user.email"
+      ></span>
+
+      <div
+        class="inline-block text-lg uppercase no-select text-center tracking-wider cursor-pointer shadow-sm bg-white rounded-r-full py-2 px-6 mt-3 font-semibold text-gray-700 hover:shadow-md focus:shadow-md"
         @click="logout"
       >
         Logout
-      </li>
-    </ul>
+      </div>
+    </section>
+
+    <nav class="mt-12">
+      <router-link
+        :to="{ name: 'NoteList' }"
+        class="block uppercase tracking-wide text-xl mb-4 no-select text-center cursor-pointer shadow-sm bg-white rounded py-2 font-semibold text-gray-700 hover:shadow-md focus:shadow-md"
+        >Notes</router-link
+      >
+
+      <router-link
+        :to="{ name: 'NoteCreate' }"
+        class="block uppercase tracking-wide text-xl mb-4 no-select text-center cursor-pointer shadow-sm bg-white rounded py-2 font-semibold text-gray-700 hover:shadow-md focus:shadow-md"
+        >Add note</router-link
+      >
+    </nav>
   </aside>
 
   <!-- Main content -->
-  <main class="top-margin lg:ml-72"></main>
+  <main class="top-margin lg:ml-72 p-4">
+    <router-view></router-view>
+  </main>
 </template>
 
 <script>
@@ -81,5 +106,10 @@ export default {
 
 .navigation-drawer.open {
   transform: translateX(0);
+}
+
+.router-link-exact-active {
+  background-color: #c81e1e;
+  color: white;
 }
 </style>

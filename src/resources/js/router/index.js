@@ -3,6 +3,8 @@ import Home from '../components/Home'
 import Login from '../components/Login'
 import Register from '../components/Register'
 import Dashboard from '../components/Dashboard'
+import NoteList from '../components/dashboard/NoteList'
+import NoteCreate from '../components/dashboard/NoteCreate'
 import store from '../store/index'
 
 const routes = [
@@ -34,9 +36,22 @@ const routes = [
     path: '/dashboard',
     name: 'Dashboard',
     component: Dashboard,
+    redirect: { name: 'NoteList' },
     meta: {
       requiresAuth: true
-    }
+    },
+    children: [
+      {
+        path: 'notes',
+        component: NoteList,
+        name: 'NoteList'
+      },
+      {
+        path: 'notes/create',
+        component: NoteCreate,
+        name: 'NoteCreate'
+      }
+    ]
   },
   {
     path: '/:catchAll(.*)',
