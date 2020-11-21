@@ -1,6 +1,8 @@
 <template>
   <form class="max-w-xl mx-auto">
-    <h1 class="text-gray-800 font-medium text-2xl mb-6">Create new note</h1>
+    <h1 class="mb-8 text-gray-800 font-medium text-2xl uppercase tracking-wide">
+      Create new note
+    </h1>
 
     <div>
       <FormLabel for="title">Title</FormLabel>

@@ -6,15 +6,17 @@
       <!-- Header with logo and title -->
       <header>
         <Logo :to="{ name: 'Home' }"></Logo>
-        <h1 class="mt-5 mb-8 text-gray-800 font-medium text-2xl">Register</h1>
+        <h1
+          class="mt-5 mb-8 text-gray-800 font-medium text-2xl uppercase tracking-wide"
+        >
+          Register
+        </h1>
       </header>
 
       <!-- Main form -->
       <form>
         <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1" for="name"
-            >Full name</label
-          >
+          <FormLabel for="name">Full name</FormLabel>
           <FormInput
             v-model="formData.name"
             type="text"
@@ -25,11 +27,7 @@
         </div>
 
         <div class="mt-4">
-          <label
-            class="block text-sm font-medium text-gray-700 mb-1"
-            for="email"
-            >Email</label
-          >
+          <FormLabel for="email">Email</FormLabel>
           <FormInput
             v-model="formData.email"
             type="email"
@@ -40,11 +38,7 @@
         </div>
 
         <div class="mt-4">
-          <label
-            class="block text-sm font-medium text-gray-700 mb-1"
-            for="password"
-            >Password</label
-          >
+          <FormLabel for="password">Password</FormLabel>
           <FormInput
             v-model="formData.password"
             type="password"
@@ -55,11 +49,7 @@
         </div>
 
         <div class="mt-4">
-          <label
-            class="block text-sm font-medium text-gray-700 mb-1"
-            for="password_confirmation"
-            >Confirm password</label
-          >
+          <FormLabel for="password_confirmation">Confirm password</FormLabel>
           <FormInput
             v-model="formData.password_confirmation"
             type="password"
@@ -74,7 +64,7 @@
         ></FormErrors>
 
         <FormButton
-          class="w-full sm:max-w-xs sm:mx-auto mt-8"
+          class="w-full sm:max-w-xs sm:mx-auto mt-8 py-3"
           :loading="loading"
           @submit="register"
           >Register</FormButton
@@ -101,17 +91,9 @@ import {
   is422,
   getValidationErrArr,
   hasValidationErr
-} from '../shared/utils/response'
-import FormInput from '../shared/components/FormInput'
-import FormButton from '../shared/components/FormButton'
-import FormErrors from '../shared/components/FormErrors'
+} from '../../shared/utils/response'
 
 export default {
-  components: {
-    FormInput,
-    FormButton,
-    FormErrors
-  },
   data() {
     return {
       formData: {

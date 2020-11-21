@@ -56,7 +56,7 @@
 <script>
 import { createNamespacedHelpers } from 'vuex'
 const Auth = createNamespacedHelpers('auth')
-import HamburgerButton from '../shared/components/HamburgerButton'
+import HamburgerButton from '../../shared/components/HamburgerButton'
 
 export default {
   components: {
