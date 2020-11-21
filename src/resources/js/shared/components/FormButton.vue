@@ -1,6 +1,6 @@
 <template>
   <button
-    class="block no-select text-lg text-gray-100 py-3 rounded uppercase tracking-wider font-semibold"
+    class="block no-select text-lg text-gray-100 rounded uppercase tracking-wider font-semibold"
     :class="{
       'bg-gray-500': loading,
       'bg-red-700 hover:shadow-lg': !loading

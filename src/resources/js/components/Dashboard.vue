@@ -48,7 +48,7 @@
   </aside>
 
   <!-- Main content -->
-  <main class="top-margin lg:ml-72 p-4">
+  <main class="top-margin lg:ml-72 p-4 bg-gray-100 main-fill">
     <router-view></router-view>
   </main>
 </template>
@@ -111,5 +111,9 @@ export default {
 .router-link-exact-active {
   background-color: #c81e1e;
   color: white;
+}
+
+.main-fill {
+  min-height: calc(100vh - 4.5rem);
 }
 </style>
