@@ -27,7 +27,7 @@ class NoteController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'title' => 'required|unique:notes|max:255',
+            'title' => 'required|max:255',
             'text' => 'max:1024',
         ]);
 
