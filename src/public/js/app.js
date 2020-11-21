@@ -32548,7 +32548,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 /*! namespace exports */
 /*! export default [provided] [no usage info] [missing usage info prevents renaming] */
 /*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
+/*! runtime requirements: __webpack_require__, __webpack_require__.n, __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -32556,7 +32556,50 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _services_NoteService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/NoteService */ "./resources/js/services/NoteService.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      notes: []
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _services_NoteService__WEBPACK_IMPORTED_MODULE_2__.index();
+
+            case 2:
+              res = _context.sent;
+              _this.notes = res.data;
+
+            case 4:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
+  }
+});
 
 /***/ }),
 
@@ -33155,6 +33198,7 @@ var user = function user() {
   !*** ./resources/js/services/NoteService.js ***!
   \**********************************************/
 /*! namespace exports */
+/*! export index [provided] [no usage info] [missing usage info prevents renaming] */
 /*! export store [provided] [no usage info] [missing usage info prevents renaming] */
 /*! other exports [not provided] [no usage info] */
 /*! runtime requirements: __webpack_require__, __webpack_require__.n, __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
@@ -33163,13 +33207,17 @@ var user = function user() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "store": () => /* binding */ store
+/* harmony export */   "store": () => /* binding */ store,
+/* harmony export */   "index": () => /* binding */ index
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
 var store = function store(data) {
   return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/notes', data);
+};
+var index = function index() {
+  return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/notes');
 };
 
 /***/ }),
@@ -55209,12 +55257,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _NoteList_vue_vue_type_template_id_72bbdcf6_bindings___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NoteList.vue?vue&type=template&id=72bbdcf6&bindings={} */ "./resources/js/components/dashboard/NoteList.vue?vue&type=template&id=72bbdcf6&bindings={}");
+/* harmony import */ var _NoteList_vue_vue_type_template_id_72bbdcf6_bindings_notes_data___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NoteList.vue?vue&type=template&id=72bbdcf6&bindings={"notes":"data"} */ "./resources/js/components/dashboard/NoteList.vue?vue&type=template&id=72bbdcf6&bindings={\"notes\":\"data\"}");
 /* harmony import */ var _NoteList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NoteList.vue?vue&type=script&lang=js */ "./resources/js/components/dashboard/NoteList.vue?vue&type=script&lang=js");
 
 
 
-_NoteList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _NoteList_vue_vue_type_template_id_72bbdcf6_bindings___WEBPACK_IMPORTED_MODULE_0__.render
+_NoteList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _NoteList_vue_vue_type_template_id_72bbdcf6_bindings_notes_data___WEBPACK_IMPORTED_MODULE_0__.render
 /* hot reload */
 if (false) {}
 
@@ -55886,12 +55934,12 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/dashboard/NoteList.vue?vue&type=template&id=72bbdcf6&bindings={}":
-/*!**************************************************************************************************!*\
-  !*** ./resources/js/components/dashboard/NoteList.vue?vue&type=template&id=72bbdcf6&bindings={} ***!
-  \**************************************************************************************************/
+/***/ "./resources/js/components/dashboard/NoteList.vue?vue&type=template&id=72bbdcf6&bindings={\"notes\":\"data\"}":
+/*!****************************************************************************************************************!*\
+  !*** ./resources/js/components/dashboard/NoteList.vue?vue&type=template&id=72bbdcf6&bindings={"notes":"data"} ***!
+  \****************************************************************************************************************/
 /*! namespace exports */
-/*! export render [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/NoteList.vue?vue&type=template&id=72bbdcf6&bindings={} .render */
+/*! export render [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/NoteList.vue?vue&type=template&id=72bbdcf6&bindings={"notes":"data"} .render */
 /*! other exports [not provided] [no usage info] */
 /*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.d, __webpack_require__.r, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
@@ -55899,9 +55947,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NoteList_vue_vue_type_template_id_72bbdcf6_bindings___WEBPACK_IMPORTED_MODULE_0__.render
+/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NoteList_vue_vue_type_template_id_72bbdcf6_bindings_notes_data___WEBPACK_IMPORTED_MODULE_0__.render
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NoteList_vue_vue_type_template_id_72bbdcf6_bindings___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./NoteList.vue?vue&type=template&id=72bbdcf6&bindings={} */ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/NoteList.vue?vue&type=template&id=72bbdcf6&bindings={}");
+/* harmony import */ var _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NoteList_vue_vue_type_template_id_72bbdcf6_bindings_notes_data___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./NoteList.vue?vue&type=template&id=72bbdcf6&bindings={"notes":"data"} */ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/NoteList.vue?vue&type=template&id=72bbdcf6&bindings={\"notes\":\"data\"}");
 
 
 /***/ }),
@@ -56674,7 +56722,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const _hoisted_1 = { class: "max-w-xl mx-auto" }
-const _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", { class: "mb-8 text-gray-800 font-medium text-2xl uppercase tracking-wide" }, " Create new note ", -1 /* HOISTED */)
+const _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", { class: "mb-8 text-gray-800 font-semibold text-2xl uppercase tracking-wide" }, " Create new note ", -1 /* HOISTED */)
 const _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Title")
 const _hoisted_4 = { class: "mt-4" }
 const _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Text")
@@ -56740,10 +56788,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/NoteList.vue?vue&type=template&id=72bbdcf6&bindings={}":
-/*!***********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/NoteList.vue?vue&type=template&id=72bbdcf6&bindings={} ***!
-  \***********************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/NoteList.vue?vue&type=template&id=72bbdcf6&bindings={\"notes\":\"data\"}":
+/*!*************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/NoteList.vue?vue&type=template&id=72bbdcf6&bindings={"notes":"data"} ***!
+  \*************************************************************************************************************************************************************************************************************************************************/
 /*! namespace exports */
 /*! export render [provided] [no usage info] [missing usage info prevents renaming] */
 /*! other exports [not provided] [no usage info] */
@@ -56758,8 +56806,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 
+const _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", { class: "mb-8 text-gray-800 font-semibold text-2xl uppercase tracking-wide" }, " Your notes ", -1 /* HOISTED */)
+const _hoisted_2 = { class: "text-2xl font-semibold mb-3 text-gray-800" }
+const _hoisted_3 = { class: "text-lg font-medium text-gray-600" }
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", null, "Note list.."))
+  return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", null, [
+    _hoisted_1,
+    ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.notes, (note) => {
+      return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
+        key: note.id,
+        class: "p-3 bg-white shadow-sm rounded-lg mb-4"
+      }, [
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h3", _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(note.title), 1 /* TEXT */),
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(note.text), 1 /* TEXT */)
+      ]))
+    }), 128 /* KEYED_FRAGMENT */))
+  ]))
 }
 
 /***/ }),

@@ -13,9 +13,11 @@ class NoteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $notes = $request->user()->notes;
+
+        return response()->json($notes, 200);
     }
 
     /**

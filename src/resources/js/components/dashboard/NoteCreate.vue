@@ -1,6 +1,8 @@
 <template>
   <form class="max-w-xl mx-auto">
-    <h1 class="mb-8 text-gray-800 font-medium text-2xl uppercase tracking-wide">
+    <h1
+      class="mb-8 text-gray-800 font-semibold text-2xl uppercase tracking-wide"
+    >
       Create new note
     </h1>
 
