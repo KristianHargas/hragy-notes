@@ -32428,6 +32428,9 @@ var Auth = (0,vuex__WEBPACK_IMPORTED_MODULE_1__.createNamespacedHelpers)('auth')
         }, _callee);
       }))();
     }
+  },
+  beforeRouteUpdate: function beforeRouteUpdate(to, from) {
+    this.navigationDrawer = false;
   }
 });
 
@@ -32440,7 +32443,7 @@ var Auth = (0,vuex__WEBPACK_IMPORTED_MODULE_1__.createNamespacedHelpers)('auth')
 /*! namespace exports */
 /*! export default [provided] [no usage info] [missing usage info prevents renaming] */
 /*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
+/*! runtime requirements: __webpack_require__, __webpack_require__.n, __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -32448,13 +32451,91 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _services_NoteService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/NoteService */ "./resources/js/services/NoteService.js");
+/* harmony import */ var _shared_utils_response__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/utils/response */ "./resources/js/shared/utils/response.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       formData: {
-        title: ''
-      }
+        title: '',
+        text: ''
+      },
+      errors: {
+        title: [],
+        text: [],
+        others: []
+      },
+      loading: false
     };
+  },
+  methods: {
+    createNote: function createNote() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var res;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _this.loading = true;
+
+                _this.resetErrors();
+
+                _context.prev = 2;
+                _context.next = 5;
+                return _services_NoteService__WEBPACK_IMPORTED_MODULE_2__.store(_this.formData);
+
+              case 5:
+                res = _context.sent;
+
+                _this.$router.push({
+                  name: 'NoteList'
+                });
+
+                _context.next = 12;
+                break;
+
+              case 9:
+                _context.prev = 9;
+                _context.t0 = _context["catch"](2);
+
+                if ((0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.is422)(_context.t0)) {
+                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.hasValidationErr)(_context.t0, 'title') && (_this.errors.title = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.getValidationErrArr)(_context.t0, 'title'));
+                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.hasValidationErr)(_context.t0, 'text') && (_this.errors.text = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.getValidationErrArr)(_context.t0, 'text'));
+                } else {
+                  _this.errors.others.push('Network or server error, try again later.');
+                }
+
+              case 12:
+                _this.loading = false;
+
+              case 13:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[2, 9]]);
+      }))();
+    },
+    resetErrors: function resetErrors() {
+      this.errors.title = [];
+      this.errors.text = [];
+      this.errors.others = [];
+    }
   }
 });
 
@@ -33065,6 +33146,30 @@ var logout = /*#__PURE__*/function () {
 }();
 var user = function user() {
   return axios__WEBPACK_IMPORTED_MODULE_1___default().get('/api/user');
+};
+
+/***/ }),
+
+/***/ "./resources/js/services/NoteService.js":
+/*!**********************************************!*\
+  !*** ./resources/js/services/NoteService.js ***!
+  \**********************************************/
+/*! namespace exports */
+/*! export store [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__, __webpack_require__.n, __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "store": () => /* binding */ store
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+var store = function store(data) {
+  return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/notes', data);
 };
 
 /***/ }),
@@ -55074,12 +55179,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _NoteCreate_vue_vue_type_template_id_2e083e54_bindings_formData_data___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NoteCreate.vue?vue&type=template&id=2e083e54&bindings={"formData":"data"} */ "./resources/js/components/dashboard/NoteCreate.vue?vue&type=template&id=2e083e54&bindings={\"formData\":\"data\"}");
+/* harmony import */ var _NoteCreate_vue_vue_type_template_id_2e083e54_bindings_formData_data_errors_data_loading_data_createNote_options_resetErrors_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NoteCreate.vue?vue&type=template&id=2e083e54&bindings={"formData":"data","errors":"data","loading":"data","createNote":"options","resetErrors":"options"} */ "./resources/js/components/dashboard/NoteCreate.vue?vue&type=template&id=2e083e54&bindings={\"formData\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"createNote\":\"options\",\"resetErrors\":\"options\"}");
 /* harmony import */ var _NoteCreate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NoteCreate.vue?vue&type=script&lang=js */ "./resources/js/components/dashboard/NoteCreate.vue?vue&type=script&lang=js");
 
 
 
-_NoteCreate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _NoteCreate_vue_vue_type_template_id_2e083e54_bindings_formData_data___WEBPACK_IMPORTED_MODULE_0__.render
+_NoteCreate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _NoteCreate_vue_vue_type_template_id_2e083e54_bindings_formData_data_errors_data_loading_data_createNote_options_resetErrors_options___WEBPACK_IMPORTED_MODULE_0__.render
 /* hot reload */
 if (false) {}
 
@@ -55761,12 +55866,12 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/dashboard/NoteCreate.vue?vue&type=template&id=2e083e54&bindings={\"formData\":\"data\"}":
-/*!*********************************************************************************************************************!*\
-  !*** ./resources/js/components/dashboard/NoteCreate.vue?vue&type=template&id=2e083e54&bindings={"formData":"data"} ***!
-  \*********************************************************************************************************************/
+/***/ "./resources/js/components/dashboard/NoteCreate.vue?vue&type=template&id=2e083e54&bindings={\"formData\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"createNote\":\"options\",\"resetErrors\":\"options\"}":
+/*!*****************************************************************************************************************************************************************************************************!*\
+  !*** ./resources/js/components/dashboard/NoteCreate.vue?vue&type=template&id=2e083e54&bindings={"formData":"data","errors":"data","loading":"data","createNote":"options","resetErrors":"options"} ***!
+  \*****************************************************************************************************************************************************************************************************/
 /*! namespace exports */
-/*! export render [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/NoteCreate.vue?vue&type=template&id=2e083e54&bindings={"formData":"data"} .render */
+/*! export render [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/NoteCreate.vue?vue&type=template&id=2e083e54&bindings={"formData":"data","errors":"data","loading":"data","createNote":"options","resetErrors":"options"} .render */
 /*! other exports [not provided] [no usage info] */
 /*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.d, __webpack_require__.r, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
@@ -55774,9 +55879,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NoteCreate_vue_vue_type_template_id_2e083e54_bindings_formData_data___WEBPACK_IMPORTED_MODULE_0__.render
+/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NoteCreate_vue_vue_type_template_id_2e083e54_bindings_formData_data_errors_data_loading_data_createNote_options_resetErrors_options___WEBPACK_IMPORTED_MODULE_0__.render
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NoteCreate_vue_vue_type_template_id_2e083e54_bindings_formData_data___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./NoteCreate.vue?vue&type=template&id=2e083e54&bindings={"formData":"data"} */ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/NoteCreate.vue?vue&type=template&id=2e083e54&bindings={\"formData\":\"data\"}");
+/* harmony import */ var _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NoteCreate_vue_vue_type_template_id_2e083e54_bindings_formData_data_errors_data_loading_data_createNote_options_resetErrors_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./NoteCreate.vue?vue&type=template&id=2e083e54&bindings={"formData":"data","errors":"data","loading":"data","createNote":"options","resetErrors":"options"} */ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/NoteCreate.vue?vue&type=template&id=2e083e54&bindings={\"formData\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"createNote\":\"options\",\"resetErrors\":\"options\"}");
 
 
 /***/ }),
@@ -56550,10 +56655,10 @@ const render = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $setup
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/NoteCreate.vue?vue&type=template&id=2e083e54&bindings={\"formData\":\"data\"}":
-/*!******************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/NoteCreate.vue?vue&type=template&id=2e083e54&bindings={"formData":"data"} ***!
-  \******************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/NoteCreate.vue?vue&type=template&id=2e083e54&bindings={\"formData\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"createNote\":\"options\",\"resetErrors\":\"options\"}":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/NoteCreate.vue?vue&type=template&id=2e083e54&bindings={"formData":"data","errors":"data","loading":"data","createNote":"options","resetErrors":"options"} ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! namespace exports */
 /*! export render [provided] [no usage info] [missing usage info prevents renaming] */
 /*! other exports [not provided] [no usage info] */
@@ -56596,8 +56701,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "onUpdate:modelValue": _cache[1] || (_cache[1] = $event => ($data.formData.title = $event)),
         type: "text",
         id: "title",
-        name: "title"
-      }, null, 8 /* PROPS */, ["modelValue"])
+        name: "title",
+        errors: $data.errors.title
+      }, null, 8 /* PROPS */, ["modelValue", "errors"])
     ]),
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [
       (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormLabel, { for: "text" }, {
@@ -56607,18 +56713,28 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         _: 1
       }),
       (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormArea, {
+        modelValue: $data.formData.text,
+        "onUpdate:modelValue": _cache[2] || (_cache[2] = $event => ($data.formData.text = $event)),
         name: "text",
         id: "text",
-        rows: "4"
-      })
+        rows: "4",
+        errors: $data.errors.text
+      }, null, 8 /* PROPS */, ["modelValue", "errors"])
     ]),
-    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormErrors, { class: "mt-8 text-center" }),
-    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, { class: "py-3 px-5 mt-8 ml-auto" }, {
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormErrors, {
+      class: "mt-8 text-center",
+      errors: $data.errors.others
+    }, null, 8 /* PROPS */, ["errors"]),
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
+      class: "py-3 px-5 mt-8 ml-auto",
+      loading: $data.loading,
+      onSubmit: $options.createNote
+    }, {
       default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
         _hoisted_6
       ]),
       _: 1
-    })
+    }, 8 /* PROPS */, ["loading", "onSubmit"])
   ]))
 }
 

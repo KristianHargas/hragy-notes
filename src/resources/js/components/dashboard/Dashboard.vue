@@ -75,6 +75,9 @@ export default {
       await this.$store.dispatch('auth/logout')
       this.$router.replace({ name: 'Login' })
     }
+  },
+  beforeRouteUpdate(to, from) {
+    this.navigationDrawer = false
   }
 }
 </script>
