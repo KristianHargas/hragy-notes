@@ -39,7 +39,10 @@
     <FormErrors class="mt-8 text-center" :errors="errors.others"></FormErrors>
 
     <div class="flex justify-between mt-8">
-      <FormButton class="py-3 px-5" :loading="loading || !noteLoaded"
+      <FormButton
+        class="py-3 px-5"
+        :loading="loading || !noteLoaded"
+        @submit="deleteNote"
         >Delete</FormButton
       >
       <FormButton
@@ -115,6 +118,21 @@ export default {
         } else {
           this.errors.others.push('Network or server error, try again later.')
         }
+      }
+
+      this.loading = false
+    },
+    async deleteNote() {
+      if (!this.noteLoaded) return
+
+      this.loading = true
+      this.resetErrors()
+
+      try {
+        const res = await NoteService.destroy(this.note.id)
+        this.$router.replace({ name: 'NoteList' })
+      } catch (err) {
+        this.errors.others.push('Network or server error, try again later.')
       }
 
       this.loading = false

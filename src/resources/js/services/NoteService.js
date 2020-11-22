@@ -15,3 +15,7 @@ export const show = function (id) {
 export const update = function (id, data) {
   return axios.put(`/api/notes/${id}`, data)
 }
+
+export const destroy = function (id) {
+  return axios.delete(`/api/notes/${id}`)
+}
