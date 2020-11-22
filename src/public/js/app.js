@@ -32663,7 +32663,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         text: [],
         others: []
       },
-      loading: false
+      loading: false,
+      noteLoaded: false
     };
   },
   mounted: function mounted() {
@@ -32686,11 +32687,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case 5:
               res = _context.sent;
               _this.note = res.data;
-              _context.next = 12;
+              _this.noteLoaded = true;
+              _context.next = 13;
               break;
 
-            case 9:
-              _context.prev = 9;
+            case 10:
+              _context.prev = 10;
               _context.t0 = _context["catch"](2);
 
               if ((0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.is404)(_context.t0)) {
@@ -32699,18 +32701,78 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _this.errors.others.push('Network or server error, try again later.');
               }
 
-            case 12:
+            case 13:
               _this.loading = false;
 
-            case 13:
+            case 14:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, null, [[2, 9]]);
+      }, _callee, null, [[2, 10]]);
     }))();
   },
   methods: {
+    saveNote: function saveNote() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var res;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                if (_this2.noteLoaded) {
+                  _context2.next = 2;
+                  break;
+                }
+
+                return _context2.abrupt("return");
+
+              case 2:
+                _this2.loading = true;
+
+                _this2.resetErrors();
+
+                _context2.prev = 4;
+                _context2.next = 7;
+                return _services_NoteService__WEBPACK_IMPORTED_MODULE_2__.update(_this2.note.id, {
+                  title: _this2.note.title,
+                  text: _this2.note.text
+                });
+
+              case 7:
+                res = _context2.sent;
+
+                _this2.$router.push({
+                  name: 'NoteList'
+                });
+
+                _context2.next = 14;
+                break;
+
+              case 11:
+                _context2.prev = 11;
+                _context2.t0 = _context2["catch"](4);
+
+                if ((0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.is422)(_context2.t0)) {
+                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.hasValidationErr)(_context2.t0, 'title') && (_this2.errors.title = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.getValidationErrArr)(_context2.t0, 'title'));
+                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.hasValidationErr)(_context2.t0, 'text') && (_this2.errors.text = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.getValidationErrArr)(_context2.t0, 'text'));
+                } else {
+                  _this2.errors.others.push('Network or server error, try again later.');
+                }
+
+              case 14:
+                _this2.loading = false;
+
+              case 15:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[4, 11]]);
+      }))();
+    },
     resetErrors: function resetErrors() {
       this.errors.title = [];
       this.errors.text = [];
@@ -33329,6 +33391,7 @@ var user = function user() {
 /*! export index [provided] [no usage info] [missing usage info prevents renaming] */
 /*! export show [provided] [no usage info] [missing usage info prevents renaming] */
 /*! export store [provided] [no usage info] [missing usage info prevents renaming] */
+/*! export update [provided] [no usage info] [missing usage info prevents renaming] */
 /*! other exports [not provided] [no usage info] */
 /*! runtime requirements: __webpack_require__, __webpack_require__.n, __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
@@ -33338,7 +33401,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "store": () => /* binding */ store,
 /* harmony export */   "index": () => /* binding */ index,
-/* harmony export */   "show": () => /* binding */ show
+/* harmony export */   "show": () => /* binding */ show,
+/* harmony export */   "update": () => /* binding */ update
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
@@ -33351,6 +33415,9 @@ var index = function index() {
 };
 var show = function show(id) {
   return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/notes/".concat(id));
+};
+var update = function update(id, data) {
+  return axios__WEBPACK_IMPORTED_MODULE_0___default().put("/api/notes/".concat(id), data);
 };
 
 /***/ }),
@@ -55420,12 +55487,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _NoteShow_vue_vue_type_template_id_0e54bfd5_bindings_note_data_errors_data_loading_data_resetErrors_options_formatDate_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NoteShow.vue?vue&type=template&id=0e54bfd5&bindings={"note":"data","errors":"data","loading":"data","resetErrors":"options","formatDate":"options"} */ "./resources/js/components/dashboard/NoteShow.vue?vue&type=template&id=0e54bfd5&bindings={\"note\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"resetErrors\":\"options\",\"formatDate\":\"options\"}");
+/* harmony import */ var _NoteShow_vue_vue_type_template_id_0e54bfd5_bindings_note_data_errors_data_loading_data_noteLoaded_data_saveNote_options_resetErrors_options_formatDate_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NoteShow.vue?vue&type=template&id=0e54bfd5&bindings={"note":"data","errors":"data","loading":"data","noteLoaded":"data","saveNote":"options","resetErrors":"options","formatDate":"options"} */ "./resources/js/components/dashboard/NoteShow.vue?vue&type=template&id=0e54bfd5&bindings={\"note\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"noteLoaded\":\"data\",\"saveNote\":\"options\",\"resetErrors\":\"options\",\"formatDate\":\"options\"}");
 /* harmony import */ var _NoteShow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NoteShow.vue?vue&type=script&lang=js */ "./resources/js/components/dashboard/NoteShow.vue?vue&type=script&lang=js");
 
 
 
-_NoteShow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _NoteShow_vue_vue_type_template_id_0e54bfd5_bindings_note_data_errors_data_loading_data_resetErrors_options_formatDate_options___WEBPACK_IMPORTED_MODULE_0__.render
+_NoteShow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _NoteShow_vue_vue_type_template_id_0e54bfd5_bindings_note_data_errors_data_loading_data_noteLoaded_data_saveNote_options_resetErrors_options_formatDate_options___WEBPACK_IMPORTED_MODULE_0__.render
 /* hot reload */
 if (false) {}
 
@@ -56137,12 +56204,12 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/dashboard/NoteShow.vue?vue&type=template&id=0e54bfd5&bindings={\"note\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"resetErrors\":\"options\",\"formatDate\":\"options\"}":
-/*!***********************************************************************************************************************************************************************************************!*\
-  !*** ./resources/js/components/dashboard/NoteShow.vue?vue&type=template&id=0e54bfd5&bindings={"note":"data","errors":"data","loading":"data","resetErrors":"options","formatDate":"options"} ***!
-  \***********************************************************************************************************************************************************************************************/
+/***/ "./resources/js/components/dashboard/NoteShow.vue?vue&type=template&id=0e54bfd5&bindings={\"note\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"noteLoaded\":\"data\",\"saveNote\":\"options\",\"resetErrors\":\"options\",\"formatDate\":\"options\"}":
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./resources/js/components/dashboard/NoteShow.vue?vue&type=template&id=0e54bfd5&bindings={"note":"data","errors":"data","loading":"data","noteLoaded":"data","saveNote":"options","resetErrors":"options","formatDate":"options"} ***!
+  \****************************************************************************************************************************************************************************************************************************************/
 /*! namespace exports */
-/*! export render [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/NoteShow.vue?vue&type=template&id=0e54bfd5&bindings={"note":"data","errors":"data","loading":"data","resetErrors":"options","formatDate":"options"} .render */
+/*! export render [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/NoteShow.vue?vue&type=template&id=0e54bfd5&bindings={"note":"data","errors":"data","loading":"data","noteLoaded":"data","saveNote":"options","resetErrors":"options","formatDate":"options"} .render */
 /*! other exports [not provided] [no usage info] */
 /*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.d, __webpack_require__.r, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
@@ -56150,9 +56217,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NoteShow_vue_vue_type_template_id_0e54bfd5_bindings_note_data_errors_data_loading_data_resetErrors_options_formatDate_options___WEBPACK_IMPORTED_MODULE_0__.render
+/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NoteShow_vue_vue_type_template_id_0e54bfd5_bindings_note_data_errors_data_loading_data_noteLoaded_data_saveNote_options_resetErrors_options_formatDate_options___WEBPACK_IMPORTED_MODULE_0__.render
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NoteShow_vue_vue_type_template_id_0e54bfd5_bindings_note_data_errors_data_loading_data_resetErrors_options_formatDate_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./NoteShow.vue?vue&type=template&id=0e54bfd5&bindings={"note":"data","errors":"data","loading":"data","resetErrors":"options","formatDate":"options"} */ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/NoteShow.vue?vue&type=template&id=0e54bfd5&bindings={\"note\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"resetErrors\":\"options\",\"formatDate\":\"options\"}");
+/* harmony import */ var _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NoteShow_vue_vue_type_template_id_0e54bfd5_bindings_note_data_errors_data_loading_data_noteLoaded_data_saveNote_options_resetErrors_options_formatDate_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./NoteShow.vue?vue&type=template&id=0e54bfd5&bindings={"note":"data","errors":"data","loading":"data","noteLoaded":"data","saveNote":"options","resetErrors":"options","formatDate":"options"} */ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/NoteShow.vue?vue&type=template&id=0e54bfd5&bindings={\"note\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"noteLoaded\":\"data\",\"saveNote\":\"options\",\"resetErrors\":\"options\",\"formatDate\":\"options\"}");
 
 
 /***/ }),
@@ -57039,10 +57106,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/NoteShow.vue?vue&type=template&id=0e54bfd5&bindings={\"note\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"resetErrors\":\"options\",\"formatDate\":\"options\"}":
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/NoteShow.vue?vue&type=template&id=0e54bfd5&bindings={"note":"data","errors":"data","loading":"data","resetErrors":"options","formatDate":"options"} ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/NoteShow.vue?vue&type=template&id=0e54bfd5&bindings={\"note\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"noteLoaded\":\"data\",\"saveNote\":\"options\",\"resetErrors\":\"options\",\"formatDate\":\"options\"}":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/NoteShow.vue?vue&type=template&id=0e54bfd5&bindings={"note":"data","errors":"data","loading":"data","noteLoaded":"data","saveNote":"options","resetErrors":"options","formatDate":"options"} ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! namespace exports */
 /*! export render [provided] [no usage info] [missing usage info prevents renaming] */
 /*! other exports [not provided] [no usage info] */
@@ -57126,7 +57193,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_10, [
       (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
         class: "py-3 px-5",
-        loading: $data.loading
+        loading: $data.loading || !$data.noteLoaded
       }, {
         default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
           _hoisted_11
@@ -57135,13 +57202,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, 8 /* PROPS */, ["loading"]),
       (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
         class: "py-3 px-5",
-        loading: $data.loading
+        loading: $data.loading || !$data.noteLoaded,
+        onSubmit: $options.saveNote
       }, {
         default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
           _hoisted_12
         ]),
         _: 1
-      }, 8 /* PROPS */, ["loading"])
+      }, 8 /* PROPS */, ["loading", "onSubmit"])
     ])
   ]))
 }

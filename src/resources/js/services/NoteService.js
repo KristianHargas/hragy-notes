@@ -11,3 +11,7 @@ export const index = function () {
 export const show = function (id) {
   return axios.get(`/api/notes/${id}`)
 }
+
+export const update = function (id, data) {
+  return axios.put(`/api/notes/${id}`, data)
+}

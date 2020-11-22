@@ -68,7 +68,22 @@ class NoteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $note = $request->user()->notes()->where('id', $id)->first();
+
+        if ($note === null) {
+            return response()->json([], 404);
+        }
+
+        $validatedData = $request->validate([
+            'title' => 'required|max:255',
+            'text' => 'max:1024',
+        ]);
+
+        $note->title = $validatedData['title'];
+        $note->text = $validatedData['text'];
+        $note->save();
+
+        return response()->json($note, 200);
     }
 
     /**

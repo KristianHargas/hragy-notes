@@ -39,8 +39,15 @@
     <FormErrors class="mt-8 text-center" :errors="errors.others"></FormErrors>
 
     <div class="flex justify-between mt-8">
-      <FormButton class="py-3 px-5" :loading="loading">Delete</FormButton>
-      <FormButton class="py-3 px-5" :loading="loading">Save</FormButton>
+      <FormButton class="py-3 px-5" :loading="loading || !noteLoaded"
+        >Delete</FormButton
+      >
+      <FormButton
+        class="py-3 px-5"
+        :loading="loading || !noteLoaded"
+        @submit="saveNote"
+        >Save</FormButton
+      >
     </div>
   </form>
 </template>
@@ -64,16 +71,17 @@ export default {
         text: [],
         others: []
       },
-      loading: false
+      loading: false,
+      noteLoaded: false
     }
   },
   async mounted() {
     this.loading = true
     this.resetErrors()
-
     try {
       const res = await NoteService.show(this.$route.params.id)
       this.note = res.data
+      this.noteLoaded = true
     } catch (err) {
       if (is404(err)) {
         this.errors.others.push('Note not found.')
@@ -85,6 +93,32 @@ export default {
     this.loading = false
   },
   methods: {
+    async saveNote() {
+      if (!this.noteLoaded) return
+
+      this.loading = true
+      this.resetErrors()
+
+      try {
+        const res = await NoteService.update(this.note.id, {
+          title: this.note.title,
+          text: this.note.text
+        })
+        this.$router.push({ name: 'NoteList' })
+      } catch (err) {
+        if (is422(err)) {
+          hasValidationErr(err, 'title') &&
+            (this.errors.title = getValidationErrArr(err, 'title'))
+
+          hasValidationErr(err, 'text') &&
+            (this.errors.text = getValidationErrArr(err, 'text'))
+        } else {
+          this.errors.others.push('Network or server error, try again later.')
+        }
+      }
+
+      this.loading = false
+    },
     resetErrors() {
       this.errors.title = []
       this.errors.text = []
