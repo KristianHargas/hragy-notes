@@ -15,7 +15,7 @@ class NoteController extends Controller
      */
     public function index(Request $request)
     {
-        $notes = $request->user()->notes;
+        $notes = $request->user()->notes()->orderBy('created_at', 'desc')->get();
 
         return response()->json($notes, 200);
     }

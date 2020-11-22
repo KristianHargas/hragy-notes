@@ -6,15 +6,20 @@
       Your notes
     </h1>
 
-    <div
-      v-for="note in notes"
-      :key="note.id"
-      class="p-3 bg-white shadow-sm rounded-lg mb-4"
-    >
-      <h3 class="text-2xl font-semibold mb-3 text-gray-800">
-        {{ note.title }}
-      </h3>
-      <p class="text-lg font-medium text-gray-600">{{ note.text }}</p>
+    <div class="grid gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+      <div v-for="note in notes" :key="note.id">
+        <div class="p-4 bg-white shadow-sm rounded-lg">
+          <h3 class="overflow-hidden text-2xl font-semibold text-gray-800">
+            {{ note.title }}
+          </h3>
+          <p class="overflow-hidden text-lg font-medium text-gray-600 mt-2">
+            {{ ellipsis(note.text) }}
+          </p>
+          <div class="text-base font-medium text-gray-500 mt-6">
+            {{ formatDate(note.created_at) }}
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -32,6 +37,19 @@ export default {
   async mounted() {
     const res = await NoteService.index()
     this.notes = res.data
+  },
+  methods: {
+    formatDate(dateString) {
+      const date = new Date(dateString)
+      return date.toLocaleString('en-US')
+    },
+    ellipsis(text) {
+      if (!!text && text.length > 100) {
+        return `${text.slice(0, 100)}...`
+      } else {
+        return text
+      }
+    }
   }
 }
 </script>
