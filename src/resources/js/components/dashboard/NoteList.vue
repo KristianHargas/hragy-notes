@@ -8,7 +8,10 @@
 
     <div class="grid gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
       <div v-for="note in notes" :key="note.id">
-        <div class="p-4 bg-white shadow-sm rounded-lg">
+        <div
+          class="p-4 bg-white shadow-sm rounded-lg cursor-pointer hover:shadow-lg focus:shadow-lg"
+          @click="showNote(note)"
+        >
           <h3 class="overflow-hidden text-2xl font-semibold text-gray-800">
             {{ note.title }}
           </h3>
@@ -39,6 +42,14 @@ export default {
     this.notes = res.data
   },
   methods: {
+    showNote(note) {
+      this.$router.push({
+        name: 'NoteShow',
+        params: {
+          id: note.id
+        }
+      })
+    },
     formatDate(dateString) {
       const date = new Date(dateString)
       return date.toLocaleString('en-US')

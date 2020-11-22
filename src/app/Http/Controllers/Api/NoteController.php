@@ -48,9 +48,15 @@ class NoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
-        //
+        $note = $request->user()->notes()->where('id', $id)->first();
+
+        if ($note === null) {
+            return response()->json([], 404);
+        }
+
+        return response()->json($note, 200);
     }
 
     /**

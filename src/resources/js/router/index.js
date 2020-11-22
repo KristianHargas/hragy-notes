@@ -5,6 +5,7 @@ import Register from '../components/auth/Register'
 import Dashboard from '../components/dashboard/Dashboard'
 import NoteList from '../components/dashboard/NoteList'
 import NoteCreate from '../components/dashboard/NoteCreate'
+import NoteShow from '../components/dashboard/NoteShow'
 import store from '../store/index'
 
 const routes = [
@@ -45,6 +46,11 @@ const routes = [
         path: 'notes',
         component: NoteList,
         name: 'NoteList'
+      },
+      {
+        path: 'notes/:id',
+        component: NoteShow,
+        name: 'NoteShow'
       },
       {
         path: 'notes/create',
