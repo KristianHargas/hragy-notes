@@ -6,10 +6,11 @@
       Your notes
     </h1>
 
+    <!-- Notes grid. -->
     <div class="grid gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
       <div v-for="note in notes" :key="note.id">
         <div
-          class="p-4 bg-white shadow-sm rounded-lg cursor-pointer hover:shadow-lg focus:shadow-lg"
+          class="p-4 bg-white rounded-lg cursor-pointer"
           @click="showNote(note)"
         >
           <h3 class="overflow-hidden text-2xl font-semibold text-gray-800">
@@ -24,6 +25,17 @@
         </div>
       </div>
     </div>
+
+    <router-link
+      :to="{ name: 'NoteCreate' }"
+      class="fixed shadow-lg hover:shadow-2xl bottom-0 right-0 mr-6 mb-6 p-3 bg-red-700 text-white rounded-full"
+    >
+      <img
+        class="h-8"
+        src="../../../static/img/note_add-white.svg"
+        alt="Add note icon."
+      />
+    </router-link>
   </div>
 </template>
 

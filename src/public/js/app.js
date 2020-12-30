@@ -34313,6 +34313,25 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/static/img/note_add-white.svg":
+/*!*************************************************!*\
+  !*** ./resources/static/img/note_add-white.svg ***!
+  \*************************************************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/note_add-white.svg?89c9e26d4095c215e4b510cc760c5760");
+
+/***/ }),
+
 /***/ "./resources/static/img/notes-landing.svg":
 /*!************************************************!*\
   !*** ./resources/static/img/notes-landing.svg ***!
@@ -56959,8 +56978,7 @@ const _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("d
 const _hoisted_1 = { class: "toolbar flex items-center shadow-lg bg-gray-100 px-4" }
 const _hoisted_2 = { class: "mt-12" }
 const _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Notes")
-const _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Add note")
-const _hoisted_5 = { class: "top-margin lg:ml-72 p-4 bg-gray-100 main-fill" }
+const _hoisted_4 = { class: "top-margin lg:ml-72 p-4 bg-gray-100 main-fill" }
 ;(0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)()
 
 const render = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -57009,20 +57027,11 @@ const render = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $setup
             _hoisted_3
           ]),
           _: 1
-        }),
-        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
-          to: { name: 'NoteCreate' },
-          class: "block uppercase tracking-wide text-xl mb-4 no-select text-center cursor-pointer shadow-sm bg-white rounded py-2 font-semibold text-gray-700 hover:shadow-md focus:shadow-md"
-        }, {
-          default: _withId(() => [
-            _hoisted_4
-          ]),
-          _: 1
         })
       ])
     ], 2 /* CLASS */),
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Main content "),
-    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("main", _hoisted_5, [
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("main", _hoisted_4, [
       (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_view)
     ])
   ], 64 /* STABLE_FRAGMENT */))
@@ -57131,6 +57140,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => /* binding */ render
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _static_img_note_add_white_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../static/img/note_add-white.svg */ "./resources/static/img/note_add-white.svg");
+
+
 
 
 const _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", { class: "mb-8 text-gray-800 font-semibold text-2xl uppercase tracking-wide" }, " Your notes ", -1 /* HOISTED */)
@@ -57138,17 +57150,25 @@ const _hoisted_2 = { class: "grid gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-
 const _hoisted_3 = { class: "overflow-hidden text-2xl font-semibold text-gray-800" }
 const _hoisted_4 = { class: "overflow-hidden text-lg font-medium text-gray-600 mt-2" }
 const _hoisted_5 = { class: "text-base font-medium text-gray-500 mt-6" }
+const _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+  class: "h-8",
+  src: _static_img_note_add_white_svg__WEBPACK_IMPORTED_MODULE_1__.default,
+  alt: "Add note icon."
+}, null, -1 /* HOISTED */)
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link")
+
   return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", null, [
     _hoisted_1,
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Notes grid. "),
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [
       ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.notes, (note) => {
         return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
           key: note.id
         }, [
           (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-            class: "p-4 bg-white shadow-sm rounded-lg cursor-pointer hover:shadow-lg focus:shadow-lg",
+            class: "p-4 bg-white rounded-lg cursor-pointer",
             onClick: $event => ($options.showNote(note))
           }, [
             (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h3", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(note.title), 1 /* TEXT */),
@@ -57157,7 +57177,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           ], 8 /* PROPS */, ["onClick"])
         ]))
       }), 128 /* KEYED_FRAGMENT */))
-    ])
+    ]),
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+      to: { name: 'NoteCreate' },
+      class: "fixed shadow-lg hover:shadow-2xl bottom-0 right-0 mr-6 mb-6 p-3 bg-red-700 text-white rounded-full"
+    }, {
+      default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
+        _hoisted_6
+      ]),
+      _: 1
+    })
   ]))
 }
 

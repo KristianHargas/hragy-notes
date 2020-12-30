@@ -38,12 +38,6 @@
         class="block uppercase tracking-wide text-xl mb-4 no-select text-center cursor-pointer shadow-sm bg-white rounded py-2 font-semibold text-gray-700 hover:shadow-md focus:shadow-md"
         >Notes</router-link
       >
-
-      <router-link
-        :to="{ name: 'NoteCreate' }"
-        class="block uppercase tracking-wide text-xl mb-4 no-select text-center cursor-pointer shadow-sm bg-white rounded py-2 font-semibold text-gray-700 hover:shadow-md focus:shadow-md"
-        >Add note</router-link
-      >
     </nav>
   </aside>
 
