@@ -1,9 +1,9 @@
 <template>
-  <div class="flex flex-row flex-wrap space-x-4">
+  <div class="flex flex-row flex-wrap">
     <div
       v-for="color in colors"
       :key="color"
-      class="rounded-full w-10 h-10 cursor-pointer"
+      class="rounded-full w-10 h-10 cursor-pointer no-select m-2"
       :class="[color]"
       @click="$emit('update:modelValue', color)"
     >

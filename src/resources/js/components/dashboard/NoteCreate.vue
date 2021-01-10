@@ -30,7 +30,7 @@
 
     <div class="mt-4">
       <FormLabel for="note-color">Note color</FormLabel>
-      <ColorPicker id="note-color" class="my-2" v-model="formData.color" />
+      <ColorPicker id="note-color" v-model="formData.color" />
     </div>
 
     <FormErrors class="mt-8 text-center" :errors="errors.others"></FormErrors>

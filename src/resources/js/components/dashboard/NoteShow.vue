@@ -23,7 +23,7 @@
         v-model="note.text"
         name="text"
         id="text"
-        rows="6"
+        rows="3"
         :errors="errors.text"
       ></FormArea>
     </div>
@@ -32,17 +32,16 @@
       <FormLabel for="note-color">Note color</FormLabel>
       <ColorPicker
         id="note-color"
-        class="my-2"
         v-model="note.color"
         :selectDefaultColor="false"
       />
     </div>
 
-    <div class="mt-4 flex justify-between text-lg font-medium text-gray-700">
+    <div class="mt-4 flex justify-between text-base font-medium text-gray-700">
       <span>Created at:</span><span>{{ formatDate(note.created_at) }}</span>
     </div>
 
-    <div class="mt-2 flex justify-between text-lg font-medium text-gray-700">
+    <div class="mt-2 flex justify-between text-base font-medium text-gray-700">
       <span>Updated at:</span><span>{{ formatDate(note.updated_at) }}</span>
     </div>
 

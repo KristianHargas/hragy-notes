@@ -57276,7 +57276,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }),
       (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ColorPicker, {
         id: "note-color",
-        class: "my-2",
         modelValue: $data.formData.color,
         "onUpdate:modelValue": _cache[3] || (_cache[3] = $event => ($data.formData.color = $event))
       }, null, 8 /* PROPS */, ["modelValue"])
@@ -57393,9 +57392,9 @@ const _hoisted_4 = { class: "mt-4" }
 const _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Text")
 const _hoisted_6 = { class: "mt-4" }
 const _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Note color")
-const _hoisted_8 = { class: "mt-4 flex justify-between text-lg font-medium text-gray-700" }
+const _hoisted_8 = { class: "mt-4 flex justify-between text-base font-medium text-gray-700" }
 const _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "Created at:", -1 /* HOISTED */)
-const _hoisted_10 = { class: "mt-2 flex justify-between text-lg font-medium text-gray-700" }
+const _hoisted_10 = { class: "mt-2 flex justify-between text-base font-medium text-gray-700" }
 const _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "Updated at:", -1 /* HOISTED */)
 const _hoisted_12 = { class: "flex justify-between mt-8" }
 const _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Delete")
@@ -57439,7 +57438,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "onUpdate:modelValue": _cache[2] || (_cache[2] = $event => ($data.note.text = $event)),
         name: "text",
         id: "text",
-        rows: "6",
+        rows: "3",
         errors: $data.errors.text
       }, null, 8 /* PROPS */, ["modelValue", "errors"])
     ]),
@@ -57452,7 +57451,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }),
       (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ColorPicker, {
         id: "note-color",
-        class: "my-2",
         modelValue: $data.note.color,
         "onUpdate:modelValue": _cache[3] || (_cache[3] = $event => ($data.note.color = $event)),
         selectDefaultColor: false
@@ -57518,7 +57516,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const _hoisted_1 = { class: "flex flex-row flex-wrap space-x-4" }
+const _hoisted_1 = { class: "flex flex-row flex-wrap" }
 const _hoisted_2 = {
   key: 0,
   class: "block h-10 w-8 mx-auto",
@@ -57531,7 +57529,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.colors, (color) => {
       return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
         key: color,
-        class: ["rounded-full w-10 h-10 cursor-pointer", [color]],
+        class: ["rounded-full w-10 h-10 cursor-pointer no-select m-2", [color]],
         onClick: $event => (_ctx.$emit('update:modelValue', color))
       }, [
         (color == $props.modelValue)
