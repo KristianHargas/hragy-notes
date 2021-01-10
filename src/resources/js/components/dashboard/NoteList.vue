@@ -10,16 +10,16 @@
     <div class="grid gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
       <div v-for="note in notes" :key="note.id">
         <div
-          class="p-4 bg-white rounded-lg cursor-pointer"
+          class="p-4 bg-gray-600 rounded-lg cursor-pointer hover:shadow-md focus:shadow-md"
           @click="showNote(note)"
         >
-          <h3 class="overflow-hidden text-2xl font-semibold text-gray-800">
+          <h3 class="overflow-hidden text-2xl font-medium text-white">
             {{ note.title }}
           </h3>
-          <p class="overflow-hidden text-lg font-medium text-gray-600 mt-2">
+          <p class="overflow-hidden text-lg font-light text-white mt-2">
             {{ ellipsis(note.text) }}
           </p>
-          <div class="text-base font-medium text-gray-500 mt-6">
+          <div class="text-base font-light text-white mt-6">
             {{ formatDate(note.created_at) }}
           </div>
         </div>

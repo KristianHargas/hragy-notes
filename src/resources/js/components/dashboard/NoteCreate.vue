@@ -28,6 +28,15 @@
       ></FormArea>
     </div>
 
+    <div class="mt-4">
+      <FormLabel for="note-color">Note color</FormLabel>
+      <ColorPicker
+        id="note-color"
+        class="my-2"
+        @colorChange="formData.color = $event"
+      />
+    </div>
+
     <FormErrors class="mt-8 text-center" :errors="errors.others"></FormErrors>
 
     <FormButton
@@ -46,13 +55,18 @@ import {
   getValidationErrArr,
   hasValidationErr
 } from '../../shared/utils/response'
+import ColorPicker from '../../shared/components/ColorPicker'
 
 export default {
+  components: {
+    ColorPicker
+  },
   data() {
     return {
       formData: {
         title: '',
-        text: ''
+        text: '',
+        color: ''
       },
       errors: {
         title: [],
