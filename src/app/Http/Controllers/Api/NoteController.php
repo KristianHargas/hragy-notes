@@ -31,12 +31,14 @@ class NoteController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'text' => 'max:1024',
+            'color' => 'max:32',
         ]);
 
         $note = Note::create([
             'title' => $validatedData['title'],
             'text' => $validatedData['text'],
             'user_id' => $request->user()->id,
+            'color' => $validatedData['color'],
         ]);
 
         return response()->json($note, 201);
@@ -77,10 +79,12 @@ class NoteController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'text' => 'max:1024',
+            'color' => 'max:32',
         ]);
 
         $note->title = $validatedData['title'];
         $note->text = $validatedData['text'];
+        $note->color = $validatedData['color'];
         $note->save();
 
         return response()->json($note, 200);
