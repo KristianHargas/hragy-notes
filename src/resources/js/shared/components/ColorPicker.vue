@@ -5,10 +5,10 @@
       :key="color"
       class="rounded-full w-10 h-10 cursor-pointer"
       :class="[color]"
-      @click="changeColor(color)"
+      @click="$emit('update:modelValue', color)"
     >
       <img
-        v-if="color == currentColor"
+        v-if="color == modelValue"
         class="block h-10 w-8 mx-auto"
         src="../../../static/img/done-white.svg"
         alt="Done icon."
@@ -19,7 +19,14 @@
 
 <script>
 export default {
-  emits: ['colorChange'],
+  emits: ['update:modelValue'],
+  props: {
+    modelValue: String,
+    selectDefaultColor: {
+      type: Boolean,
+      default: true
+    }
+  },
   data() {
     return {
       colors: [
@@ -31,18 +38,11 @@ export default {
         'bg-indigo-500',
         'bg-purple-500',
         'bg-pink-400'
-      ],
-      currentColor: ''
+      ]
     }
   },
   created() {
-    this.changeColor(this.colors[0])
-  },
-  methods: {
-    changeColor(color) {
-      this.currentColor = color
-      this.$emit('colorChange', color)
-    }
+    if (this.selectDefaultColor) this.$emit('update:modelValue', this.colors[0])
   }
 }
 </script>

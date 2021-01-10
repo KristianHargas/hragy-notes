@@ -28,6 +28,16 @@
       ></FormArea>
     </div>
 
+    <div class="mt-4">
+      <FormLabel for="note-color">Note color</FormLabel>
+      <ColorPicker
+        id="note-color"
+        class="my-2"
+        v-model="note.color"
+        :selectDefaultColor="false"
+      />
+    </div>
+
     <div class="mt-4 flex justify-between text-lg font-medium text-gray-700">
       <span>Created at:</span><span>{{ formatDate(note.created_at) }}</span>
     </div>
@@ -64,11 +74,19 @@ import {
   hasValidationErr
 } from '../../shared/utils/response'
 import { formatDate } from '../../shared/utils/util'
+import ColorPicker from '../../shared/components/ColorPicker'
 
 export default {
+  components: {
+    ColorPicker
+  },
   data() {
     return {
-      note: {},
+      note: {
+        title: '',
+        text: '',
+        color: ''
+      },
       errors: {
         title: [],
         text: [],
@@ -105,7 +123,8 @@ export default {
       try {
         const res = await NoteService.update(this.note.id, {
           title: this.note.title,
-          text: this.note.text
+          text: this.note.text,
+          color: this.note.color
         })
         this.$router.push({ name: 'NoteList' })
       } catch (err) {

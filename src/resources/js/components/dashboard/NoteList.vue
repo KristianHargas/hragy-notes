@@ -10,7 +10,8 @@
     <div class="grid gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
       <div v-for="note in notes" :key="note.id">
         <div
-          class="p-4 bg-gray-600 rounded-lg cursor-pointer hover:shadow-md focus:shadow-md"
+          class="p-4 rounded-lg cursor-pointer hover:shadow-md focus:shadow-md"
+          :class="[note.color]"
           @click="showNote(note)"
         >
           <h3 class="overflow-hidden text-2xl font-medium text-white">

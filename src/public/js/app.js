@@ -32635,6 +32635,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_NoteService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/NoteService */ "./resources/js/services/NoteService.js");
 /* harmony import */ var _shared_utils_response__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/utils/response */ "./resources/js/shared/utils/response.js");
 /* harmony import */ var _shared_utils_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/utils/util */ "./resources/js/shared/utils/util.js");
+/* harmony import */ var _shared_components_ColorPicker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../shared/components/ColorPicker */ "./resources/js/shared/components/ColorPicker.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -32644,10 +32645,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    ColorPicker: _shared_components_ColorPicker__WEBPACK_IMPORTED_MODULE_4__.default
+  },
   data: function data() {
     return {
-      note: {},
+      note: {
+        title: '',
+        text: '',
+        color: ''
+      },
       errors: {
         title: [],
         text: [],
@@ -32728,7 +32737,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context2.next = 7;
                 return _services_NoteService__WEBPACK_IMPORTED_MODULE_1__.update(_this2.note.id, {
                   title: _this2.note.title,
-                  text: _this2.note.text
+                  text: _this2.note.text,
+                  color: _this2.note.color
                 });
 
               case 7:
@@ -32844,21 +32854,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  emits: ['colorChange'],
+  emits: ['update:modelValue'],
+  props: {
+    modelValue: String,
+    selectDefaultColor: {
+      type: Boolean,
+      "default": true
+    }
+  },
   data: function data() {
     return {
-      colors: ['bg-gray-600', 'bg-red-500', 'bg-yellow-300', 'bg-green-500', 'bg-blue-500', 'bg-indigo-500', 'bg-purple-500', 'bg-pink-400'],
-      currentColor: ''
+      colors: ['bg-gray-600', 'bg-red-500', 'bg-yellow-300', 'bg-green-500', 'bg-blue-500', 'bg-indigo-500', 'bg-purple-500', 'bg-pink-400']
     };
   },
   created: function created() {
-    this.changeColor(this.colors[0]);
-  },
-  methods: {
-    changeColor: function changeColor(color) {
-      this.currentColor = color;
-      this.$emit('colorChange', color);
-    }
+    if (this.selectDefaultColor) this.$emit('update:modelValue', this.colors[0]);
   }
 });
 
@@ -55672,12 +55682,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _ColorPicker_vue_vue_type_template_id_77c1e2d8_bindings_colors_data_currentColor_data_changeColor_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ColorPicker.vue?vue&type=template&id=77c1e2d8&bindings={"colors":"data","currentColor":"data","changeColor":"options"} */ "./resources/js/shared/components/ColorPicker.vue?vue&type=template&id=77c1e2d8&bindings={\"colors\":\"data\",\"currentColor\":\"data\",\"changeColor\":\"options\"}");
+/* harmony import */ var _ColorPicker_vue_vue_type_template_id_77c1e2d8_bindings_modelValue_props_selectDefaultColor_props_colors_data___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ColorPicker.vue?vue&type=template&id=77c1e2d8&bindings={"modelValue":"props","selectDefaultColor":"props","colors":"data"} */ "./resources/js/shared/components/ColorPicker.vue?vue&type=template&id=77c1e2d8&bindings={\"modelValue\":\"props\",\"selectDefaultColor\":\"props\",\"colors\":\"data\"}");
 /* harmony import */ var _ColorPicker_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ColorPicker.vue?vue&type=script&lang=js */ "./resources/js/shared/components/ColorPicker.vue?vue&type=script&lang=js");
 
 
 
-_ColorPicker_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _ColorPicker_vue_vue_type_template_id_77c1e2d8_bindings_colors_data_currentColor_data_changeColor_options___WEBPACK_IMPORTED_MODULE_0__.render
+_ColorPicker_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _ColorPicker_vue_vue_type_template_id_77c1e2d8_bindings_modelValue_props_selectDefaultColor_props_colors_data___WEBPACK_IMPORTED_MODULE_0__.render
 /* hot reload */
 if (false) {}
 
@@ -56429,12 +56439,12 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/shared/components/ColorPicker.vue?vue&type=template&id=77c1e2d8&bindings={\"colors\":\"data\",\"currentColor\":\"data\",\"changeColor\":\"options\"}":
-/*!***************************************************************************************************************************************************************!*\
-  !*** ./resources/js/shared/components/ColorPicker.vue?vue&type=template&id=77c1e2d8&bindings={"colors":"data","currentColor":"data","changeColor":"options"} ***!
-  \***************************************************************************************************************************************************************/
+/***/ "./resources/js/shared/components/ColorPicker.vue?vue&type=template&id=77c1e2d8&bindings={\"modelValue\":\"props\",\"selectDefaultColor\":\"props\",\"colors\":\"data\"}":
+/*!*******************************************************************************************************************************************************************!*\
+  !*** ./resources/js/shared/components/ColorPicker.vue?vue&type=template&id=77c1e2d8&bindings={"modelValue":"props","selectDefaultColor":"props","colors":"data"} ***!
+  \*******************************************************************************************************************************************************************/
 /*! namespace exports */
-/*! export render [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/shared/components/ColorPicker.vue?vue&type=template&id=77c1e2d8&bindings={"colors":"data","currentColor":"data","changeColor":"options"} .render */
+/*! export render [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/shared/components/ColorPicker.vue?vue&type=template&id=77c1e2d8&bindings={"modelValue":"props","selectDefaultColor":"props","colors":"data"} .render */
 /*! other exports [not provided] [no usage info] */
 /*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.d, __webpack_require__.r, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
@@ -56442,9 +56452,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ColorPicker_vue_vue_type_template_id_77c1e2d8_bindings_colors_data_currentColor_data_changeColor_options___WEBPACK_IMPORTED_MODULE_0__.render
+/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ColorPicker_vue_vue_type_template_id_77c1e2d8_bindings_modelValue_props_selectDefaultColor_props_colors_data___WEBPACK_IMPORTED_MODULE_0__.render
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ColorPicker_vue_vue_type_template_id_77c1e2d8_bindings_colors_data_currentColor_data_changeColor_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ColorPicker.vue?vue&type=template&id=77c1e2d8&bindings={"colors":"data","currentColor":"data","changeColor":"options"} */ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/shared/components/ColorPicker.vue?vue&type=template&id=77c1e2d8&bindings={\"colors\":\"data\",\"currentColor\":\"data\",\"changeColor\":\"options\"}");
+/* harmony import */ var _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ColorPicker_vue_vue_type_template_id_77c1e2d8_bindings_modelValue_props_selectDefaultColor_props_colors_data___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ColorPicker.vue?vue&type=template&id=77c1e2d8&bindings={"modelValue":"props","selectDefaultColor":"props","colors":"data"} */ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/shared/components/ColorPicker.vue?vue&type=template&id=77c1e2d8&bindings={\"modelValue\":\"props\",\"selectDefaultColor\":\"props\",\"colors\":\"data\"}");
 
 
 /***/ }),
@@ -57267,8 +57277,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ColorPicker, {
         id: "note-color",
         class: "my-2",
-        onColorChange: _cache[3] || (_cache[3] = $event => ($data.formData.color = $event))
-      })
+        modelValue: $data.formData.color,
+        "onUpdate:modelValue": _cache[3] || (_cache[3] = $event => ($data.formData.color = $event))
+      }, null, 8 /* PROPS */, ["modelValue"])
     ]),
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormErrors, {
       class: "mt-8 text-center",
@@ -57333,13 +57344,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           key: note.id
         }, [
           (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-            class: "p-4 bg-gray-600 rounded-lg cursor-pointer hover:shadow-md focus:shadow-md",
+            class: ["p-4 rounded-lg cursor-pointer hover:shadow-md focus:shadow-md", [note.color]],
             onClick: $event => ($options.showNote(note))
           }, [
             (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h3", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(note.title), 1 /* TEXT */),
             (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.ellipsis(note.text)), 1 /* TEXT */),
             (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.formatDate(note.created_at)), 1 /* TEXT */)
-          ], 8 /* PROPS */, ["onClick"])
+          ], 10 /* CLASS, PROPS */, ["onClick"])
         ]))
       }), 128 /* KEYED_FRAGMENT */))
     ]),
@@ -57380,18 +57391,21 @@ const _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)
 const _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Title")
 const _hoisted_4 = { class: "mt-4" }
 const _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Text")
-const _hoisted_6 = { class: "mt-4 flex justify-between text-lg font-medium text-gray-700" }
-const _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "Created at:", -1 /* HOISTED */)
-const _hoisted_8 = { class: "mt-2 flex justify-between text-lg font-medium text-gray-700" }
-const _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "Updated at:", -1 /* HOISTED */)
-const _hoisted_10 = { class: "flex justify-between mt-8" }
-const _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Delete")
-const _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Save")
+const _hoisted_6 = { class: "mt-4" }
+const _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Note color")
+const _hoisted_8 = { class: "mt-4 flex justify-between text-lg font-medium text-gray-700" }
+const _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "Created at:", -1 /* HOISTED */)
+const _hoisted_10 = { class: "mt-2 flex justify-between text-lg font-medium text-gray-700" }
+const _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "Updated at:", -1 /* HOISTED */)
+const _hoisted_12 = { class: "flex justify-between mt-8" }
+const _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Delete")
+const _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Save")
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_FormLabel = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("FormLabel")
   const _component_FormInput = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("FormInput")
   const _component_FormArea = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("FormArea")
+  const _component_ColorPicker = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("ColorPicker")
   const _component_FormErrors = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("FormErrors")
   const _component_FormButton = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("FormButton")
 
@@ -57430,25 +57444,40 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, null, 8 /* PROPS */, ["modelValue", "errors"])
     ]),
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [
-      _hoisted_7,
-      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.formatDate($data.note.created_at)), 1 /* TEXT */)
+      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormLabel, { for: "note-color" }, {
+        default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
+          _hoisted_7
+        ]),
+        _: 1
+      }),
+      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ColorPicker, {
+        id: "note-color",
+        class: "my-2",
+        modelValue: $data.note.color,
+        "onUpdate:modelValue": _cache[3] || (_cache[3] = $event => ($data.note.color = $event)),
+        selectDefaultColor: false
+      }, null, 8 /* PROPS */, ["modelValue"])
     ]),
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_8, [
       _hoisted_9,
+      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.formatDate($data.note.created_at)), 1 /* TEXT */)
+    ]),
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_10, [
+      _hoisted_11,
       (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.formatDate($data.note.updated_at)), 1 /* TEXT */)
     ]),
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormErrors, {
       class: "mt-8 text-center",
       errors: $data.errors.others
     }, null, 8 /* PROPS */, ["errors"]),
-    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_10, [
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_12, [
       (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
         class: "py-3 px-5",
         loading: $data.loading || !$data.noteLoaded,
         onSubmit: $options.deleteNote
       }, {
         default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
-          _hoisted_11
+          _hoisted_13
         ]),
         _: 1
       }, 8 /* PROPS */, ["loading", "onSubmit"]),
@@ -57458,7 +57487,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         onSubmit: $options.saveNote
       }, {
         default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
-          _hoisted_12
+          _hoisted_14
         ]),
         _: 1
       }, 8 /* PROPS */, ["loading", "onSubmit"])
@@ -57468,10 +57497,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/shared/components/ColorPicker.vue?vue&type=template&id=77c1e2d8&bindings={\"colors\":\"data\",\"currentColor\":\"data\",\"changeColor\":\"options\"}":
-/*!************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/shared/components/ColorPicker.vue?vue&type=template&id=77c1e2d8&bindings={"colors":"data","currentColor":"data","changeColor":"options"} ***!
-  \************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/shared/components/ColorPicker.vue?vue&type=template&id=77c1e2d8&bindings={\"modelValue\":\"props\",\"selectDefaultColor\":\"props\",\"colors\":\"data\"}":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/shared/components/ColorPicker.vue?vue&type=template&id=77c1e2d8&bindings={"modelValue":"props","selectDefaultColor":"props","colors":"data"} ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! namespace exports */
 /*! export render [provided] [no usage info] [missing usage info prevents renaming] */
 /*! other exports [not provided] [no usage info] */
@@ -57503,9 +57532,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
         key: color,
         class: ["rounded-full w-10 h-10 cursor-pointer", [color]],
-        onClick: $event => ($options.changeColor(color))
+        onClick: $event => (_ctx.$emit('update:modelValue', color))
       }, [
-        (color == $data.currentColor)
+        (color == $props.modelValue)
           ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("img", _hoisted_2))
           : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)
       ], 10 /* CLASS, PROPS */, ["onClick"]))
