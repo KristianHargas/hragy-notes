@@ -34,6 +34,11 @@
 
     <nav class="mt-12">
       <router-link
+        :to="{ name: 'CategoryList' }"
+        class="block uppercase tracking-wide text-xl mb-4 no-select text-center cursor-pointer shadow-sm bg-white rounded py-2 font-semibold text-gray-700 hover:shadow-md focus:shadow-md"
+        >Categories</router-link
+      >
+      <router-link
         :to="{ name: 'NoteList' }"
         class="block uppercase tracking-wide text-xl mb-4 no-select text-center cursor-pointer shadow-sm bg-white rounded py-2 font-semibold text-gray-700 hover:shadow-md focus:shadow-md"
         >Notes</router-link

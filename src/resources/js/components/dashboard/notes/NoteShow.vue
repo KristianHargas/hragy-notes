@@ -65,15 +65,15 @@
 </template>
 
 <script>
-import * as NoteService from '../../services/NoteService'
+import * as NoteService from '../../../services/NoteService'
 import {
   is404,
   is422,
   getValidationErrArr,
   hasValidationErr
-} from '../../shared/utils/response'
-import { formatDate } from '../../shared/utils/util'
-import ColorPicker from '../../shared/components/ColorPicker'
+} from '../../../shared/utils/response'
+import { formatDate } from '../../../shared/utils/util'
+import ColorPicker from '../../../shared/components/ColorPicker'
 
 export default {
   components: {

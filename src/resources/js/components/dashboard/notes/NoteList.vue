@@ -33,7 +33,7 @@
     >
       <img
         class="h-8"
-        src="../../../static/img/note_add-white.svg"
+        src="../../../../static/img/note_add-white.svg"
         alt="Add note icon."
       />
     </router-link>
@@ -41,8 +41,8 @@
 </template>
 
 <script>
-import * as NoteService from '../../services/NoteService'
-import { formatDate, ellipsis } from '../../shared/utils/util'
+import * as NoteService from '../../../services/NoteService'
+import { formatDate, ellipsis } from '../../../shared/utils/util'
 
 export default {
   data() {

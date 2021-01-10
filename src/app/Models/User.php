@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -43,5 +44,10 @@ class User extends Authenticatable
     public function notes()
     {
         return $this->hasMany('App\Models\Note');
+    }
+
+    public function categories()
+    {
+        return $this->hasMany(Category::class);
     }
 }

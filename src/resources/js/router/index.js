@@ -3,9 +3,10 @@ import Home from '../components/Home'
 import Login from '../components/auth/Login'
 import Register from '../components/auth/Register'
 import Dashboard from '../components/dashboard/Dashboard'
-import NoteList from '../components/dashboard/NoteList'
-import NoteCreate from '../components/dashboard/NoteCreate'
-import NoteShow from '../components/dashboard/NoteShow'
+import NoteList from '../components/dashboard/notes/NoteList'
+import NoteCreate from '../components/dashboard/notes/NoteCreate'
+import NoteShow from '../components/dashboard/notes/NoteShow'
+import CategoryList from '../components/dashboard/categories/CategoryList'
 import store from '../store/index'
 
 const routes = [
@@ -56,6 +57,11 @@ const routes = [
         path: 'notes/create',
         component: NoteCreate,
         name: 'NoteCreate'
+      },
+      {
+        path: 'categories',
+        component: CategoryList,
+        name: 'CategoryList'
       }
     ]
   },
