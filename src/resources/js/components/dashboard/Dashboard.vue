@@ -66,7 +66,6 @@ export default {
   },
   methods: {
     async logout() {
-      // logging out
       await this.$store.dispatch('auth/logout')
       this.$router.replace({ name: 'Login' })
     }

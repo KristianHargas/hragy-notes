@@ -32170,15 +32170,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _shared_utils_response__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/utils/response */ "./resources/js/shared/utils/response.js");
+/* harmony import */ var _shared_utils_response__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/utils/response */ "./resources/js/shared/utils/response.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -32225,10 +32222,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context.prev = 8;
                 _context.t0 = _context["catch"](2);
 
-                if ((0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.is422)(_context.t0)) {
-                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.hasValidationErr)(_context.t0, 'email') && (_this.errors.email = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.getValidationErrArr)(_context.t0, 'email'));
-                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.hasValidationErr)(_context.t0, 'password') && (_this.errors.password = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.getValidationErrArr)(_context.t0, 'password'));
-                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.hasValidationErr)(_context.t0, 'auth') && (_this.errors.others = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.getValidationErrArr)(_context.t0, 'auth'));
+                if ((0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_1__.is422)(_context.t0)) {
+                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_1__.hasValidationErr)(_context.t0, 'email') && (_this.errors.email = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_1__.getValidationErrArr)(_context.t0, 'email'));
+                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_1__.hasValidationErr)(_context.t0, 'password') && (_this.errors.password = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_1__.getValidationErrArr)(_context.t0, 'password'));
+                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_1__.hasValidationErr)(_context.t0, 'auth') && (_this.errors.others = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_1__.getValidationErrArr)(_context.t0, 'auth'));
                 } else {
                   _this.errors.others.push('Network or server error, try again later.');
                 }
@@ -32271,15 +32268,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _shared_utils_response__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/utils/response */ "./resources/js/shared/utils/response.js");
+/* harmony import */ var _shared_utils_response__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/utils/response */ "./resources/js/shared/utils/response.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -32329,10 +32323,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context.prev = 8;
                 _context.t0 = _context["catch"](2);
 
-                if ((0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.is422)(_context.t0)) {
-                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.hasValidationErr)(_context.t0, 'name') && (_this.errors.name = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.getValidationErrArr)(_context.t0, 'name'));
-                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.hasValidationErr)(_context.t0, 'email') && (_this.errors.email = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.getValidationErrArr)(_context.t0, 'email'));
-                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.hasValidationErr)(_context.t0, 'password') && (_this.errors.password = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.getValidationErrArr)(_context.t0, 'password'));
+                if ((0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_1__.is422)(_context.t0)) {
+                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_1__.hasValidationErr)(_context.t0, 'name') && (_this.errors.name = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_1__.getValidationErrArr)(_context.t0, 'name'));
+                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_1__.hasValidationErr)(_context.t0, 'email') && (_this.errors.email = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_1__.getValidationErrArr)(_context.t0, 'email'));
+                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_1__.hasValidationErr)(_context.t0, 'password') && (_this.errors.password = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_1__.getValidationErrArr)(_context.t0, 'password'));
                 } else {
                   _this.errors.others.push('Network or server error, try again later.');
                 }
@@ -32453,16 +32447,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _services_NoteService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/NoteService */ "./resources/js/services/NoteService.js");
-/* harmony import */ var _shared_utils_response__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/utils/response */ "./resources/js/shared/utils/response.js");
+/* harmony import */ var _services_NoteService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/NoteService */ "./resources/js/services/NoteService.js");
+/* harmony import */ var _shared_utils_response__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/utils/response */ "./resources/js/shared/utils/response.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
 
 
 
@@ -32497,7 +32488,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _context.prev = 2;
                 _context.next = 5;
-                return _services_NoteService__WEBPACK_IMPORTED_MODULE_2__.store(_this.formData);
+                return _services_NoteService__WEBPACK_IMPORTED_MODULE_1__.store(_this.formData);
 
               case 5:
                 res = _context.sent;
@@ -32513,9 +32504,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context.prev = 9;
                 _context.t0 = _context["catch"](2);
 
-                if ((0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.is422)(_context.t0)) {
-                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.hasValidationErr)(_context.t0, 'title') && (_this.errors.title = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.getValidationErrArr)(_context.t0, 'title'));
-                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.hasValidationErr)(_context.t0, 'text') && (_this.errors.text = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.getValidationErrArr)(_context.t0, 'text'));
+                if ((0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.is422)(_context.t0)) {
+                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.hasValidationErr)(_context.t0, 'title') && (_this.errors.title = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.getValidationErrArr)(_context.t0, 'title'));
+                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.hasValidationErr)(_context.t0, 'text') && (_this.errors.text = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.getValidationErrArr)(_context.t0, 'text'));
                 } else {
                   _this.errors.others.push('Network or server error, try again later.');
                 }
@@ -32558,9 +32549,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _services_NoteService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/NoteService */ "./resources/js/services/NoteService.js");
+/* harmony import */ var _services_NoteService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/NoteService */ "./resources/js/services/NoteService.js");
+/* harmony import */ var _shared_utils_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/utils/util */ "./resources/js/shared/utils/util.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -32585,7 +32575,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return _services_NoteService__WEBPACK_IMPORTED_MODULE_2__.index();
+              return _services_NoteService__WEBPACK_IMPORTED_MODULE_1__.index();
 
             case 2:
               res = _context.sent;
@@ -32609,15 +32599,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       });
     },
     formatDate: function formatDate(dateString) {
-      var date = new Date(dateString);
-      return date.toLocaleString('en-US');
+      return (0,_shared_utils_util__WEBPACK_IMPORTED_MODULE_2__.formatDate)(dateString);
     },
     ellipsis: function ellipsis(text) {
-      if (!!text && text.length > 100) {
-        return "".concat(text.slice(0, 100), "...");
-      } else {
-        return text;
-      }
+      return (0,_shared_utils_util__WEBPACK_IMPORTED_MODULE_2__.ellipsis)(text, 100);
     }
   }
 });
@@ -32641,10 +32626,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _services_NoteService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/NoteService */ "./resources/js/services/NoteService.js");
-/* harmony import */ var _shared_utils_response__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/utils/response */ "./resources/js/shared/utils/response.js");
+/* harmony import */ var _services_NoteService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/NoteService */ "./resources/js/services/NoteService.js");
+/* harmony import */ var _shared_utils_response__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/utils/response */ "./resources/js/shared/utils/response.js");
+/* harmony import */ var _shared_utils_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/utils/util */ "./resources/js/shared/utils/util.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -32682,7 +32666,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               _context.prev = 2;
               _context.next = 5;
-              return _services_NoteService__WEBPACK_IMPORTED_MODULE_2__.show(_this.$route.params.id);
+              return _services_NoteService__WEBPACK_IMPORTED_MODULE_1__.show(_this.$route.params.id);
 
             case 5:
               res = _context.sent;
@@ -32695,7 +32679,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               _context.prev = 10;
               _context.t0 = _context["catch"](2);
 
-              if ((0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.is404)(_context.t0)) {
+              if ((0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.is404)(_context.t0)) {
                 _this.errors.others.push('Note not found.');
               } else {
                 _this.errors.others.push('Network or server error, try again later.');
@@ -32736,7 +32720,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _context2.prev = 4;
                 _context2.next = 7;
-                return _services_NoteService__WEBPACK_IMPORTED_MODULE_2__.update(_this2.note.id, {
+                return _services_NoteService__WEBPACK_IMPORTED_MODULE_1__.update(_this2.note.id, {
                   title: _this2.note.title,
                   text: _this2.note.text
                 });
@@ -32755,9 +32739,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context2.prev = 11;
                 _context2.t0 = _context2["catch"](4);
 
-                if ((0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.is422)(_context2.t0)) {
-                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.hasValidationErr)(_context2.t0, 'title') && (_this2.errors.title = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.getValidationErrArr)(_context2.t0, 'title'));
-                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.hasValidationErr)(_context2.t0, 'text') && (_this2.errors.text = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.getValidationErrArr)(_context2.t0, 'text'));
+                if ((0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.is422)(_context2.t0)) {
+                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.hasValidationErr)(_context2.t0, 'title') && (_this2.errors.title = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.getValidationErrArr)(_context2.t0, 'title'));
+                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.hasValidationErr)(_context2.t0, 'text') && (_this2.errors.text = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.getValidationErrArr)(_context2.t0, 'text'));
                 } else {
                   _this2.errors.others.push('Network or server error, try again later.');
                 }
@@ -32796,7 +32780,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _context3.prev = 4;
                 _context3.next = 7;
-                return _services_NoteService__WEBPACK_IMPORTED_MODULE_2__.destroy(_this3.note.id);
+                return _services_NoteService__WEBPACK_IMPORTED_MODULE_1__.destroy(_this3.note.id);
 
               case 7:
                 res = _context3.sent;
@@ -32831,8 +32815,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.errors.others = [];
     },
     formatDate: function formatDate(dateString) {
-      var date = new Date(dateString);
-      return date.toLocaleString('en-US');
+      return (0,_shared_utils_util__WEBPACK_IMPORTED_MODULE_3__.formatDate)(dateString);
     }
   }
 });
@@ -33541,6 +33524,41 @@ var isErrWithResAndStatus = function isErrWithResAndStatus(err) {
 };
 var isErrWithCode = function isErrWithCode(err, code) {
   return isErrWithResAndStatus(err) && err.response.status === code;
+};
+
+/***/ }),
+
+/***/ "./resources/js/shared/utils/util.js":
+/*!*******************************************!*\
+  !*** ./resources/js/shared/utils/util.js ***!
+  \*******************************************/
+/*! namespace exports */
+/*! export ellipsis [provided] [no usage info] [missing usage info prevents renaming] */
+/*! export formatDate [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "formatDate": () => /* binding */ formatDate,
+/* harmony export */   "ellipsis": () => /* binding */ ellipsis
+/* harmony export */ });
+var formatDate = function formatDate(dateString) {
+  var date = new Date(dateString);
+  return date.toLocaleString('en-US', {
+    hour12: false,
+    dateStyle: 'medium',
+    timeStyle: 'short'
+  });
+};
+var ellipsis = function ellipsis(text, max) {
+  if (!!text && text.length > max) {
+    return "".concat(text.slice(0, max), "...");
+  } else {
+    return text;
+  }
 };
 
 /***/ }),

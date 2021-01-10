@@ -40,8 +40,8 @@
 </template>
 
 <script>
-import axios from 'axios'
 import * as NoteService from '../../services/NoteService'
+import { formatDate, ellipsis } from '../../shared/utils/util'
 
 export default {
   data() {
@@ -63,15 +63,10 @@ export default {
       })
     },
     formatDate(dateString) {
-      const date = new Date(dateString)
-      return date.toLocaleString('en-US')
+      return formatDate(dateString)
     },
     ellipsis(text) {
-      if (!!text && text.length > 100) {
-        return `${text.slice(0, 100)}...`
-      } else {
-        return text
-      }
+      return ellipsis(text, 100)
     }
   }
 }

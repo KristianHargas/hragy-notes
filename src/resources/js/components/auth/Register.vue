@@ -86,7 +86,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import {
   is422,
   getValidationErrArr,

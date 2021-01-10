@@ -56,7 +56,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import * as NoteService from '../../services/NoteService'
 import {
   is404,
@@ -64,6 +63,7 @@ import {
   getValidationErrArr,
   hasValidationErr
 } from '../../shared/utils/response'
+import { formatDate } from '../../shared/utils/util'
 
 export default {
   data() {
@@ -143,8 +143,7 @@ export default {
       this.errors.others = []
     },
     formatDate(dateString) {
-      const date = new Date(dateString)
-      return date.toLocaleString('en-US')
+      return formatDate(dateString)
     }
   }
 }

@@ -40,7 +40,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import * as NoteService from '../../services/NoteService'
 import {
   is422,
