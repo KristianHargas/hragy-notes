@@ -5,11 +5,13 @@
     >
       Your categories
     </h1>
-    <ul class="space-y-4">
+    <ul class="space-y-5">
       <CategoryShowRow
         v-for="category in categories"
         :key="category.id"
         :category="category"
+        @categoryUpdate="categoryUpdated"
+        @categoryRemoval="categoryRemoved"
       />
     </ul>
   </div>
@@ -31,6 +33,18 @@ export default {
   async mounted() {
     const res = await CategoryService.index()
     this.categories = res.data
+  },
+  methods: {
+    categoryUpdated(updatedCategory) {
+      this.categories = this.categories.map((category) =>
+        category.id == updatedCategory.id ? updatedCategory : category
+      )
+    },
+    categoryRemoved(removedCategory) {
+      this.categories = this.categories.filter(
+        (category) => category.id != removedCategory.id
+      )
+    }
   }
 }
 </script>
