@@ -57716,7 +57716,7 @@ const _hoisted_1 = { class: "toolbar flex items-center shadow-lg bg-gray-100 px-
 const _hoisted_2 = { class: "mt-12" }
 const _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Categories")
 const _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Notes")
-const _hoisted_5 = { class: "top-margin lg:ml-72 p-4 bg-gray-100 main-fill" }
+const _hoisted_5 = { class: "top-margin lg:ml-72 py-4 px-4 md:px-8 bg-gray-100 main-fill" }
 ;(0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)()
 
 const render = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -58100,17 +58100,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [
       ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.notes, (note) => {
         return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
-          key: note.id
+          key: note.id,
+          class: ["p-4 no-select rounded-lg cursor-pointer hover:shadow-md focus:shadow-md", [note.color]],
+          onClick: $event => ($options.showNote(note))
         }, [
-          (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-            class: ["p-4 rounded-lg cursor-pointer hover:shadow-md focus:shadow-md", [note.color]],
-            onClick: $event => ($options.showNote(note))
-          }, [
-            (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h3", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(note.title), 1 /* TEXT */),
-            (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.ellipsis(note.text)), 1 /* TEXT */),
-            (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.formatDate(note.created_at)), 1 /* TEXT */)
-          ], 10 /* CLASS, PROPS */, ["onClick"])
-        ]))
+          (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h3", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(note.title), 1 /* TEXT */),
+          (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.ellipsis(note.text)), 1 /* TEXT */),
+          (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.formatDate(note.created_at)), 1 /* TEXT */)
+        ], 10 /* CLASS, PROPS */, ["onClick"]))
       }), 128 /* KEYED_FRAGMENT */))
     ]),
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {

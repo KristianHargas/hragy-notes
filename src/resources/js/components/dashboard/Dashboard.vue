@@ -47,7 +47,7 @@
   </aside>
 
   <!-- Main content -->
-  <main class="top-margin lg:ml-72 p-4 bg-gray-100 main-fill">
+  <main class="top-margin lg:ml-72 py-4 px-4 md:px-8 bg-gray-100 main-fill">
     <router-view></router-view>
   </main>
 </template>
