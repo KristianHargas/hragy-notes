@@ -1,26 +1,24 @@
 <template>
   <div class="flex flex-row items-start flex-wrap">
-    <div class="w-full mb-2 sm:w-0 sm:flex-grow sm:max-w-lg">
+    <div class="w-full mb-2 sm:mb-0 sm:w-0 sm:flex-grow sm:max-w-lg">
       <FormInput
         v-model="title"
         type="text"
+        class="h-13"
         :disabled="loading"
         :errors="errors"
         :successMessages="successMessages"
       />
     </div>
-    <FormButton
-      class="py-2 px-2 sm:ml-2"
-      :loading="loading"
-      @submit="updateCategory"
+    <FormButton class="sm:ml-3 h-13" :loading="loading" @submit="updateCategory"
       >Save</FormButton
     >
     <FormButton
-      class="py-2 px-2 ml-2"
+      class="ml-3 h-13"
       normalBgClass="bg-gray-700"
       :loading="loading"
       @submit="removeCategory"
-      >Delete</FormButton
+      >Remove</FormButton
     >
   </div>
 </template>
@@ -77,7 +75,7 @@ export default {
       // TODO: Implement CategoryController.destroy method and use API call.
 
       const confirmed = confirm(
-        `Are you sure you want to delete category ${this.category.title}?`
+        `Are you sure you want to remove category ${this.category.title}?`
       )
 
       if (confirmed) {

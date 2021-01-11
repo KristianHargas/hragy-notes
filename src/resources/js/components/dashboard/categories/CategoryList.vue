@@ -14,16 +14,20 @@
         @categoryRemoval="categoryRemoved"
       />
     </ul>
+    <div class="my-8 border-t-2 border-gray-300 w-full md:max-w-lg"></div>
+    <CategoryCreateRow @categoryCreation="categoryCreated" />
   </div>
 </template>
 
 <script>
 import * as CategoryService from '../../../services/CategoryService'
 import CategoryShowRow from './CategoryShowRow'
+import CategoryCreateRow from './CategoryCreateRow'
 
 export default {
   components: {
-    CategoryShowRow
+    CategoryShowRow,
+    CategoryCreateRow
   },
   data() {
     return {
@@ -44,6 +48,9 @@ export default {
       this.categories = this.categories.filter(
         (category) => category.id != removedCategory.id
       )
+    },
+    categoryCreated(createdCategory) {
+      this.categories.push(createdCategory)
     }
   }
 }

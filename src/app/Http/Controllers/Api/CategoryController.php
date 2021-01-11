@@ -50,9 +50,15 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
-        //
+        $category = $request->user()->categories()->where('id', $id)->first();
+
+        if ($category === null) {
+            return response()->json([], 404);
+        }
+
+        return response()->json($category, 200);
     }
 
     /**
