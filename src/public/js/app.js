@@ -57868,16 +57868,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", { class: "mb-8 text-gray-800 font-semibold text-2xl uppercase tracking-wide" }, " Your categories ", -1 /* HOISTED */)
-const _hoisted_2 = { class: "space-y-6" }
-const _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", { class: "my-8 border-t-2 border-gray-300 w-full md:max-w-lg" }, null, -1 /* HOISTED */)
+const _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", { class: "mt-6 mb-8 border-t-2 border-gray-300 w-full md:max-w-lg" }, null, -1 /* HOISTED */)
+const _hoisted_3 = { class: "space-y-6" }
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_CategoryShowRow = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("CategoryShowRow")
   const _component_CategoryCreateRow = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("CategoryCreateRow")
+  const _component_CategoryShowRow = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("CategoryShowRow")
 
   return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", null, [
     _hoisted_1,
-    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", _hoisted_2, [
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_CategoryCreateRow, { onCategoryCreation: $options.categoryCreated }, null, 8 /* PROPS */, ["onCategoryCreation"]),
+    _hoisted_2,
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", _hoisted_3, [
       ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.categories, (category) => {
         return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_CategoryShowRow, {
           key: category.id,
@@ -57886,9 +57888,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           onCategoryRemoval: $options.categoryRemoved
         }, null, 8 /* PROPS */, ["category", "onCategoryUpdate", "onCategoryRemoval"]))
       }), 128 /* KEYED_FRAGMENT */))
-    ]),
-    _hoisted_3,
-    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_CategoryCreateRow, { onCategoryCreation: $options.categoryCreated }, null, 8 /* PROPS */, ["onCategoryCreation"])
+    ])
   ]))
 }
 

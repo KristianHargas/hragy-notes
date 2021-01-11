@@ -5,6 +5,10 @@
     >
       Your categories
     </h1>
+    <CategoryCreateRow @categoryCreation="categoryCreated" />
+
+    <div class="mt-6 mb-8 border-t-2 border-gray-300 w-full md:max-w-lg"></div>
+
     <ul class="space-y-6">
       <CategoryShowRow
         v-for="category in categories"
@@ -14,8 +18,6 @@
         @categoryRemoval="categoryRemoved"
       />
     </ul>
-    <div class="my-8 border-t-2 border-gray-300 w-full md:max-w-lg"></div>
-    <CategoryCreateRow @categoryCreation="categoryCreated" />
   </div>
 </template>
 
