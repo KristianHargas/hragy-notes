@@ -1,5 +1,5 @@
 <template>
-  <form class="max-w-xl mx-auto">
+  <form class="max-w-xl">
     <h1
       class="mb-8 text-gray-800 font-semibold text-2xl uppercase tracking-wide"
     >
@@ -49,15 +49,12 @@
 
     <div class="flex justify-between mt-8">
       <FormButton
-        class="py-3 px-5"
         :loading="loading || !noteLoaded"
         @submit="deleteNote"
-        >Delete</FormButton
+        normalBgClass="bg-gray-600"
+        >Remove</FormButton
       >
-      <FormButton
-        class="py-3 px-5"
-        :loading="loading || !noteLoaded"
-        @submit="saveNote"
+      <FormButton :loading="loading || !noteLoaded" @submit="saveNote"
         >Save</FormButton
       >
     </div>
@@ -143,6 +140,10 @@ export default {
     async deleteNote() {
       if (!this.noteLoaded) return
 
+      const confirmed = confirm('Are you sure you want to remove this note?')
+
+      if (!confirmed) return
+
       this.loading = true
       this.resetErrors()
 
@@ -150,7 +151,7 @@ export default {
         const res = await NoteService.destroy(this.note.id)
         this.$router.replace({ name: 'NoteList' })
       } catch (err) {
-        this.errors.others.push('Network or server error, try again later.')
+        this.errors.others.push('Network or server error, try again later!')
       }
 
       this.loading = false

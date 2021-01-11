@@ -4,7 +4,6 @@
       <FormInput
         v-model="title"
         type="text"
-        class="h-13"
         :disabled="loading"
         :errors="errors"
         :successMessages="successMessages"
@@ -14,8 +13,8 @@
       >Save</FormButton
     >
     <FormButton
-      class="ml-3 h-13"
-      normalBgClass="bg-gray-700"
+      class="ml-3"
+      normalBgClass="bg-gray-600"
       :loading="loading"
       @submit="removeCategory"
       >Remove</FormButton

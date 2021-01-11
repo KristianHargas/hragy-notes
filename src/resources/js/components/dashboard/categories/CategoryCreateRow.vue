@@ -1,21 +1,18 @@
 <template>
   <div>
-    <FormLabel for="new-category" class="flex-grow"
-      >Create new category</FormLabel
-    >
+    <FormLabel for="new-category">Create new category</FormLabel>
     <div class="flex flex-row items-start flex-wrap">
       <div class="w-0 flex-grow max-w-lg">
         <FormInput
           id="new-category"
           v-model="title"
           type="text"
-          class="h-12"
           :disabled="loading"
           :errors="errors"
           :successMessages="successMessages"
         />
       </div>
-      <FormButton class="ml-3 h-12" :loading="loading" @submit="createCategory"
+      <FormButton class="ml-3" :loading="loading" @submit="createCategory"
         >Create</FormButton
       >
     </div>

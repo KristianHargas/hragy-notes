@@ -1,5 +1,5 @@
 <template>
-  <form class="max-w-xl mx-auto">
+  <form class="max-w-xl">
     <h1
       class="mb-8 text-gray-800 font-semibold text-2xl uppercase tracking-wide"
     >
@@ -35,10 +35,7 @@
 
     <FormErrors class="mt-8 text-center" :errors="errors.others"></FormErrors>
 
-    <FormButton
-      class="py-3 px-5 mt-8 ml-auto"
-      :loading="loading"
-      @submit="createNote"
+    <FormButton class="mt-8 ml-auto" :loading="loading" @submit="createNote"
       >Create</FormButton
     >
   </form>

@@ -5,7 +5,7 @@
     >
       Your categories
     </h1>
-    <ul class="space-y-5">
+    <ul class="space-y-6">
       <CategoryShowRow
         v-for="category in categories"
         :key="category.id"

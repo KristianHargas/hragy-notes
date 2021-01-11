@@ -64,7 +64,7 @@
         ></FormErrors>
 
         <FormButton
-          class="w-full sm:max-w-xs sm:mx-auto mt-8 py-3"
+          class="w-full sm:max-w-xs sm:mx-auto mt-8"
           :loading="loading"
           @submit="register"
           >Register</FormButton

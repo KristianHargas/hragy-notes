@@ -1,6 +1,6 @@
 <template>
   <button
-    class="block no-select text-lg text-gray-100 px-3 rounded uppercase tracking-wider font-semibold"
+    class="block no-select text-lg text-gray-100 px-3 h-13 rounded uppercase tracking-wider font-semibold"
     :class="[loading ? loadingBgClass : `${normalBgClass} hover:shadow-lg`]"
     :disabled="loading"
     @click.prevent="$emit('submit')"

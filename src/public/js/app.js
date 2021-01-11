@@ -33083,7 +33083,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this3 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
-        var res;
+        var confirmed, res;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
@@ -33096,39 +33096,49 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _context3.abrupt("return");
 
               case 2:
+                confirmed = confirm('Are you sure you want to remove this note?');
+
+                if (confirmed) {
+                  _context3.next = 5;
+                  break;
+                }
+
+                return _context3.abrupt("return");
+
+              case 5:
                 _this3.loading = true;
 
                 _this3.resetErrors();
 
-                _context3.prev = 4;
-                _context3.next = 7;
+                _context3.prev = 7;
+                _context3.next = 10;
                 return _services_NoteService__WEBPACK_IMPORTED_MODULE_1__.destroy(_this3.note.id);
 
-              case 7:
+              case 10:
                 res = _context3.sent;
 
                 _this3.$router.replace({
                   name: 'NoteList'
                 });
 
-                _context3.next = 14;
+                _context3.next = 17;
                 break;
 
-              case 11:
-                _context3.prev = 11;
-                _context3.t0 = _context3["catch"](4);
-
-                _this3.errors.others.push('Network or server error, try again later.');
-
               case 14:
+                _context3.prev = 14;
+                _context3.t0 = _context3["catch"](7);
+
+                _this3.errors.others.push('Network or server error, try again later!');
+
+              case 17:
                 _this3.loading = false;
 
-              case 15:
+              case 18:
               case "end":
                 return _context3.stop();
             }
           }
-        }, _callee3, null, [[4, 11]]);
+        }, _callee3, null, [[7, 14]]);
       }))();
     },
     resetErrors: function resetErrors() {
@@ -57504,7 +57514,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           class: "mt-8 text-center"
         }, null, 8 /* PROPS */, ["errors"]),
         (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
-          class: "w-full sm:max-w-xs sm:mx-auto mt-8 py-3",
+          class: "w-full sm:max-w-xs sm:mx-auto mt-8",
           loading: $data.loading,
           onSubmit: $options.login
         }, {
@@ -57652,7 +57662,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           class: "mt-8 text-center"
         }, null, 8 /* PROPS */, ["errors"]),
         (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
-          class: "w-full sm:max-w-xs sm:mx-auto mt-8 py-3",
+          class: "w-full sm:max-w-xs sm:mx-auto mt-8",
           loading: $data.loading,
           onSubmit: $options.register
         }, {
@@ -57805,10 +57815,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_FormButton = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("FormButton")
 
   return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", null, [
-    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormLabel, {
-      for: "new-category",
-      class: "flex-grow"
-    }, {
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormLabel, { for: "new-category" }, {
       default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
         _hoisted_1
       ]),
@@ -57821,14 +57828,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           modelValue: $data.title,
           "onUpdate:modelValue": _cache[1] || (_cache[1] = $event => ($data.title = $event)),
           type: "text",
-          class: "h-12",
           disabled: $data.loading,
           errors: $data.errors,
           successMessages: $data.successMessages
         }, null, 8 /* PROPS */, ["modelValue", "disabled", "errors", "successMessages"])
       ]),
       (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
-        class: "ml-3 h-12",
+        class: "ml-3",
         loading: $data.loading,
         onSubmit: $options.createCategory
       }, {
@@ -57862,7 +57868,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", { class: "mb-8 text-gray-800 font-semibold text-2xl uppercase tracking-wide" }, " Your categories ", -1 /* HOISTED */)
-const _hoisted_2 = { class: "space-y-5" }
+const _hoisted_2 = { class: "space-y-6" }
 const _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", { class: "my-8 border-t-2 border-gray-300 w-full md:max-w-lg" }, null, -1 /* HOISTED */)
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -57921,7 +57927,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         modelValue: $data.title,
         "onUpdate:modelValue": _cache[1] || (_cache[1] = $event => ($data.title = $event)),
         type: "text",
-        class: "h-13",
         disabled: $data.loading,
         errors: $data.errors,
         successMessages: $data.successMessages
@@ -57938,8 +57943,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       _: 1
     }, 8 /* PROPS */, ["loading", "onSubmit"]),
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
-      class: "ml-3 h-13",
-      normalBgClass: "bg-gray-700",
+      class: "ml-3",
+      normalBgClass: "bg-gray-600",
       loading: $data.loading,
       onSubmit: $options.removeCategory
     }, {
@@ -57971,7 +57976,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 
-const _hoisted_1 = { class: "max-w-xl mx-auto" }
+const _hoisted_1 = { class: "max-w-xl" }
 const _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", { class: "mb-8 text-gray-800 font-semibold text-2xl uppercase tracking-wide" }, " Create new note ", -1 /* HOISTED */)
 const _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Title")
 const _hoisted_4 = { class: "mt-4" }
@@ -58040,7 +58045,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       errors: $data.errors.others
     }, null, 8 /* PROPS */, ["errors"]),
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
-      class: "py-3 px-5 mt-8 ml-auto",
+      class: "mt-8 ml-auto",
       loading: $data.loading,
       onSubmit: $options.createNote
     }, {
@@ -58140,7 +58145,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 
-const _hoisted_1 = { class: "max-w-xl mx-auto" }
+const _hoisted_1 = { class: "max-w-xl" }
 const _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", { class: "mb-8 text-gray-800 font-semibold text-2xl uppercase tracking-wide" }, " Edit note ", -1 /* HOISTED */)
 const _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Title")
 const _hoisted_4 = { class: "mt-4" }
@@ -58152,7 +58157,7 @@ const _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)
 const _hoisted_10 = { class: "mt-2 flex justify-between text-base font-medium text-gray-700" }
 const _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "Updated at:", -1 /* HOISTED */)
 const _hoisted_12 = { class: "flex justify-between mt-8" }
-const _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Delete")
+const _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Remove")
 const _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Save")
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -58225,9 +58230,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }, null, 8 /* PROPS */, ["errors"]),
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_12, [
       (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
-        class: "py-3 px-5",
         loading: $data.loading || !$data.noteLoaded,
-        onSubmit: $options.deleteNote
+        onSubmit: $options.deleteNote,
+        normalBgClass: "bg-gray-600"
       }, {
         default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
           _hoisted_13
@@ -58235,7 +58240,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         _: 1
       }, 8 /* PROPS */, ["loading", "onSubmit"]),
       (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
-        class: "py-3 px-5",
         loading: $data.loading || !$data.noteLoaded,
         onSubmit: $options.saveNote
       }, {
@@ -58365,7 +58369,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("button", {
-    class: ["block no-select text-lg text-gray-100 px-3 rounded uppercase tracking-wider font-semibold", [$props.loading ? $props.loadingBgClass : `${$props.normalBgClass} hover:shadow-lg`]],
+    class: ["block no-select text-lg text-gray-100 px-3 h-13 rounded uppercase tracking-wider font-semibold", [$props.loading ? $props.loadingBgClass : `${$props.normalBgClass} hover:shadow-lg`]],
     disabled: $props.loading,
     onClick: _cache[1] || (_cache[1] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)($event => (_ctx.$emit('submit')), ["prevent"]))
   }, [
@@ -58448,7 +58452,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       class: [{
       'bg-red-100 border-red-700': $props.errors.length,
       'bg-white border-gray-400': !$props.errors.length
-    }, "block w-full text-gray-800 text-lg border-2 px-3 rounded focus:outline-none focus:border-gray-700 focus:bg-white"]
+    }, "block w-full text-gray-800 text-lg border-2 px-3 h-13 rounded focus:outline-none focus:border-gray-700 focus:bg-white"]
     }), null, 16 /* FULL_PROPS */, ["value"]),
     ($props.errors.length)
       ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [
