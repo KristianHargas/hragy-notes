@@ -34,11 +34,10 @@ export default {
       notes: []
     }
   },
-  async mounted() {
-    // TODO: Show loading state and handle errors.
-    const res = await NoteService.index()
-    this.notes = res.data
-  },
+  // async mounted() {
+  //   const res = await NoteService.index()
+  //   this.notes = res.data
+  // },
   methods: {
     showNote(note) {
       this.$router.push({

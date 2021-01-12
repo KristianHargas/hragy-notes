@@ -1,5 +1,5 @@
-import * as LocalAuth from '../local/LocalAuth'
-import * as AuthService from '../services/AuthService'
+import * as LocalAuth from '../../local/LocalAuth'
+import * as AuthService from '../../services/AuthService'
 
 export default {
   namespaced: true,
