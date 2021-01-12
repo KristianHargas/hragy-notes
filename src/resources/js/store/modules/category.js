@@ -14,7 +14,7 @@ export default {
   },
 
   actions: {
-    async fetch({ commit }) {
+    async index({ commit }) {
       const { data } = await CategoryService.index()
       commit('SET_CATEGORIES', data)
     }

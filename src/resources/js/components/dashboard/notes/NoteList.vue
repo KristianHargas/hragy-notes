@@ -29,15 +29,11 @@ export default {
     DashboardTitle,
     NoteListItem
   },
-  data() {
-    return {
-      notes: []
+  computed: {
+    notes() {
+      return this.$store.state.note.notes
     }
   },
-  // async mounted() {
-  //   const res = await NoteService.index()
-  //   this.notes = res.data
-  // },
   methods: {
     showNote(note) {
       this.$router.push({

@@ -1,11 +1,11 @@
 <template>
   <DashboardTitle>Edit note</DashboardTitle>
 
-  <form class="max-w-xl">
+  <form v-if="note" class="max-w-xl">
     <div>
       <FormLabel for="title">Title</FormLabel>
       <FormInput
-        v-model="note.title"
+        v-model="editedNote.title"
         type="text"
         id="title"
         name="title"
@@ -16,7 +16,7 @@
     <div class="mt-4">
       <FormLabel for="text">Text</FormLabel>
       <FormArea
-        v-model="note.text"
+        v-model="editedNote.text"
         name="text"
         id="text"
         rows="5"
@@ -28,7 +28,7 @@
       <FormLabel for="note-color">Note color</FormLabel>
       <ColorPicker
         id="note-color"
-        v-model="note.color"
+        v-model="editedNote.color"
         :selectDefaultColor="false"
       />
     </div>
@@ -45,20 +45,19 @@
 
     <div class="flex justify-between mt-8">
       <FormButton
-        :loading="loading || !noteLoaded"
-        @submit="deleteNote"
+        :loading="loading"
+        @submit="removeNote"
         normalBgClass="bg-gray-600"
         >Remove</FormButton
       >
-      <FormButton :loading="loading || !noteLoaded" @submit="saveNote"
-        >Save</FormButton
-      >
+      <FormButton :loading="loading" @submit="updateNote">Save</FormButton>
     </div>
   </form>
 </template>
 
 <script>
-import * as NoteService from '../../../services/NoteService'
+import ColorPicker from '../../../shared/components/ColorPicker'
+import DashboardTitle from '../DashboardTitle'
 import {
   is404,
   is422,
@@ -66,17 +65,16 @@ import {
   hasValidationErr
 } from '../../../shared/utils/response'
 import { formatDate } from '../../../shared/utils/util'
-import ColorPicker from '../../../shared/components/ColorPicker'
-import DashboardTitle from '../DashboardTitle'
 
 export default {
+  emits: ['startLoading', 'stopLoading'],
   components: {
     ColorPicker,
     DashboardTitle
   },
   data() {
     return {
-      note: {
+      editedNote: {
         title: '',
         text: '',
         color: ''
@@ -86,41 +84,36 @@ export default {
         text: [],
         others: []
       },
-      loading: false,
-      noteLoaded: false
+      loading: false
     }
   },
-  async mounted() {
-    // TODO: Show loading state and handle errors.
-    this.loading = true
-    this.resetErrors()
-    try {
-      const res = await NoteService.show(this.$route.params.id)
-      this.note = res.data
-      this.noteLoaded = true
-    } catch (err) {
-      if (is404(err)) {
-        // this.errors.others.push('Note not found.')
-        this.$router.replace({ name: 'NoteList' })
-      } else {
-        this.errors.others.push('Network or server error, try again later.')
-      }
+  computed: {
+    note() {
+      return this.$store.getters['note/getNoteById'](this.$route.params.id)
     }
-
-    this.loading = false
+  },
+  mounted() {
+    if (this.note) {
+      this.editedNote = {
+        title: this.note.title,
+        text: this.note.text,
+        color: this.note.color
+      }
+    } else {
+      this.$router.replace({ name: 'NoteList' })
+    }
   },
   methods: {
-    async saveNote() {
-      if (!this.noteLoaded) return
-
+    async updateNote() {
       this.loading = true
+      this.$emit('startLoading')
+
       this.resetErrors()
 
       try {
-        const res = await NoteService.update(this.note.id, {
-          title: this.note.title,
-          text: this.note.text,
-          color: this.note.color
+        await this.$store.dispatch('note/update', {
+          id: this.note.id,
+          note: this.editedNote
         })
         this.$router.push({ name: 'NoteList' })
       } catch (err) {
@@ -131,30 +124,31 @@ export default {
           hasValidationErr(err, 'text') &&
             (this.errors.text = getValidationErrArr(err, 'text'))
         } else {
-          this.errors.others.push('Network or server error, try again later.')
+          this.errors.others.push('Network or server error, try again later!')
         }
       }
 
       this.loading = false
+      this.$emit('stopLoading')
     },
-    async deleteNote() {
-      if (!this.noteLoaded) return
-
+    async removeNote() {
       const confirmed = confirm('Are you sure you want to remove this note?')
-
       if (!confirmed) return
 
       this.loading = true
+      this.$emit('startLoading')
+
       this.resetErrors()
 
       try {
-        const res = await NoteService.destroy(this.note.id)
+        await this.$store.dispatch('note/destroy', { id: this.note.id })
         this.$router.replace({ name: 'NoteList' })
       } catch (err) {
         this.errors.others.push('Network or server error, try again later!')
       }
 
       this.loading = false
+      this.$emit('stopLoading')
     },
     resetErrors() {
       this.errors.title = []

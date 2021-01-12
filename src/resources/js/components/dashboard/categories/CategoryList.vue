@@ -30,16 +30,11 @@ export default {
     CategoryCreateRow,
     DashboardTitle
   },
-  data() {
-    return {
-      categories: []
+  computed: {
+    categories() {
+      return this.$store.state.category.categories
     }
   },
-  // async mounted() {
-  //   // TODO: Show loading state and handle errors.
-  //   const res = await CategoryService.index()
-  //   this.categories = res.data
-  // },
   methods: {
     categoryUpdated(updatedCategory) {
       this.categories = this.categories.map((category) =>

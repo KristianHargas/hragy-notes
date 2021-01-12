@@ -1,7 +1,7 @@
 export const formatDate = (dateString) => {
   const date = new Date(dateString)
   return date.toLocaleString('en-US', {
-    hour12: false,
+    hour12: true,
     dateStyle: 'medium',
     timeStyle: 'short'
   })

@@ -32414,7 +32414,7 @@ var Auth = (0,vuex__WEBPACK_IMPORTED_MODULE_1__.createNamespacedHelpers)('auth')
               _this.loading = true;
               _context.prev = 1;
               _context.next = 4;
-              return Promise.all([_this.$store.dispatch('note/fetch'), _this.$store.dispatch('category/fetch')]);
+              return Promise.all([_this.$store.dispatch('note/index'), _this.$store.dispatch('category/index')]);
 
             case 4:
               _this.dataFetchingSuccess = true;
@@ -32641,16 +32641,11 @@ __webpack_require__.r(__webpack_exports__);
     CategoryCreateRow: _CategoryCreateRow__WEBPACK_IMPORTED_MODULE_2__.default,
     DashboardTitle: _DashboardTitle__WEBPACK_IMPORTED_MODULE_3__.default
   },
-  data: function data() {
-    return {
-      categories: []
-    };
+  computed: {
+    categories: function categories() {
+      return this.$store.state.category.categories;
+    }
   },
-  // async mounted() {
-  //   // TODO: Show loading state and handle errors.
-  //   const res = await CategoryService.index()
-  //   this.categories = res.data
-  // },
   methods: {
     categoryUpdated: function categoryUpdated(updatedCategory) {
       this.categories = this.categories.map(function (category) {
@@ -32815,10 +32810,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _services_NoteService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../services/NoteService */ "./resources/js/services/NoteService.js");
-/* harmony import */ var _shared_utils_response__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../shared/utils/response */ "./resources/js/shared/utils/response.js");
-/* harmony import */ var _shared_components_ColorPicker__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../shared/components/ColorPicker */ "./resources/js/shared/components/ColorPicker.vue");
-/* harmony import */ var _DashboardTitle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../DashboardTitle */ "./resources/js/components/dashboard/DashboardTitle.vue");
+/* harmony import */ var _shared_components_ColorPicker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../shared/components/ColorPicker */ "./resources/js/shared/components/ColorPicker.vue");
+/* harmony import */ var _DashboardTitle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../DashboardTitle */ "./resources/js/components/dashboard/DashboardTitle.vue");
+/* harmony import */ var _shared_utils_response__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../shared/utils/response */ "./resources/js/shared/utils/response.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -32828,15 +32822,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  emits: ['startLoading', 'stopLoading'],
   components: {
-    ColorPicker: _shared_components_ColorPicker__WEBPACK_IMPORTED_MODULE_3__.default,
-    DashboardTitle: _DashboardTitle__WEBPACK_IMPORTED_MODULE_4__.default
+    ColorPicker: _shared_components_ColorPicker__WEBPACK_IMPORTED_MODULE_1__.default,
+    DashboardTitle: _DashboardTitle__WEBPACK_IMPORTED_MODULE_2__.default
   },
   data: function data() {
     return {
-      formData: {
+      newNote: {
         title: '',
         text: '',
         color: ''
@@ -32854,22 +32848,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var res;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _this.loading = true;
 
+                _this.$emit('startLoading');
+
                 _this.resetErrors();
 
-                _context.prev = 2;
-                _context.next = 5;
-                return _services_NoteService__WEBPACK_IMPORTED_MODULE_1__.store(_this.formData);
+                _context.prev = 3;
+                _context.next = 6;
+                return _this.$store.dispatch('note/store', {
+                  note: _this.newNote
+                });
 
-              case 5:
-                res = _context.sent;
-
+              case 6:
                 _this.$router.push({
                   name: 'NoteList'
                 });
@@ -32879,24 +32874,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 9:
                 _context.prev = 9;
-                _context.t0 = _context["catch"](2);
+                _context.t0 = _context["catch"](3);
 
-                if ((0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.is422)(_context.t0)) {
-                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.hasValidationErr)(_context.t0, 'title') && (_this.errors.title = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.getValidationErrArr)(_context.t0, 'title'));
-                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.hasValidationErr)(_context.t0, 'text') && (_this.errors.text = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.getValidationErrArr)(_context.t0, 'text'));
+                if ((0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.is422)(_context.t0)) {
+                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.hasValidationErr)(_context.t0, 'title') && (_this.errors.title = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.getValidationErrArr)(_context.t0, 'title'));
+                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.hasValidationErr)(_context.t0, 'text') && (_this.errors.text = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.getValidationErrArr)(_context.t0, 'text'));
                 } else {
-                  _this.errors.others.push('Network or server error, try again later.');
+                  _this.errors.others.push('Network or server error, try again later!');
                 }
 
               case 12:
                 _this.loading = false;
 
-              case 13:
+                _this.$emit('stopLoading');
+
+              case 14:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[2, 9]]);
+        }, _callee, null, [[3, 9]]);
       }))();
     },
     resetErrors: function resetErrors() {
@@ -32935,15 +32932,11 @@ __webpack_require__.r(__webpack_exports__);
     DashboardTitle: _DashboardTitle__WEBPACK_IMPORTED_MODULE_1__.default,
     NoteListItem: _NoteListItem__WEBPACK_IMPORTED_MODULE_2__.default
   },
-  data: function data() {
-    return {
-      notes: []
-    };
+  computed: {
+    notes: function notes() {
+      return this.$store.state.note.notes;
+    }
   },
-  // async mounted() {
-  //   const res = await NoteService.index()
-  //   this.notes = res.data
-  // },
   methods: {
     showNote: function showNote(note) {
       this.$router.push({
@@ -33012,11 +33005,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _services_NoteService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../services/NoteService */ "./resources/js/services/NoteService.js");
-/* harmony import */ var _shared_utils_response__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../shared/utils/response */ "./resources/js/shared/utils/response.js");
-/* harmony import */ var _shared_utils_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../shared/utils/util */ "./resources/js/shared/utils/util.js");
-/* harmony import */ var _shared_components_ColorPicker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../shared/components/ColorPicker */ "./resources/js/shared/components/ColorPicker.vue");
-/* harmony import */ var _DashboardTitle__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../DashboardTitle */ "./resources/js/components/dashboard/DashboardTitle.vue");
+/* harmony import */ var _shared_components_ColorPicker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../shared/components/ColorPicker */ "./resources/js/shared/components/ColorPicker.vue");
+/* harmony import */ var _DashboardTitle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../DashboardTitle */ "./resources/js/components/dashboard/DashboardTitle.vue");
+/* harmony import */ var _shared_utils_response__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../shared/utils/response */ "./resources/js/shared/utils/response.js");
+/* harmony import */ var _shared_utils_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../shared/utils/util */ "./resources/js/shared/utils/util.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -33027,15 +33019,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  emits: ['startLoading', 'stopLoading'],
   components: {
-    ColorPicker: _shared_components_ColorPicker__WEBPACK_IMPORTED_MODULE_4__.default,
-    DashboardTitle: _DashboardTitle__WEBPACK_IMPORTED_MODULE_5__.default
+    ColorPicker: _shared_components_ColorPicker__WEBPACK_IMPORTED_MODULE_1__.default,
+    DashboardTitle: _DashboardTitle__WEBPACK_IMPORTED_MODULE_2__.default
   },
   data: function data() {
     return {
-      note: {
+      editedNote: {
         title: '',
         text: '',
         color: ''
@@ -33045,181 +33037,137 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         text: [],
         others: []
       },
-      loading: false,
-      noteLoaded: false
+      loading: false
     };
   },
+  computed: {
+    note: function note() {
+      return this.$store.getters['note/getNoteById'](this.$route.params.id);
+    }
+  },
   mounted: function mounted() {
-    var _this = this;
-
-    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-      var res;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              // TODO: Show loading state and handle errors.
-              _this.loading = true;
-
-              _this.resetErrors();
-
-              _context.prev = 2;
-              _context.next = 5;
-              return _services_NoteService__WEBPACK_IMPORTED_MODULE_1__.show(_this.$route.params.id);
-
-            case 5:
-              res = _context.sent;
-              _this.note = res.data;
-              _this.noteLoaded = true;
-              _context.next = 13;
-              break;
-
-            case 10:
-              _context.prev = 10;
-              _context.t0 = _context["catch"](2);
-
-              if ((0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.is404)(_context.t0)) {
-                // this.errors.others.push('Note not found.')
-                _this.$router.replace({
-                  name: 'NoteList'
-                });
-              } else {
-                _this.errors.others.push('Network or server error, try again later.');
-              }
-
-            case 13:
-              _this.loading = false;
-
-            case 14:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee, null, [[2, 10]]);
-    }))();
+    if (this.note) {
+      this.editedNote = {
+        title: this.note.title,
+        text: this.note.text,
+        color: this.note.color
+      };
+    } else {
+      this.$router.replace({
+        name: 'NoteList'
+      });
+    }
   },
   methods: {
-    saveNote: function saveNote() {
+    updateNote: function updateNote() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _this.loading = true;
+
+                _this.$emit('startLoading');
+
+                _this.resetErrors();
+
+                _context.prev = 3;
+                _context.next = 6;
+                return _this.$store.dispatch('note/update', {
+                  id: _this.note.id,
+                  note: _this.editedNote
+                });
+
+              case 6:
+                _this.$router.push({
+                  name: 'NoteList'
+                });
+
+                _context.next = 12;
+                break;
+
+              case 9:
+                _context.prev = 9;
+                _context.t0 = _context["catch"](3);
+
+                if ((0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.is422)(_context.t0)) {
+                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.hasValidationErr)(_context.t0, 'title') && (_this.errors.title = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.getValidationErrArr)(_context.t0, 'title'));
+                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.hasValidationErr)(_context.t0, 'text') && (_this.errors.text = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.getValidationErrArr)(_context.t0, 'text'));
+                } else {
+                  _this.errors.others.push('Network or server error, try again later!');
+                }
+
+              case 12:
+                _this.loading = false;
+
+                _this.$emit('stopLoading');
+
+              case 14:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[3, 9]]);
+      }))();
+    },
+    removeNote: function removeNote() {
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
-        var res;
+        var confirmed;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                if (_this2.noteLoaded) {
-                  _context2.next = 2;
+                confirmed = confirm('Are you sure you want to remove this note?');
+
+                if (confirmed) {
+                  _context2.next = 3;
                   break;
                 }
 
                 return _context2.abrupt("return");
 
-              case 2:
+              case 3:
                 _this2.loading = true;
+
+                _this2.$emit('startLoading');
 
                 _this2.resetErrors();
 
-                _context2.prev = 4;
-                _context2.next = 7;
-                return _services_NoteService__WEBPACK_IMPORTED_MODULE_1__.update(_this2.note.id, {
-                  title: _this2.note.title,
-                  text: _this2.note.text,
-                  color: _this2.note.color
+                _context2.prev = 6;
+                _context2.next = 9;
+                return _this2.$store.dispatch('note/destroy', {
+                  id: _this2.note.id
                 });
 
-              case 7:
-                res = _context2.sent;
-
-                _this2.$router.push({
+              case 9:
+                _this2.$router.replace({
                   name: 'NoteList'
                 });
 
-                _context2.next = 14;
+                _context2.next = 15;
                 break;
 
-              case 11:
-                _context2.prev = 11;
-                _context2.t0 = _context2["catch"](4);
+              case 12:
+                _context2.prev = 12;
+                _context2.t0 = _context2["catch"](6);
 
-                if ((0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.is422)(_context2.t0)) {
-                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.hasValidationErr)(_context2.t0, 'title') && (_this2.errors.title = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.getValidationErrArr)(_context2.t0, 'title'));
-                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.hasValidationErr)(_context2.t0, 'text') && (_this2.errors.text = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_2__.getValidationErrArr)(_context2.t0, 'text'));
-                } else {
-                  _this2.errors.others.push('Network or server error, try again later.');
-                }
-
-              case 14:
-                _this2.loading = false;
+                _this2.errors.others.push('Network or server error, try again later!');
 
               case 15:
+                _this2.loading = false;
+
+                _this2.$emit('stopLoading');
+
+              case 17:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, null, [[4, 11]]);
-      }))();
-    },
-    deleteNote: function deleteNote() {
-      var _this3 = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
-        var confirmed, res;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                if (_this3.noteLoaded) {
-                  _context3.next = 2;
-                  break;
-                }
-
-                return _context3.abrupt("return");
-
-              case 2:
-                confirmed = confirm('Are you sure you want to remove this note?');
-
-                if (confirmed) {
-                  _context3.next = 5;
-                  break;
-                }
-
-                return _context3.abrupt("return");
-
-              case 5:
-                _this3.loading = true;
-
-                _this3.resetErrors();
-
-                _context3.prev = 7;
-                _context3.next = 10;
-                return _services_NoteService__WEBPACK_IMPORTED_MODULE_1__.destroy(_this3.note.id);
-
-              case 10:
-                res = _context3.sent;
-
-                _this3.$router.replace({
-                  name: 'NoteList'
-                });
-
-                _context3.next = 17;
-                break;
-
-              case 14:
-                _context3.prev = 14;
-                _context3.t0 = _context3["catch"](7);
-
-                _this3.errors.others.push('Network or server error, try again later!');
-
-              case 17:
-                _this3.loading = false;
-
-              case 18:
-              case "end":
-                return _context3.stop();
-            }
-          }
-        }, _callee3, null, [[7, 14]]);
+        }, _callee2, null, [[6, 12]]);
       }))();
     },
     resetErrors: function resetErrors() {
@@ -33228,7 +33176,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.errors.others = [];
     },
     formatDate: function formatDate(dateString) {
-      return (0,_shared_utils_util__WEBPACK_IMPORTED_MODULE_3__.formatDate)(dateString);
+      return (0,_shared_utils_util__WEBPACK_IMPORTED_MODULE_4__.formatDate)(dateString);
     }
   }
 });
@@ -34100,7 +34048,7 @@ __webpack_require__.r(__webpack_exports__);
 var formatDate = function formatDate(dateString) {
   var date = new Date(dateString);
   return date.toLocaleString('en-US', {
-    hour12: false,
+    hour12: true,
     dateStyle: 'medium',
     timeStyle: 'short'
   });
@@ -34407,7 +34355,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   },
   actions: {
-    fetch: function fetch(_ref) {
+    index: function index(_ref) {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
         var commit, _yield$CategoryServic, data;
 
@@ -34466,16 +34414,33 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   namespaced: true,
   state: function state() {
     return {
-      notes: []
+      notes: [],
+      notesFetched: false
     };
   },
   mutations: {
     SET_NOTES: function SET_NOTES(state, payload) {
-      state.notes = payload;
+      state.notes = payload.notes;
+    },
+    STORE_NOTE: function STORE_NOTE(state, payload) {
+      state.notes.unshift(payload.note);
+    },
+    UPDATE_NOTE: function UPDATE_NOTE(state, payload) {
+      state.notes = state.notes.map(function (note) {
+        return note.id == payload.note.id ? payload.note : note;
+      });
+    },
+    DESTROY_NOTE: function DESTROY_NOTE(state, payload) {
+      state.notes = state.notes.filter(function (note) {
+        return note.id != payload.id;
+      });
+    },
+    SET_NOTES_FETCHED: function SET_NOTES_FETCHED(state, payload) {
+      state.notesFetched = payload;
     }
   },
   actions: {
-    fetch: function fetch(_ref) {
+    index: function index(_ref) {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
         var commit, _yield$NoteService$in, data;
 
@@ -34490,15 +34455,106 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 3:
                 _yield$NoteService$in = _context.sent;
                 data = _yield$NoteService$in.data;
-                commit('SET_NOTES', data);
+                commit('SET_NOTES', {
+                  notes: data
+                });
+                commit('SET_NOTES_FETCHED', true);
 
-              case 6:
+              case 7:
               case "end":
                 return _context.stop();
             }
           }
         }, _callee);
       }))();
+    },
+    store: function store(_ref2, payload) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var commit, _yield$NoteService$st, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                commit = _ref2.commit;
+                _context2.next = 3;
+                return _services_NoteService__WEBPACK_IMPORTED_MODULE_1__.store(payload.note);
+
+              case 3:
+                _yield$NoteService$st = _context2.sent;
+                data = _yield$NoteService$st.data;
+                commit('STORE_NOTE', {
+                  note: data
+                });
+
+              case 6:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    },
+    update: function update(_ref3, payload) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        var commit, _yield$NoteService$up, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                commit = _ref3.commit;
+                _context3.next = 3;
+                return _services_NoteService__WEBPACK_IMPORTED_MODULE_1__.update(payload.id, payload.note);
+
+              case 3:
+                _yield$NoteService$up = _context3.sent;
+                data = _yield$NoteService$up.data;
+                commit('UPDATE_NOTE', {
+                  note: data
+                });
+
+              case 6:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
+    },
+    destroy: function destroy(_ref4, payload) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+        var commit;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                commit = _ref4.commit;
+                _context4.next = 3;
+                return _services_NoteService__WEBPACK_IMPORTED_MODULE_1__.destroy(payload.id);
+
+              case 3:
+                commit('DESTROY_NOTE', payload);
+
+              case 4:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }))();
+    }
+  },
+  getters: {
+    notesCount: function notesCount(state) {
+      return state.notes.length;
+    },
+    getNoteById: function getNoteById(state) {
+      return function (id) {
+        return state.notes.find(function (note) {
+          return note.id == id;
+        });
+      };
     }
   }
 });
@@ -56324,12 +56380,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _CategoryList_vue_vue_type_template_id_456592b9_bindings_categories_data_categoryUpdated_options_categoryRemoved_options_categoryCreated_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CategoryList.vue?vue&type=template&id=456592b9&bindings={"categories":"data","categoryUpdated":"options","categoryRemoved":"options","categoryCreated":"options"} */ "./resources/js/components/dashboard/categories/CategoryList.vue?vue&type=template&id=456592b9&bindings={\"categories\":\"data\",\"categoryUpdated\":\"options\",\"categoryRemoved\":\"options\",\"categoryCreated\":\"options\"}");
+/* harmony import */ var _CategoryList_vue_vue_type_template_id_456592b9_bindings_categories_options_categoryUpdated_options_categoryRemoved_options_categoryCreated_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CategoryList.vue?vue&type=template&id=456592b9&bindings={"categories":"options","categoryUpdated":"options","categoryRemoved":"options","categoryCreated":"options"} */ "./resources/js/components/dashboard/categories/CategoryList.vue?vue&type=template&id=456592b9&bindings={\"categories\":\"options\",\"categoryUpdated\":\"options\",\"categoryRemoved\":\"options\",\"categoryCreated\":\"options\"}");
 /* harmony import */ var _CategoryList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CategoryList.vue?vue&type=script&lang=js */ "./resources/js/components/dashboard/categories/CategoryList.vue?vue&type=script&lang=js");
 
 
 
-_CategoryList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _CategoryList_vue_vue_type_template_id_456592b9_bindings_categories_data_categoryUpdated_options_categoryRemoved_options_categoryCreated_options___WEBPACK_IMPORTED_MODULE_0__.render
+_CategoryList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _CategoryList_vue_vue_type_template_id_456592b9_bindings_categories_options_categoryUpdated_options_categoryRemoved_options_categoryCreated_options___WEBPACK_IMPORTED_MODULE_0__.render
 /* hot reload */
 if (false) {}
 
@@ -56384,12 +56440,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _NoteCreate_vue_vue_type_template_id_5432f4e2_bindings_formData_data_errors_data_loading_data_createNote_options_resetErrors_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NoteCreate.vue?vue&type=template&id=5432f4e2&bindings={"formData":"data","errors":"data","loading":"data","createNote":"options","resetErrors":"options"} */ "./resources/js/components/dashboard/notes/NoteCreate.vue?vue&type=template&id=5432f4e2&bindings={\"formData\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"createNote\":\"options\",\"resetErrors\":\"options\"}");
+/* harmony import */ var _NoteCreate_vue_vue_type_template_id_5432f4e2_bindings_newNote_data_errors_data_loading_data_createNote_options_resetErrors_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NoteCreate.vue?vue&type=template&id=5432f4e2&bindings={"newNote":"data","errors":"data","loading":"data","createNote":"options","resetErrors":"options"} */ "./resources/js/components/dashboard/notes/NoteCreate.vue?vue&type=template&id=5432f4e2&bindings={\"newNote\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"createNote\":\"options\",\"resetErrors\":\"options\"}");
 /* harmony import */ var _NoteCreate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NoteCreate.vue?vue&type=script&lang=js */ "./resources/js/components/dashboard/notes/NoteCreate.vue?vue&type=script&lang=js");
 
 
 
-_NoteCreate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _NoteCreate_vue_vue_type_template_id_5432f4e2_bindings_formData_data_errors_data_loading_data_createNote_options_resetErrors_options___WEBPACK_IMPORTED_MODULE_0__.render
+_NoteCreate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _NoteCreate_vue_vue_type_template_id_5432f4e2_bindings_newNote_data_errors_data_loading_data_createNote_options_resetErrors_options___WEBPACK_IMPORTED_MODULE_0__.render
 /* hot reload */
 if (false) {}
 
@@ -56414,12 +56470,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _NoteList_vue_vue_type_template_id_74c241f8_bindings_notes_data_showNote_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NoteList.vue?vue&type=template&id=74c241f8&bindings={"notes":"data","showNote":"options"} */ "./resources/js/components/dashboard/notes/NoteList.vue?vue&type=template&id=74c241f8&bindings={\"notes\":\"data\",\"showNote\":\"options\"}");
+/* harmony import */ var _NoteList_vue_vue_type_template_id_74c241f8_bindings_notes_options_showNote_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NoteList.vue?vue&type=template&id=74c241f8&bindings={"notes":"options","showNote":"options"} */ "./resources/js/components/dashboard/notes/NoteList.vue?vue&type=template&id=74c241f8&bindings={\"notes\":\"options\",\"showNote\":\"options\"}");
 /* harmony import */ var _NoteList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NoteList.vue?vue&type=script&lang=js */ "./resources/js/components/dashboard/notes/NoteList.vue?vue&type=script&lang=js");
 
 
 
-_NoteList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _NoteList_vue_vue_type_template_id_74c241f8_bindings_notes_data_showNote_options___WEBPACK_IMPORTED_MODULE_0__.render
+_NoteList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _NoteList_vue_vue_type_template_id_74c241f8_bindings_notes_options_showNote_options___WEBPACK_IMPORTED_MODULE_0__.render
 /* hot reload */
 if (false) {}
 
@@ -56474,12 +56530,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _NoteShow_vue_vue_type_template_id_6137c1e3_bindings_note_data_errors_data_loading_data_noteLoaded_data_saveNote_options_deleteNote_options_resetErrors_options_formatDate_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NoteShow.vue?vue&type=template&id=6137c1e3&bindings={"note":"data","errors":"data","loading":"data","noteLoaded":"data","saveNote":"options","deleteNote":"options","resetErrors":"options","formatDate":"options"} */ "./resources/js/components/dashboard/notes/NoteShow.vue?vue&type=template&id=6137c1e3&bindings={\"note\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"noteLoaded\":\"data\",\"saveNote\":\"options\",\"deleteNote\":\"options\",\"resetErrors\":\"options\",\"formatDate\":\"options\"}");
+/* harmony import */ var _NoteShow_vue_vue_type_template_id_6137c1e3_bindings_editedNote_data_errors_data_loading_data_note_options_updateNote_options_removeNote_options_resetErrors_options_formatDate_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NoteShow.vue?vue&type=template&id=6137c1e3&bindings={"editedNote":"data","errors":"data","loading":"data","note":"options","updateNote":"options","removeNote":"options","resetErrors":"options","formatDate":"options"} */ "./resources/js/components/dashboard/notes/NoteShow.vue?vue&type=template&id=6137c1e3&bindings={\"editedNote\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"note\":\"options\",\"updateNote\":\"options\",\"removeNote\":\"options\",\"resetErrors\":\"options\",\"formatDate\":\"options\"}");
 /* harmony import */ var _NoteShow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NoteShow.vue?vue&type=script&lang=js */ "./resources/js/components/dashboard/notes/NoteShow.vue?vue&type=script&lang=js");
 
 
 
-_NoteShow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _NoteShow_vue_vue_type_template_id_6137c1e3_bindings_note_data_errors_data_loading_data_noteLoaded_data_saveNote_options_deleteNote_options_resetErrors_options_formatDate_options___WEBPACK_IMPORTED_MODULE_0__.render
+_NoteShow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _NoteShow_vue_vue_type_template_id_6137c1e3_bindings_editedNote_data_errors_data_loading_data_note_options_updateNote_options_removeNote_options_resetErrors_options_formatDate_options___WEBPACK_IMPORTED_MODULE_0__.render
 /* hot reload */
 if (false) {}
 
@@ -57481,12 +57537,12 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/dashboard/categories/CategoryList.vue?vue&type=template&id=456592b9&bindings={\"categories\":\"data\",\"categoryUpdated\":\"options\",\"categoryRemoved\":\"options\",\"categoryCreated\":\"options\"}":
-/*!************************************************************************************************************************************************************************************************************************!*\
-  !*** ./resources/js/components/dashboard/categories/CategoryList.vue?vue&type=template&id=456592b9&bindings={"categories":"data","categoryUpdated":"options","categoryRemoved":"options","categoryCreated":"options"} ***!
-  \************************************************************************************************************************************************************************************************************************/
+/***/ "./resources/js/components/dashboard/categories/CategoryList.vue?vue&type=template&id=456592b9&bindings={\"categories\":\"options\",\"categoryUpdated\":\"options\",\"categoryRemoved\":\"options\",\"categoryCreated\":\"options\"}":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./resources/js/components/dashboard/categories/CategoryList.vue?vue&type=template&id=456592b9&bindings={"categories":"options","categoryUpdated":"options","categoryRemoved":"options","categoryCreated":"options"} ***!
+  \***************************************************************************************************************************************************************************************************************************/
 /*! namespace exports */
-/*! export render [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/categories/CategoryList.vue?vue&type=template&id=456592b9&bindings={"categories":"data","categoryUpdated":"options","categoryRemoved":"options","categoryCreated":"options"} .render */
+/*! export render [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/categories/CategoryList.vue?vue&type=template&id=456592b9&bindings={"categories":"options","categoryUpdated":"options","categoryRemoved":"options","categoryCreated":"options"} .render */
 /*! other exports [not provided] [no usage info] */
 /*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.d, __webpack_require__.r, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
@@ -57494,9 +57550,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_CategoryList_vue_vue_type_template_id_456592b9_bindings_categories_data_categoryUpdated_options_categoryRemoved_options_categoryCreated_options___WEBPACK_IMPORTED_MODULE_0__.render
+/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_CategoryList_vue_vue_type_template_id_456592b9_bindings_categories_options_categoryUpdated_options_categoryRemoved_options_categoryCreated_options___WEBPACK_IMPORTED_MODULE_0__.render
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_CategoryList_vue_vue_type_template_id_456592b9_bindings_categories_data_categoryUpdated_options_categoryRemoved_options_categoryCreated_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./CategoryList.vue?vue&type=template&id=456592b9&bindings={"categories":"data","categoryUpdated":"options","categoryRemoved":"options","categoryCreated":"options"} */ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/categories/CategoryList.vue?vue&type=template&id=456592b9&bindings={\"categories\":\"data\",\"categoryUpdated\":\"options\",\"categoryRemoved\":\"options\",\"categoryCreated\":\"options\"}");
+/* harmony import */ var _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_CategoryList_vue_vue_type_template_id_456592b9_bindings_categories_options_categoryUpdated_options_categoryRemoved_options_categoryCreated_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./CategoryList.vue?vue&type=template&id=456592b9&bindings={"categories":"options","categoryUpdated":"options","categoryRemoved":"options","categoryCreated":"options"} */ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/categories/CategoryList.vue?vue&type=template&id=456592b9&bindings={\"categories\":\"options\",\"categoryUpdated\":\"options\",\"categoryRemoved\":\"options\",\"categoryCreated\":\"options\"}");
 
 
 /***/ }),
@@ -57521,12 +57577,12 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/dashboard/notes/NoteCreate.vue?vue&type=template&id=5432f4e2&bindings={\"formData\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"createNote\":\"options\",\"resetErrors\":\"options\"}":
-/*!***********************************************************************************************************************************************************************************************************!*\
-  !*** ./resources/js/components/dashboard/notes/NoteCreate.vue?vue&type=template&id=5432f4e2&bindings={"formData":"data","errors":"data","loading":"data","createNote":"options","resetErrors":"options"} ***!
-  \***********************************************************************************************************************************************************************************************************/
+/***/ "./resources/js/components/dashboard/notes/NoteCreate.vue?vue&type=template&id=5432f4e2&bindings={\"newNote\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"createNote\":\"options\",\"resetErrors\":\"options\"}":
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** ./resources/js/components/dashboard/notes/NoteCreate.vue?vue&type=template&id=5432f4e2&bindings={"newNote":"data","errors":"data","loading":"data","createNote":"options","resetErrors":"options"} ***!
+  \**********************************************************************************************************************************************************************************************************/
 /*! namespace exports */
-/*! export render [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/notes/NoteCreate.vue?vue&type=template&id=5432f4e2&bindings={"formData":"data","errors":"data","loading":"data","createNote":"options","resetErrors":"options"} .render */
+/*! export render [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/notes/NoteCreate.vue?vue&type=template&id=5432f4e2&bindings={"newNote":"data","errors":"data","loading":"data","createNote":"options","resetErrors":"options"} .render */
 /*! other exports [not provided] [no usage info] */
 /*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.d, __webpack_require__.r, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
@@ -57534,19 +57590,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NoteCreate_vue_vue_type_template_id_5432f4e2_bindings_formData_data_errors_data_loading_data_createNote_options_resetErrors_options___WEBPACK_IMPORTED_MODULE_0__.render
+/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NoteCreate_vue_vue_type_template_id_5432f4e2_bindings_newNote_data_errors_data_loading_data_createNote_options_resetErrors_options___WEBPACK_IMPORTED_MODULE_0__.render
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NoteCreate_vue_vue_type_template_id_5432f4e2_bindings_formData_data_errors_data_loading_data_createNote_options_resetErrors_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./NoteCreate.vue?vue&type=template&id=5432f4e2&bindings={"formData":"data","errors":"data","loading":"data","createNote":"options","resetErrors":"options"} */ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/notes/NoteCreate.vue?vue&type=template&id=5432f4e2&bindings={\"formData\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"createNote\":\"options\",\"resetErrors\":\"options\"}");
+/* harmony import */ var _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NoteCreate_vue_vue_type_template_id_5432f4e2_bindings_newNote_data_errors_data_loading_data_createNote_options_resetErrors_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./NoteCreate.vue?vue&type=template&id=5432f4e2&bindings={"newNote":"data","errors":"data","loading":"data","createNote":"options","resetErrors":"options"} */ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/notes/NoteCreate.vue?vue&type=template&id=5432f4e2&bindings={\"newNote\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"createNote\":\"options\",\"resetErrors\":\"options\"}");
 
 
 /***/ }),
 
-/***/ "./resources/js/components/dashboard/notes/NoteList.vue?vue&type=template&id=74c241f8&bindings={\"notes\":\"data\",\"showNote\":\"options\"}":
-/*!*******************************************************************************************************************************************!*\
-  !*** ./resources/js/components/dashboard/notes/NoteList.vue?vue&type=template&id=74c241f8&bindings={"notes":"data","showNote":"options"} ***!
-  \*******************************************************************************************************************************************/
+/***/ "./resources/js/components/dashboard/notes/NoteList.vue?vue&type=template&id=74c241f8&bindings={\"notes\":\"options\",\"showNote\":\"options\"}":
+/*!**********************************************************************************************************************************************!*\
+  !*** ./resources/js/components/dashboard/notes/NoteList.vue?vue&type=template&id=74c241f8&bindings={"notes":"options","showNote":"options"} ***!
+  \**********************************************************************************************************************************************/
 /*! namespace exports */
-/*! export render [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/notes/NoteList.vue?vue&type=template&id=74c241f8&bindings={"notes":"data","showNote":"options"} .render */
+/*! export render [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/notes/NoteList.vue?vue&type=template&id=74c241f8&bindings={"notes":"options","showNote":"options"} .render */
 /*! other exports [not provided] [no usage info] */
 /*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.d, __webpack_require__.r, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
@@ -57554,9 +57610,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NoteList_vue_vue_type_template_id_74c241f8_bindings_notes_data_showNote_options___WEBPACK_IMPORTED_MODULE_0__.render
+/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NoteList_vue_vue_type_template_id_74c241f8_bindings_notes_options_showNote_options___WEBPACK_IMPORTED_MODULE_0__.render
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NoteList_vue_vue_type_template_id_74c241f8_bindings_notes_data_showNote_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./NoteList.vue?vue&type=template&id=74c241f8&bindings={"notes":"data","showNote":"options"} */ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/notes/NoteList.vue?vue&type=template&id=74c241f8&bindings={\"notes\":\"data\",\"showNote\":\"options\"}");
+/* harmony import */ var _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NoteList_vue_vue_type_template_id_74c241f8_bindings_notes_options_showNote_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./NoteList.vue?vue&type=template&id=74c241f8&bindings={"notes":"options","showNote":"options"} */ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/notes/NoteList.vue?vue&type=template&id=74c241f8&bindings={\"notes\":\"options\",\"showNote\":\"options\"}");
 
 
 /***/ }),
@@ -57581,12 +57637,12 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/dashboard/notes/NoteShow.vue?vue&type=template&id=6137c1e3&bindings={\"note\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"noteLoaded\":\"data\",\"saveNote\":\"options\",\"deleteNote\":\"options\",\"resetErrors\":\"options\",\"formatDate\":\"options\"}":
-/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./resources/js/components/dashboard/notes/NoteShow.vue?vue&type=template&id=6137c1e3&bindings={"note":"data","errors":"data","loading":"data","noteLoaded":"data","saveNote":"options","deleteNote":"options","resetErrors":"options","formatDate":"options"} ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./resources/js/components/dashboard/notes/NoteShow.vue?vue&type=template&id=6137c1e3&bindings={\"editedNote\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"note\":\"options\",\"updateNote\":\"options\",\"removeNote\":\"options\",\"resetErrors\":\"options\",\"formatDate\":\"options\"}":
+/*!**************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./resources/js/components/dashboard/notes/NoteShow.vue?vue&type=template&id=6137c1e3&bindings={"editedNote":"data","errors":"data","loading":"data","note":"options","updateNote":"options","removeNote":"options","resetErrors":"options","formatDate":"options"} ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************/
 /*! namespace exports */
-/*! export render [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/notes/NoteShow.vue?vue&type=template&id=6137c1e3&bindings={"note":"data","errors":"data","loading":"data","noteLoaded":"data","saveNote":"options","deleteNote":"options","resetErrors":"options","formatDate":"options"} .render */
+/*! export render [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/notes/NoteShow.vue?vue&type=template&id=6137c1e3&bindings={"editedNote":"data","errors":"data","loading":"data","note":"options","updateNote":"options","removeNote":"options","resetErrors":"options","formatDate":"options"} .render */
 /*! other exports [not provided] [no usage info] */
 /*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.d, __webpack_require__.r, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
@@ -57594,9 +57650,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NoteShow_vue_vue_type_template_id_6137c1e3_bindings_note_data_errors_data_loading_data_noteLoaded_data_saveNote_options_deleteNote_options_resetErrors_options_formatDate_options___WEBPACK_IMPORTED_MODULE_0__.render
+/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NoteShow_vue_vue_type_template_id_6137c1e3_bindings_editedNote_data_errors_data_loading_data_note_options_updateNote_options_removeNote_options_resetErrors_options_formatDate_options___WEBPACK_IMPORTED_MODULE_0__.render
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NoteShow_vue_vue_type_template_id_6137c1e3_bindings_note_data_errors_data_loading_data_noteLoaded_data_saveNote_options_deleteNote_options_resetErrors_options_formatDate_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./NoteShow.vue?vue&type=template&id=6137c1e3&bindings={"note":"data","errors":"data","loading":"data","noteLoaded":"data","saveNote":"options","deleteNote":"options","resetErrors":"options","formatDate":"options"} */ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/notes/NoteShow.vue?vue&type=template&id=6137c1e3&bindings={\"note\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"noteLoaded\":\"data\",\"saveNote\":\"options\",\"deleteNote\":\"options\",\"resetErrors\":\"options\",\"formatDate\":\"options\"}");
+/* harmony import */ var _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_NoteShow_vue_vue_type_template_id_6137c1e3_bindings_editedNote_data_errors_data_loading_data_note_options_updateNote_options_removeNote_options_resetErrors_options_formatDate_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./NoteShow.vue?vue&type=template&id=6137c1e3&bindings={"editedNote":"data","errors":"data","loading":"data","note":"options","updateNote":"options","removeNote":"options","resetErrors":"options","formatDate":"options"} */ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/notes/NoteShow.vue?vue&type=template&id=6137c1e3&bindings={\"editedNote\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"note\":\"options\",\"updateNote\":\"options\",\"removeNote\":\"options\",\"resetErrors\":\"options\",\"formatDate\":\"options\"}");
 
 
 /***/ }),
@@ -58342,10 +58398,6 @@ const _hoisted_3 = { class: "mt-12" }
 const _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Categories")
 const _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Notes")
 const _hoisted_6 = { class: "top-margin lg:ml-72 py-4 px-4 md:px-6 bg-gray-100 main-fill" }
-const _hoisted_7 = {
-  key: 0,
-  class: "text-red-700 font-semibold text-lg uppercase tracking-wide text-center mx-2 mt-4"
-}
 ;(0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)()
 
 const render = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -58353,6 +58405,7 @@ const render = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $setup
   const _component_Logo = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Logo")
   const _component_LoadingSpinner = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("LoadingSpinner")
   const _component_DashboardNavItem = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("DashboardNavItem")
+  const _component_FormErrors = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("FormErrors")
   const _component_router_view = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-view")
 
   return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [
@@ -58411,7 +58464,12 @@ const render = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $setup
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Main content "),
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("main", _hoisted_6, [
       ($data.dataFetchingFinished && !$data.dataFetchingSuccess)
-        ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_7, " Error while loading data, please check your internet connection and refresh again later! "))
+        ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_FormErrors, {
+            key: 0,
+            errors: [
+        'Error while loading data, please check your internet connection and refresh again later!'
+      ]
+          }))
         : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true),
       ($data.dataFetchingFinished && $data.dataFetchingSuccess)
         ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_router_view, {
@@ -58551,10 +58609,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/categories/CategoryList.vue?vue&type=template&id=456592b9&bindings={\"categories\":\"data\",\"categoryUpdated\":\"options\",\"categoryRemoved\":\"options\",\"categoryCreated\":\"options\"}":
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/categories/CategoryList.vue?vue&type=template&id=456592b9&bindings={"categories":"data","categoryUpdated":"options","categoryRemoved":"options","categoryCreated":"options"} ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/categories/CategoryList.vue?vue&type=template&id=456592b9&bindings={\"categories\":\"options\",\"categoryUpdated\":\"options\",\"categoryRemoved\":\"options\",\"categoryCreated\":\"options\"}":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/categories/CategoryList.vue?vue&type=template&id=456592b9&bindings={"categories":"options","categoryUpdated":"options","categoryRemoved":"options","categoryCreated":"options"} ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! namespace exports */
 /*! export render [provided] [no usage info] [missing usage info prevents renaming] */
 /*! other exports [not provided] [no usage info] */
@@ -58588,7 +58646,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_CategoryCreateRow, { onCategoryCreation: $options.categoryCreated }, null, 8 /* PROPS */, ["onCategoryCreation"]),
     _hoisted_2,
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", _hoisted_3, [
-      ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.categories, (category) => {
+      ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($options.categories, (category) => {
         return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_CategoryShowRow, {
           key: category.id,
           category: category,
@@ -58666,10 +58724,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/notes/NoteCreate.vue?vue&type=template&id=5432f4e2&bindings={\"formData\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"createNote\":\"options\",\"resetErrors\":\"options\"}":
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/notes/NoteCreate.vue?vue&type=template&id=5432f4e2&bindings={"formData":"data","errors":"data","loading":"data","createNote":"options","resetErrors":"options"} ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/notes/NoteCreate.vue?vue&type=template&id=5432f4e2&bindings={\"newNote\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"createNote\":\"options\",\"resetErrors\":\"options\"}":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/notes/NoteCreate.vue?vue&type=template&id=5432f4e2&bindings={"newNote":"data","errors":"data","loading":"data","createNote":"options","resetErrors":"options"} ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! namespace exports */
 /*! export render [provided] [no usage info] [missing usage info prevents renaming] */
 /*! other exports [not provided] [no usage info] */
@@ -58718,8 +58776,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           _: 1
         }),
         (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormInput, {
-          modelValue: $data.formData.title,
-          "onUpdate:modelValue": _cache[1] || (_cache[1] = $event => ($data.formData.title = $event)),
+          modelValue: $data.newNote.title,
+          "onUpdate:modelValue": _cache[1] || (_cache[1] = $event => ($data.newNote.title = $event)),
           type: "text",
           id: "title",
           name: "title",
@@ -58734,8 +58792,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           _: 1
         }),
         (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormArea, {
-          modelValue: $data.formData.text,
-          "onUpdate:modelValue": _cache[2] || (_cache[2] = $event => ($data.formData.text = $event)),
+          modelValue: $data.newNote.text,
+          "onUpdate:modelValue": _cache[2] || (_cache[2] = $event => ($data.newNote.text = $event)),
           name: "text",
           id: "text",
           rows: "5",
@@ -58751,8 +58809,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }),
         (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ColorPicker, {
           id: "note-color",
-          modelValue: $data.formData.color,
-          "onUpdate:modelValue": _cache[3] || (_cache[3] = $event => ($data.formData.color = $event))
+          modelValue: $data.newNote.color,
+          "onUpdate:modelValue": _cache[3] || (_cache[3] = $event => ($data.newNote.color = $event))
         }, null, 8 /* PROPS */, ["modelValue"])
       ]),
       (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormErrors, {
@@ -58775,10 +58833,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/notes/NoteList.vue?vue&type=template&id=74c241f8&bindings={\"notes\":\"data\",\"showNote\":\"options\"}":
-/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/notes/NoteList.vue?vue&type=template&id=74c241f8&bindings={"notes":"data","showNote":"options"} ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/notes/NoteList.vue?vue&type=template&id=74c241f8&bindings={\"notes\":\"options\",\"showNote\":\"options\"}":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/notes/NoteList.vue?vue&type=template&id=74c241f8&bindings={"notes":"options","showNote":"options"} ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************/
 /*! namespace exports */
 /*! export render [provided] [no usage info] [missing usage info prevents renaming] */
 /*! other exports [not provided] [no usage info] */
@@ -58818,7 +58876,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Notes grid. "),
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [
-      ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.notes, (note) => {
+      ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($options.notes, (note) => {
         return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
           key: note.id
         }, [
@@ -58875,10 +58933,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/notes/NoteShow.vue?vue&type=template&id=6137c1e3&bindings={\"note\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"noteLoaded\":\"data\",\"saveNote\":\"options\",\"deleteNote\":\"options\",\"resetErrors\":\"options\",\"formatDate\":\"options\"}":
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/notes/NoteShow.vue?vue&type=template&id=6137c1e3&bindings={"note":"data","errors":"data","loading":"data","noteLoaded":"data","saveNote":"options","deleteNote":"options","resetErrors":"options","formatDate":"options"} ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/notes/NoteShow.vue?vue&type=template&id=6137c1e3&bindings={\"editedNote\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"note\":\"options\",\"updateNote\":\"options\",\"removeNote\":\"options\",\"resetErrors\":\"options\",\"formatDate\":\"options\"}":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/notes/NoteShow.vue?vue&type=template&id=6137c1e3&bindings={"editedNote":"data","errors":"data","loading":"data","note":"options","updateNote":"options","removeNote":"options","resetErrors":"options","formatDate":"options"} ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! namespace exports */
 /*! export render [provided] [no usage info] [missing usage info prevents renaming] */
 /*! other exports [not provided] [no usage info] */
@@ -58894,7 +58952,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Edit note")
-const _hoisted_2 = { class: "max-w-xl" }
+const _hoisted_2 = {
+  key: 0,
+  class: "max-w-xl"
+}
 const _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Title")
 const _hoisted_4 = { class: "mt-4" }
 const _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Text")
@@ -58924,87 +58985,89 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       ]),
       _: 1
     }),
-    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("form", _hoisted_2, [
-      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [
-        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormLabel, { for: "title" }, {
-          default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
-            _hoisted_3
+    ($options.note)
+      ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("form", _hoisted_2, [
+          (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [
+            (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormLabel, { for: "title" }, {
+              default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
+                _hoisted_3
+              ]),
+              _: 1
+            }),
+            (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormInput, {
+              modelValue: $data.editedNote.title,
+              "onUpdate:modelValue": _cache[1] || (_cache[1] = $event => ($data.editedNote.title = $event)),
+              type: "text",
+              id: "title",
+              name: "title",
+              errors: $data.errors.title
+            }, null, 8 /* PROPS */, ["modelValue", "errors"])
           ]),
-          _: 1
-        }),
-        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormInput, {
-          modelValue: $data.note.title,
-          "onUpdate:modelValue": _cache[1] || (_cache[1] = $event => ($data.note.title = $event)),
-          type: "text",
-          id: "title",
-          name: "title",
-          errors: $data.errors.title
-        }, null, 8 /* PROPS */, ["modelValue", "errors"])
-      ]),
-      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [
-        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormLabel, { for: "text" }, {
-          default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
-            _hoisted_5
+          (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [
+            (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormLabel, { for: "text" }, {
+              default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
+                _hoisted_5
+              ]),
+              _: 1
+            }),
+            (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormArea, {
+              modelValue: $data.editedNote.text,
+              "onUpdate:modelValue": _cache[2] || (_cache[2] = $event => ($data.editedNote.text = $event)),
+              name: "text",
+              id: "text",
+              rows: "5",
+              errors: $data.errors.text
+            }, null, 8 /* PROPS */, ["modelValue", "errors"])
           ]),
-          _: 1
-        }),
-        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormArea, {
-          modelValue: $data.note.text,
-          "onUpdate:modelValue": _cache[2] || (_cache[2] = $event => ($data.note.text = $event)),
-          name: "text",
-          id: "text",
-          rows: "5",
-          errors: $data.errors.text
-        }, null, 8 /* PROPS */, ["modelValue", "errors"])
-      ]),
-      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [
-        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormLabel, { for: "note-color" }, {
-          default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
-            _hoisted_7
+          (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [
+            (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormLabel, { for: "note-color" }, {
+              default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
+                _hoisted_7
+              ]),
+              _: 1
+            }),
+            (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ColorPicker, {
+              id: "note-color",
+              modelValue: $data.editedNote.color,
+              "onUpdate:modelValue": _cache[3] || (_cache[3] = $event => ($data.editedNote.color = $event)),
+              selectDefaultColor: false
+            }, null, 8 /* PROPS */, ["modelValue"])
           ]),
-          _: 1
-        }),
-        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ColorPicker, {
-          id: "note-color",
-          modelValue: $data.note.color,
-          "onUpdate:modelValue": _cache[3] || (_cache[3] = $event => ($data.note.color = $event)),
-          selectDefaultColor: false
-        }, null, 8 /* PROPS */, ["modelValue"])
-      ]),
-      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_8, [
-        _hoisted_9,
-        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.formatDate($data.note.created_at)), 1 /* TEXT */)
-      ]),
-      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_10, [
-        _hoisted_11,
-        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.formatDate($data.note.updated_at)), 1 /* TEXT */)
-      ]),
-      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormErrors, {
-        class: "mt-8 text-center",
-        errors: $data.errors.others
-      }, null, 8 /* PROPS */, ["errors"]),
-      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_12, [
-        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
-          loading: $data.loading || !$data.noteLoaded,
-          onSubmit: $options.deleteNote,
-          normalBgClass: "bg-gray-600"
-        }, {
-          default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
-            _hoisted_13
+          (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_8, [
+            _hoisted_9,
+            (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.formatDate($options.note.created_at)), 1 /* TEXT */)
           ]),
-          _: 1
-        }, 8 /* PROPS */, ["loading", "onSubmit"]),
-        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
-          loading: $data.loading || !$data.noteLoaded,
-          onSubmit: $options.saveNote
-        }, {
-          default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
-            _hoisted_14
+          (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_10, [
+            _hoisted_11,
+            (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.formatDate($options.note.updated_at)), 1 /* TEXT */)
           ]),
-          _: 1
-        }, 8 /* PROPS */, ["loading", "onSubmit"])
-      ])
-    ])
+          (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormErrors, {
+            class: "mt-8 text-center",
+            errors: $data.errors.others
+          }, null, 8 /* PROPS */, ["errors"]),
+          (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_12, [
+            (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
+              loading: $data.loading,
+              onSubmit: $options.removeNote,
+              normalBgClass: "bg-gray-600"
+            }, {
+              default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
+                _hoisted_13
+              ]),
+              _: 1
+            }, 8 /* PROPS */, ["loading", "onSubmit"]),
+            (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
+              loading: $data.loading,
+              onSubmit: $options.updateNote
+            }, {
+              default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
+                _hoisted_14
+              ]),
+              _: 1
+            }, 8 /* PROPS */, ["loading", "onSubmit"])
+          ])
+        ]))
+      : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)
   ], 64 /* STABLE_FRAGMENT */))
 }
 
@@ -59189,7 +59252,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const _hoisted_1 = {
   key: 0,
-  class: "font-medium text-red-700"
+  class: "text-red-700 font-semibold text-lg uppercase tracking-wide text-center mx-2 mt-4"
 }
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {

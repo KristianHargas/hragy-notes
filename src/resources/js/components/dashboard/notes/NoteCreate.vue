@@ -5,7 +5,7 @@
     <div>
       <FormLabel for="title">Title</FormLabel>
       <FormInput
-        v-model="formData.title"
+        v-model="newNote.title"
         type="text"
         id="title"
         name="title"
@@ -16,7 +16,7 @@
     <div class="mt-4">
       <FormLabel for="text">Text</FormLabel>
       <FormArea
-        v-model="formData.text"
+        v-model="newNote.text"
         name="text"
         id="text"
         rows="5"
@@ -26,7 +26,7 @@
 
     <div class="mt-4">
       <FormLabel for="note-color">Note color</FormLabel>
-      <ColorPicker id="note-color" v-model="formData.color" />
+      <ColorPicker id="note-color" v-model="newNote.color" />
     </div>
 
     <FormErrors class="mt-8 text-center" :errors="errors.others"></FormErrors>
@@ -38,23 +38,23 @@
 </template>
 
 <script>
-import * as NoteService from '../../../services/NoteService'
+import ColorPicker from '../../../shared/components/ColorPicker'
+import DashboardTitle from '../DashboardTitle'
 import {
   is422,
   getValidationErrArr,
   hasValidationErr
 } from '../../../shared/utils/response'
-import ColorPicker from '../../../shared/components/ColorPicker'
-import DashboardTitle from '../DashboardTitle'
 
 export default {
+  emits: ['startLoading', 'stopLoading'],
   components: {
     ColorPicker,
     DashboardTitle
   },
   data() {
     return {
-      formData: {
+      newNote: {
         title: '',
         text: '',
         color: ''
@@ -70,10 +70,12 @@ export default {
   methods: {
     async createNote() {
       this.loading = true
+      this.$emit('startLoading')
+
       this.resetErrors()
 
       try {
-        const res = await NoteService.store(this.formData)
+        await this.$store.dispatch('note/store', { note: this.newNote })
         this.$router.push({ name: 'NoteList' })
       } catch (err) {
         if (is422(err)) {
@@ -83,11 +85,12 @@ export default {
           hasValidationErr(err, 'text') &&
             (this.errors.text = getValidationErrArr(err, 'text'))
         } else {
-          this.errors.others.push('Network or server error, try again later.')
+          this.errors.others.push('Network or server error, try again later!')
         }
       }
 
       this.loading = false
+      this.$emit('stopLoading')
     },
     resetErrors() {
       this.errors.title = []

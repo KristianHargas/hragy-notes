@@ -49,13 +49,13 @@
 
   <!-- Main content -->
   <main class="top-margin lg:ml-72 py-4 px-4 md:px-6 bg-gray-100 main-fill">
-    <div
+    <FormErrors
       v-if="dataFetchingFinished && !dataFetchingSuccess"
-      class="text-red-700 font-semibold text-lg uppercase tracking-wide text-center mx-2 mt-4"
+      :errors="[
+        'Error while loading data, please check your internet connection and refresh again later!'
+      ]"
     >
-      Error while loading data, please check your internet connection and
-      refresh again later!
-    </div>
+    </FormErrors>
 
     <router-view
       v-if="dataFetchingFinished && dataFetchingSuccess"
@@ -92,8 +92,8 @@ export default {
 
     try {
       await Promise.all([
-        this.$store.dispatch('note/fetch'),
-        this.$store.dispatch('category/fetch')
+        this.$store.dispatch('note/index'),
+        this.$store.dispatch('category/index')
       ])
 
       this.dataFetchingSuccess = true
