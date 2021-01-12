@@ -33,21 +33,17 @@
     </section>
 
     <nav class="mt-12">
-      <router-link
-        :to="{ name: 'CategoryList' }"
-        class="block uppercase tracking-wide text-xl mb-4 no-select text-center cursor-pointer shadow-sm bg-white rounded py-2 font-semibold text-gray-700 hover:shadow-md focus:shadow-md"
-        >Categories</router-link
+      <DashboardNavItem :navigateTo="{ name: 'CategoryList' }"
+        >Categories</DashboardNavItem
       >
-      <router-link
-        :to="{ name: 'NoteList' }"
-        class="block uppercase tracking-wide text-xl mb-4 no-select text-center cursor-pointer shadow-sm bg-white rounded py-2 font-semibold text-gray-700 hover:shadow-md focus:shadow-md"
-        >Notes</router-link
+      <DashboardNavItem :navigateTo="{ name: 'NoteList' }"
+        >Notes</DashboardNavItem
       >
     </nav>
   </aside>
 
   <!-- Main content -->
-  <main class="top-margin lg:ml-72 py-4 px-4 md:px-8 bg-gray-100 main-fill">
+  <main class="top-margin lg:ml-72 py-4 px-4 md:px-6 bg-gray-100 main-fill">
     <router-view></router-view>
   </main>
 </template>
@@ -56,10 +52,12 @@
 import { createNamespacedHelpers } from 'vuex'
 const Auth = createNamespacedHelpers('auth')
 import HamburgerButton from '../../shared/components/HamburgerButton'
+import DashboardNavItem from './DashboardNavItem'
 
 export default {
   components: {
-    HamburgerButton
+    HamburgerButton,
+    DashboardNavItem
   },
   data() {
     return {

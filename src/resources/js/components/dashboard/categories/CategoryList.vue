@@ -1,10 +1,7 @@
 <template>
   <div>
-    <h1
-      class="mb-8 text-gray-800 font-semibold text-2xl uppercase tracking-wide"
-    >
-      Your categories
-    </h1>
+    <DashboardTitle>Your categories</DashboardTitle>
+
     <CategoryCreateRow @categoryCreation="categoryCreated" />
 
     <div class="mt-6 mb-8 border-t-2 border-gray-300 w-full md:max-w-lg"></div>
@@ -25,11 +22,13 @@
 import * as CategoryService from '../../../services/CategoryService'
 import CategoryShowRow from './CategoryShowRow'
 import CategoryCreateRow from './CategoryCreateRow'
+import DashboardTitle from '../DashboardTitle'
 
 export default {
   components: {
     CategoryShowRow,
-    CategoryCreateRow
+    CategoryCreateRow,
+    DashboardTitle
   },
   data() {
     return {
@@ -37,6 +36,7 @@ export default {
     }
   },
   async mounted() {
+    // TODO: Show loading state and handle errors.
     const res = await CategoryService.index()
     this.categories = res.data
   },

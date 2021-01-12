@@ -1,11 +1,7 @@
 <template>
-  <form class="max-w-xl">
-    <h1
-      class="mb-8 text-gray-800 font-semibold text-2xl uppercase tracking-wide"
-    >
-      Edit note
-    </h1>
+  <DashboardTitle>Edit note</DashboardTitle>
 
+  <form class="max-w-xl">
     <div>
       <FormLabel for="title">Title</FormLabel>
       <FormInput
@@ -23,7 +19,7 @@
         v-model="note.text"
         name="text"
         id="text"
-        rows="3"
+        rows="5"
         :errors="errors.text"
       ></FormArea>
     </div>
@@ -71,10 +67,12 @@ import {
 } from '../../../shared/utils/response'
 import { formatDate } from '../../../shared/utils/util'
 import ColorPicker from '../../../shared/components/ColorPicker'
+import DashboardTitle from '../DashboardTitle'
 
 export default {
   components: {
-    ColorPicker
+    ColorPicker,
+    DashboardTitle
   },
   data() {
     return {
@@ -93,6 +91,7 @@ export default {
     }
   },
   async mounted() {
+    // TODO: Show loading state and handle errors.
     this.loading = true
     this.resetErrors()
     try {
@@ -101,7 +100,8 @@ export default {
       this.noteLoaded = true
     } catch (err) {
       if (is404(err)) {
-        this.errors.others.push('Note not found.')
+        // this.errors.others.push('Note not found.')
+        this.$router.replace({ name: 'NoteList' })
       } else {
         this.errors.others.push('Network or server error, try again later.')
       }

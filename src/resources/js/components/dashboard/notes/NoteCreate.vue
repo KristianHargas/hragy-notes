@@ -1,11 +1,7 @@
 <template>
-  <form class="max-w-xl">
-    <h1
-      class="mb-8 text-gray-800 font-semibold text-2xl uppercase tracking-wide"
-    >
-      Create new note
-    </h1>
+  <DashboardTitle>Create new note</DashboardTitle>
 
+  <form class="max-w-xl">
     <div>
       <FormLabel for="title">Title</FormLabel>
       <FormInput
@@ -23,7 +19,7 @@
         v-model="formData.text"
         name="text"
         id="text"
-        rows="4"
+        rows="5"
         :errors="errors.text"
       ></FormArea>
     </div>
@@ -49,10 +45,12 @@ import {
   hasValidationErr
 } from '../../../shared/utils/response'
 import ColorPicker from '../../../shared/components/ColorPicker'
+import DashboardTitle from '../DashboardTitle'
 
 export default {
   components: {
-    ColorPicker
+    ColorPicker,
+    DashboardTitle
   },
   data() {
     return {

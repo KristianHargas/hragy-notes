@@ -1,56 +1,41 @@
 <template>
   <div>
-    <h1
-      class="mb-8 text-gray-800 font-semibold text-2xl uppercase tracking-wide"
-    >
-      Your notes
-    </h1>
+    <DashboardTitle>Your notes</DashboardTitle>
 
     <!-- Notes grid. -->
     <div class="grid gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
-      <div
-        v-for="note in notes"
-        :key="note.id"
-        class="p-4 no-select rounded-lg cursor-pointer hover:shadow-md focus:shadow-md"
-        :class="[note.color]"
-        @click="showNote(note)"
-      >
-        <h3 class="overflow-hidden text-2xl font-medium text-white">
-          {{ note.title }}
-        </h3>
-        <p class="overflow-hidden text-lg font-light text-white mt-2">
-          {{ ellipsis(note.text) }}
-        </p>
-        <div class="text-base font-light text-white mt-6">
-          {{ formatDate(note.created_at) }}
-        </div>
+      <div v-for="note in notes" :key="note.id">
+        <NoteListItem :note="note" @noteClick="showNote" />
       </div>
     </div>
 
-    <router-link
-      :to="{ name: 'NoteCreate' }"
-      class="fixed shadow-lg hover:shadow-2xl bottom-0 right-0 mr-6 mb-6 p-3 bg-red-700 text-white rounded-full"
-    >
+    <FloatingActionButton :navigateTo="{ name: 'NoteCreate' }">
       <img
         class="h-8"
         src="../../../../static/img/note_add-white.svg"
         alt="Add note icon."
       />
-    </router-link>
+    </FloatingActionButton>
   </div>
 </template>
 
 <script>
 import * as NoteService from '../../../services/NoteService'
-import { formatDate, ellipsis } from '../../../shared/utils/util'
+import DashboardTitle from '../DashboardTitle'
+import NoteListItem from './NoteListItem'
 
 export default {
+  components: {
+    DashboardTitle,
+    NoteListItem
+  },
   data() {
     return {
       notes: []
     }
   },
   async mounted() {
+    // TODO: Show loading state and handle errors.
     const res = await NoteService.index()
     this.notes = res.data
   },
@@ -62,12 +47,6 @@ export default {
           id: note.id
         }
       })
-    },
-    formatDate(dateString) {
-      return formatDate(dateString)
-    },
-    ellipsis(text) {
-      return ellipsis(text, 100)
     }
   }
 }
