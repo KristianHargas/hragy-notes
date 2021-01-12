@@ -7,6 +7,11 @@
       @toggle="navigationDrawer = !navigationDrawer"
     ></HamburgerButton>
     <Logo :to="{ name: 'Dashboard' }" class="ml-4"></Logo>
+    <div class="flex-grow"></div>
+    <LoadingSpinner
+      v-if="loading"
+      class="animate-spin h-10 w-10 text-red-700"
+    />
   </header>
 
   <!-- Navigation drawer -->
@@ -44,7 +49,10 @@
 
   <!-- Main content -->
   <main class="top-margin lg:ml-72 py-4 px-4 md:px-6 bg-gray-100 main-fill">
-    <router-view></router-view>
+    <router-view
+      @startLoading="loading = true"
+      @stopLoading="loading = false"
+    ></router-view>
   </main>
 </template>
 
@@ -61,7 +69,8 @@ export default {
   },
   data() {
     return {
-      navigationDrawer: false
+      navigationDrawer: false,
+      loading: false
     }
   },
   computed: {

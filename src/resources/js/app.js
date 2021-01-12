@@ -12,6 +12,7 @@ import FormArea from './shared/components/FormArea'
 import FormErrors from './shared/components/FormErrors'
 import FormButton from './shared/components/FormButton'
 import FloatingActionButton from './shared/components/FloatingActionButton'
+import LoadingSpinner from './shared/components/LoadingSpinner'
 import axios from 'axios'
 import { is401 } from './shared/utils/response'
 
@@ -38,5 +39,6 @@ app.component('FormArea', FormArea)
 app.component('FormErrors', FormErrors)
 app.component('FormButton', FormButton)
 app.component('FloatingActionButton', FloatingActionButton)
+app.component('LoadingSpinner', LoadingSpinner)
 
 app.mount('#app')
