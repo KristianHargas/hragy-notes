@@ -49,6 +49,12 @@ export default {
     },
     getNoteById: (state) => (id) => {
       return state.notes.find((note) => note.id == id)
+    },
+    getNotesOfCategory: (state) => (id) => {
+      return state.notes.filter((note) => {
+        const categories = note.categories.map((category) => category.id)
+        return categories.includes(id)
+      })
     }
   }
 }
