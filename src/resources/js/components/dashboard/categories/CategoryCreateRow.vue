@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import * as CategoryService from '../../../services/CategoryService'
 import {
   is422,
   is400,
@@ -29,7 +28,7 @@ import {
 } from '../../../shared/utils/response'
 
 export default {
-  emits: ['categoryCreation'],
+  emits: ['startLoading', 'stopLoading'],
   data() {
     return {
       title: '',
@@ -41,18 +40,18 @@ export default {
   methods: {
     async createCategory() {
       this.loading = true
+      this.$emit('startLoading')
+
       this.errors = []
       this.successMessages = []
 
       try {
-        const res = await CategoryService.store({
-          title: this.title
+        await this.$store.dispatch('category/store', {
+          category: { title: this.title }
         })
 
         this.title = ''
         this.successMessages.push('Category created successfully!')
-
-        this.$emit('categoryCreation', res.data)
       } catch (err) {
         if (is422(err)) {
           hasValidationErr(err, 'title') &&
@@ -66,6 +65,7 @@ export default {
       }
 
       this.loading = false
+      this.$emit('stopLoading')
     }
   }
 }

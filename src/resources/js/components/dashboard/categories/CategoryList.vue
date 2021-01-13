@@ -2,7 +2,10 @@
   <div>
     <DashboardTitle>Your categories</DashboardTitle>
 
-    <CategoryCreateRow @categoryCreation="categoryCreated" />
+    <CategoryCreateRow
+      @startLoading="$emit('startLoading')"
+      @stopLoading="$emit('stopLoading')"
+    />
 
     <div class="mt-6 mb-8 border-t-2 border-gray-300 w-full md:max-w-lg"></div>
 
@@ -11,20 +14,20 @@
         v-for="category in categories"
         :key="category.id"
         :category="category"
-        @categoryUpdate="categoryUpdated"
-        @categoryRemoval="categoryRemoved"
+        @startLoading="$emit('startLoading')"
+        @stopLoading="$emit('stopLoading')"
       />
     </ul>
   </div>
 </template>
 
 <script>
-import * as CategoryService from '../../../services/CategoryService'
 import CategoryShowRow from './CategoryShowRow'
 import CategoryCreateRow from './CategoryCreateRow'
 import DashboardTitle from '../DashboardTitle'
 
 export default {
+  emits: ['startLoading', 'stopLoading'],
   components: {
     CategoryShowRow,
     CategoryCreateRow,
@@ -34,22 +37,22 @@ export default {
     categories() {
       return this.$store.state.category.categories
     }
-  },
-  methods: {
-    categoryUpdated(updatedCategory) {
-      this.categories = this.categories.map((category) =>
-        category.id == updatedCategory.id ? updatedCategory : category
-      )
-    },
-    categoryRemoved(removedCategory) {
-      this.categories = this.categories.filter(
-        (category) => category.id != removedCategory.id
-      )
-    },
-    categoryCreated(createdCategory) {
-      this.categories.push(createdCategory)
-    }
   }
+  // methods: {
+  //   categoryUpdated(updatedCategory) {
+  //     this.categories = this.categories.map((category) =>
+  //       category.id == updatedCategory.id ? updatedCategory : category
+  //     )
+  //   },
+  //   categoryRemoved(removedCategory) {
+  //     this.categories = this.categories.filter(
+  //       (category) => category.id != removedCategory.id
+  //     )
+  //   },
+  //   categoryCreated(createdCategory) {
+  //     this.categories.push(createdCategory)
+  //   }
+  // }
 }
 </script>
 

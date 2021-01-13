@@ -4,8 +4,7 @@ export default {
   namespaced: true,
 
   state: () => ({
-    notes: [],
-    notesFetched: false
+    notes: []
   }),
 
   mutations: {
@@ -22,9 +21,6 @@ export default {
     },
     DESTROY_NOTE(state, payload) {
       state.notes = state.notes.filter((note) => note.id != payload.id)
-    },
-    SET_NOTES_FETCHED(state, payload) {
-      state.notesFetched = payload
     }
   },
 
@@ -32,7 +28,6 @@ export default {
     async index({ commit }) {
       const { data } = await NoteService.index()
       commit('SET_NOTES', { notes: data })
-      commit('SET_NOTES_FETCHED', true)
     },
     async store({ commit }, payload) {
       const { data } = await NoteService.store(payload.note)
@@ -49,7 +44,7 @@ export default {
   },
 
   getters: {
-    notesCount(state) {
+    getNotesCount(state) {
       return state.notes.length
     },
     getNoteById: (state) => (id) => {

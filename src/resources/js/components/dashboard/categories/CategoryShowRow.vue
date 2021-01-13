@@ -23,7 +23,6 @@
 </template>
 
 <script>
-import * as CategoryService from '../../../services/CategoryService'
 import {
   is422,
   getValidationErrArr,
@@ -31,7 +30,7 @@ import {
 } from '../../../shared/utils/response'
 
 export default {
-  emits: ['categoryUpdate', 'categoryRemoval'],
+  emits: ['startLoading', 'stopLoading'],
   props: {
     category: {
       type: Object,
@@ -49,15 +48,19 @@ export default {
   methods: {
     async updateCategory() {
       this.loading = true
+      this.$emit('startLoading')
+
       this.resetMessages()
 
       try {
-        const res = await CategoryService.update(this.category.id, {
-          title: this.title
+        await this.$store.dispatch('category/update', {
+          id: this.category.id,
+          category: {
+            title: this.title
+          }
         })
 
         this.successMessages.push('Category updated successfully!')
-        this.$emit('categoryUpdate', res.data)
       } catch (err) {
         if (is422(err)) {
           hasValidationErr(err, 'title') &&
@@ -69,17 +72,29 @@ export default {
       }
 
       this.loading = false
+      this.$emit('stopLoading')
     },
     async removeCategory() {
       // TODO: Implement CategoryController.destroy method and use API call.
-
       const confirmed = confirm(
         `Are you sure you want to remove category ${this.category.title}?`
       )
 
-      if (confirmed) {
-        this.$emit('categoryRemoval', this.category)
+      if (!confirmed) return
+
+      this.loading = true
+      this.$emit('startLoading')
+
+      this.resetMessages()
+
+      try {
+        await this.$store.dispatch('category/destroy', { id: this.category.id })
+      } catch (err) {
+        // TODO: Handle errors.
       }
+
+      this.loading = false
+      this.$emit('stopLoading')
     },
     resetMessages() {
       this.successMessages = []
