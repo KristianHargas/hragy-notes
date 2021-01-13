@@ -36,24 +36,14 @@
     <div class="mt-4">
       <FormLabel for="categories-selection">Select categories</FormLabel>
       <div id="categories-selection" class="flex flex-row flex-wrap">
-        <div
+        <CheckablePill
           v-for="category in categories"
           :key="category.id"
-          class="flex items-center px-4 py-2 m-1 bg-red-100 rounded-full"
+          :id="category.id"
+          v-model="editedNote.categories"
         >
-          <input
-            type="checkbox"
-            :id="'category' + category.id"
-            class="form-checkbox focus:shadow-outline-red"
-            :value="category.id"
-            v-model="editedNote.categories"
-          />
-          <label
-            :for="'category' + category.id"
-            class="text-base font-semibold text-gray-700 ml-1 no-select"
-            >{{ category.title }}</label
-          >
-        </div>
+          {{ category.title }}
+        </CheckablePill>
       </div>
     </div>
 
@@ -195,8 +185,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-input[type='checkbox']:checked {
-  color: rgb(200, 30, 30);
-}
-</style>
+<style lang="scss" scoped></style>
