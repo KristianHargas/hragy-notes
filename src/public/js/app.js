@@ -35247,6 +35247,25 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/static/img/delete-white.svg":
+/*!***********************************************!*\
+  !*** ./resources/static/img/delete-white.svg ***!
+  \***********************************************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/delete-white.svg?3172ee59b232e498c7ad4a0c7c0c1ee4");
+
+/***/ }),
+
 /***/ "./resources/static/img/done-white.svg":
 /*!*********************************************!*\
   !*** ./resources/static/img/done-white.svg ***!
@@ -35358,6 +35377,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/notes-landing.svg?55e7755f2710835cfd2b8f043914c4ab");
+
+/***/ }),
+
+/***/ "./resources/static/img/save-white.svg":
+/*!*********************************************!*\
+  !*** ./resources/static/img/save-white.svg ***!
+  \*********************************************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/save-white.svg?3b2b120013a059832648fd48a00f9673");
 
 /***/ }),
 
@@ -59010,13 +59048,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => /* binding */ render
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _static_img_save_white_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../static/img/save-white.svg */ "./resources/static/img/save-white.svg");
+/* harmony import */ var _static_img_delete_white_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../static/img/delete-white.svg */ "./resources/static/img/delete-white.svg");
+/* harmony import */ var _static_img_note_icon_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../static/img/note-icon.svg */ "./resources/static/img/note-icon.svg");
+
+
+
+
 
 
 const _hoisted_1 = { class: "flex flex-row items-start flex-wrap" }
 const _hoisted_2 = { class: "w-full mb-2 sm:mb-0 sm:w-0 sm:flex-grow sm:max-w-lg" }
-const _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Save")
-const _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Remove")
-const _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Notes")
+const _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+  src: _static_img_save_white_svg__WEBPACK_IMPORTED_MODULE_1__.default,
+  alt: "Save icon.",
+  class: "h-8"
+}, null, -1 /* HOISTED */)
+const _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+  src: _static_img_delete_white_svg__WEBPACK_IMPORTED_MODULE_2__.default,
+  alt: "Delete icon.",
+  class: "h-8"
+}, null, -1 /* HOISTED */)
+const _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+  src: _static_img_note_icon_svg__WEBPACK_IMPORTED_MODULE_3__.default,
+  alt: "Save icon.",
+  class: "h-8"
+}, null, -1 /* HOISTED */)
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_FormInput = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("FormInput")

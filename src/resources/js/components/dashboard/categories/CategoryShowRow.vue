@@ -10,18 +10,27 @@
       />
     </div>
     <FormButton class="sm:ml-3 h-13" :loading="loading" @submit="updateCategory"
-      >Save</FormButton
-    >
+      ><img
+        src="../../../../static/img/save-white.svg"
+        alt="Save icon."
+        class="h-8"
+    /></FormButton>
     <FormButton
       class="ml-3"
       normalBgClass="bg-gray-600"
       :loading="loading"
       @submit="removeCategory"
-      >Remove</FormButton
-    >
+      ><img
+        src="../../../../static/img/delete-white.svg"
+        alt="Delete icon."
+        class="h-8"
+    /></FormButton>
     <FormButton class="ml-3" :loading="loading" @click="showNotes"
-      >Notes</FormButton
-    >
+      ><img
+        src="../../../../static/img/note-icon.svg"
+        alt="Save icon."
+        class="h-8"
+    /></FormButton>
   </div>
 </template>
 
