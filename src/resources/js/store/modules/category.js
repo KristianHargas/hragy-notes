@@ -54,6 +54,9 @@ export default {
   getters: {
     getCategoryBySlug: (state) => (slug) => {
       return state.categories.find((category) => category.slug == slug)
+    },
+    getCategoryById: (state) => (id) => {
+      return state.categories.find((category) => category.id == id)
     }
   }
 }

@@ -34600,6 +34600,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           return category.slug == slug;
         });
       };
+    },
+    getCategoryById: function getCategoryById(state) {
+      return function (id) {
+        return state.categories.find(function (category) {
+          return category.id == id;
+        });
+      };
     }
   }
 });
@@ -59443,7 +59450,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
               key: category.id,
               class: "px-4 py-1 m-1 bg-transparent rounded-full text-sm font-semibold text-white border-2 border-white no-select"
-            }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(category.title), 1 /* TEXT */))
+            }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$store.getters['category/getCategoryById'](category.id).title), 1 /* TEXT */))
           }), 128 /* KEYED_FRAGMENT */))
         ]))
       : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true),

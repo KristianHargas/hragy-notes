@@ -19,7 +19,7 @@
         :key="category.id"
         class="px-4 py-1 m-1 bg-transparent rounded-full text-sm font-semibold text-white border-2 border-white no-select"
       >
-        {{ category.title }}
+        {{ $store.getters['category/getCategoryById'](category.id).title }}
       </div>
     </div>
     <div class="text-base font-light text-white mt-4">
