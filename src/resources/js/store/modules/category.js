@@ -49,5 +49,11 @@ export default {
       })
       commit('DESTROY_CATEGORY', payload)
     }
+  },
+
+  getters: {
+    getCategoryBySlug: (state) => (slug) => {
+      return state.categories.find((category) => category.slug == slug)
+    }
   }
 }

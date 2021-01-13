@@ -10,7 +10,19 @@
     <p class="overflow-hidden text-lg font-light text-white mt-2">
       {{ ellipsis(note.text) }}
     </p>
-    <div class="text-base font-light text-white mt-6">
+    <div
+      v-if="note.categories.length"
+      class="flex flex-row flex-wrap mt-4 -mx-1"
+    >
+      <div
+        v-for="category in note.categories"
+        :key="category.id"
+        class="px-4 py-1 m-1 bg-transparent rounded-full text-sm font-semibold text-white border-2 border-white no-select"
+      >
+        {{ category.title }}
+      </div>
+    </div>
+    <div class="text-base font-light text-white mt-4">
       {{ formatDate(note.created_at) }}
     </div>
   </div>

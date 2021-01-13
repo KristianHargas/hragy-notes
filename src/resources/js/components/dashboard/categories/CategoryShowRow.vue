@@ -19,6 +19,9 @@
       @submit="removeCategory"
       >Remove</FormButton
     >
+    <FormButton class="ml-3" :loading="loading" @click="showNotes"
+      >Notes</FormButton
+    >
   </div>
 </template>
 
@@ -95,6 +98,14 @@ export default {
 
       this.loading = false
       this.$emit('stopLoading')
+    },
+    showNotes() {
+      this.$router.push({
+        name: 'NoteList',
+        query: {
+          category: this.category.slug
+        }
+      })
     },
     resetMessages() {
       this.successMessages = []

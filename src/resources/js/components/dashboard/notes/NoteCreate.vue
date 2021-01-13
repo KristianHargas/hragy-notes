@@ -29,6 +29,30 @@
       <ColorPicker id="note-color" v-model="newNote.color" />
     </div>
 
+    <div class="mt-4">
+      <FormLabel for="categories-selection">Select categories</FormLabel>
+      <div id="categories-selection" class="flex flex-row flex-wrap">
+        <div
+          v-for="category in categories"
+          :key="category.id"
+          class="flex items-center px-4 py-2 m-1 bg-red-100 rounded-full"
+        >
+          <input
+            type="checkbox"
+            :id="'category' + category.id"
+            class="form-checkbox focus:shadow-outline-red"
+            :value="category.id"
+            v-model="newNote.categories"
+          />
+          <label
+            :for="'category' + category.id"
+            class="text-base font-semibold text-gray-700 ml-1 no-select"
+            >{{ category.title }}</label
+          >
+        </div>
+      </div>
+    </div>
+
     <FormErrors class="mt-8 text-center" :errors="errors.others"></FormErrors>
 
     <FormButton class="mt-8 ml-auto" :loading="loading" @submit="createNote"
@@ -57,7 +81,8 @@ export default {
       newNote: {
         title: '',
         text: '',
-        color: ''
+        color: '',
+        categories: []
       },
       errors: {
         title: [],
@@ -65,6 +90,11 @@ export default {
         others: []
       },
       loading: false
+    }
+  },
+  computed: {
+    categories() {
+      return this.$store.state.category.categories
     }
   },
   methods: {
@@ -75,7 +105,9 @@ export default {
       this.resetErrors()
 
       try {
-        await this.$store.dispatch('note/store', { note: this.newNote })
+        await this.$store.dispatch('note/store', {
+          note: this.newNote
+        })
         this.$router.push({ name: 'NoteList' })
       } catch (err) {
         if (is422(err)) {
@@ -101,4 +133,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+input[type='checkbox']:checked {
+  color: rgb(200, 30, 30);
+}
+</style>

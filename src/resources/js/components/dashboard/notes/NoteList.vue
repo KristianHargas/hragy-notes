@@ -30,9 +30,20 @@ export default {
     NoteListItem
   },
   computed: {
+    categoryFilter() {
+      return this.$store.getters['category/getCategoryBySlug'](
+        this.$route.query.category
+      )
+    },
     notes() {
       return this.$store.state.note.notes
     }
+  },
+  beforeRouteUpdate(to, from) {
+    console.log('Category change: ', to.query.category)
+  },
+  mounted() {
+    console.log('Category: ', this.$route.query.category)
   },
   methods: {
     showNote(note) {

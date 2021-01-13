@@ -33,6 +33,30 @@
       />
     </div>
 
+    <div class="mt-4">
+      <FormLabel for="categories-selection">Select categories</FormLabel>
+      <div id="categories-selection" class="flex flex-row flex-wrap">
+        <div
+          v-for="category in categories"
+          :key="category.id"
+          class="flex items-center px-4 py-2 m-1 bg-red-100 rounded-full"
+        >
+          <input
+            type="checkbox"
+            :id="'category' + category.id"
+            class="form-checkbox focus:shadow-outline-red"
+            :value="category.id"
+            v-model="editedNote.categories"
+          />
+          <label
+            :for="'category' + category.id"
+            class="text-base font-semibold text-gray-700 ml-1 no-select"
+            >{{ category.title }}</label
+          >
+        </div>
+      </div>
+    </div>
+
     <div class="mt-4 flex justify-between text-base font-medium text-gray-700">
       <span>Created at:</span><span>{{ formatDate(note.created_at) }}</span>
     </div>
@@ -77,7 +101,8 @@ export default {
       editedNote: {
         title: '',
         text: '',
-        color: ''
+        color: '',
+        categories: []
       },
       errors: {
         title: [],
@@ -90,14 +115,22 @@ export default {
   computed: {
     note() {
       return this.$store.getters['note/getNoteById'](this.$route.params.id)
+    },
+    categories() {
+      return this.$store.state.category.categories
     }
   },
   mounted() {
     if (this.note) {
+      const selectedCategories = this.note.categories.map(
+        (category) => category.id
+      )
+
       this.editedNote = {
         title: this.note.title,
         text: this.note.text,
-        color: this.note.color
+        color: this.note.color,
+        categories: selectedCategories
       }
     } else {
       this.$router.replace({ name: 'NoteList' })
@@ -162,4 +195,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+input[type='checkbox']:checked {
+  color: rgb(200, 30, 30);
+}
+</style>
