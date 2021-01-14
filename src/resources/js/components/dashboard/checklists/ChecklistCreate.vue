@@ -17,47 +17,21 @@
       <div class="mt-4">
         <FormLabel for="items">Items</FormLabel>
         <div id="items">
-          <!-- Add new item section. -->
-          <div class="flex flex-row flex-wrap">
-            <div class="w-0 flex-grow">
-              <FormInput v-model="newItem" type="text" placeholder="New item" />
-            </div>
-            <FormButton class="ml-3" :loading="!newItem" @submit="addItem"
-              >Add</FormButton
-            >
-          </div>
+          <ChecklistAddItem @newItemAddition="addItem($event)" />
 
           <div class="mt-4 mb-4 border-t-2 border-gray-300 w-full"></div>
 
           <!-- List of items. -->
           <ul class="space-y-2">
-            <li
-              class="flex flex-row flex-wrap items-center"
+            <ChecklistShowItem
               v-for="(item, index) in items"
               :key="'item' + index"
-            >
-              <input
-                type="checkbox"
-                class="form-checkbox mr-3 h-8 w-8 focus:shadow-outline-red"
-                v-model="item.checked"
-              />
-              <div class="w-0 flex-grow">
-                <FormInput
-                  v-model="item.text"
-                  type="text"
-                  @change="itemUpdated(item)"
-                />
-              </div>
-              <FormButton
-                class="ml-3 w-13"
-                normalBgClass="bg-gray-600"
-                @submit="removeItem(item)"
-                ><img
-                  src="../../../../static/img/clear-white.svg"
-                  alt="Clear icon."
-                  class="h-8"
-              /></FormButton>
-            </li>
+              :text="item.text"
+              :checked="item.checked"
+              @checkChange="item.checked = $event"
+              @textChange="updateItem($event, item)"
+              @itemRemoval="removeItem(item)"
+            />
           </ul>
         </div>
       </div>
@@ -96,6 +70,8 @@
 <script>
 import DashboardTitle from '../DashboardTitle'
 import ColorPicker from '../../../shared/components/ColorPicker'
+import ChecklistAddItem from './ChecklistAddItem'
+import ChecklistShowItem from './ChecklistShowItem'
 import {
   is422,
   getValidationErrArr,
@@ -106,7 +82,9 @@ export default {
   emits: ['startLoading', 'stopLoading'],
   components: {
     DashboardTitle,
-    ColorPicker
+    ColorPicker,
+    ChecklistAddItem,
+    ChecklistShowItem
   },
   data() {
     return {
@@ -116,7 +94,6 @@ export default {
         color: '',
         categories: []
       },
-      newItem: '',
       items: [],
       errors: {
         title: [],
@@ -132,14 +109,12 @@ export default {
     }
   },
   methods: {
-    addItem() {
-      if (!this.newItem) return
-
-      this.items.push({ checked: false, text: this.newItem })
-      this.newItem = ''
+    addItem(newItem) {
+      this.items.push({ checked: false, text: newItem })
     },
-    itemUpdated(item) {
-      if (!item.text) this.removeItem(item)
+    updateItem(newText, item) {
+      if (!newText) this.removeItem(item)
+      else item.text = newText
     },
     removeItem(item) {
       this.items.splice(this.items.indexOf(item), 1)
@@ -178,8 +153,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-input[type='checkbox']:checked {
-  color: rgb(200, 30, 30);
-}
-</style>
+<style lang="scss" scoped></style>
