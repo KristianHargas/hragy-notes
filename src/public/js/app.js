@@ -32915,6 +32915,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var res;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -32926,34 +32927,31 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _this.resetErrors();
 
                 _context.prev = 3;
-                _context.next = 6;
-                return new Promise(function (resolve) {
-                  setTimeout(function () {
-                    resolve();
-                  }, 2000);
-                });
-
-              case 6:
                 _this.newChecklist.items = JSON.stringify(_this.items);
-                console.log('Creating checklist: ', _this.newChecklist);
-                _context.next = 12;
+                _context.next = 7;
+                return axios.post('/api/checklists', _this.newChecklist);
+
+              case 7:
+                res = _context.sent;
+                console.log('Created checklist: ', res.data);
+                _context.next = 13;
                 break;
 
-              case 10:
-                _context.prev = 10;
+              case 11:
+                _context.prev = 11;
                 _context.t0 = _context["catch"](3);
 
-              case 12:
+              case 13:
                 _this.loading = false;
 
                 _this.$emit('stopLoading');
 
-              case 14:
+              case 15:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[3, 10]]);
+        }, _callee, null, [[3, 11]]);
       }))();
     },
     resetErrors: function resetErrors() {

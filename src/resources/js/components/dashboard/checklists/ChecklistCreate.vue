@@ -151,14 +151,11 @@ export default {
       this.resetErrors()
 
       try {
-        await new Promise((resolve) => {
-          setTimeout(() => {
-            resolve()
-          }, 2000)
-        })
-
         this.newChecklist.items = JSON.stringify(this.items)
-        console.log('Creating checklist: ', this.newChecklist)
+
+        const res = await axios.post('/api/checklists', this.newChecklist)
+
+        console.log('Created checklist: ', res.data)
       } catch (err) {}
 
       this.loading = false

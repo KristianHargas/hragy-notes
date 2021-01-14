@@ -32,15 +32,16 @@ class NoteController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'text' => 'max:1024',
-            'color' => 'max:32',
+            'color' => 'required|max:32',
+            'categories' => 'present|array',
             'categories.*' => 'exists:categories,id',
         ]);
 
         // Check if all passed categories belong to the current user.
-        $categories = $request->user()->categories()->pluck('id');
+        $userCategories = $request->user()->categories()->pluck('id');
 
-        foreach ($request->input('categories') as $category) {
-            if (!$categories->contains($category)) {
+        foreach ($validatedData['categories'] as $category) {
+            if (!$userCategories->contains($category)) {
                 return response()->json([], 400);
             }
         }
@@ -55,7 +56,7 @@ class NoteController extends Controller
             ]);
 
             // Assign newly created note with categories.
-            $note->categories()->attach($request->input('categories'));
+            $note->categories()->attach($validatedData['categories']);
 
             // Load basic category information.
             $note->load('categories:id,title');
@@ -72,14 +73,12 @@ class NoteController extends Controller
      */
     public function show(Request $request, $id)
     {
-        $note = $request->user()->notes()->where('id', $id)->first();
+        $note = $request->user()->notes()->with('categories:id,title')
+            ->where('id', $id)->first();
 
         if ($note === null) {
             return response()->json([], 404);
         }
-
-        // Load basic category information.
-        $note->load('categories:id,title');
 
         return response()->json($note, 200);
     }
@@ -103,20 +102,21 @@ class NoteController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'text' => 'max:1024',
-            'color' => 'max:32',
+            'color' => 'required|max:32',
+            'categories' => 'present|array',
             'categories.*' => 'exists:categories,id',
         ]);
 
         // Check if all passed categories belong to the current user.
-        $categories = $request->user()->categories()->pluck('id');
+        $userCategories = $request->user()->categories()->pluck('id');
 
-        foreach ($request->input('categories') as $category) {
-            if (!$categories->contains($category)) {
+        foreach ($validatedData['categories'] as $category) {
+            if (!$userCategories->contains($category)) {
                 return response()->json([], 400);
             }
         }
 
-        DB::transaction(function () use ($request, $validatedData, &$note) {
+        DB::transaction(function () use ($validatedData, &$note) {
             $note->title = $validatedData['title'];
             $note->text = $validatedData['text'];
             $note->color = $validatedData['color'];
@@ -124,7 +124,7 @@ class NoteController extends Controller
 
             // Assign newly created note with categories.
             $note->categories()->detach($note->categories->pluck('id'));
-            $note->categories()->attach($request->input('categories'));
+            $note->categories()->attach($validatedData['categories']);
 
             // Load basic category information.
             $note->load('categories:id,title');
