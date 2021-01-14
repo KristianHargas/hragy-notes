@@ -26,12 +26,12 @@
 
     <div class="mt-4">
       <FormLabel for="note-color">Note color</FormLabel>
-      <ColorPicker id="note-color" v-model="newNote.color" />
+      <ColorPicker class="-ml-2" id="note-color" v-model="newNote.color" />
     </div>
 
     <div class="mt-4">
       <FormLabel for="categories-selection">Select categories</FormLabel>
-      <div id="categories-selection" class="flex flex-row flex-wrap">
+      <div id="categories-selection" class="flex flex-row flex-wrap -ml-1">
         <CheckablePill
           v-for="category in categories"
           :key="category.id"

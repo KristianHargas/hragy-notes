@@ -55,6 +55,20 @@
         </div>
       </div>
 
+      <div
+        class="mt-4 flex justify-between text-base font-medium text-gray-700"
+      >
+        <span>Created at:</span
+        ><span>{{ formatDate(checklist.created_at) }}</span>
+      </div>
+
+      <div
+        class="mt-2 flex justify-between text-base font-medium text-gray-700"
+      >
+        <span>Updated at:</span
+        ><span>{{ formatDate(checklist.updated_at) }}</span>
+      </div>
+
       <FormErrors class="mt-8 text-center" :errors="errors.others"></FormErrors>
 
       <div class="flex justify-between mt-8">

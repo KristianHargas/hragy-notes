@@ -1,11 +1,11 @@
 <template>
   <label
     :for="'checkable-pill-' + id"
-    class="flex items-center px-4 py-2 m-1 bg-red-100 rounded-full text-base font-semibold text-gray-700 no-select"
+    class="flex items-center bg-white px-4 py-1 m-1 border-2 border-gray-600 rounded-full text-base font-semibold text-gray-600 no-select"
     ><input
       type="checkbox"
       :id="'checkable-pill-' + id"
-      class="form-checkbox focus:shadow-outline-red mr-1"
+      class="form-checkbox focus:shadow-outline-red mr-2"
       :value="id"
       :checked="isChecked"
       @change="checkChanged($event.target.checked)" />

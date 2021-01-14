@@ -8,7 +8,7 @@
       {{ checklist.title }}
     </h3>
 
-    <ul class="mt-2">
+    <ul class="mt-2 space-y-2">
       <li
         v-for="item in checklist.items"
         :key="item.id"

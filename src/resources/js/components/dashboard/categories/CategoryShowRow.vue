@@ -9,14 +9,18 @@
         :successMessages="successMessages"
       />
     </div>
-    <FormButton class="sm:ml-3 h-13" :loading="loading" @submit="updateCategory"
+    <FormButton
+      class="sm:ml-3 w-13"
+      normalBgClass="bg-red-800"
+      :loading="loading"
+      @submit="updateCategory"
       ><img
         src="../../../../static/img/save-white.svg"
         alt="Save icon."
         class="h-8"
     /></FormButton>
     <FormButton
-      class="ml-3"
+      class="ml-3 w-13"
       normalBgClass="bg-gray-600"
       :loading="loading"
       @submit="removeCategory"
@@ -25,13 +29,13 @@
         alt="Delete icon."
         class="h-8"
     /></FormButton>
-    <FormButton class="ml-3" :loading="loading" @click="showNotes"
+    <FormButton class="ml-3 w-13" :loading="loading" @click="showNotes"
       ><img
         src="../../../../static/img/note-icon.svg"
         alt="Notes icon."
         class="h-8"
     /></FormButton>
-    <FormButton class="ml-3" :loading="loading" @click="showChecklists"
+    <FormButton class="ml-3 w-13" :loading="loading" @click="showChecklists"
       ><img
         src="../../../../static/img/list_alt-white.svg"
         alt="Checklists icon."

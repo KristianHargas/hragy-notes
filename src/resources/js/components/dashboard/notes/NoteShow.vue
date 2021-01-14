@@ -28,6 +28,7 @@
       <FormLabel for="note-color">Note color</FormLabel>
       <ColorPicker
         id="note-color"
+        class="-ml-2"
         v-model="editedNote.color"
         :selectDefaultColor="false"
       />
@@ -35,7 +36,7 @@
 
     <div class="mt-4">
       <FormLabel for="categories-selection">Select categories</FormLabel>
-      <div id="categories-selection" class="flex flex-row flex-wrap">
+      <div id="categories-selection" class="flex flex-row flex-wrap -ml-1">
         <CheckablePill
           v-for="category in categories"
           :key="category.id"

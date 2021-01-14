@@ -60562,7 +60562,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, null, 8 /* PROPS */, ["modelValue", "disabled", "errors", "successMessages"])
     ]),
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
-      class: "sm:ml-3 h-13",
+      class: "sm:ml-3 w-13",
+      normalBgClass: "bg-red-800",
       loading: $data.loading,
       onSubmit: $options.updateCategory
     }, {
@@ -60572,7 +60573,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       _: 1
     }, 8 /* PROPS */, ["loading", "onSubmit"]),
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
-      class: "ml-3",
+      class: "ml-3 w-13",
       normalBgClass: "bg-gray-600",
       loading: $data.loading,
       onSubmit: $options.removeCategory
@@ -60583,7 +60584,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       _: 1
     }, 8 /* PROPS */, ["loading", "onSubmit"]),
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
-      class: "ml-3",
+      class: "ml-3 w-13",
       loading: $data.loading,
       onClick: $options.showNotes
     }, {
@@ -60593,7 +60594,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       _: 1
     }, 8 /* PROPS */, ["loading", "onClick"]),
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
-      class: "ml-3",
+      class: "ml-3 w-13",
       loading: $data.loading,
       onClick: $options.showChecklists
     }, {
@@ -60927,7 +60928,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const _hoisted_1 = { class: "overflow-hidden text-2xl font-medium text-white" }
-const _hoisted_2 = { class: "mt-2" }
+const _hoisted_2 = { class: "mt-2 space-y-2" }
 const _hoisted_3 = {
   key: 0,
   class: "h-4",
@@ -61016,9 +61017,13 @@ const _hoisted_13 = {
   id: "categories",
   class: "flex flex-row flex-wrap"
 }
-const _hoisted_14 = { class: "flex justify-between mt-8" }
-const _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Remove")
-const _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Save")
+const _hoisted_14 = { class: "mt-4 flex justify-between text-base font-medium text-gray-700" }
+const _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "Created at:", -1 /* HOISTED */)
+const _hoisted_16 = { class: "mt-2 flex justify-between text-base font-medium text-gray-700" }
+const _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "Updated at:", -1 /* HOISTED */)
+const _hoisted_18 = { class: "flex justify-between mt-8" }
+const _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Remove")
+const _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Save")
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_DashboardTitle = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("DashboardTitle")
@@ -61118,18 +61123,26 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           }), 128 /* KEYED_FRAGMENT */))
         ])
       ]),
+      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_14, [
+        _hoisted_15,
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.formatDate($options.checklist.created_at)), 1 /* TEXT */)
+      ]),
+      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_16, [
+        _hoisted_17,
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.formatDate($options.checklist.updated_at)), 1 /* TEXT */)
+      ]),
       (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormErrors, {
         class: "mt-8 text-center",
         errors: $data.errors.others
       }, null, 8 /* PROPS */, ["errors"]),
-      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_14, [
+      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_18, [
         (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
           loading: $data.loading,
           onSubmit: $options.removeChecklist,
           normalBgClass: "bg-gray-600"
         }, {
           default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
-            _hoisted_15
+            _hoisted_19
           ]),
           _: 1
         }, 8 /* PROPS */, ["loading", "onSubmit"]),
@@ -61138,7 +61151,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           onSubmit: $options.updateChecklist
         }, {
           default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
-            _hoisted_16
+            _hoisted_20
           ]),
           _: 1
         }, 8 /* PROPS */, ["loading", "onSubmit"])
@@ -61246,7 +61259,7 @@ const _hoisted_8 = { class: "mt-4" }
 const _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Select categories")
 const _hoisted_10 = {
   id: "categories-selection",
-  class: "flex flex-row flex-wrap"
+  class: "flex flex-row flex-wrap -ml-1"
 }
 const _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Create")
 
@@ -61308,6 +61321,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           _: 1
         }),
         (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ColorPicker, {
+          class: "-ml-2",
           id: "note-color",
           modelValue: $data.newNote.color,
           "onUpdate:modelValue": _cache[3] || (_cache[3] = $event => ($data.newNote.color = $event))
@@ -61529,7 +61543,7 @@ const _hoisted_8 = { class: "mt-4" }
 const _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Select categories")
 const _hoisted_10 = {
   id: "categories-selection",
-  class: "flex flex-row flex-wrap"
+  class: "flex flex-row flex-wrap -ml-1"
 }
 const _hoisted_11 = { class: "mt-4 flex justify-between text-base font-medium text-gray-700" }
 const _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "Created at:", -1 /* HOISTED */)
@@ -61599,6 +61613,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             }),
             (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ColorPicker, {
               id: "note-color",
+              class: "-ml-2",
               modelValue: $data.editedNote.color,
               "onUpdate:modelValue": _cache[3] || (_cache[3] = $event => ($data.editedNote.color = $event)),
               selectDefaultColor: false
@@ -61689,12 +61704,12 @@ const _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("d
 const render = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $setup, $data, $options) {
   return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("label", {
     for: 'checkable-pill-' + $props.id,
-    class: "flex items-center px-4 py-2 m-1 bg-red-100 rounded-full text-base font-semibold text-gray-700 no-select"
+    class: "flex items-center bg-white px-4 py-1 m-1 border-2 border-gray-600 rounded-full text-base font-semibold text-gray-600 no-select"
   }, [
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
       type: "checkbox",
       id: 'checkable-pill-' + $props.id,
-      class: "form-checkbox focus:shadow-outline-red mr-1",
+      class: "form-checkbox focus:shadow-outline-red mr-2",
       value: $props.id,
       checked: $options.isChecked,
       onChange: _cache[1] || (_cache[1] = $event => ($options.checkChanged($event.target.checked)))
@@ -61922,11 +61937,11 @@ __webpack_require__.r(__webpack_exports__);
 
 const _hoisted_1 = {
   key: 0,
-  class: "mt-1 font-medium text-red-700"
+  class: "mt-1 font-medium text-red-700 uppercase tracking-wide"
 }
 const _hoisted_2 = {
   key: 1,
-  class: "mt-1 font-medium text-green-500"
+  class: "mt-1 font-medium text-green-500 uppercase tracking-wide"
 }
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -61982,7 +61997,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 
-const _hoisted_1 = { class: "block text-base font-medium text-gray-700 mb-1" }
+const _hoisted_1 = { class: "block text-base font-medium text-gray-700 mb-1 tracking-wide uppercase" }
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("label", _hoisted_1, [
