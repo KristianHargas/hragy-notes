@@ -7,7 +7,7 @@
       'bg-red-100 border-red-700': errors.length,
       'bg-white border-gray-400': !errors.length
     }"
-    class="block w-full text-gray-800 text-lg border-2 px-3 h-13 rounded focus:outline-none focus:border-gray-700 focus:bg-white"
+    class="block w-full text-gray-800 text-lg leading-5 border-2 px-3 h-13 rounded focus:outline-none focus:border-gray-700 focus:bg-white"
   />
   <div v-if="errors.length" class="mt-1 font-medium text-red-700">
     <div

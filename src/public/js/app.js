@@ -32845,7 +32845,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 /*! namespace exports */
 /*! export default [provided] [no usage info] [missing usage info prevents renaming] */
 /*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
+/*! runtime requirements: __webpack_require__, __webpack_require__.n, __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -32853,11 +32853,114 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _DashboardTitle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../DashboardTitle */ "./resources/js/components/dashboard/DashboardTitle.vue");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _DashboardTitle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../DashboardTitle */ "./resources/js/components/dashboard/DashboardTitle.vue");
+/* harmony import */ var _shared_components_ColorPicker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../shared/components/ColorPicker */ "./resources/js/shared/components/ColorPicker.vue");
+/* harmony import */ var _shared_utils_response__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../shared/utils/response */ "./resources/js/shared/utils/response.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  emits: ['startLoading', 'stopLoading'],
   components: {
-    DashboardTitle: _DashboardTitle__WEBPACK_IMPORTED_MODULE_0__.default
+    DashboardTitle: _DashboardTitle__WEBPACK_IMPORTED_MODULE_1__.default,
+    ColorPicker: _shared_components_ColorPicker__WEBPACK_IMPORTED_MODULE_2__.default
+  },
+  data: function data() {
+    return {
+      newChecklist: {
+        title: '',
+        items: '',
+        color: '',
+        categories: []
+      },
+      newItem: '',
+      items: [],
+      errors: {
+        title: [],
+        text: [],
+        others: []
+      },
+      loading: false
+    };
+  },
+  computed: {
+    categories: function categories() {
+      return this.$store.state.category.categories;
+    }
+  },
+  methods: {
+    addItem: function addItem() {
+      if (!this.newItem) return;
+      this.items.push({
+        checked: false,
+        text: this.newItem
+      });
+      this.newItem = '';
+    },
+    itemUpdated: function itemUpdated(item) {
+      if (!item.text) this.removeItem(item);
+    },
+    removeItem: function removeItem(item) {
+      this.items.splice(this.items.indexOf(item), 1);
+    },
+    createChecklist: function createChecklist() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _this.loading = true;
+
+                _this.$emit('startLoading');
+
+                _this.resetErrors();
+
+                _context.prev = 3;
+                _context.next = 6;
+                return new Promise(function (resolve) {
+                  setTimeout(function () {
+                    resolve();
+                  }, 2000);
+                });
+
+              case 6:
+                _this.newChecklist.items = JSON.stringify(_this.items);
+                console.log('Creating checklist: ', _this.newChecklist);
+                _context.next = 12;
+                break;
+
+              case 10:
+                _context.prev = 10;
+                _context.t0 = _context["catch"](3);
+
+              case 12:
+                _this.loading = false;
+
+                _this.$emit('stopLoading');
+
+              case 14:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[3, 10]]);
+      }))();
+    },
+    resetErrors: function resetErrors() {
+      this.errors.title = [];
+      this.errors.text = [];
+      this.errors.others = [];
+    }
   }
 });
 
@@ -34951,6 +35054,34 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".top-margin[data-v-376ddb84] {\n  marg
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=style&index=0&id=a0533574&lang=scss&scoped=true":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=style&index=0&id=a0533574&lang=scss&scoped=true ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__, __webpack_require__.n, __webpack_exports__, __webpack_require__.r, module.id, __webpack_require__.d, __webpack_require__.*, module */
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "input[type=checkbox][data-v-a0533574]:checked {\n  color: #c81e1e;\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/shared/components/CheckablePill.vue?vue&type=style&index=0&id=11b267be&lang=scss&scoped=true":
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/shared/components/CheckablePill.vue?vue&type=style&index=0&id=11b267be&lang=scss&scoped=true ***!
@@ -35383,6 +35514,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/checklist.svg?c881630efbc56a6f13bcbe7629a167b6");
+
+/***/ }),
+
+/***/ "./resources/static/img/clear-white.svg":
+/*!**********************************************!*\
+  !*** ./resources/static/img/clear-white.svg ***!
+  \**********************************************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/clear-white.svg?11600dc2b9b10ee94583adafd41dc133");
 
 /***/ }),
 
@@ -56240,6 +56390,40 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=style&index=0&id=a0533574&lang=scss&scoped=true":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=style&index=0&id=a0533574&lang=scss&scoped=true ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__, __webpack_require__.n, __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_use_3_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChecklistCreate_vue_vue_type_style_index_0_id_a0533574_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!../../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!../../../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ChecklistCreate.vue?vue&type=style&index=0&id=a0533574&lang=scss&scoped=true */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=style&index=0&id=a0533574&lang=scss&scoped=true");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_use_3_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChecklistCreate_vue_vue_type_style_index_0_id_a0533574_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_1__.default, options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_use_3_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChecklistCreate_vue_vue_type_style_index_0_id_a0533574_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/shared/components/CheckablePill.vue?vue&type=style&index=0&id=11b267be&lang=scss&scoped=true":
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/shared/components/CheckablePill.vue?vue&type=style&index=0&id=11b267be&lang=scss&scoped=true ***!
@@ -56912,12 +57096,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _ChecklistCreate_vue_vue_type_template_id_a0533574_bindings___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChecklistCreate.vue?vue&type=template&id=a0533574&bindings={} */ "./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=template&id=a0533574&bindings={}");
+/* harmony import */ var _ChecklistCreate_vue_vue_type_template_id_a0533574_scoped_true_bindings_newChecklist_data_newItem_data_items_data_errors_data_loading_data_categories_options_addItem_options_itemUpdated_options_removeItem_options_createChecklist_options_resetErrors_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChecklistCreate.vue?vue&type=template&id=a0533574&scoped=true&bindings={"newChecklist":"data","newItem":"data","items":"data","errors":"data","loading":"data","categories":"options","addItem":"options","itemUpdated":"options","removeItem":"options","createChecklist":"options","resetErrors":"options"} */ "./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=template&id=a0533574&scoped=true&bindings={\"newChecklist\":\"data\",\"newItem\":\"data\",\"items\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"categories\":\"options\",\"addItem\":\"options\",\"itemUpdated\":\"options\",\"removeItem\":\"options\",\"createChecklist\":\"options\",\"resetErrors\":\"options\"}");
 /* harmony import */ var _ChecklistCreate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChecklistCreate.vue?vue&type=script&lang=js */ "./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=script&lang=js");
+/* harmony import */ var _ChecklistCreate_vue_vue_type_style_index_0_id_a0533574_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChecklistCreate.vue?vue&type=style&index=0&id=a0533574&lang=scss&scoped=true */ "./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=style&index=0&id=a0533574&lang=scss&scoped=true");
 
 
 
-_ChecklistCreate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _ChecklistCreate_vue_vue_type_template_id_a0533574_bindings___WEBPACK_IMPORTED_MODULE_0__.render
+
+
+_ChecklistCreate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _ChecklistCreate_vue_vue_type_template_id_a0533574_scoped_true_bindings_newChecklist_data_newItem_data_items_data_errors_data_loading_data_categories_options_addItem_options_itemUpdated_options_removeItem_options_createChecklist_options_resetErrors_options___WEBPACK_IMPORTED_MODULE_0__.render
+_ChecklistCreate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.__scopeId = "data-v-a0533574"
 /* hot reload */
 if (false) {}
 
@@ -58037,6 +58225,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=style&index=0&id=a0533574&lang=scss&scoped=true":
+/*!***********************************************************************************************************************************!*\
+  !*** ./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=style&index=0&id=a0533574&lang=scss&scoped=true ***!
+  \***********************************************************************************************************************************/
+/*! namespace exports */
+/*! exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__, __webpack_require__.r, __webpack_exports__, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_use_3_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChecklistCreate_vue_vue_type_style_index_0_id_a0533574_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader/dist/cjs.js!../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!../../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!../../../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ChecklistCreate.vue?vue&type=style&index=0&id=a0533574&lang=scss&scoped=true */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=style&index=0&id=a0533574&lang=scss&scoped=true");
+
+
+/***/ }),
+
 /***/ "./resources/js/shared/components/CheckablePill.vue?vue&type=style&index=0&id=11b267be&lang=scss&scoped=true":
 /*!*******************************************************************************************************************!*\
   !*** ./resources/js/shared/components/CheckablePill.vue?vue&type=style&index=0&id=11b267be&lang=scss&scoped=true ***!
@@ -58269,12 +58473,12 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=template&id=a0533574&bindings={}":
-/*!********************************************************************************************************************!*\
-  !*** ./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=template&id=a0533574&bindings={} ***!
-  \********************************************************************************************************************/
+/***/ "./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=template&id=a0533574&scoped=true&bindings={\"newChecklist\":\"data\",\"newItem\":\"data\",\"items\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"categories\":\"options\",\"addItem\":\"options\",\"itemUpdated\":\"options\",\"removeItem\":\"options\",\"createChecklist\":\"options\",\"resetErrors\":\"options\"}":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=template&id=a0533574&scoped=true&bindings={"newChecklist":"data","newItem":"data","items":"data","errors":"data","loading":"data","categories":"options","addItem":"options","itemUpdated":"options","removeItem":"options","createChecklist":"options","resetErrors":"options"} ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! namespace exports */
-/*! export render [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=template&id=a0533574&bindings={} .render */
+/*! export render [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=template&id=a0533574&scoped=true&bindings={"newChecklist":"data","newItem":"data","items":"data","errors":"data","loading":"data","categories":"options","addItem":"options","itemUpdated":"options","removeItem":"options","createChecklist":"options","resetErrors":"options"} .render */
 /*! other exports [not provided] [no usage info] */
 /*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.d, __webpack_require__.r, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
@@ -58282,9 +58486,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChecklistCreate_vue_vue_type_template_id_a0533574_bindings___WEBPACK_IMPORTED_MODULE_0__.render
+/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChecklistCreate_vue_vue_type_template_id_a0533574_scoped_true_bindings_newChecklist_data_newItem_data_items_data_errors_data_loading_data_categories_options_addItem_options_itemUpdated_options_removeItem_options_createChecklist_options_resetErrors_options___WEBPACK_IMPORTED_MODULE_0__.render
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChecklistCreate_vue_vue_type_template_id_a0533574_bindings___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ChecklistCreate.vue?vue&type=template&id=a0533574&bindings={} */ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=template&id=a0533574&bindings={}");
+/* harmony import */ var _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChecklistCreate_vue_vue_type_template_id_a0533574_scoped_true_bindings_newChecklist_data_newItem_data_items_data_errors_data_loading_data_categories_options_addItem_options_itemUpdated_options_removeItem_options_createChecklist_options_resetErrors_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ChecklistCreate.vue?vue&type=template&id=a0533574&scoped=true&bindings={"newChecklist":"data","newItem":"data","items":"data","errors":"data","loading":"data","categories":"options","addItem":"options","itemUpdated":"options","removeItem":"options","createChecklist":"options","resetErrors":"options"} */ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=template&id=a0533574&scoped=true&bindings={\"newChecklist\":\"data\",\"newItem\":\"data\",\"items\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"categories\":\"options\",\"addItem\":\"options\",\"itemUpdated\":\"options\",\"removeItem\":\"options\",\"createChecklist\":\"options\",\"resetErrors\":\"options\"}");
 
 
 /***/ }),
@@ -59553,10 +59757,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=template&id=a0533574&bindings={}":
-/*!*****************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=template&id=a0533574&bindings={} ***!
-  \*****************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=template&id=a0533574&scoped=true&bindings={\"newChecklist\":\"data\",\"newItem\":\"data\",\"items\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"categories\":\"options\",\"addItem\":\"options\",\"itemUpdated\":\"options\",\"removeItem\":\"options\",\"createChecklist\":\"options\",\"resetErrors\":\"options\"}":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=template&id=a0533574&scoped=true&bindings={"newChecklist":"data","newItem":"data","items":"data","errors":"data","loading":"data","categories":"options","addItem":"options","itemUpdated":"options","removeItem":"options","createChecklist":"options","resetErrors":"options"} ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! namespace exports */
 /*! export render [provided] [no usage info] [missing usage info prevents renaming] */
 /*! other exports [not provided] [no usage info] */
@@ -59569,22 +59773,194 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => /* binding */ render
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _static_img_clear_white_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../static/img/clear-white.svg */ "./resources/static/img/clear-white.svg");
 
 
+
+const _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("data-v-a0533574")
+
+;(0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-a0533574")
 const _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Create new checklist")
+const _hoisted_2 = { class: "max-w-xl" }
+const _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Title")
+const _hoisted_4 = { class: "mt-4" }
+const _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Items")
+const _hoisted_6 = { id: "items" }
+const _hoisted_7 = { class: "flex flex-row flex-wrap" }
+const _hoisted_8 = { class: "w-0 flex-grow" }
+const _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Add")
+const _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", { class: "mt-4 mb-4 border-t-2 border-gray-300 w-full" }, null, -1 /* HOISTED */)
+const _hoisted_11 = { class: "space-y-2" }
+const _hoisted_12 = { class: "w-0 flex-grow" }
+const _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+  src: _static_img_clear_white_svg__WEBPACK_IMPORTED_MODULE_1__.default,
+  alt: "Clear icon.",
+  class: "h-8"
+}, null, -1 /* HOISTED */)
+const _hoisted_14 = { class: "mt-4" }
+const _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Color")
+const _hoisted_16 = { class: "mt-4" }
+const _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Categories")
+const _hoisted_18 = {
+  id: "categories",
+  class: "flex flex-row flex-wrap"
+}
+const _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Create")
+;(0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)()
 
-function render(_ctx, _cache, $props, $setup, $data, $options) {
+const render = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_DashboardTitle = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("DashboardTitle")
+  const _component_FormLabel = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("FormLabel")
+  const _component_FormInput = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("FormInput")
+  const _component_FormButton = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("FormButton")
+  const _component_ColorPicker = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("ColorPicker")
+  const _component_CheckablePill = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("CheckablePill")
+  const _component_FormErrors = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("FormErrors")
 
   return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", null, [
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DashboardTitle, null, {
-      default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
+      default: _withId(() => [
         _hoisted_1
       ]),
       _: 1
-    })
+    }),
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("form", _hoisted_2, [
+      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormLabel, { for: "title" }, {
+          default: _withId(() => [
+            _hoisted_3
+          ]),
+          _: 1
+        }),
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormInput, {
+          modelValue: $data.newChecklist.title,
+          "onUpdate:modelValue": _cache[1] || (_cache[1] = $event => ($data.newChecklist.title = $event)),
+          type: "text",
+          id: "title",
+          name: "title",
+          errors: $data.errors.title
+        }, null, 8 /* PROPS */, ["modelValue", "errors"])
+      ]),
+      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormLabel, { for: "items" }, {
+          default: _withId(() => [
+            _hoisted_5
+          ]),
+          _: 1
+        }),
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [
+          (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Add new item section. "),
+          (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_7, [
+            (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_8, [
+              (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormInput, {
+                modelValue: $data.newItem,
+                "onUpdate:modelValue": _cache[2] || (_cache[2] = $event => ($data.newItem = $event)),
+                type: "text",
+                placeholder: "New item"
+              }, null, 8 /* PROPS */, ["modelValue"])
+            ]),
+            (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
+              class: "ml-3",
+              loading: !$data.newItem,
+              onSubmit: $options.addItem
+            }, {
+              default: _withId(() => [
+                _hoisted_9
+              ]),
+              _: 1
+            }, 8 /* PROPS */, ["loading", "onSubmit"])
+          ]),
+          _hoisted_10,
+          (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" List of items. "),
+          (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", _hoisted_11, [
+            ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.items, (item, index) => {
+              return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("li", {
+                class: "flex flex-row flex-wrap items-center",
+                key: 'item' + index
+              }, [
+                (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+                  type: "checkbox",
+                  class: "form-checkbox mr-3 h-8 w-8 focus:shadow-outline-red",
+                  "onUpdate:modelValue": $event => (item.checked = $event)
+                }, null, 8 /* PROPS */, ["onUpdate:modelValue"]), [
+                  [vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, item.checked]
+                ]),
+                (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_12, [
+                  (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormInput, {
+                    modelValue: item.text,
+                    "onUpdate:modelValue": $event => (item.text = $event),
+                    type: "text",
+                    onChange: $event => ($options.itemUpdated(item))
+                  }, null, 8 /* PROPS */, ["modelValue", "onUpdate:modelValue", "onChange"])
+                ]),
+                (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
+                  class: "ml-3 w-13",
+                  normalBgClass: "bg-gray-600",
+                  onSubmit: $event => ($options.removeItem(item))
+                }, {
+                  default: _withId(() => [
+                    _hoisted_13
+                  ]),
+                  _: 1
+                }, 8 /* PROPS */, ["onSubmit"])
+              ]))
+            }), 128 /* KEYED_FRAGMENT */))
+          ])
+        ])
+      ]),
+      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_14, [
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormLabel, { for: "color" }, {
+          default: _withId(() => [
+            _hoisted_15
+          ]),
+          _: 1
+        }),
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ColorPicker, {
+          id: "color",
+          modelValue: $data.newChecklist.color,
+          "onUpdate:modelValue": _cache[3] || (_cache[3] = $event => ($data.newChecklist.color = $event))
+        }, null, 8 /* PROPS */, ["modelValue"])
+      ]),
+      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_16, [
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormLabel, { for: "categories" }, {
+          default: _withId(() => [
+            _hoisted_17
+          ]),
+          _: 1
+        }),
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_18, [
+          ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($options.categories, (category) => {
+            return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_CheckablePill, {
+              key: category.id,
+              id: category.id,
+              modelValue: $data.newChecklist.categories,
+              "onUpdate:modelValue": _cache[4] || (_cache[4] = $event => ($data.newChecklist.categories = $event))
+            }, {
+              default: _withId(() => [
+                (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(category.title), 1 /* TEXT */)
+              ]),
+              _: 2
+            }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["id", "modelValue"]))
+          }), 128 /* KEYED_FRAGMENT */))
+        ])
+      ]),
+      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormErrors, {
+        class: "mt-8 text-center",
+        errors: $data.errors.others
+      }, null, 8 /* PROPS */, ["errors"]),
+      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
+        class: "mt-8 ml-auto",
+        loading: $data.loading,
+        onSubmit: $options.createChecklist
+      }, {
+        default: _withId(() => [
+          _hoisted_19
+        ]),
+        _: 1
+      }, 8 /* PROPS */, ["loading", "onSubmit"])
+    ])
   ]))
-}
+})
 
 /***/ }),
 
@@ -60393,7 +60769,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       class: [{
       'bg-red-100 border-red-700': $props.errors.length,
       'bg-white border-gray-400': !$props.errors.length
-    }, "block w-full text-gray-800 text-lg border-2 px-3 h-13 rounded focus:outline-none focus:border-gray-700 focus:bg-white"]
+    }, "block w-full text-gray-800 text-lg leading-5 border-2 px-3 h-13 rounded focus:outline-none focus:border-gray-700 focus:bg-white"]
     }), null, 16 /* FULL_PROPS */, ["value"]),
     ($props.errors.length)
       ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [
