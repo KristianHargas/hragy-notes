@@ -8,12 +8,12 @@ export default {
   }),
 
   mutations: {
-    // SET_NOTES(state, payload) {
-    //   state.notes = payload.notes
-    // },
-    // STORE_NOTE(state, payload) {
-    //   state.notes.unshift(payload.note)
-    // },
+    SET_CHECKLISTS(state, payload) {
+      state.checklists = payload.checklists
+    },
+    STORE_CHECKLIST(state, payload) {
+      state.checklists.unshift(payload.checklist)
+    }
     // UPDATE_NOTE(state, payload) {
     //   state.notes = state.notes.map((note) =>
     //     note.id == payload.note.id ? payload.note : note
@@ -25,14 +25,23 @@ export default {
   },
 
   actions: {
-    // async index({ commit }) {
-    //   const { data } = await NoteService.index()
-    //   commit('SET_NOTES', { notes: data })
-    // },
-    // async store({ commit }, payload) {
-    //   const { data } = await NoteService.store(payload.note)
-    //   commit('STORE_NOTE', { note: data })
-    // },
+    async index({ commit }) {
+      const { data } = await ChecklistService.index()
+
+      const checklists = data.map((checklist) => {
+        checklist.items = JSON.parse(checklist.items)
+        return checklist
+      })
+
+      commit('SET_CHECKLISTS', { checklists })
+    },
+    async store({ commit }, payload) {
+      const { data } = await ChecklistService.store(payload.checklist)
+
+      data.items = JSON.parse(data.items)
+
+      commit('STORE_CHECKLIST', { checklist: data })
+    }
     // async update({ commit }, payload) {
     //   const { data } = await NoteService.update(payload.id, payload.note)
     //   commit('UPDATE_NOTE', { note: data })
@@ -44,17 +53,17 @@ export default {
   },
 
   getters: {
-    // getNotesCount(state) {
-    //   return state.notes.length
-    // },
-    // getNoteById: (state) => (id) => {
-    //   return state.notes.find((note) => note.id == id)
-    // },
-    // getNotesOfCategory: (state) => (id) => {
-    //   return state.notes.filter((note) => {
-    //     const categories = note.categories.map((category) => category.id)
-    //     return categories.includes(id)
-    //   })
-    // }
+    getChecklistsCount(state) {
+      return state.checklists.length
+    },
+    getChecklistById: (state) => (id) => {
+      return state.checklists.find((checklist) => checklist.id == id)
+    },
+    getChecklistsOfCategory: (state) => (id) => {
+      return state.checklists.filter((checklist) => {
+        const categories = checklist.categories.map((category) => category.id)
+        return categories.includes(id)
+      })
+    }
   }
 }

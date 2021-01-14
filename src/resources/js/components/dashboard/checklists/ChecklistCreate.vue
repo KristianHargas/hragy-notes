@@ -153,10 +153,18 @@ export default {
       try {
         this.newChecklist.items = JSON.stringify(this.items)
 
-        const res = await axios.post('/api/checklists', this.newChecklist)
-
-        console.log('Created checklist: ', res.data)
-      } catch (err) {}
+        await this.$store.dispatch('checklist/store', {
+          checklist: this.newChecklist
+        })
+        this.$router.push({ name: 'ChecklistList' })
+      } catch (err) {
+        if (is422(err)) {
+          hasValidationErr(err, 'title') &&
+            (this.errors.title = getValidationErrArr(err, 'title'))
+        } else {
+          this.errors.others.push('Network or server error, try again later!')
+        }
+      }
 
       this.loading = false
       this.$emit('stopLoading')

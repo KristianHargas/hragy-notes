@@ -96,7 +96,8 @@ export default {
     try {
       await Promise.all([
         this.$store.dispatch('note/index'),
-        this.$store.dispatch('category/index')
+        this.$store.dispatch('category/index'),
+        this.$store.dispatch('checklist/index')
       ])
 
       this.dataFetchingSuccess = true
