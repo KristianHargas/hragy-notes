@@ -32924,7 +32924,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       items: [],
       errors: {
         title: [],
-        text: [],
         others: []
       },
       loading: false
@@ -32981,8 +32980,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context.prev = 10;
                 _context.t0 = _context["catch"](3);
 
-                if ((0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_5__.is422)(_context.t0)) {
-                  (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_5__.hasValidationErr)(_context.t0, 'title') && (_this.errors.title = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_5__.getValidationErrArr)(_context.t0, 'title'));
+                if ((0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_5__.is422)(_context.t0) && (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_5__.hasValidationErr)(_context.t0, 'title')) {
+                  _this.errors.title = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_5__.getValidationErrArr)(_context.t0, 'title');
                 } else {
                   _this.errors.others.push('Network or server error, try again later!');
                 }
@@ -33002,7 +33001,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     resetErrors: function resetErrors() {
       this.errors.title = [];
-      this.errors.text = [];
       this.errors.others = [];
     }
   }
@@ -33103,7 +33101,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! namespace exports */
 /*! export default [provided] [no usage info] [missing usage info prevents renaming] */
 /*! other exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
+/*! runtime requirements: __webpack_require__, __webpack_require__.n, __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -33111,11 +33109,229 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _DashboardTitle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../DashboardTitle */ "./resources/js/components/dashboard/DashboardTitle.vue");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _DashboardTitle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../DashboardTitle */ "./resources/js/components/dashboard/DashboardTitle.vue");
+/* harmony import */ var _shared_components_ColorPicker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../shared/components/ColorPicker */ "./resources/js/shared/components/ColorPicker.vue");
+/* harmony import */ var _ChecklistAddItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ChecklistAddItem */ "./resources/js/components/dashboard/checklists/ChecklistAddItem.vue");
+/* harmony import */ var _ChecklistShowItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ChecklistShowItem */ "./resources/js/components/dashboard/checklists/ChecklistShowItem.vue");
+/* harmony import */ var _shared_utils_response__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../shared/utils/response */ "./resources/js/shared/utils/response.js");
+/* harmony import */ var _shared_utils_util__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../shared/utils/util */ "./resources/js/shared/utils/util.js");
+
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+
+
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  emits: ['startLoading', 'stopLoading'],
   components: {
-    DashboardTitle: _DashboardTitle__WEBPACK_IMPORTED_MODULE_0__.default
+    DashboardTitle: _DashboardTitle__WEBPACK_IMPORTED_MODULE_1__.default,
+    ColorPicker: _shared_components_ColorPicker__WEBPACK_IMPORTED_MODULE_2__.default,
+    ChecklistAddItem: _ChecklistAddItem__WEBPACK_IMPORTED_MODULE_3__.default,
+    ChecklistShowItem: _ChecklistShowItem__WEBPACK_IMPORTED_MODULE_4__.default
+  },
+  data: function data() {
+    return {
+      editedChecklist: {
+        title: '',
+        items: [],
+        color: '',
+        categories: []
+      },
+      errors: {
+        title: [],
+        others: []
+      },
+      loading: false
+    };
+  },
+  computed: {
+    checklist: function checklist() {
+      return this.$store.getters['checklist/getChecklistById'](this.$route.params.id);
+    },
+    categories: function categories() {
+      return this.$store.state.category.categories;
+    }
+  },
+  mounted: function mounted() {
+    if (this.checklist) {
+      var selectedCategories = this.checklist.categories.map(function (category) {
+        return category.id;
+      });
+      var itemsCopy = this.checklist.items.map(function (item) {
+        return {
+          checked: item.checked,
+          text: item.text
+        };
+      });
+      this.editedChecklist = {
+        title: this.checklist.title,
+        items: itemsCopy,
+        color: this.checklist.color,
+        categories: selectedCategories
+      };
+    } else {
+      this.$router.replace({
+        name: 'ChecklistList'
+      });
+    }
+  },
+  methods: {
+    addItem: function addItem(newItem) {
+      this.editedChecklist.items.push({
+        checked: false,
+        text: newItem
+      });
+    },
+    updateItem: function updateItem(newText, item) {
+      if (!newText) this.removeItem(item);else item.text = newText;
+    },
+    removeItem: function removeItem(item) {
+      this.editedChecklist.items.splice(this.editedChecklist.items.indexOf(item), 1);
+    },
+    updateChecklist: function updateChecklist() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var parsedChecklist;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _this.loading = true;
+
+                _this.$emit('startLoading');
+
+                _this.resetErrors();
+
+                _context.prev = 3;
+                parsedChecklist = {
+                  title: _this.editedChecklist.title,
+                  items: JSON.stringify(_this.editedChecklist.items),
+                  color: _this.editedChecklist.color,
+                  categories: _toConsumableArray(_this.editedChecklist.categories)
+                };
+                _context.next = 7;
+                return _this.$store.dispatch('checklist/update', {
+                  id: _this.checklist.id,
+                  checklist: parsedChecklist
+                });
+
+              case 7:
+                _this.$router.push({
+                  name: 'ChecklistList'
+                });
+
+                _context.next = 13;
+                break;
+
+              case 10:
+                _context.prev = 10;
+                _context.t0 = _context["catch"](3);
+
+                if ((0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_5__.is422)(_context.t0) && (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_5__.hasValidationErr)(_context.t0, 'title')) {
+                  _this.errors.title = (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_5__.getValidationErrArr)(_context.t0, 'title');
+                } else {
+                  _this.errors.others.push('Network or server error, try again later!');
+                }
+
+              case 13:
+                _this.loading = false;
+
+                _this.$emit('stopLoading');
+
+              case 15:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[3, 10]]);
+      }))();
+    },
+    removeChecklist: function removeChecklist() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var confirmed;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                confirmed = confirm('Are you sure you want to remove this checklist?');
+
+                if (confirmed) {
+                  _context2.next = 3;
+                  break;
+                }
+
+                return _context2.abrupt("return");
+
+              case 3:
+                _this2.loading = true;
+
+                _this2.$emit('startLoading');
+
+                _this2.resetErrors();
+
+                _context2.prev = 6;
+                _context2.next = 9;
+                return _this2.$store.dispatch('checklist/destroy', {
+                  id: _this2.checklist.id
+                });
+
+              case 9:
+                _this2.$router.replace({
+                  name: 'ChecklistList'
+                });
+
+                _context2.next = 15;
+                break;
+
+              case 12:
+                _context2.prev = 12;
+                _context2.t0 = _context2["catch"](6);
+
+                _this2.errors.others.push('Network or server error, try again later!');
+
+              case 15:
+                _this2.loading = false;
+
+                _this2.$emit('stopLoading');
+
+              case 17:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[6, 12]]);
+      }))();
+    },
+    resetErrors: function resetErrors() {
+      this.errors.title = [];
+      this.errors.others = [];
+    },
+    formatDate: function formatDate(dateString) {
+      return (0,_shared_utils_util__WEBPACK_IMPORTED_MODULE_6__.formatDate)(dateString);
+    }
   }
 });
 
@@ -33324,7 +33540,7 @@ __webpack_require__.r(__webpack_exports__);
       return this.notes.length;
     },
     title: function title() {
-      return this.categoryFilter ? "Notes from ".concat(this.categoryFilter.title) : 'Your notes';
+      return this.categoryFilter ? "Notes of ".concat(this.categoryFilter.title) : 'Your notes';
     }
   },
   methods: {
@@ -34398,8 +34614,11 @@ var store = function store(data) {
   !*** ./resources/js/services/ChecklistService.js ***!
   \***************************************************/
 /*! namespace exports */
+/*! export destroy [provided] [no usage info] [missing usage info prevents renaming] */
 /*! export index [provided] [no usage info] [missing usage info prevents renaming] */
+/*! export show [provided] [no usage info] [missing usage info prevents renaming] */
 /*! export store [provided] [no usage info] [missing usage info prevents renaming] */
+/*! export update [provided] [no usage info] [missing usage info prevents renaming] */
 /*! other exports [not provided] [no usage info] */
 /*! runtime requirements: __webpack_require__, __webpack_require__.n, __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
@@ -34408,7 +34627,10 @@ var store = function store(data) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "index": () => /* binding */ index,
-/* harmony export */   "store": () => /* binding */ store
+/* harmony export */   "store": () => /* binding */ store,
+/* harmony export */   "show": () => /* binding */ show,
+/* harmony export */   "update": () => /* binding */ update,
+/* harmony export */   "destroy": () => /* binding */ destroy
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
@@ -34418,6 +34640,15 @@ var index = function index() {
 };
 var store = function store(data) {
   return axios.post('/api/checklists', data);
+};
+var show = function show(id) {
+  return axios.get("/api/checklists/".concat(id));
+};
+var update = function update(id, data) {
+  return axios.put("/api/checklists/".concat(id), data);
+};
+var destroy = function destroy(id) {
+  return axios["delete"]("/api/checklists/".concat(id));
 };
 
 /***/ }),
@@ -35039,15 +35270,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     STORE_CHECKLIST: function STORE_CHECKLIST(state, payload) {
       state.checklists.unshift(payload.checklist);
-    } // UPDATE_NOTE(state, payload) {
-    //   state.notes = state.notes.map((note) =>
-    //     note.id == payload.note.id ? payload.note : note
-    //   )
-    // },
-    // DESTROY_NOTE(state, payload) {
-    //   state.notes = state.notes.filter((note) => note.id != payload.id)
-    // }
-
+    },
+    UPDATE_CHECKLIST: function UPDATE_CHECKLIST(state, payload) {
+      state.checklists = state.checklists.map(function (checklist) {
+        return checklist.id == payload.checklist.id ? payload.checklist : checklist;
+      });
+    },
+    DESTROY_CHECKLIST: function DESTROY_CHECKLIST(state, payload) {
+      state.checklists = state.checklists.filter(function (checklist) {
+        return checklist.id != payload.id;
+      });
+    }
   },
   actions: {
     index: function index(_ref) {
@@ -35108,15 +35341,57 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee2);
       }))();
-    } // async update({ commit }, payload) {
-    //   const { data } = await NoteService.update(payload.id, payload.note)
-    //   commit('UPDATE_NOTE', { note: data })
-    // },
-    // async destroy({ commit }, payload) {
-    //   await NoteService.destroy(payload.id)
-    //   commit('DESTROY_NOTE', payload)
-    // }
+    },
+    update: function update(_ref3, payload) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        var commit, _yield$ChecklistServi3, data;
 
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                commit = _ref3.commit;
+                _context3.next = 3;
+                return _services_ChecklistService__WEBPACK_IMPORTED_MODULE_1__.update(payload.id, payload.checklist);
+
+              case 3:
+                _yield$ChecklistServi3 = _context3.sent;
+                data = _yield$ChecklistServi3.data;
+                data.items = JSON.parse(data.items);
+                commit('UPDATE_CHECKLIST', {
+                  checklist: data
+                });
+
+              case 7:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
+    },
+    destroy: function destroy(_ref4, payload) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+        var commit;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                commit = _ref4.commit;
+                _context4.next = 3;
+                return _services_ChecklistService__WEBPACK_IMPORTED_MODULE_1__.destroy(payload.id);
+
+              case 3:
+                commit('DESTROY_CHECKLIST', payload);
+
+              case 4:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }))();
+    }
   },
   getters: {
     getChecklistsCount: function getChecklistsCount(state) {
@@ -57581,12 +57856,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _ChecklistShow_vue_vue_type_template_id_01f80972_bindings___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChecklistShow.vue?vue&type=template&id=01f80972&bindings={} */ "./resources/js/components/dashboard/checklists/ChecklistShow.vue?vue&type=template&id=01f80972&bindings={}");
+/* harmony import */ var _ChecklistShow_vue_vue_type_template_id_01f80972_bindings_editedChecklist_data_errors_data_loading_data_checklist_options_categories_options_addItem_options_updateItem_options_removeItem_options_updateChecklist_options_removeChecklist_options_resetErrors_options_formatDate_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChecklistShow.vue?vue&type=template&id=01f80972&bindings={"editedChecklist":"data","errors":"data","loading":"data","checklist":"options","categories":"options","addItem":"options","updateItem":"options","removeItem":"options","updateChecklist":"options","removeChecklist":"options","resetErrors":"options","formatDate":"options"} */ "./resources/js/components/dashboard/checklists/ChecklistShow.vue?vue&type=template&id=01f80972&bindings={\"editedChecklist\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"checklist\":\"options\",\"categories\":\"options\",\"addItem\":\"options\",\"updateItem\":\"options\",\"removeItem\":\"options\",\"updateChecklist\":\"options\",\"removeChecklist\":\"options\",\"resetErrors\":\"options\",\"formatDate\":\"options\"}");
 /* harmony import */ var _ChecklistShow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChecklistShow.vue?vue&type=script&lang=js */ "./resources/js/components/dashboard/checklists/ChecklistShow.vue?vue&type=script&lang=js");
 
 
 
-_ChecklistShow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _ChecklistShow_vue_vue_type_template_id_01f80972_bindings___WEBPACK_IMPORTED_MODULE_0__.render
+_ChecklistShow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _ChecklistShow_vue_vue_type_template_id_01f80972_bindings_editedChecklist_data_errors_data_loading_data_checklist_options_categories_options_addItem_options_updateItem_options_removeItem_options_updateChecklist_options_removeChecklist_options_resetErrors_options_formatDate_options___WEBPACK_IMPORTED_MODULE_0__.render
 /* hot reload */
 if (false) {}
 
@@ -59068,12 +59343,12 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/dashboard/checklists/ChecklistShow.vue?vue&type=template&id=01f80972&bindings={}":
-/*!******************************************************************************************************************!*\
-  !*** ./resources/js/components/dashboard/checklists/ChecklistShow.vue?vue&type=template&id=01f80972&bindings={} ***!
-  \******************************************************************************************************************/
+/***/ "./resources/js/components/dashboard/checklists/ChecklistShow.vue?vue&type=template&id=01f80972&bindings={\"editedChecklist\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"checklist\":\"options\",\"categories\":\"options\",\"addItem\":\"options\",\"updateItem\":\"options\",\"removeItem\":\"options\",\"updateChecklist\":\"options\",\"removeChecklist\":\"options\",\"resetErrors\":\"options\",\"formatDate\":\"options\"}":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./resources/js/components/dashboard/checklists/ChecklistShow.vue?vue&type=template&id=01f80972&bindings={"editedChecklist":"data","errors":"data","loading":"data","checklist":"options","categories":"options","addItem":"options","updateItem":"options","removeItem":"options","updateChecklist":"options","removeChecklist":"options","resetErrors":"options","formatDate":"options"} ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! namespace exports */
-/*! export render [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistShow.vue?vue&type=template&id=01f80972&bindings={} .render */
+/*! export render [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistShow.vue?vue&type=template&id=01f80972&bindings={"editedChecklist":"data","errors":"data","loading":"data","checklist":"options","categories":"options","addItem":"options","updateItem":"options","removeItem":"options","updateChecklist":"options","removeChecklist":"options","resetErrors":"options","formatDate":"options"} .render */
 /*! other exports [not provided] [no usage info] */
 /*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.d, __webpack_require__.r, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
@@ -59081,9 +59356,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChecklistShow_vue_vue_type_template_id_01f80972_bindings___WEBPACK_IMPORTED_MODULE_0__.render
+/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChecklistShow_vue_vue_type_template_id_01f80972_bindings_editedChecklist_data_errors_data_loading_data_checklist_options_categories_options_addItem_options_updateItem_options_removeItem_options_updateChecklist_options_removeChecklist_options_resetErrors_options_formatDate_options___WEBPACK_IMPORTED_MODULE_0__.render
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChecklistShow_vue_vue_type_template_id_01f80972_bindings___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ChecklistShow.vue?vue&type=template&id=01f80972&bindings={} */ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistShow.vue?vue&type=template&id=01f80972&bindings={}");
+/* harmony import */ var _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChecklistShow_vue_vue_type_template_id_01f80972_bindings_editedChecklist_data_errors_data_loading_data_checklist_options_categories_options_addItem_options_updateItem_options_removeItem_options_updateChecklist_options_removeChecklist_options_resetErrors_options_formatDate_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ChecklistShow.vue?vue&type=template&id=01f80972&bindings={"editedChecklist":"data","errors":"data","loading":"data","checklist":"options","categories":"options","addItem":"options","updateItem":"options","removeItem":"options","updateChecklist":"options","removeChecklist":"options","resetErrors":"options","formatDate":"options"} */ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistShow.vue?vue&type=template&id=01f80972&bindings={\"editedChecklist\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"checklist\":\"options\",\"categories\":\"options\",\"addItem\":\"options\",\"updateItem\":\"options\",\"removeItem\":\"options\",\"updateChecklist\":\"options\",\"removeChecklist\":\"options\",\"resetErrors\":\"options\",\"formatDate\":\"options\"}");
 
 
 /***/ }),
@@ -60707,10 +60982,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistShow.vue?vue&type=template&id=01f80972&bindings={}":
-/*!***************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistShow.vue?vue&type=template&id=01f80972&bindings={} ***!
-  \***************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistShow.vue?vue&type=template&id=01f80972&bindings={\"editedChecklist\":\"data\",\"errors\":\"data\",\"loading\":\"data\",\"checklist\":\"options\",\"categories\":\"options\",\"addItem\":\"options\",\"updateItem\":\"options\",\"removeItem\":\"options\",\"updateChecklist\":\"options\",\"removeChecklist\":\"options\",\"resetErrors\":\"options\",\"formatDate\":\"options\"}":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistShow.vue?vue&type=template&id=01f80972&bindings={"editedChecklist":"data","errors":"data","loading":"data","checklist":"options","categories":"options","addItem":"options","updateItem":"options","removeItem":"options","updateChecklist":"options","removeChecklist":"options","resetErrors":"options","formatDate":"options"} ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! namespace exports */
 /*! export render [provided] [no usage info] [missing usage info prevents renaming] */
 /*! other exports [not provided] [no usage info] */
@@ -60726,9 +61001,35 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Edit checklist")
+const _hoisted_2 = { class: "max-w-xl" }
+const _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Title")
+const _hoisted_4 = { class: "mt-4" }
+const _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Items")
+const _hoisted_6 = { id: "items" }
+const _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", { class: "mt-4 mb-4 border-t-2 border-gray-300 w-full" }, null, -1 /* HOISTED */)
+const _hoisted_8 = { class: "space-y-2" }
+const _hoisted_9 = { class: "mt-4" }
+const _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Color")
+const _hoisted_11 = { class: "mt-4" }
+const _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Categories")
+const _hoisted_13 = {
+  id: "categories",
+  class: "flex flex-row flex-wrap"
+}
+const _hoisted_14 = { class: "flex justify-between mt-8" }
+const _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Remove")
+const _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Save")
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_DashboardTitle = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("DashboardTitle")
+  const _component_FormLabel = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("FormLabel")
+  const _component_FormInput = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("FormInput")
+  const _component_ChecklistAddItem = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("ChecklistAddItem")
+  const _component_ChecklistShowItem = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("ChecklistShowItem")
+  const _component_ColorPicker = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("ColorPicker")
+  const _component_CheckablePill = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("CheckablePill")
+  const _component_FormErrors = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("FormErrors")
+  const _component_FormButton = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("FormButton")
 
   return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", null, [
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DashboardTitle, null, {
@@ -60736,7 +61037,113 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         _hoisted_1
       ]),
       _: 1
-    })
+    }),
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("form", _hoisted_2, [
+      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormLabel, { for: "title" }, {
+          default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
+            _hoisted_3
+          ]),
+          _: 1
+        }),
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormInput, {
+          modelValue: $data.editedChecklist.title,
+          "onUpdate:modelValue": _cache[1] || (_cache[1] = $event => ($data.editedChecklist.title = $event)),
+          type: "text",
+          id: "title",
+          name: "title",
+          errors: $data.errors.title
+        }, null, 8 /* PROPS */, ["modelValue", "errors"])
+      ]),
+      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormLabel, { for: "items" }, {
+          default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
+            _hoisted_5
+          ]),
+          _: 1
+        }),
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [
+          (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ChecklistAddItem, {
+            onNewItemAddition: _cache[2] || (_cache[2] = $event => ($options.addItem($event)))
+          }),
+          _hoisted_7,
+          (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" List of items. "),
+          (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", _hoisted_8, [
+            ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.editedChecklist.items, (item, index) => {
+              return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_ChecklistShowItem, {
+                key: 'item' + index,
+                text: item.text,
+                checked: item.checked,
+                onCheckChange: $event => (item.checked = $event),
+                onTextChange: $event => ($options.updateItem($event, item)),
+                onItemRemoval: $event => ($options.removeItem(item))
+              }, null, 8 /* PROPS */, ["text", "checked", "onCheckChange", "onTextChange", "onItemRemoval"]))
+            }), 128 /* KEYED_FRAGMENT */))
+          ])
+        ])
+      ]),
+      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_9, [
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormLabel, { for: "color" }, {
+          default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
+            _hoisted_10
+          ]),
+          _: 1
+        }),
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ColorPicker, {
+          id: "color",
+          modelValue: $data.editedChecklist.color,
+          "onUpdate:modelValue": _cache[3] || (_cache[3] = $event => ($data.editedChecklist.color = $event))
+        }, null, 8 /* PROPS */, ["modelValue"])
+      ]),
+      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_11, [
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormLabel, { for: "categories" }, {
+          default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
+            _hoisted_12
+          ]),
+          _: 1
+        }),
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_13, [
+          ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($options.categories, (category) => {
+            return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_CheckablePill, {
+              key: category.id,
+              id: category.id,
+              modelValue: $data.editedChecklist.categories,
+              "onUpdate:modelValue": _cache[4] || (_cache[4] = $event => ($data.editedChecklist.categories = $event))
+            }, {
+              default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
+                (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(category.title), 1 /* TEXT */)
+              ]),
+              _: 2
+            }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["id", "modelValue"]))
+          }), 128 /* KEYED_FRAGMENT */))
+        ])
+      ]),
+      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormErrors, {
+        class: "mt-8 text-center",
+        errors: $data.errors.others
+      }, null, 8 /* PROPS */, ["errors"]),
+      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_14, [
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
+          loading: $data.loading,
+          onSubmit: $options.removeChecklist,
+          normalBgClass: "bg-gray-600"
+        }, {
+          default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
+            _hoisted_15
+          ]),
+          _: 1
+        }, 8 /* PROPS */, ["loading", "onSubmit"]),
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
+          loading: $data.loading,
+          onSubmit: $options.updateChecklist
+        }, {
+          default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
+            _hoisted_16
+          ]),
+          _: 1
+        }, 8 /* PROPS */, ["loading", "onSubmit"])
+      ])
+    ])
   ]))
 }
 

@@ -97,7 +97,6 @@ export default {
       items: [],
       errors: {
         title: [],
-        text: [],
         others: []
       },
       loading: false
@@ -133,9 +132,8 @@ export default {
         })
         this.$router.push({ name: 'ChecklistList' })
       } catch (err) {
-        if (is422(err)) {
-          hasValidationErr(err, 'title') &&
-            (this.errors.title = getValidationErrArr(err, 'title'))
+        if (is422(err) && hasValidationErr(err, 'title')) {
+          this.errors.title = getValidationErrArr(err, 'title')
         } else {
           this.errors.others.push('Network or server error, try again later!')
         }
@@ -146,7 +144,6 @@ export default {
     },
     resetErrors() {
       this.errors.title = []
-      this.errors.text = []
       this.errors.others = []
     }
   }

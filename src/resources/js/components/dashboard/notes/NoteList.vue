@@ -65,7 +65,7 @@ export default {
     },
     title() {
       return this.categoryFilter
-        ? `Notes from ${this.categoryFilter.title}`
+        ? `Notes of ${this.categoryFilter.title}`
         : 'Your notes'
     }
   },

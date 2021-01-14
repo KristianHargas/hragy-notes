@@ -13,15 +13,17 @@ export default {
     },
     STORE_CHECKLIST(state, payload) {
       state.checklists.unshift(payload.checklist)
+    },
+    UPDATE_CHECKLIST(state, payload) {
+      state.checklists = state.checklists.map((checklist) =>
+        checklist.id == payload.checklist.id ? payload.checklist : checklist
+      )
+    },
+    DESTROY_CHECKLIST(state, payload) {
+      state.checklists = state.checklists.filter(
+        (checklist) => checklist.id != payload.id
+      )
     }
-    // UPDATE_NOTE(state, payload) {
-    //   state.notes = state.notes.map((note) =>
-    //     note.id == payload.note.id ? payload.note : note
-    //   )
-    // },
-    // DESTROY_NOTE(state, payload) {
-    //   state.notes = state.notes.filter((note) => note.id != payload.id)
-    // }
   },
 
   actions: {
@@ -41,15 +43,21 @@ export default {
       data.items = JSON.parse(data.items)
 
       commit('STORE_CHECKLIST', { checklist: data })
+    },
+    async update({ commit }, payload) {
+      const { data } = await ChecklistService.update(
+        payload.id,
+        payload.checklist
+      )
+
+      data.items = JSON.parse(data.items)
+
+      commit('UPDATE_CHECKLIST', { checklist: data })
+    },
+    async destroy({ commit }, payload) {
+      await ChecklistService.destroy(payload.id)
+      commit('DESTROY_CHECKLIST', payload)
     }
-    // async update({ commit }, payload) {
-    //   const { data } = await NoteService.update(payload.id, payload.note)
-    //   commit('UPDATE_NOTE', { note: data })
-    // },
-    // async destroy({ commit }, payload) {
-    //   await NoteService.destroy(payload.id)
-    //   commit('DESTROY_NOTE', payload)
-    // }
   },
 
   getters: {
