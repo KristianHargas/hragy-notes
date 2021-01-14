@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Models\Category;
+use App\Models\Checklist;
+use App\Models\Note;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -43,7 +45,12 @@ class User extends Authenticatable
 
     public function notes()
     {
-        return $this->hasMany('App\Models\Note');
+        return $this->hasMany(Note::class);
+    }
+
+    public function checklists()
+    {
+        return $this->hasMany(Checklist::class);
     }
 
     public function categories()

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\ChecklistController;
 use App\Http\Controllers\Api\NoteController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,3 +23,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::middleware('auth:sanctum')->apiResource('notes', NoteController::class);
 Route::middleware('auth:sanctum')->apiResource('categories', CategoryController::class);
+Route::middleware('auth:sanctum')->apiResource('checklists', ChecklistController::class);

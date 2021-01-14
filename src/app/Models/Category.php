@@ -28,4 +28,9 @@ class Category extends Model
     {
         return $this->belongsToMany(Note::class);
     }
+
+    public function checklists()
+    {
+        return $this->belongsToMany(Checklist::class);
+    }
 }
