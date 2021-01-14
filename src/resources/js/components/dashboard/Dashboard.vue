@@ -44,6 +44,9 @@
       <DashboardNavItem :navigateTo="{ name: 'NoteList' }"
         >Notes</DashboardNavItem
       >
+      <DashboardNavItem :navigateTo="{ name: 'ChecklistList' }"
+        >Checklists</DashboardNavItem
+      >
     </nav>
   </aside>
 

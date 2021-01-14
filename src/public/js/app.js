@@ -32821,10 +32821,93 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }
       });
     },
+    showChecklists: function showChecklists() {
+      this.$router.push({
+        name: 'ChecklistList',
+        query: {
+          category: this.category.slug
+        }
+      });
+    },
     resetMessages: function resetMessages() {
       this.successMessages = [];
       this.errors = [];
     }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=script&lang=js":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=script&lang=js ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _DashboardTitle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../DashboardTitle */ "./resources/js/components/dashboard/DashboardTitle.vue");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    DashboardTitle: _DashboardTitle__WEBPACK_IMPORTED_MODULE_0__.default
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistList.vue?vue&type=script&lang=js":
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistList.vue?vue&type=script&lang=js ***!
+  \****************************************************************************************************************************************************************************************************************************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _DashboardTitle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../DashboardTitle */ "./resources/js/components/dashboard/DashboardTitle.vue");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    DashboardTitle: _DashboardTitle__WEBPACK_IMPORTED_MODULE_0__.default
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistShow.vue?vue&type=script&lang=js":
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistShow.vue?vue&type=script&lang=js ***!
+  \****************************************************************************************************************************************************************************************************************************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _DashboardTitle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../DashboardTitle */ "./resources/js/components/dashboard/DashboardTitle.vue");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    DashboardTitle: _DashboardTitle__WEBPACK_IMPORTED_MODULE_0__.default
   }
 });
 
@@ -33757,7 +33840,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
 /* harmony import */ var _components_Home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Home */ "./resources/js/components/Home.vue");
 /* harmony import */ var _components_auth_Login__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/auth/Login */ "./resources/js/components/auth/Login.vue");
 /* harmony import */ var _components_auth_Register__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/auth/Register */ "./resources/js/components/auth/Register.vue");
@@ -33766,12 +33849,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_dashboard_notes_NoteCreate__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/dashboard/notes/NoteCreate */ "./resources/js/components/dashboard/notes/NoteCreate.vue");
 /* harmony import */ var _components_dashboard_notes_NoteShow__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/dashboard/notes/NoteShow */ "./resources/js/components/dashboard/notes/NoteShow.vue");
 /* harmony import */ var _components_dashboard_categories_CategoryList__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/dashboard/categories/CategoryList */ "./resources/js/components/dashboard/categories/CategoryList.vue");
-/* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../store/index */ "./resources/js/store/index.js");
+/* harmony import */ var _components_dashboard_checklists_ChecklistList__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/dashboard/checklists/ChecklistList */ "./resources/js/components/dashboard/checklists/ChecklistList.vue");
+/* harmony import */ var _components_dashboard_checklists_ChecklistCreate__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/dashboard/checklists/ChecklistCreate */ "./resources/js/components/dashboard/checklists/ChecklistCreate.vue");
+/* harmony import */ var _components_dashboard_checklists_ChecklistShow__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/dashboard/checklists/ChecklistShow */ "./resources/js/components/dashboard/checklists/ChecklistShow.vue");
+/* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../store/index */ "./resources/js/store/index.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
 
 
 
@@ -33830,6 +33919,18 @@ var routes = [{
     path: 'categories',
     component: _components_dashboard_categories_CategoryList__WEBPACK_IMPORTED_MODULE_8__.default,
     name: 'CategoryList'
+  }, {
+    path: 'checklists',
+    component: _components_dashboard_checklists_ChecklistList__WEBPACK_IMPORTED_MODULE_9__.default,
+    name: 'ChecklistList'
+  }, {
+    path: 'checklists/:id',
+    component: _components_dashboard_checklists_ChecklistShow__WEBPACK_IMPORTED_MODULE_11__.default,
+    name: 'ChecklistShow'
+  }, {
+    path: 'checklists/create',
+    component: _components_dashboard_checklists_ChecklistCreate__WEBPACK_IMPORTED_MODULE_10__.default,
+    name: 'ChecklistCreate'
   }]
 }, {
   path: '/:catchAll(.*)',
@@ -33837,8 +33938,8 @@ var routes = [{
     name: 'Home'
   }
 }];
-var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_10__.createRouter)({
-  history: (0,vue_router__WEBPACK_IMPORTED_MODULE_10__.createWebHistory)(),
+var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_13__.createRouter)({
+  history: (0,vue_router__WEBPACK_IMPORTED_MODULE_13__.createWebHistory)(),
   routes: routes
 });
 router.beforeEach( /*#__PURE__*/function () {
@@ -33847,20 +33948,20 @@ router.beforeEach( /*#__PURE__*/function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            if (_store_index__WEBPACK_IMPORTED_MODULE_9__.default.state.auth.autoLoginDone) {
+            if (_store_index__WEBPACK_IMPORTED_MODULE_12__.default.state.auth.autoLoginDone) {
               _context.next = 3;
               break;
             }
 
             _context.next = 3;
-            return _store_index__WEBPACK_IMPORTED_MODULE_9__.default.dispatch('auth/autoLogin');
+            return _store_index__WEBPACK_IMPORTED_MODULE_12__.default.dispatch('auth/autoLogin');
 
           case 3:
             // Check if page requires authentication.
             if (to.matched.some(function (record) {
               return record.meta.requiresAuth;
             })) {
-              if (_store_index__WEBPACK_IMPORTED_MODULE_9__.default.state.auth.isLoggedIn) {
+              if (_store_index__WEBPACK_IMPORTED_MODULE_12__.default.state.auth.isLoggedIn) {
                 next();
               } else {
                 next({
@@ -33869,7 +33970,7 @@ router.beforeEach( /*#__PURE__*/function () {
               }
             } else {
               // Route does not accept authenticated users.
-              if (_store_index__WEBPACK_IMPORTED_MODULE_9__.default.state.auth.isLoggedIn) {
+              if (_store_index__WEBPACK_IMPORTED_MODULE_12__.default.state.auth.isLoggedIn) {
                 next({
                   name: 'Dashboard'
                 });
@@ -35247,6 +35348,25 @@ async function asyncWalk(
 
 /***/ }),
 
+/***/ "./resources/static/img/add-white.svg":
+/*!********************************************!*\
+  !*** ./resources/static/img/add-white.svg ***!
+  \********************************************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/add-white.svg?3dc7c72e0ed768d8e707926da4da53f2");
+
+/***/ }),
+
 /***/ "./resources/static/img/checklist.svg":
 /*!********************************************!*\
   !*** ./resources/static/img/checklist.svg ***!
@@ -35339,6 +35459,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/event.svg?c08dfea7d46abbf67aac299d769df563");
+
+/***/ }),
+
+/***/ "./resources/static/img/list_alt-white.svg":
+/*!*************************************************!*\
+  !*** ./resources/static/img/list_alt-white.svg ***!
+  \*************************************************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/list_alt-white.svg?66718febdc0d6322c1bf95634be7249b");
 
 /***/ }),
 
@@ -56743,18 +56882,108 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var _CategoryShowRow_vue_vue_type_template_id_3029e452_bindings_category_props_title_data_loading_data_errors_data_successMessages_data_updateCategory_options_removeCategory_options_showNotes_options_resetMessages_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CategoryShowRow.vue?vue&type=template&id=3029e452&bindings={"category":"props","title":"data","loading":"data","errors":"data","successMessages":"data","updateCategory":"options","removeCategory":"options","showNotes":"options","resetMessages":"options"} */ "./resources/js/components/dashboard/categories/CategoryShowRow.vue?vue&type=template&id=3029e452&bindings={\"category\":\"props\",\"title\":\"data\",\"loading\":\"data\",\"errors\":\"data\",\"successMessages\":\"data\",\"updateCategory\":\"options\",\"removeCategory\":\"options\",\"showNotes\":\"options\",\"resetMessages\":\"options\"}");
+/* harmony import */ var _CategoryShowRow_vue_vue_type_template_id_3029e452_bindings_category_props_title_data_loading_data_errors_data_successMessages_data_updateCategory_options_removeCategory_options_showNotes_options_showChecklists_options_resetMessages_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CategoryShowRow.vue?vue&type=template&id=3029e452&bindings={"category":"props","title":"data","loading":"data","errors":"data","successMessages":"data","updateCategory":"options","removeCategory":"options","showNotes":"options","showChecklists":"options","resetMessages":"options"} */ "./resources/js/components/dashboard/categories/CategoryShowRow.vue?vue&type=template&id=3029e452&bindings={\"category\":\"props\",\"title\":\"data\",\"loading\":\"data\",\"errors\":\"data\",\"successMessages\":\"data\",\"updateCategory\":\"options\",\"removeCategory\":\"options\",\"showNotes\":\"options\",\"showChecklists\":\"options\",\"resetMessages\":\"options\"}");
 /* harmony import */ var _CategoryShowRow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CategoryShowRow.vue?vue&type=script&lang=js */ "./resources/js/components/dashboard/categories/CategoryShowRow.vue?vue&type=script&lang=js");
 
 
 
-_CategoryShowRow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _CategoryShowRow_vue_vue_type_template_id_3029e452_bindings_category_props_title_data_loading_data_errors_data_successMessages_data_updateCategory_options_removeCategory_options_showNotes_options_resetMessages_options___WEBPACK_IMPORTED_MODULE_0__.render
+_CategoryShowRow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _CategoryShowRow_vue_vue_type_template_id_3029e452_bindings_category_props_title_data_loading_data_errors_data_successMessages_data_updateCategory_options_removeCategory_options_showNotes_options_showChecklists_options_resetMessages_options___WEBPACK_IMPORTED_MODULE_0__.render
 /* hot reload */
 if (false) {}
 
 _CategoryShowRow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.__file = "resources/js/components/dashboard/categories/CategoryShowRow.vue"
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_CategoryShowRow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default);
+
+/***/ }),
+
+/***/ "./resources/js/components/dashboard/checklists/ChecklistCreate.vue":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/dashboard/checklists/ChecklistCreate.vue ***!
+  \**************************************************************************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _ChecklistCreate_vue_vue_type_template_id_a0533574_bindings___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChecklistCreate.vue?vue&type=template&id=a0533574&bindings={} */ "./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=template&id=a0533574&bindings={}");
+/* harmony import */ var _ChecklistCreate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChecklistCreate.vue?vue&type=script&lang=js */ "./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=script&lang=js");
+
+
+
+_ChecklistCreate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _ChecklistCreate_vue_vue_type_template_id_a0533574_bindings___WEBPACK_IMPORTED_MODULE_0__.render
+/* hot reload */
+if (false) {}
+
+_ChecklistCreate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.__file = "resources/js/components/dashboard/checklists/ChecklistCreate.vue"
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_ChecklistCreate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default);
+
+/***/ }),
+
+/***/ "./resources/js/components/dashboard/checklists/ChecklistList.vue":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/dashboard/checklists/ChecklistList.vue ***!
+  \************************************************************************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _ChecklistList_vue_vue_type_template_id_636b1868_bindings___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChecklistList.vue?vue&type=template&id=636b1868&bindings={} */ "./resources/js/components/dashboard/checklists/ChecklistList.vue?vue&type=template&id=636b1868&bindings={}");
+/* harmony import */ var _ChecklistList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChecklistList.vue?vue&type=script&lang=js */ "./resources/js/components/dashboard/checklists/ChecklistList.vue?vue&type=script&lang=js");
+
+
+
+_ChecklistList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _ChecklistList_vue_vue_type_template_id_636b1868_bindings___WEBPACK_IMPORTED_MODULE_0__.render
+/* hot reload */
+if (false) {}
+
+_ChecklistList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.__file = "resources/js/components/dashboard/checklists/ChecklistList.vue"
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_ChecklistList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default);
+
+/***/ }),
+
+/***/ "./resources/js/components/dashboard/checklists/ChecklistShow.vue":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/dashboard/checklists/ChecklistShow.vue ***!
+  \************************************************************************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _ChecklistShow_vue_vue_type_template_id_01f80972_bindings___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChecklistShow.vue?vue&type=template&id=01f80972&bindings={} */ "./resources/js/components/dashboard/checklists/ChecklistShow.vue?vue&type=template&id=01f80972&bindings={}");
+/* harmony import */ var _ChecklistShow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChecklistShow.vue?vue&type=script&lang=js */ "./resources/js/components/dashboard/checklists/ChecklistShow.vue?vue&type=script&lang=js");
+
+
+
+_ChecklistShow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _ChecklistShow_vue_vue_type_template_id_01f80972_bindings___WEBPACK_IMPORTED_MODULE_0__.render
+/* hot reload */
+if (false) {}
+
+_ChecklistShow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.__file = "resources/js/components/dashboard/checklists/ChecklistShow.vue"
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_ChecklistShow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default);
 
 /***/ }),
 
@@ -57416,6 +57645,66 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=script&lang=js":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=script&lang=js ***!
+  \**************************************************************************************************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=script&lang=js .default */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.d, __webpack_require__.r, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => /* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChecklistCreate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__.default
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChecklistCreate_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ChecklistCreate.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/components/dashboard/checklists/ChecklistList.vue?vue&type=script&lang=js":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/components/dashboard/checklists/ChecklistList.vue?vue&type=script&lang=js ***!
+  \************************************************************************************************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistList.vue?vue&type=script&lang=js .default */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.d, __webpack_require__.r, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => /* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChecklistList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__.default
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChecklistList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ChecklistList.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistList.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/components/dashboard/checklists/ChecklistShow.vue?vue&type=script&lang=js":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/components/dashboard/checklists/ChecklistShow.vue?vue&type=script&lang=js ***!
+  \************************************************************************************************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistShow.vue?vue&type=script&lang=js .default */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.d, __webpack_require__.r, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => /* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChecklistShow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__.default
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChecklistShow_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ChecklistShow.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistShow.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
 /***/ "./resources/js/components/dashboard/notes/NoteCreate.vue?vue&type=script&lang=js":
 /*!****************************************************************************************!*\
   !*** ./resources/js/components/dashboard/notes/NoteCreate.vue?vue&type=script&lang=js ***!
@@ -57960,12 +58249,12 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/dashboard/categories/CategoryShowRow.vue?vue&type=template&id=3029e452&bindings={\"category\":\"props\",\"title\":\"data\",\"loading\":\"data\",\"errors\":\"data\",\"successMessages\":\"data\",\"updateCategory\":\"options\",\"removeCategory\":\"options\",\"showNotes\":\"options\",\"resetMessages\":\"options\"}":
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./resources/js/components/dashboard/categories/CategoryShowRow.vue?vue&type=template&id=3029e452&bindings={"category":"props","title":"data","loading":"data","errors":"data","successMessages":"data","updateCategory":"options","removeCategory":"options","showNotes":"options","resetMessages":"options"} ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./resources/js/components/dashboard/categories/CategoryShowRow.vue?vue&type=template&id=3029e452&bindings={\"category\":\"props\",\"title\":\"data\",\"loading\":\"data\",\"errors\":\"data\",\"successMessages\":\"data\",\"updateCategory\":\"options\",\"removeCategory\":\"options\",\"showNotes\":\"options\",\"showChecklists\":\"options\",\"resetMessages\":\"options\"}":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./resources/js/components/dashboard/categories/CategoryShowRow.vue?vue&type=template&id=3029e452&bindings={"category":"props","title":"data","loading":"data","errors":"data","successMessages":"data","updateCategory":"options","removeCategory":"options","showNotes":"options","showChecklists":"options","resetMessages":"options"} ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! namespace exports */
-/*! export render [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/categories/CategoryShowRow.vue?vue&type=template&id=3029e452&bindings={"category":"props","title":"data","loading":"data","errors":"data","successMessages":"data","updateCategory":"options","removeCategory":"options","showNotes":"options","resetMessages":"options"} .render */
+/*! export render [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/categories/CategoryShowRow.vue?vue&type=template&id=3029e452&bindings={"category":"props","title":"data","loading":"data","errors":"data","successMessages":"data","updateCategory":"options","removeCategory":"options","showNotes":"options","showChecklists":"options","resetMessages":"options"} .render */
 /*! other exports [not provided] [no usage info] */
 /*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.d, __webpack_require__.r, __webpack_require__.* */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
@@ -57973,9 +58262,69 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_CategoryShowRow_vue_vue_type_template_id_3029e452_bindings_category_props_title_data_loading_data_errors_data_successMessages_data_updateCategory_options_removeCategory_options_showNotes_options_resetMessages_options___WEBPACK_IMPORTED_MODULE_0__.render
+/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_CategoryShowRow_vue_vue_type_template_id_3029e452_bindings_category_props_title_data_loading_data_errors_data_successMessages_data_updateCategory_options_removeCategory_options_showNotes_options_showChecklists_options_resetMessages_options___WEBPACK_IMPORTED_MODULE_0__.render
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_CategoryShowRow_vue_vue_type_template_id_3029e452_bindings_category_props_title_data_loading_data_errors_data_successMessages_data_updateCategory_options_removeCategory_options_showNotes_options_resetMessages_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./CategoryShowRow.vue?vue&type=template&id=3029e452&bindings={"category":"props","title":"data","loading":"data","errors":"data","successMessages":"data","updateCategory":"options","removeCategory":"options","showNotes":"options","resetMessages":"options"} */ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/categories/CategoryShowRow.vue?vue&type=template&id=3029e452&bindings={\"category\":\"props\",\"title\":\"data\",\"loading\":\"data\",\"errors\":\"data\",\"successMessages\":\"data\",\"updateCategory\":\"options\",\"removeCategory\":\"options\",\"showNotes\":\"options\",\"resetMessages\":\"options\"}");
+/* harmony import */ var _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_CategoryShowRow_vue_vue_type_template_id_3029e452_bindings_category_props_title_data_loading_data_errors_data_successMessages_data_updateCategory_options_removeCategory_options_showNotes_options_showChecklists_options_resetMessages_options___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./CategoryShowRow.vue?vue&type=template&id=3029e452&bindings={"category":"props","title":"data","loading":"data","errors":"data","successMessages":"data","updateCategory":"options","removeCategory":"options","showNotes":"options","showChecklists":"options","resetMessages":"options"} */ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/categories/CategoryShowRow.vue?vue&type=template&id=3029e452&bindings={\"category\":\"props\",\"title\":\"data\",\"loading\":\"data\",\"errors\":\"data\",\"successMessages\":\"data\",\"updateCategory\":\"options\",\"removeCategory\":\"options\",\"showNotes\":\"options\",\"showChecklists\":\"options\",\"resetMessages\":\"options\"}");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=template&id=a0533574&bindings={}":
+/*!********************************************************************************************************************!*\
+  !*** ./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=template&id=a0533574&bindings={} ***!
+  \********************************************************************************************************************/
+/*! namespace exports */
+/*! export render [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=template&id=a0533574&bindings={} .render */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.d, __webpack_require__.r, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChecklistCreate_vue_vue_type_template_id_a0533574_bindings___WEBPACK_IMPORTED_MODULE_0__.render
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChecklistCreate_vue_vue_type_template_id_a0533574_bindings___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ChecklistCreate.vue?vue&type=template&id=a0533574&bindings={} */ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=template&id=a0533574&bindings={}");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/dashboard/checklists/ChecklistList.vue?vue&type=template&id=636b1868&bindings={}":
+/*!******************************************************************************************************************!*\
+  !*** ./resources/js/components/dashboard/checklists/ChecklistList.vue?vue&type=template&id=636b1868&bindings={} ***!
+  \******************************************************************************************************************/
+/*! namespace exports */
+/*! export render [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistList.vue?vue&type=template&id=636b1868&bindings={} .render */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.d, __webpack_require__.r, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChecklistList_vue_vue_type_template_id_636b1868_bindings___WEBPACK_IMPORTED_MODULE_0__.render
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChecklistList_vue_vue_type_template_id_636b1868_bindings___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ChecklistList.vue?vue&type=template&id=636b1868&bindings={} */ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistList.vue?vue&type=template&id=636b1868&bindings={}");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/dashboard/checklists/ChecklistShow.vue?vue&type=template&id=01f80972&bindings={}":
+/*!******************************************************************************************************************!*\
+  !*** ./resources/js/components/dashboard/checklists/ChecklistShow.vue?vue&type=template&id=01f80972&bindings={} ***!
+  \******************************************************************************************************************/
+/*! namespace exports */
+/*! export render [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistShow.vue?vue&type=template&id=01f80972&bindings={} .render */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.d, __webpack_require__.r, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => /* reexport safe */ _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChecklistShow_vue_vue_type_template_id_01f80972_bindings___WEBPACK_IMPORTED_MODULE_0__.render
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ChecklistShow_vue_vue_type_template_id_01f80972_bindings___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ChecklistShow.vue?vue&type=template&id=01f80972&bindings={} */ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistShow.vue?vue&type=template&id=01f80972&bindings={}");
 
 
 /***/ }),
@@ -58820,7 +59169,8 @@ const _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)
 const _hoisted_3 = { class: "mt-12" }
 const _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Categories")
 const _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Notes")
-const _hoisted_6 = { class: "top-margin lg:ml-72 py-4 px-4 md:px-6 bg-gray-100 main-fill" }
+const _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Checklists")
+const _hoisted_7 = { class: "top-margin lg:ml-72 py-4 px-4 md:px-6 bg-gray-100 main-fill" }
 ;(0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)()
 
 const render = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -58881,11 +59231,17 @@ const render = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $setup
             _hoisted_5
           ]),
           _: 1
+        }),
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DashboardNavItem, { navigateTo: { name: 'ChecklistList' } }, {
+          default: _withId(() => [
+            _hoisted_6
+          ]),
+          _: 1
         })
       ])
     ], 2 /* CLASS */),
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Main content "),
-    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("main", _hoisted_6, [
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("main", _hoisted_7, [
       ($data.dataFetchingFinished && !$data.dataFetchingSuccess)
         ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_FormErrors, {
             key: 0,
@@ -59086,10 +59442,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/categories/CategoryShowRow.vue?vue&type=template&id=3029e452&bindings={\"category\":\"props\",\"title\":\"data\",\"loading\":\"data\",\"errors\":\"data\",\"successMessages\":\"data\",\"updateCategory\":\"options\",\"removeCategory\":\"options\",\"showNotes\":\"options\",\"resetMessages\":\"options\"}":
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/categories/CategoryShowRow.vue?vue&type=template&id=3029e452&bindings={"category":"props","title":"data","loading":"data","errors":"data","successMessages":"data","updateCategory":"options","removeCategory":"options","showNotes":"options","resetMessages":"options"} ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/categories/CategoryShowRow.vue?vue&type=template&id=3029e452&bindings={\"category\":\"props\",\"title\":\"data\",\"loading\":\"data\",\"errors\":\"data\",\"successMessages\":\"data\",\"updateCategory\":\"options\",\"removeCategory\":\"options\",\"showNotes\":\"options\",\"showChecklists\":\"options\",\"resetMessages\":\"options\"}":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/categories/CategoryShowRow.vue?vue&type=template&id=3029e452&bindings={"category":"props","title":"data","loading":"data","errors":"data","successMessages":"data","updateCategory":"options","removeCategory":"options","showNotes":"options","showChecklists":"options","resetMessages":"options"} ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! namespace exports */
 /*! export render [provided] [no usage info] [missing usage info prevents renaming] */
 /*! other exports [not provided] [no usage info] */
@@ -59105,6 +59461,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _static_img_save_white_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../static/img/save-white.svg */ "./resources/static/img/save-white.svg");
 /* harmony import */ var _static_img_delete_white_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../static/img/delete-white.svg */ "./resources/static/img/delete-white.svg");
 /* harmony import */ var _static_img_note_icon_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../static/img/note-icon.svg */ "./resources/static/img/note-icon.svg");
+/* harmony import */ var _static_img_list_alt_white_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../static/img/list_alt-white.svg */ "./resources/static/img/list_alt-white.svg");
+
 
 
 
@@ -59125,7 +59483,12 @@ const _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)
 }, null, -1 /* HOISTED */)
 const _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
   src: _static_img_note_icon_svg__WEBPACK_IMPORTED_MODULE_3__.default,
-  alt: "Save icon.",
+  alt: "Notes icon.",
+  class: "h-8"
+}, null, -1 /* HOISTED */)
+const _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+  src: _static_img_list_alt_white_svg__WEBPACK_IMPORTED_MODULE_4__.default,
+  alt: "Checklists icon.",
   class: "h-8"
 }, null, -1 /* HOISTED */)
 
@@ -59174,7 +59537,137 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         _hoisted_5
       ]),
       _: 1
+    }, 8 /* PROPS */, ["loading", "onClick"]),
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
+      class: "ml-3",
+      loading: $data.loading,
+      onClick: $options.showChecklists
+    }, {
+      default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
+        _hoisted_6
+      ]),
+      _: 1
     }, 8 /* PROPS */, ["loading", "onClick"])
+  ]))
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=template&id=a0533574&bindings={}":
+/*!*****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistCreate.vue?vue&type=template&id=a0533574&bindings={} ***!
+  \*****************************************************************************************************************************************************************************************************************************************************/
+/*! namespace exports */
+/*! export render [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__, __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => /* binding */ render
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+const _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Create new checklist")
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_DashboardTitle = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("DashboardTitle")
+
+  return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", null, [
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DashboardTitle, null, {
+      default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
+        _hoisted_1
+      ]),
+      _: 1
+    })
+  ]))
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistList.vue?vue&type=template&id=636b1868&bindings={}":
+/*!***************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistList.vue?vue&type=template&id=636b1868&bindings={} ***!
+  \***************************************************************************************************************************************************************************************************************************************************/
+/*! namespace exports */
+/*! export render [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__, __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => /* binding */ render
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _static_img_add_white_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../static/img/add-white.svg */ "./resources/static/img/add-white.svg");
+
+
+
+
+const _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Your checklists")
+const _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+  class: "h-8",
+  src: _static_img_add_white_svg__WEBPACK_IMPORTED_MODULE_1__.default,
+  alt: "Add checklist icon."
+}, null, -1 /* HOISTED */)
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_DashboardTitle = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("DashboardTitle")
+  const _component_FloatingActionButton = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("FloatingActionButton")
+
+  return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", null, [
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DashboardTitle, null, {
+      default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
+        _hoisted_1
+      ]),
+      _: 1
+    }),
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FloatingActionButton, { navigateTo: { name: 'ChecklistCreate' } }, {
+      default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
+        _hoisted_2
+      ]),
+      _: 1
+    })
+  ]))
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistShow.vue?vue&type=template&id=01f80972&bindings={}":
+/*!***************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/dashboard/checklists/ChecklistShow.vue?vue&type=template&id=01f80972&bindings={} ***!
+  \***************************************************************************************************************************************************************************************************************************************************/
+/*! namespace exports */
+/*! export render [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__, __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => /* binding */ render
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+const _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Edit checklist")
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_DashboardTitle = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("DashboardTitle")
+
+  return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", null, [
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DashboardTitle, null, {
+      default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
+        _hoisted_1
+      ]),
+      _: 1
+    })
   ]))
 }
 

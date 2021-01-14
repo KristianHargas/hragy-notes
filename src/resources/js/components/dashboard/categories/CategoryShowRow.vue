@@ -28,7 +28,13 @@
     <FormButton class="ml-3" :loading="loading" @click="showNotes"
       ><img
         src="../../../../static/img/note-icon.svg"
-        alt="Save icon."
+        alt="Notes icon."
+        class="h-8"
+    /></FormButton>
+    <FormButton class="ml-3" :loading="loading" @click="showChecklists"
+      ><img
+        src="../../../../static/img/list_alt-white.svg"
+        alt="Checklists icon."
         class="h-8"
     /></FormButton>
   </div>
@@ -111,6 +117,14 @@ export default {
     showNotes() {
       this.$router.push({
         name: 'NoteList',
+        query: {
+          category: this.category.slug
+        }
+      })
+    },
+    showChecklists() {
+      this.$router.push({
+        name: 'ChecklistList',
         query: {
           category: this.category.slug
         }
