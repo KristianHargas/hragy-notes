@@ -34241,6 +34241,23 @@ var store = function store(data) {
 
 /***/ }),
 
+/***/ "./resources/js/services/ChecklistService.js":
+/*!***************************************************!*\
+  !*** ./resources/js/services/ChecklistService.js ***!
+  \***************************************************/
+/*! namespace exports */
+/*! exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__, __webpack_require__.n, __webpack_require__.r, __webpack_exports__, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/***/ }),
+
 /***/ "./resources/js/services/NoteService.js":
 /*!**********************************************!*\
   !*** ./resources/js/services/NoteService.js ***!
@@ -34401,15 +34418,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-browser.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-browser.js");
 /* harmony import */ var _modules_auth__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/auth */ "./resources/js/store/modules/auth.js");
 /* harmony import */ var _modules_note__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/note */ "./resources/js/store/modules/note.js");
 /* harmony import */ var _modules_category__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/category */ "./resources/js/store/modules/category.js");
+/* harmony import */ var _modules_checklist__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/checklist */ "./resources/js/store/modules/checklist.js");
 
 
 
 
-var store = (0,vuex__WEBPACK_IMPORTED_MODULE_3__.createStore)({
+
+var store = (0,vuex__WEBPACK_IMPORTED_MODULE_4__.createStore)({
   state: function state() {
     return {};
   },
@@ -34418,7 +34437,8 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_3__.createStore)({
   modules: {
     auth: _modules_auth__WEBPACK_IMPORTED_MODULE_0__.default,
     note: _modules_note__WEBPACK_IMPORTED_MODULE_1__.default,
-    category: _modules_category__WEBPACK_IMPORTED_MODULE_2__.default
+    category: _modules_category__WEBPACK_IMPORTED_MODULE_2__.default,
+    checklist: _modules_checklist__WEBPACK_IMPORTED_MODULE_3__.default
   }
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (store);
@@ -34812,6 +34832,79 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         });
       };
     }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/checklist.js":
+/*!*************************************************!*\
+  !*** ./resources/js/store/modules/checklist.js ***!
+  \*************************************************/
+/*! namespace exports */
+/*! export default [provided] [no usage info] [missing usage info prevents renaming] */
+/*! other exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _services_ChecklistService__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../services/ChecklistService */ "./resources/js/services/ChecklistService.js");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  namespaced: true,
+  state: function state() {
+    return {
+      checklists: []
+    };
+  },
+  mutations: {// SET_NOTES(state, payload) {
+    //   state.notes = payload.notes
+    // },
+    // STORE_NOTE(state, payload) {
+    //   state.notes.unshift(payload.note)
+    // },
+    // UPDATE_NOTE(state, payload) {
+    //   state.notes = state.notes.map((note) =>
+    //     note.id == payload.note.id ? payload.note : note
+    //   )
+    // },
+    // DESTROY_NOTE(state, payload) {
+    //   state.notes = state.notes.filter((note) => note.id != payload.id)
+    // }
+  },
+  actions: {// async index({ commit }) {
+    //   const { data } = await NoteService.index()
+    //   commit('SET_NOTES', { notes: data })
+    // },
+    // async store({ commit }, payload) {
+    //   const { data } = await NoteService.store(payload.note)
+    //   commit('STORE_NOTE', { note: data })
+    // },
+    // async update({ commit }, payload) {
+    //   const { data } = await NoteService.update(payload.id, payload.note)
+    //   commit('UPDATE_NOTE', { note: data })
+    // },
+    // async destroy({ commit }, payload) {
+    //   await NoteService.destroy(payload.id)
+    //   commit('DESTROY_NOTE', payload)
+    // }
+  },
+  getters: {// getNotesCount(state) {
+    //   return state.notes.length
+    // },
+    // getNoteById: (state) => (id) => {
+    //   return state.notes.find((note) => note.id == id)
+    // },
+    // getNotesOfCategory: (state) => (id) => {
+    //   return state.notes.filter((note) => {
+    //     const categories = note.categories.map((category) => category.id)
+    //     return categories.includes(id)
+    //   })
+    // }
   }
 });
 
