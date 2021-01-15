@@ -11,7 +11,7 @@
   />
   <div
     v-if="errors.length"
-    class="mt-1 font-medium text-red-700 uppercase tracking-wide"
+    class="mt-1 font-light text-red-700 uppercase tracking-wide"
   >
     <div
       v-for="(err, index) in errors"
@@ -21,7 +21,7 @@
   </div>
   <div
     v-if="successMessages.length"
-    class="mt-1 font-medium text-gray-700 uppercase tracking-wide"
+    class="mt-1 font-light text-gray-700 uppercase tracking-wide"
   >
     <div
       v-for="(message, index) in successMessages"

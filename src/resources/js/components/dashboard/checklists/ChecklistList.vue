@@ -31,9 +31,9 @@
 
     <div
       v-else
-      class="text-gray-700 border-t-2 border-gray-700 font-semibold text-base uppercase tracking-wide text-center pt-2 mx-2"
+      class="text-gray-700 border-t-2 border-gray-400 font-light text-base uppercase tracking-wide text-center pt-2 mx-2"
     >
-      There are no checklists, start by creating some.
+      There are no checklists, start by creating one.
     </div>
 
     <FloatingActionButton :navigateTo="{ name: 'ChecklistCreate' }">

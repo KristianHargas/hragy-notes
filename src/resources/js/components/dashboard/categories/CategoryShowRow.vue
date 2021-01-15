@@ -9,11 +9,7 @@
         :successMessages="successMessages"
       />
     </div>
-    <FormButton
-      class="sm:ml-3 w-13"
-      normalBgClass="bg-red-800"
-      :loading="loading"
-      @submit="updateCategory"
+    <FormButton class="sm:ml-3 w-13" :loading="loading" @submit="updateCategory"
       ><img
         src="../../../../static/img/save-white.svg"
         alt="Save icon."

@@ -49,27 +49,30 @@
         </div>
       </div>
 
-      <div
-        class="mt-4 flex justify-between text-base font-medium text-gray-700"
-      >
-        <span>Created at:</span><span>{{ formatDate(note.created_at) }}</span>
+      <div class="mt-4 flex justify-between text-base font-light text-gray-700">
+        <span class="uppercase">Created at:</span
+        ><span>{{ formatDate(note.created_at) }}</span>
       </div>
 
-      <div
-        class="mt-2 flex justify-between text-base font-medium text-gray-700"
-      >
-        <span>Updated at:</span><span>{{ formatDate(note.updated_at) }}</span>
+      <div class="mt-2 flex justify-between text-base font-light text-gray-700">
+        <span class="uppercase">Updated at:</span
+        ><span>{{ formatDate(note.updated_at) }}</span>
       </div>
 
       <FormErrors class="mt-8 text-center" :errors="errors.others"></FormErrors>
 
       <div class="flex justify-between mt-8">
         <FormButton
+          class="w-13"
+          normalBgClass="bg-gray-600"
           :loading="loading"
           @submit="removeNote"
-          normalBgClass="bg-gray-600"
-          >Remove</FormButton
-        >
+          ><img
+            src="../../../../static/img/delete-white.svg"
+            alt="Delete icon."
+            class="h-8"
+        /></FormButton>
+
         <FormButton :loading="loading" @submit="updateNote">Save</FormButton>
       </div>
     </form>
@@ -145,7 +148,7 @@ export default {
           id: this.note.id,
           note: this.editedNote
         })
-        this.$router.push({ name: 'NoteList' })
+        this.$router.back()
       } catch (err) {
         if (is422(err)) {
           hasValidationErr(err, 'title') &&

@@ -38,12 +38,14 @@
         </div>
       </div>
 
-      <div class="mt-4 flex justify-between text-base font-medium text-white">
-        <span>Created at:</span><span>{{ formatDate(note.created_at) }}</span>
+      <div class="mt-4 flex justify-between text-base font-light text-white">
+        <span class="uppercase">Created at:</span
+        ><span>{{ formatDate(note.created_at) }}</span>
       </div>
 
-      <div class="mt-2 flex justify-between text-base font-medium text-white">
-        <span>Updated at:</span><span>{{ formatDate(note.updated_at) }}</span>
+      <div class="mt-2 flex justify-between text-base font-light text-white">
+        <span class="uppercase">Updated at:</span
+        ><span>{{ formatDate(note.updated_at) }}</span>
       </div>
     </div>
   </div>

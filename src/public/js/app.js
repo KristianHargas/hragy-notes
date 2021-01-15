@@ -33725,9 +33725,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 });
 
               case 6:
-                _this.$router.push({
-                  name: 'NoteList'
-                });
+                _this.$router.back();
 
                 _context.next = 12;
                 break;
@@ -34041,7 +34039,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     loadingBgClass: {
       type: String,
-      "default": 'bg-gray-500'
+      "default": 'bg-gray-400'
     },
     loading: {
       type: Boolean,
@@ -60599,7 +60597,7 @@ const _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("d
 const _hoisted_1 = { class: "toolbar flex items-center shadow-lg bg-gray-100 px-4" }
 const _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", { class: "flex-grow" }, null, -1 /* HOISTED */)
 const _hoisted_3 = { class: "px-6" }
-const _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", { class: "mt-8 mb-4 border-t-2 border-gray-400 w-full" }, null, -1 /* HOISTED */)
+const _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", { class: "mt-8 mb-4 border-t-2 border-gray-700 opacity-25 w-full" }, null, -1 /* HOISTED */)
 const _hoisted_5 = { class: "px-3" }
 const _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Categories")
 const _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Notes")
@@ -60625,7 +60623,7 @@ const render = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $setup
       }, null, 8 /* PROPS */, ["open"]),
       (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Logo, {
         to: { name: 'Dashboard' },
-        class: "ml-4"
+        class: "ml-4 lg:ml-0"
       }),
       _hoisted_2,
       ($data.loading)
@@ -60647,15 +60645,15 @@ const render = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $setup
     }, [
       (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("section", _hoisted_3, [
         (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", {
-          class: "block text-gray-800 text-2xl font-semibold",
+          class: "block text-gray-800 text-2xl font-medium",
           textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.user.name)
         }, null, 8 /* PROPS */, ["textContent"]),
         (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", {
-          class: "block text-gray-700 text-lg font-medium",
+          class: "block text-gray-700 text-lg font-light",
           textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.user.email)
         }, null, 8 /* PROPS */, ["textContent"]),
         (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-          class: "inline-block text-lg uppercase no-select text-center tracking-wider cursor-pointer shadow-sm bg-white rounded-lg py-2 px-6 mt-3 font-semibold text-gray-800 hover:shadow-md focus:shadow-md",
+          class: "inline-block text-lg uppercase no-select text-center tracking-wider cursor-pointer shadow-sm bg-white rounded-lg py-2 px-6 mt-3 font-medium text-gray-800 hover:shadow-md focus:shadow-md",
           onClick: _cache[3] || (_cache[3] = (...args) => ($options.logout(...args)))
         }, " Logout ")
       ]),
@@ -60727,7 +60725,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_router_link, {
     to: $props.navigateTo,
-    class: "block uppercase tracking-wide text-xl mb-4 no-select text-center cursor-pointer shadow-sm bg-white rounded-lg py-2 font-semibold text-gray-800 hover:shadow-md focus:shadow-md"
+    class: "block uppercase tracking-wide text-xl mb-4 no-select text-center cursor-pointer shadow-sm bg-white rounded-lg py-2 font-medium text-gray-800 hover:shadow-md focus:shadow-md"
   }, {
     default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
       (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")
@@ -60828,8 +60826,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           type: "text",
           disabled: $data.loading,
           errors: $data.errors,
-          successMessages: $data.successMessages
-        }, null, 8 /* PROPS */, ["modelValue", "disabled", "errors", "successMessages"])
+          successMessages: $data.successMessages,
+          onKeyup: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withKeys)($options.createCategory, ["enter"])
+        }, null, 8 /* PROPS */, ["modelValue", "disabled", "errors", "successMessages", "onKeyup"])
       ]),
       (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
         class: "ml-3",
@@ -60971,7 +60970,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ]),
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
       class: "sm:ml-3 w-13",
-      normalBgClass: "bg-red-800",
       loading: $data.loading,
       onSubmit: $options.updateCategory
     }, {
@@ -61264,7 +61262,7 @@ const _hoisted_4 = {
 }
 const _hoisted_5 = {
   key: 2,
-  class: "text-gray-700 border-t-2 border-gray-700 font-semibold text-base uppercase tracking-wide text-center pt-2 mx-2"
+  class: "text-gray-700 border-t-2 border-gray-400 font-light text-base uppercase tracking-wide text-center pt-2 mx-2"
 }
 const _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
   class: "h-8",
@@ -61313,7 +61311,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             ]))
           }), 128 /* KEYED_FRAGMENT */))
         ]))
-      : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_5, " There are no checklists, start by creating some. ")),
+      : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_5, " There are no checklists, start by creating one. ")),
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FloatingActionButton, { navigateTo: { name: 'ChecklistCreate' } }, {
       default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
         _hoisted_6
@@ -61423,6 +61421,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => /* binding */ render
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _static_img_delete_white_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../static/img/delete-white.svg */ "./resources/static/img/delete-white.svg");
+
+
 
 
 const _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Edit checklist")
@@ -61444,12 +61445,16 @@ const _hoisted_13 = {
   id: "categories",
   class: "flex flex-row flex-wrap"
 }
-const _hoisted_14 = { class: "mt-4 flex justify-between text-base font-medium text-gray-700" }
-const _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "Created at:", -1 /* HOISTED */)
-const _hoisted_16 = { class: "mt-2 flex justify-between text-base font-medium text-gray-700" }
-const _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "Updated at:", -1 /* HOISTED */)
+const _hoisted_14 = { class: "mt-4 flex justify-between text-base font-light text-gray-700" }
+const _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", { class: "uppercase" }, "Created at:", -1 /* HOISTED */)
+const _hoisted_16 = { class: "mt-2 flex justify-between text-base font-light text-gray-700" }
+const _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", { class: "uppercase" }, "Updated at:", -1 /* HOISTED */)
 const _hoisted_18 = { class: "flex justify-between mt-8" }
-const _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Remove")
+const _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+  src: _static_img_delete_white_svg__WEBPACK_IMPORTED_MODULE_1__.default,
+  alt: "Delete icon.",
+  class: "h-8"
+}, null, -1 /* HOISTED */)
 const _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Save")
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -61566,9 +61571,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, null, 8 /* PROPS */, ["errors"]),
       (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_18, [
         (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
+          class: "w-13",
+          normalBgClass: "bg-gray-600",
           loading: $data.loading,
-          onSubmit: $options.removeChecklist,
-          normalBgClass: "bg-gray-600"
+          onSubmit: $options.removeChecklist
         }, {
           default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
             _hoisted_19
@@ -61843,7 +61849,7 @@ const _hoisted_4 = {
 }
 const _hoisted_5 = {
   key: 2,
-  class: "text-gray-700 border-t-2 border-gray-700 font-semibold text-base uppercase tracking-wide text-center pt-2 mx-2"
+  class: "text-gray-700 border-t-2 border-gray-400 font-light text-base uppercase tracking-wide text-center pt-2 mx-2"
 }
 const _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
   class: "h-8",
@@ -61892,7 +61898,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             ]))
           }), 128 /* KEYED_FRAGMENT */))
         ]))
-      : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_5, " There are no notes, start by creating some. ")),
+      : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_5, " There are no notes, start by creating one. ")),
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FloatingActionButton, { navigateTo: { name: 'NoteCreate' } }, {
       default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
         _hoisted_6
@@ -61969,6 +61975,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => /* binding */ render
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _static_img_delete_white_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../static/img/delete-white.svg */ "./resources/static/img/delete-white.svg");
+
+
 
 
 const _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Edit note")
@@ -61990,12 +61999,16 @@ const _hoisted_10 = {
   id: "categories-selection",
   class: "flex flex-row flex-wrap -ml-1"
 }
-const _hoisted_11 = { class: "mt-4 flex justify-between text-base font-medium text-gray-700" }
-const _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "Created at:", -1 /* HOISTED */)
-const _hoisted_13 = { class: "mt-2 flex justify-between text-base font-medium text-gray-700" }
-const _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "Updated at:", -1 /* HOISTED */)
+const _hoisted_11 = { class: "mt-4 flex justify-between text-base font-light text-gray-700" }
+const _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", { class: "uppercase" }, "Created at:", -1 /* HOISTED */)
+const _hoisted_13 = { class: "mt-2 flex justify-between text-base font-light text-gray-700" }
+const _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", { class: "uppercase" }, "Updated at:", -1 /* HOISTED */)
 const _hoisted_15 = { class: "flex justify-between mt-8" }
-const _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Remove")
+const _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+  src: _static_img_delete_white_svg__WEBPACK_IMPORTED_MODULE_1__.default,
+  alt: "Delete icon.",
+  class: "h-8"
+}, null, -1 /* HOISTED */)
 const _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Save")
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -62103,9 +62116,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           }, null, 8 /* PROPS */, ["errors"]),
           (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_15, [
             (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
+              class: "w-13",
+              normalBgClass: "bg-gray-600",
               loading: $data.loading,
-              onSubmit: $options.removeNote,
-              normalBgClass: "bg-gray-600"
+              onSubmit: $options.removeNote
             }, {
               default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
                 _hoisted_16
@@ -62164,10 +62178,10 @@ const _hoisted_7 = {
   key: 0,
   class: "flex flex-row flex-wrap mt-4 -mx-1"
 }
-const _hoisted_8 = { class: "mt-4 flex justify-between text-base font-medium text-white" }
-const _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "Created at:", -1 /* HOISTED */)
-const _hoisted_10 = { class: "mt-2 flex justify-between text-base font-medium text-white" }
-const _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "Updated at:", -1 /* HOISTED */)
+const _hoisted_8 = { class: "mt-4 flex justify-between text-base font-light text-white" }
+const _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", { class: "uppercase" }, "Created at:", -1 /* HOISTED */)
+const _hoisted_10 = { class: "mt-2 flex justify-between text-base font-light text-white" }
+const _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", { class: "uppercase" }, "Updated at:", -1 /* HOISTED */)
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_DashboardTitle = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("DashboardTitle")
@@ -62365,7 +62379,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const _hoisted_1 = {
   key: 0,
-  class: "mt-1 font-medium text-red-700"
+  class: "mt-1 font-light text-red-700"
 }
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -62443,7 +62457,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const _hoisted_1 = {
   key: 0,
-  class: "text-red-700 font-semibold text-base uppercase tracking-wide text-center mx-2 mt-4"
+  class: "text-red-700 border-t-2 pt-2 border-red-700 font-light text-base uppercase tracking-wide text-center mx-2 mt-4"
 }
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -62481,11 +62495,11 @@ __webpack_require__.r(__webpack_exports__);
 
 const _hoisted_1 = {
   key: 0,
-  class: "mt-1 font-medium text-red-700 uppercase tracking-wide"
+  class: "mt-1 font-light text-red-700 uppercase tracking-wide"
 }
 const _hoisted_2 = {
   key: 1,
-  class: "mt-1 font-medium text-gray-700 uppercase tracking-wide"
+  class: "mt-1 font-light text-gray-700 uppercase tracking-wide"
 }
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {

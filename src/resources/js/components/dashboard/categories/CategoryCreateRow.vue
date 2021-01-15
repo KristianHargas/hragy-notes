@@ -10,6 +10,7 @@
           :disabled="loading"
           :errors="errors"
           :successMessages="successMessages"
+          @keyup.enter="createCategory"
         />
       </div>
       <FormButton class="ml-3" :loading="loading" @submit="createCategory"

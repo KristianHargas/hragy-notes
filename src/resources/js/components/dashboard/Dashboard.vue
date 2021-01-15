@@ -6,7 +6,7 @@
       :open="navigationDrawer"
       @toggle="navigationDrawer = !navigationDrawer"
     ></HamburgerButton>
-    <Logo :to="{ name: 'Dashboard' }" class="ml-4"></Logo>
+    <Logo :to="{ name: 'Dashboard' }" class="ml-4 lg:ml-0"></Logo>
     <div class="flex-grow"></div>
     <LoadingSpinner
       v-if="loading"
@@ -28,23 +28,23 @@
   >
     <section class="px-6">
       <span
-        class="block text-gray-800 text-2xl font-semibold"
+        class="block text-gray-800 text-2xl font-medium"
         v-text="user.name"
       ></span>
       <span
-        class="block text-gray-700 text-lg font-medium"
+        class="block text-gray-700 text-lg font-light"
         v-text="user.email"
       ></span>
 
       <div
-        class="inline-block text-lg uppercase no-select text-center tracking-wider cursor-pointer shadow-sm bg-white rounded-lg py-2 px-6 mt-3 font-semibold text-gray-800 hover:shadow-md focus:shadow-md"
+        class="inline-block text-lg uppercase no-select text-center tracking-wider cursor-pointer shadow-sm bg-white rounded-lg py-2 px-6 mt-3 font-medium text-gray-800 hover:shadow-md focus:shadow-md"
         @click="logout"
       >
         Logout
       </div>
     </section>
 
-    <div class="mt-8 mb-4 border-t-2 border-gray-400 w-full"></div>
+    <div class="mt-8 mb-4 border-t-2 border-gray-700 opacity-25 w-full"></div>
 
     <nav class="px-3">
       <DashboardNavItem :navigateTo="{ name: 'CategoryList' }"

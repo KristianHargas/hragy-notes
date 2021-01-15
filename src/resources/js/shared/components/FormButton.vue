@@ -19,7 +19,7 @@ export default {
     },
     loadingBgClass: {
       type: String,
-      default: 'bg-gray-500'
+      default: 'bg-gray-400'
     },
     loading: {
       type: Boolean,
