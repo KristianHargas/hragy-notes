@@ -1,73 +1,79 @@
 <template>
-  <DashboardTitle :supportNavigateBack="true">Edit note</DashboardTitle>
+  <div>
+    <DashboardTitle :supportNavigateBack="true">Edit note</DashboardTitle>
 
-  <form v-if="note" class="max-w-xl">
-    <div>
-      <FormLabel for="title">Title</FormLabel>
-      <FormInput
-        v-model="editedNote.title"
-        type="text"
-        id="title"
-        name="title"
-        :errors="errors.title"
-      ></FormInput>
-    </div>
-
-    <div class="mt-4">
-      <FormLabel for="text">Text</FormLabel>
-      <FormArea
-        v-model="editedNote.text"
-        name="text"
-        id="text"
-        rows="5"
-        :errors="errors.text"
-      ></FormArea>
-    </div>
-
-    <div class="mt-4">
-      <FormLabel for="note-color">Note color</FormLabel>
-      <ColorPicker
-        id="note-color"
-        class="-ml-2"
-        v-model="editedNote.color"
-        :selectDefaultColor="false"
-      />
-    </div>
-
-    <div v-if="categories.length" class="mt-4">
-      <FormLabel for="categories-selection">Select categories</FormLabel>
-      <div id="categories-selection" class="flex flex-row flex-wrap -ml-1">
-        <CheckablePill
-          v-for="category in categories"
-          :key="category.id"
-          :id="category.id"
-          v-model="editedNote.categories"
-        >
-          {{ category.title }}
-        </CheckablePill>
+    <form v-if="note" class="max-w-xl">
+      <div>
+        <FormLabel for="title">Title</FormLabel>
+        <FormInput
+          v-model="editedNote.title"
+          type="text"
+          id="title"
+          name="title"
+          :errors="errors.title"
+        ></FormInput>
       </div>
-    </div>
 
-    <div class="mt-4 flex justify-between text-base font-medium text-gray-700">
-      <span>Created at:</span><span>{{ formatDate(note.created_at) }}</span>
-    </div>
+      <div class="mt-4">
+        <FormLabel for="text">Text</FormLabel>
+        <FormArea
+          v-model="editedNote.text"
+          name="text"
+          id="text"
+          rows="5"
+          :errors="errors.text"
+        ></FormArea>
+      </div>
 
-    <div class="mt-2 flex justify-between text-base font-medium text-gray-700">
-      <span>Updated at:</span><span>{{ formatDate(note.updated_at) }}</span>
-    </div>
+      <div class="mt-4">
+        <FormLabel for="note-color">Note color</FormLabel>
+        <ColorPicker
+          id="note-color"
+          class="-ml-2"
+          v-model="editedNote.color"
+          :selectDefaultColor="false"
+        />
+      </div>
 
-    <FormErrors class="mt-8 text-center" :errors="errors.others"></FormErrors>
+      <div v-if="categories.length" class="mt-4">
+        <FormLabel for="categories-selection">Select categories</FormLabel>
+        <div id="categories-selection" class="flex flex-row flex-wrap -ml-1">
+          <CheckablePill
+            v-for="category in categories"
+            :key="category.id"
+            :id="category.id"
+            v-model="editedNote.categories"
+          >
+            {{ category.title }}
+          </CheckablePill>
+        </div>
+      </div>
 
-    <div class="flex justify-between mt-8">
-      <FormButton
-        :loading="loading"
-        @submit="removeNote"
-        normalBgClass="bg-gray-600"
-        >Remove</FormButton
+      <div
+        class="mt-4 flex justify-between text-base font-medium text-gray-700"
       >
-      <FormButton :loading="loading" @submit="updateNote">Save</FormButton>
-    </div>
-  </form>
+        <span>Created at:</span><span>{{ formatDate(note.created_at) }}</span>
+      </div>
+
+      <div
+        class="mt-2 flex justify-between text-base font-medium text-gray-700"
+      >
+        <span>Updated at:</span><span>{{ formatDate(note.updated_at) }}</span>
+      </div>
+
+      <FormErrors class="mt-8 text-center" :errors="errors.others"></FormErrors>
+
+      <div class="flex justify-between mt-8">
+        <FormButton
+          :loading="loading"
+          @submit="removeNote"
+          normalBgClass="bg-gray-600"
+          >Remove</FormButton
+        >
+        <FormButton :loading="loading" @submit="updateNote">Save</FormButton>
+      </div>
+    </form>
+  </div>
 </template>
 
 <script>

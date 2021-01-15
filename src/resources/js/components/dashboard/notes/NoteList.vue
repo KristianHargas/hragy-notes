@@ -78,7 +78,7 @@ export default {
   methods: {
     showNote(note) {
       this.$router.push({
-        name: 'NoteShow',
+        name: 'NoteView',
         params: {
           id: note.id
         }

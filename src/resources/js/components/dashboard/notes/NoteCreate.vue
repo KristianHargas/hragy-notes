@@ -1,54 +1,56 @@
 <template>
-  <DashboardTitle :supportNavigateBack="true">Create new note</DashboardTitle>
+  <div>
+    <DashboardTitle :supportNavigateBack="true">Create new note</DashboardTitle>
 
-  <form class="max-w-xl">
-    <div>
-      <FormLabel for="title">Title</FormLabel>
-      <FormInput
-        v-model="newNote.title"
-        type="text"
-        id="title"
-        name="title"
-        :errors="errors.title"
-      ></FormInput>
-    </div>
-
-    <div class="mt-4">
-      <FormLabel for="text">Text</FormLabel>
-      <FormArea
-        v-model="newNote.text"
-        name="text"
-        id="text"
-        rows="5"
-        :errors="errors.text"
-      ></FormArea>
-    </div>
-
-    <div class="mt-4">
-      <FormLabel for="note-color">Note color</FormLabel>
-      <ColorPicker class="-ml-2" id="note-color" v-model="newNote.color" />
-    </div>
-
-    <div v-if="categories.length" class="mt-4">
-      <FormLabel for="categories-selection">Select categories</FormLabel>
-      <div id="categories-selection" class="flex flex-row flex-wrap -ml-1">
-        <CheckablePill
-          v-for="category in categories"
-          :key="category.id"
-          :id="category.id"
-          v-model="newNote.categories"
-        >
-          {{ category.title }}
-        </CheckablePill>
+    <form class="max-w-xl">
+      <div>
+        <FormLabel for="title">Title</FormLabel>
+        <FormInput
+          v-model="newNote.title"
+          type="text"
+          id="title"
+          name="title"
+          :errors="errors.title"
+        ></FormInput>
       </div>
-    </div>
 
-    <FormErrors class="mt-8 text-center" :errors="errors.others"></FormErrors>
+      <div class="mt-4">
+        <FormLabel for="text">Text</FormLabel>
+        <FormArea
+          v-model="newNote.text"
+          name="text"
+          id="text"
+          rows="5"
+          :errors="errors.text"
+        ></FormArea>
+      </div>
 
-    <FormButton class="mt-8 ml-auto" :loading="loading" @submit="createNote"
-      >Create</FormButton
-    >
-  </form>
+      <div class="mt-4">
+        <FormLabel for="note-color">Note color</FormLabel>
+        <ColorPicker class="-ml-2" id="note-color" v-model="newNote.color" />
+      </div>
+
+      <div v-if="categories.length" class="mt-4">
+        <FormLabel for="categories-selection">Select categories</FormLabel>
+        <div id="categories-selection" class="flex flex-row flex-wrap -ml-1">
+          <CheckablePill
+            v-for="category in categories"
+            :key="category.id"
+            :id="category.id"
+            v-model="newNote.categories"
+          >
+            {{ category.title }}
+          </CheckablePill>
+        </div>
+      </div>
+
+      <FormErrors class="mt-8 text-center" :errors="errors.others"></FormErrors>
+
+      <FormButton class="mt-8 ml-auto" :loading="loading" @submit="createNote"
+        >Create</FormButton
+      >
+    </form>
+  </div>
 </template>
 
 <script>

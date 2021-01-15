@@ -2,7 +2,7 @@
   <div class="flex flex-row items-stretch mb-6">
     <img
       v-if="supportNavigateBack"
-      class="mr-2 cursor-pointer object-cover"
+      class="mr-2 cursor-pointer object-cover no-select"
       src="../../../static/img/navigate_before-white.svg"
       alt="Navigate back icon."
       @click="$router.back()"

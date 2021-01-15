@@ -6,6 +6,7 @@ import Dashboard from '../components/dashboard/Dashboard'
 import NoteList from '../components/dashboard/notes/NoteList'
 import NoteCreate from '../components/dashboard/notes/NoteCreate'
 import NoteShow from '../components/dashboard/notes/NoteShow'
+import NoteView from '../components/dashboard/notes/NoteView'
 import CategoryList from '../components/dashboard/categories/CategoryList'
 import ChecklistList from '../components/dashboard/checklists/ChecklistList'
 import ChecklistCreate from '../components/dashboard/checklists/ChecklistCreate'
@@ -52,9 +53,14 @@ const routes = [
         name: 'NoteList'
       },
       {
-        path: 'notes/:id',
+        path: 'notes/:id/edit',
         component: NoteShow,
         name: 'NoteShow'
+      },
+      {
+        path: 'notes/:id/view',
+        component: NoteView,
+        name: 'NoteView'
       },
       {
         path: 'notes/create',
