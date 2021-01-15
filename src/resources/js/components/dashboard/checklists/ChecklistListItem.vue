@@ -10,19 +10,19 @@
 
     <ul class="mt-2 space-y-2">
       <li
-        v-for="item in checklist.items"
+        v-for="item in checklistItemsEllipsis(checklist.items)"
         :key="item.id"
         class="flex items-center"
       >
         <img
           v-if="item.checked"
-          class="h-4"
+          class="h-4 w-4"
           src="../../../../static/img/check_box-white.svg"
           alt="Checked checkbox icon."
         />
         <img
           v-else
-          class="h-4"
+          class="h-4 w-4"
           src="../../../../static/img/check_box_outline_blank-white.svg"
           alt="Unchecked checkbox icon."
         />
@@ -67,6 +67,20 @@ export default {
     },
     ellipsis(text) {
       return ellipsis(text, 30)
+    },
+    checklistItemsEllipsis(items) {
+      const max = 5
+
+      if (items.length <= max) return items
+
+      const truncatedItems = []
+      for (let i = 0; i < max; i++) {
+        // Copy each item so we dont accidentally modify state.
+        truncatedItems.push({ ...items[i] })
+      }
+      truncatedItems[max - 1].text = '...'
+
+      return truncatedItems
     }
   }
 }

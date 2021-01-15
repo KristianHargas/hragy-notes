@@ -31,25 +31,29 @@
       </h3>
 
       <!-- Items. -->
-      <ul class="mt-2 space-y-2">
+      <ul class="mt-1 divide-y divide-white">
         <li
           v-for="item in checklist.items"
           :key="item.id"
-          class="flex items-center"
+          class="flex items-center py-3"
         >
-          <img
-            v-if="item.checked"
-            class="h-4"
-            src="../../../../static/img/check_box-white.svg"
-            alt="Checked checkbox icon."
-          />
-          <img
-            v-else
-            class="h-4"
-            src="../../../../static/img/check_box_outline_blank-white.svg"
-            alt="Unchecked checkbox icon."
-          />
-          <span class="overflow-hidden text-lg font-light text-white ml-2">
+          <div class="w-6 h-6">
+            <img
+              v-if="item.checked"
+              class="h-6 w-6"
+              src="../../../../static/img/check_box-white.svg"
+              alt="Checked checkbox icon."
+            />
+            <img
+              v-else
+              class="h-6 w-6"
+              src="../../../../static/img/check_box_outline_blank-white.svg"
+              alt="Unchecked checkbox icon."
+            />
+          </div>
+          <span
+            class="w-0 flex-grow overflow-hidden text-xl font-light text-white ml-2"
+          >
             {{ item.text }}
           </span>
         </li>
@@ -57,7 +61,7 @@
 
       <div
         v-if="checklist.categories.length"
-        class="flex flex-row flex-wrap mt-4 -mx-1"
+        class="flex flex-row flex-wrap mt-1 -ml-1"
       >
         <div
           v-for="category in checklist.categories"
