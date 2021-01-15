@@ -23,28 +23,30 @@
 
   <!-- Navigation drawer -->
   <aside
-    class="navigation-drawer p-4 w-72 shadow-lg bg-red-100 transition duration-200 ease-out transform -translate-x-full lg:translate-x-0"
+    class="navigation-drawer py-4 w-72 shadow-lg bg-red-100 transition duration-200 ease-out transform -translate-x-full lg:translate-x-0"
     :class="{ open: navigationDrawer }"
   >
-    <section>
+    <section class="px-6">
       <span
         class="block text-gray-800 text-2xl font-semibold"
         v-text="user.name"
       ></span>
       <span
-        class="block text-gray-600 text-lg font-medium"
+        class="block text-gray-700 text-lg font-medium"
         v-text="user.email"
       ></span>
 
       <div
-        class="inline-block text-lg uppercase no-select text-center tracking-wider cursor-pointer shadow-sm bg-white rounded-r-full py-2 px-6 mt-3 font-semibold text-gray-700 hover:shadow-md focus:shadow-md"
+        class="inline-block text-lg uppercase no-select text-center tracking-wider cursor-pointer shadow-sm bg-white rounded-lg py-2 px-6 mt-3 font-semibold text-gray-800 hover:shadow-md focus:shadow-md"
         @click="logout"
       >
         Logout
       </div>
     </section>
 
-    <nav class="mt-12">
+    <div class="mt-8 mb-4 border-t-2 border-gray-400 w-full"></div>
+
+    <nav class="px-3">
       <DashboardNavItem :navigateTo="{ name: 'CategoryList' }"
         >Categories</DashboardNavItem
       >

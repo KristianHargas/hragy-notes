@@ -1,7 +1,7 @@
 <template>
   <router-link
     :to="navigateTo"
-    class="block uppercase tracking-wide text-xl mb-4 no-select text-center cursor-pointer shadow-sm bg-white rounded py-2 font-semibold text-gray-700 hover:shadow-md focus:shadow-md"
+    class="block uppercase tracking-wide text-xl mb-4 no-select text-center cursor-pointer shadow-sm bg-white rounded-lg py-2 font-semibold text-gray-800 hover:shadow-md focus:shadow-md"
     ><slot></slot
   ></router-link>
 </template>

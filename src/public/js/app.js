@@ -60598,11 +60598,13 @@ const _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("d
 ;(0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-376ddb84")
 const _hoisted_1 = { class: "toolbar flex items-center shadow-lg bg-gray-100 px-4" }
 const _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", { class: "flex-grow" }, null, -1 /* HOISTED */)
-const _hoisted_3 = { class: "mt-12" }
-const _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Categories")
-const _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Notes")
-const _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Checklists")
-const _hoisted_7 = { class: "top-margin lg:ml-72 py-4 px-4 md:px-6 bg-gray-100 main-fill" }
+const _hoisted_3 = { class: "px-6" }
+const _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", { class: "mt-8 mb-4 border-t-2 border-gray-400 w-full" }, null, -1 /* HOISTED */)
+const _hoisted_5 = { class: "px-3" }
+const _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Categories")
+const _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Notes")
+const _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Checklists")
+const _hoisted_9 = { class: "top-margin lg:ml-72 py-4 px-4 md:px-6 bg-gray-100 main-fill" }
 ;(0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)()
 
 const render = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -60641,45 +60643,46 @@ const render = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $setup
     ]),
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Navigation drawer "),
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("aside", {
-      class: ["navigation-drawer p-4 w-72 shadow-lg bg-red-100 transition duration-200 ease-out transform -translate-x-full lg:translate-x-0", { open: $data.navigationDrawer }]
+      class: ["navigation-drawer py-4 w-72 shadow-lg bg-red-100 transition duration-200 ease-out transform -translate-x-full lg:translate-x-0", { open: $data.navigationDrawer }]
     }, [
-      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("section", null, [
+      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("section", _hoisted_3, [
         (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", {
           class: "block text-gray-800 text-2xl font-semibold",
           textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.user.name)
         }, null, 8 /* PROPS */, ["textContent"]),
         (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", {
-          class: "block text-gray-600 text-lg font-medium",
+          class: "block text-gray-700 text-lg font-medium",
           textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.user.email)
         }, null, 8 /* PROPS */, ["textContent"]),
         (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-          class: "inline-block text-lg uppercase no-select text-center tracking-wider cursor-pointer shadow-sm bg-white rounded-r-full py-2 px-6 mt-3 font-semibold text-gray-700 hover:shadow-md focus:shadow-md",
+          class: "inline-block text-lg uppercase no-select text-center tracking-wider cursor-pointer shadow-sm bg-white rounded-lg py-2 px-6 mt-3 font-semibold text-gray-800 hover:shadow-md focus:shadow-md",
           onClick: _cache[3] || (_cache[3] = (...args) => ($options.logout(...args)))
         }, " Logout ")
       ]),
-      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("nav", _hoisted_3, [
+      _hoisted_4,
+      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("nav", _hoisted_5, [
         (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DashboardNavItem, { navigateTo: { name: 'CategoryList' } }, {
           default: _withId(() => [
-            _hoisted_4
+            _hoisted_6
           ]),
           _: 1
         }),
         (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DashboardNavItem, { navigateTo: { name: 'NoteList' } }, {
           default: _withId(() => [
-            _hoisted_5
+            _hoisted_7
           ]),
           _: 1
         }),
         (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DashboardNavItem, { navigateTo: { name: 'ChecklistList' } }, {
           default: _withId(() => [
-            _hoisted_6
+            _hoisted_8
           ]),
           _: 1
         })
       ])
     ], 2 /* CLASS */),
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Main content "),
-    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("main", _hoisted_7, [
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("main", _hoisted_9, [
       ($data.dataFetchingFinished && !$data.dataFetchingSuccess)
         ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_FormErrors, {
             key: 0,
@@ -60724,7 +60727,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_router_link, {
     to: $props.navigateTo,
-    class: "block uppercase tracking-wide text-xl mb-4 no-select text-center cursor-pointer shadow-sm bg-white rounded py-2 font-semibold text-gray-700 hover:shadow-md focus:shadow-md"
+    class: "block uppercase tracking-wide text-xl mb-4 no-select text-center cursor-pointer shadow-sm bg-white rounded-lg py-2 font-semibold text-gray-800 hover:shadow-md focus:shadow-md"
   }, {
     default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
       (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")
