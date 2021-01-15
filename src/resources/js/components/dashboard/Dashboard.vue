@@ -12,6 +12,13 @@
       v-if="loading"
       class="animate-spin h-10 w-10 text-red-700"
     />
+    <img
+      v-else
+      class="h-12 w-12 cursor-pointer -mr-1"
+      src="../../../static/img/refresh-white.svg"
+      alt="Refresh icon."
+      @click="refresh"
+    />
   </header>
 
   <!-- Navigation drawer -->
@@ -91,24 +98,28 @@ export default {
     ...Auth.mapState(['user'])
   },
   async mounted() {
-    this.loading = true
-
-    try {
-      await Promise.all([
-        this.$store.dispatch('note/index'),
-        this.$store.dispatch('category/index'),
-        this.$store.dispatch('checklist/index')
-      ])
-
-      this.dataFetchingSuccess = true
-    } catch (err) {
-      this.dataFetchingSuccess = false
-    }
-
-    this.dataFetchingFinished = true
-    this.loading = false
+    await this.refresh()
   },
   methods: {
+    async refresh() {
+      this.dataFetchingFinished = false
+      this.loading = true
+
+      try {
+        await Promise.all([
+          this.$store.dispatch('note/index'),
+          this.$store.dispatch('category/index'),
+          this.$store.dispatch('checklist/index')
+        ])
+
+        this.dataFetchingSuccess = true
+      } catch (err) {
+        this.dataFetchingSuccess = false
+      }
+
+      this.dataFetchingFinished = true
+      this.loading = false
+    },
     async logout() {
       await this.$store.dispatch('auth/logout')
       this.$router.replace({ name: 'Login' })

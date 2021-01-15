@@ -1,7 +1,7 @@
 <template>
   <label
     :for="'checkable-pill-' + id"
-    class="flex items-center bg-white px-4 py-1 m-1 border-2 border-gray-600 rounded-full text-base font-semibold text-gray-600 no-select"
+    class="flex items-center bg-transparent px-4 py-1 m-1 border-2 border-gray-600 rounded-full text-base font-semibold text-gray-600 no-select"
     ><input
       type="checkbox"
       :id="'checkable-pill-' + id"

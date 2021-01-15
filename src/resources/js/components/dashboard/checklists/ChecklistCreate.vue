@@ -1,6 +1,8 @@
 <template>
   <div>
-    <DashboardTitle>Create new checklist</DashboardTitle>
+    <DashboardTitle :supportNavigateBack="true"
+      >Create new checklist</DashboardTitle
+    >
 
     <form class="max-w-xl">
       <div>
@@ -41,7 +43,7 @@
         <ColorPicker id="color" v-model="newChecklist.color" />
       </div>
 
-      <div class="mt-4">
+      <div v-if="categories.length" class="mt-4">
         <FormLabel for="categories">Categories</FormLabel>
         <div id="categories" class="flex flex-row flex-wrap">
           <CheckablePill

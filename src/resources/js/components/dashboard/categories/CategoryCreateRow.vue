@@ -2,7 +2,7 @@
   <div>
     <FormLabel for="new-category">Create new category</FormLabel>
     <div class="flex flex-row items-start flex-wrap">
-      <div class="w-0 flex-grow max-w-lg">
+      <div class="w-0 flex-grow">
         <FormInput
           id="new-category"
           v-model="title"

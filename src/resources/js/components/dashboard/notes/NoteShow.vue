@@ -1,5 +1,5 @@
 <template>
-  <DashboardTitle>Edit note</DashboardTitle>
+  <DashboardTitle :supportNavigateBack="true">Edit note</DashboardTitle>
 
   <form v-if="note" class="max-w-xl">
     <div>
@@ -34,7 +34,7 @@
       />
     </div>
 
-    <div class="mt-4">
+    <div v-if="categories.length" class="mt-4">
       <FormLabel for="categories-selection">Select categories</FormLabel>
       <div id="categories-selection" class="flex flex-row flex-wrap -ml-1">
         <CheckablePill

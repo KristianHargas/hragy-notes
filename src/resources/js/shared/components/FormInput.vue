@@ -21,7 +21,7 @@
   </div>
   <div
     v-if="successMessages.length"
-    class="mt-1 font-medium text-green-500 uppercase tracking-wide"
+    class="mt-1 font-medium text-gray-700 uppercase tracking-wide"
   >
     <div
       v-for="(message, index) in successMessages"

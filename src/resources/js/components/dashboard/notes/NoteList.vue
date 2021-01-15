@@ -3,10 +3,16 @@
     <DashboardTitle>{{ title }}</DashboardTitle>
 
     <div v-if="categoryFilter" class="mb-4">
-      <router-link
-        :to="{ name: 'NoteList' }"
-        class="inline-block text-gray-700 bg-white border-2 border-gray-700 px-4 py-1 rounded-lg font-semibold text-base uppercase tracking-wide hover:shadow-md no-select"
-        >Back to all notes</router-link
+      <router-link :to="{ name: 'NoteList' }" class="inline-flex flex-row">
+        <img
+          class="mr-1 cursor-pointer object-cover"
+          src="../../../../static/img/navigate_before-white.svg"
+          alt="Navigate back icon."
+        />
+        <span
+          class="text-gray-700 font-semibold text-base uppercase tracking-wide no-select"
+          >Back to all notes</span
+        ></router-link
       >
     </div>
 
@@ -22,7 +28,7 @@
 
     <div
       v-else
-      class="text-gray-700 font-semibold text-base uppercase tracking-wide text-center mx-2 mt-24"
+      class="text-gray-700 border-t-2 border-gray-700 font-semibold text-base uppercase tracking-wide text-center pt-2 mx-2"
     >
       There are no notes, start by creating some.
     </div>

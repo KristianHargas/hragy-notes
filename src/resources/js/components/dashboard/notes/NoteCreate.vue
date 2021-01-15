@@ -1,5 +1,5 @@
 <template>
-  <DashboardTitle>Create new note</DashboardTitle>
+  <DashboardTitle :supportNavigateBack="true">Create new note</DashboardTitle>
 
   <form class="max-w-xl">
     <div>
@@ -29,7 +29,7 @@
       <ColorPicker class="-ml-2" id="note-color" v-model="newNote.color" />
     </div>
 
-    <div class="mt-4">
+    <div v-if="categories.length" class="mt-4">
       <FormLabel for="categories-selection">Select categories</FormLabel>
       <div id="categories-selection" class="flex flex-row flex-wrap -ml-1">
         <CheckablePill

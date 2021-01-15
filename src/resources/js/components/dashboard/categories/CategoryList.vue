@@ -2,22 +2,24 @@
   <div>
     <DashboardTitle>Your categories</DashboardTitle>
 
-    <CategoryCreateRow
-      @startLoading="$emit('startLoading')"
-      @stopLoading="$emit('stopLoading')"
-    />
-
-    <div class="mt-6 mb-8 border-t-2 border-gray-300 w-full md:max-w-lg"></div>
-
-    <ul class="space-y-6">
-      <CategoryShowRow
-        v-for="category in categories"
-        :key="category.id"
-        :category="category"
+    <div class="max-w-xl">
+      <CategoryCreateRow
         @startLoading="$emit('startLoading')"
         @stopLoading="$emit('stopLoading')"
       />
-    </ul>
+
+      <div class="mt-6 mb-8 border-t-2 border-gray-300 w-full"></div>
+
+      <ul class="space-y-6">
+        <CategoryShowRow
+          v-for="category in categories"
+          :key="category.id"
+          :category="category"
+          @startLoading="$emit('startLoading')"
+          @stopLoading="$emit('stopLoading')"
+        />
+      </ul>
+    </div>
   </div>
 </template>
 

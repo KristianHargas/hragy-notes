@@ -26,7 +26,9 @@
           src="../../../../static/img/check_box_outline_blank-white.svg"
           alt="Unchecked checkbox icon."
         />
-        <span class="text-lg font-light text-white ml-2">{{ item.text }}</span>
+        <span class="overflow-hidden text-lg font-light text-white ml-2">
+          {{ ellipsis(item.text) }}
+        </span>
       </li>
     </ul>
 
@@ -49,7 +51,7 @@
 </template>
 
 <script>
-import { formatDate } from '../../../shared/utils/util'
+import { formatDate, ellipsis } from '../../../shared/utils/util'
 
 export default {
   emits: ['checklistClick'],
@@ -62,9 +64,16 @@ export default {
   methods: {
     formatDate(dateString) {
       return formatDate(dateString)
+    },
+    ellipsis(text) {
+      return ellipsis(text, 30)
     }
   }
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+img {
+  margin-bottom: -0.1rem;
+}
+</style>
