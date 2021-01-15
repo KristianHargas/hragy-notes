@@ -80,7 +80,7 @@ export default {
   methods: {
     showChecklist(checklist) {
       this.$router.push({
-        name: 'ChecklistShow',
+        name: 'ChecklistView',
         params: {
           id: checklist.id
         }

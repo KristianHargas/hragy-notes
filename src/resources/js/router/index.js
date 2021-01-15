@@ -11,6 +11,7 @@ import CategoryList from '../components/dashboard/categories/CategoryList'
 import ChecklistList from '../components/dashboard/checklists/ChecklistList'
 import ChecklistCreate from '../components/dashboard/checklists/ChecklistCreate'
 import ChecklistShow from '../components/dashboard/checklists/ChecklistShow'
+import ChecklistView from '../components/dashboard/checklists/ChecklistView'
 import store from '../store/index'
 
 const routes = [
@@ -68,24 +69,29 @@ const routes = [
         name: 'NoteCreate'
       },
       {
-        path: 'categories',
-        component: CategoryList,
-        name: 'CategoryList'
-      },
-      {
         path: 'checklists',
         component: ChecklistList,
         name: 'ChecklistList'
       },
       {
-        path: 'checklists/:id',
+        path: 'checklists/:id/edit',
         component: ChecklistShow,
         name: 'ChecklistShow'
+      },
+      {
+        path: 'checklists/:id/view',
+        component: ChecklistView,
+        name: 'ChecklistView'
       },
       {
         path: 'checklists/create',
         component: ChecklistCreate,
         name: 'ChecklistCreate'
+      },
+      {
+        path: 'categories',
+        component: CategoryList,
+        name: 'CategoryList'
       }
     ]
   },

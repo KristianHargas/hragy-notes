@@ -4,7 +4,10 @@
 
     <!-- Edit note button. -->
     <div class="mb-4">
-      <router-link :to="{ name: 'NoteShow' }" class="inline-flex flex-row">
+      <router-link
+        :to="{ name: 'NoteShow', params: { id: $route.params.id } }"
+        class="inline-flex flex-row"
+      >
         <img
           class="mr-1 cursor-pointer"
           src="../../../../static/img/create-white.svg"

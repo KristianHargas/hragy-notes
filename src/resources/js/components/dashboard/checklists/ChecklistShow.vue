@@ -2,7 +2,7 @@
   <div>
     <DashboardTitle :supportNavigateBack="true">Edit checklist</DashboardTitle>
 
-    <form class="max-w-xl">
+    <form v-if="checklist" class="max-w-xl">
       <div>
         <FormLabel for="title">Title</FormLabel>
         <FormInput
@@ -186,7 +186,8 @@ export default {
           id: this.checklist.id,
           checklist: parsedChecklist
         })
-        this.$router.push({ name: 'ChecklistList' })
+
+        this.$router.back()
       } catch (err) {
         if (is422(err) && hasValidationErr(err, 'title')) {
           this.errors.title = getValidationErrArr(err, 'title')
