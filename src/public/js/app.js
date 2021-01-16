@@ -32781,7 +32781,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                // TODO: Implement CategoryController.destroy method and use API call.
                 confirmed = confirm("Are you sure you want to remove category ".concat(_this2.category.title, "?"));
 
                 if (confirmed) {
@@ -32805,19 +32804,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 });
 
               case 9:
-                _context2.next = 13;
+                _context2.next = 14;
                 break;
 
               case 11:
                 _context2.prev = 11;
                 _context2.t0 = _context2["catch"](6);
 
-              case 13:
+                _this2.errors.push('Network or server error!');
+
+              case 14:
                 _this2.loading = false;
 
                 _this2.$emit('stopLoading');
 
-              case 15:
+              case 16:
               case "end":
                 return _context2.stop();
             }
@@ -34726,7 +34727,9 @@ var user = function user() {
   !*** ./resources/js/services/CategoryService.js ***!
   \**************************************************/
 /*! namespace exports */
+/*! export destroy [provided] [no usage info] [missing usage info prevents renaming] */
 /*! export index [provided] [no usage info] [missing usage info prevents renaming] */
+/*! export show [provided] [no usage info] [missing usage info prevents renaming] */
 /*! export store [provided] [no usage info] [missing usage info prevents renaming] */
 /*! export update [provided] [no usage info] [missing usage info prevents renaming] */
 /*! other exports [not provided] [no usage info] */
@@ -34737,8 +34740,10 @@ var user = function user() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "index": () => /* binding */ index,
+/* harmony export */   "store": () => /* binding */ store,
+/* harmony export */   "show": () => /* binding */ show,
 /* harmony export */   "update": () => /* binding */ update,
-/* harmony export */   "store": () => /* binding */ store
+/* harmony export */   "destroy": () => /* binding */ destroy
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
@@ -34746,11 +34751,17 @@ __webpack_require__.r(__webpack_exports__);
 var index = function index() {
   return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/categories');
 };
+var store = function store(data) {
+  return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/categories', data);
+};
+var show = function show(id) {
+  return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/categories/".concat(id));
+};
 var update = function update(id, data) {
   return axios__WEBPACK_IMPORTED_MODULE_0___default().put("/api/categories/".concat(id), data);
 };
-var store = function store(data) {
-  return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/categories', data);
+var destroy = function destroy(id) {
+  return axios__WEBPACK_IMPORTED_MODULE_0___default().delete("/api/categories/".concat(id));
 };
 
 /***/ }),
@@ -35340,16 +35351,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 commit = _ref4.commit;
                 _context4.next = 3;
-                return new Promise(function (resolve) {
-                  setTimeout(function () {
-                    return resolve();
-                  }, 2000);
-                });
+                return _services_CategoryService__WEBPACK_IMPORTED_MODULE_1__.destroy(payload.id);
 
               case 3:
                 commit('DESTROY_CATEGORY', payload);
+                commit('note/REMOVE_CATEGORY', payload, {
+                  root: true
+                });
+                commit('checklist/REMOVE_CATEGORY', payload, {
+                  root: true
+                });
 
-              case 4:
+              case 6:
               case "end":
                 return _context4.stop();
             }
@@ -35425,6 +35438,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     DESTROY_CHECKLIST: function DESTROY_CHECKLIST(state, payload) {
       state.checklists = state.checklists.filter(function (checklist) {
         return checklist.id != payload.id;
+      });
+    },
+    REMOVE_CATEGORY: function REMOVE_CATEGORY(state, payload) {
+      state.checklists.forEach(function (checklist) {
+        checklist.categories = checklist.categories.filter(function (category) {
+          return category.id != payload.id;
+        });
       });
     }
   },
@@ -35615,6 +35635,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     DESTROY_NOTE: function DESTROY_NOTE(state, payload) {
       state.notes = state.notes.filter(function (note) {
         return note.id != payload.id;
+      });
+    },
+    REMOVE_CATEGORY: function REMOVE_CATEGORY(state, payload) {
+      state.notes.forEach(function (note) {
+        note.categories = note.categories.filter(function (category) {
+          return category.id != payload.id;
+        });
       });
     }
   },

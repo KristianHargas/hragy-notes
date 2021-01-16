@@ -23,6 +23,13 @@ export default {
       state.checklists = state.checklists.filter(
         (checklist) => checklist.id != payload.id
       )
+    },
+    REMOVE_CATEGORY(state, payload) {
+      state.checklists.forEach((checklist) => {
+        checklist.categories = checklist.categories.filter(
+          (category) => category.id != payload.id
+        )
+      })
     }
   },
 

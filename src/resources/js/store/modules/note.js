@@ -21,6 +21,13 @@ export default {
     },
     DESTROY_NOTE(state, payload) {
       state.notes = state.notes.filter((note) => note.id != payload.id)
+    },
+    REMOVE_CATEGORY(state, payload) {
+      state.notes.forEach((note) => {
+        note.categories = note.categories.filter(
+          (category) => category.id != payload.id
+        )
+      })
     }
   },
 

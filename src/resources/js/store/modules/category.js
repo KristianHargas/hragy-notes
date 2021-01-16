@@ -43,11 +43,10 @@ export default {
       commit('UPDATE_CATEGORY', { category: data })
     },
     async destroy({ commit }, payload) {
-      // await CategoryService.destroy(payload.id)
-      await new Promise((resolve) => {
-        setTimeout(() => resolve(), 2000)
-      })
+      await CategoryService.destroy(payload.id)
       commit('DESTROY_CATEGORY', payload)
+      commit('note/REMOVE_CATEGORY', payload, { root: true })
+      commit('checklist/REMOVE_CATEGORY', payload, { root: true })
     }
   },
 

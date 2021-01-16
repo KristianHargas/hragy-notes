@@ -93,8 +93,16 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $category = $request->user()->categories()->where('id', $id)->first();
+
+        if ($category === null) {
+            return response()->json([], 404);
+        }
+
+        $category->delete();
+
+        return response()->json([], 204);
     }
 }

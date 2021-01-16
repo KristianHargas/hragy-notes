@@ -93,7 +93,6 @@ export default {
       this.$emit('stopLoading')
     },
     async removeCategory() {
-      // TODO: Implement CategoryController.destroy method and use API call.
       const confirmed = confirm(
         `Are you sure you want to remove category ${this.category.title}?`
       )
@@ -108,7 +107,7 @@ export default {
       try {
         await this.$store.dispatch('category/destroy', { id: this.category.id })
       } catch (err) {
-        // TODO: Handle errors.
+        this.errors.push('Network or server error!')
       }
 
       this.loading = false
