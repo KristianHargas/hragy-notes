@@ -11,6 +11,7 @@
         v-model="item.text"
         type="text"
         @input="$emit('textChange', $event.target.value)"
+        autocomplete="off"
       />
     </div>
     <FormButton

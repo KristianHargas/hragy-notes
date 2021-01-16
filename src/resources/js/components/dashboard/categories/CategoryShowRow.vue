@@ -7,6 +7,7 @@
         :disabled="loading"
         :errors="errors"
         :successMessages="successMessages"
+        autocomplete="off"
       />
     </div>
     <FormButton class="sm:ml-3 w-13" :loading="loading" @submit="updateCategory"

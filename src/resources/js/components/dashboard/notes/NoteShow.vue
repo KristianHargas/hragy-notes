@@ -11,6 +11,7 @@
           id="title"
           name="title"
           :errors="errors.title"
+          autocomplete="off"
         ></FormInput>
       </div>
 
@@ -22,6 +23,7 @@
           id="text"
           rows="5"
           :errors="errors.text"
+          autocomplete="off"
         ></FormArea>
       </div>
 

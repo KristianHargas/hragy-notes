@@ -45,6 +45,7 @@
             id="password"
             name="password"
             :errors="errors.password"
+            placeholder="ENTER DUMMY PASSWORD!"
           ></FormInput>
         </div>
 
@@ -55,6 +56,7 @@
             type="password"
             id="password_confirmation"
             name="password_confirmation"
+            placeholder="ENTER DUMMY PASSWORD!"
           ></FormInput>
         </div>
 

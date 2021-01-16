@@ -11,6 +11,7 @@
           :errors="errors"
           :successMessages="successMessages"
           @keyup.enter="createCategory"
+          autocomplete="off"
         />
       </div>
       <FormButton class="ml-3" :loading="loading" @submit="createCategory"
