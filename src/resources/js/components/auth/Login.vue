@@ -7,7 +7,7 @@
       <header>
         <Logo :to="{ name: 'Home' }"></Logo>
         <h1
-          class="mt-5 mb-8 text-gray-800 font-medium text-2xl uppercase tracking-wide"
+          class="text-gray-800 font-semibold text-2xl uppercase tracking-wide mb-8 mt-5"
         >
           Sign In
         </h1>
@@ -37,28 +37,22 @@
           ></FormInput>
         </div>
 
-        <div class="mt-4">
-          <a
-            class="no-select text-gray-700 font-semibold hover:text-red-700 hover:underline"
-            href="#"
-            >Forgot password?</a
-          >
-        </div>
-
         <FormErrors
           :errors="errors.others"
           class="mt-8 text-center"
         ></FormErrors>
 
         <FormButton
-          class="w-full sm:max-w-xs sm:mx-auto mt-8"
+          class="w-full sm:max-w-xs sm:mx-auto mt-10"
           :loading="loading"
           @submit="login"
           >Sign In</FormButton
         >
       </form>
 
-      <div class="mt-8 text-center text-base font-medium text-gray-700">
+      <div
+        class="mt-8 text-center text-base font-medium text-gray-700 uppercase tracking-wide"
+      >
         <span
           >No account yet?
           <router-link

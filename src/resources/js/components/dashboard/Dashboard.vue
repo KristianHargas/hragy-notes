@@ -32,7 +32,7 @@
         v-text="user.name"
       ></span>
       <span
-        class="block text-gray-700 text-lg font-light"
+        class="block text-gray-800 text-lg font-light"
         v-text="user.email"
       ></span>
 

@@ -7,7 +7,7 @@
       <header>
         <Logo :to="{ name: 'Home' }"></Logo>
         <h1
-          class="mt-5 mb-8 text-gray-800 font-medium text-2xl uppercase tracking-wide"
+          class="text-gray-800 font-semibold text-2xl uppercase tracking-wide mb-8 mt-5"
         >
           Register
         </h1>
@@ -64,14 +64,16 @@
         ></FormErrors>
 
         <FormButton
-          class="w-full sm:max-w-xs sm:mx-auto mt-8"
+          class="w-full sm:max-w-xs sm:mx-auto mt-10"
           :loading="loading"
           @submit="register"
           >Register</FormButton
         >
       </form>
 
-      <div class="mt-8 text-center text-base font-medium text-gray-700">
+      <div
+        class="mt-8 text-center text-base font-medium text-gray-700 uppercase tracking-wide"
+      >
         <span
           >Already registered?
           <router-link

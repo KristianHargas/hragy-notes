@@ -40,21 +40,6 @@ export default {
       return this.$store.state.category.categories
     }
   }
-  // methods: {
-  //   categoryUpdated(updatedCategory) {
-  //     this.categories = this.categories.map((category) =>
-  //       category.id == updatedCategory.id ? updatedCategory : category
-  //     )
-  //   },
-  //   categoryRemoved(removedCategory) {
-  //     this.categories = this.categories.filter(
-  //       (category) => category.id != removedCategory.id
-  //     )
-  //   },
-  //   categoryCreated(createdCategory) {
-  //     this.categories.push(createdCategory)
-  //   }
-  // }
 }
 </script>
 

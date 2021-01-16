@@ -27,14 +27,14 @@
           <li>
             <router-link
               :to="{ name: 'Login' }"
-              class="block no-select px-4 py-2 md:ml-1 font-semibold text-xl text-gray-800 rounded md:hover:text-red-700 focus:bg-gray-300 md:focus:bg-transparent md:hover:underline"
+              class="block uppercase tracking-wide no-select px-4 py-2 md:py-1 font-semibold text-lg text-gray-800 rounded md:hover:text-red-700 focus:bg-gray-300 md:focus:bg-transparent md:hover:underline"
               >Sign In</router-link
             >
           </li>
           <li>
             <router-link
               :to="{ name: 'Register' }"
-              class="block no-select px-4 py-2 mb-1 md:mb-0 font-semibold text-xl text-gray-800 rounded md:hover:text-red-700 focus:bg-gray-300 md:focus:bg-transparent md:hover:underline"
+              class="block uppercase tracking-wide no-select px-4 py-2 md:py-1 font-semibold text-lg text-gray-800 rounded md:hover:text-red-700 focus:bg-gray-300 md:focus:bg-transparent md:hover:underline"
               >Register</router-link
             >
           </li>
@@ -218,7 +218,7 @@
     <footer
       class="border-t-2 border-gray-500 bg-gray-200 text-gray-700 font-semibold text-center text-sm md:text-base py-2"
     >
-      Copyright &copy; 2020 Hragy
+      Copyright &copy; 2021 Hragy
     </footer>
   </div>
 </template>

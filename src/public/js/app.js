@@ -32672,22 +32672,7 @@ __webpack_require__.r(__webpack_exports__);
     categories: function categories() {
       return this.$store.state.category.categories;
     }
-  } // methods: {
-  //   categoryUpdated(updatedCategory) {
-  //     this.categories = this.categories.map((category) =>
-  //       category.id == updatedCategory.id ? updatedCategory : category
-  //     )
-  //   },
-  //   categoryRemoved(removedCategory) {
-  //     this.categories = this.categories.filter(
-  //       (category) => category.id != removedCategory.id
-  //     )
-  //   },
-  //   categoryCreated(createdCategory) {
-  //     this.categories.push(createdCategory)
-  //   }
-  // }
-
+  }
 });
 
 /***/ }),
@@ -60337,7 +60322,7 @@ const _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode
     ])
   ])
 ], -1 /* HOISTED */)
-const _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("footer", { class: "border-t-2 border-gray-500 bg-gray-200 text-gray-700 font-semibold text-center text-sm md:text-base py-2" }, " Copyright © 2020 Hragy ", -1 /* HOISTED */)
+const _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("footer", { class: "border-t-2 border-gray-500 bg-gray-200 text-gray-700 font-semibold text-center text-sm md:text-base py-2" }, " Copyright © 2021 Hragy ", -1 /* HOISTED */)
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Logo = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Logo")
@@ -60367,7 +60352,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", null, [
             (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
               to: { name: 'Login' },
-              class: "block no-select px-4 py-2 md:ml-1 font-semibold text-xl text-gray-800 rounded md:hover:text-red-700 focus:bg-gray-300 md:focus:bg-transparent md:hover:underline"
+              class: "block uppercase tracking-wide no-select px-4 py-2 md:py-1 font-semibold text-lg text-gray-800 rounded md:hover:text-red-700 focus:bg-gray-300 md:focus:bg-transparent md:hover:underline"
             }, {
               default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
                 _hoisted_4
@@ -60378,7 +60363,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", null, [
             (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
               to: { name: 'Register' },
-              class: "block no-select px-4 py-2 mb-1 md:mb-0 font-semibold text-xl text-gray-800 rounded md:hover:text-red-700 focus:bg-gray-300 md:focus:bg-transparent md:hover:underline"
+              class: "block uppercase tracking-wide no-select px-4 py-2 md:py-1 font-semibold text-lg text-gray-800 rounded md:hover:text-red-700 focus:bg-gray-300 md:focus:bg-transparent md:hover:underline"
             }, {
               default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
                 _hoisted_5
@@ -60460,20 +60445,14 @@ __webpack_require__.r(__webpack_exports__);
 
 const _hoisted_1 = { class: "min-h-screen bg-gradient flex items-center justify-center" }
 const _hoisted_2 = { class: "bg-gray-100 w-full m-4 px-6 py-8 rounded shadow-md sm:max-w-xl sm:px-10 sm:py-12" }
-const _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", { class: "mt-5 mb-8 text-gray-800 font-medium text-2xl uppercase tracking-wide" }, " Sign In ", -1 /* HOISTED */)
+const _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", { class: "text-gray-800 font-semibold text-2xl uppercase tracking-wide mb-8 mt-5" }, " Sign In ", -1 /* HOISTED */)
 const _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Email")
 const _hoisted_5 = { class: "mt-4" }
 const _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Password")
-const _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", { class: "mt-4" }, [
-  /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
-    class: "no-select text-gray-700 font-semibold hover:text-red-700 hover:underline",
-    href: "#"
-  }, "Forgot password?")
-], -1 /* HOISTED */)
-const _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Sign In")
-const _hoisted_9 = { class: "mt-8 text-center text-base font-medium text-gray-700" }
-const _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("No account yet? ")
-const _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Register")
+const _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Sign In")
+const _hoisted_8 = { class: "mt-8 text-center text-base font-medium text-gray-700 uppercase tracking-wide" }
+const _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("No account yet? ")
+const _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Register")
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Logo = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Logo")
@@ -60524,31 +60503,30 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             errors: $data.errors.password
           }, null, 8 /* PROPS */, ["modelValue", "errors"])
         ]),
-        _hoisted_7,
         (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormErrors, {
           errors: $data.errors.others,
           class: "mt-8 text-center"
         }, null, 8 /* PROPS */, ["errors"]),
         (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
-          class: "w-full sm:max-w-xs sm:mx-auto mt-8",
+          class: "w-full sm:max-w-xs sm:mx-auto mt-10",
           loading: $data.loading,
           onSubmit: $options.login
         }, {
           default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
-            _hoisted_8
+            _hoisted_7
           ]),
           _: 1
         }, 8 /* PROPS */, ["loading", "onSubmit"])
       ]),
-      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_9, [
+      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_8, [
         (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, [
-          _hoisted_10,
+          _hoisted_9,
           (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
             class: "no-select font-bold hover:text-red-700 hover:underline",
             to: { name: 'Register' }
           }, {
             default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
-              _hoisted_11
+              _hoisted_10
             ]),
             _: 1
           })
@@ -60580,7 +60558,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const _hoisted_1 = { class: "min-h-screen bg-gradient flex items-center justify-center" }
 const _hoisted_2 = { class: "bg-gray-100 w-full m-4 px-6 py-8 rounded shadow-md sm:max-w-xl sm:px-10 sm:py-12" }
-const _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", { class: "mt-5 mb-8 text-gray-800 font-medium text-2xl uppercase tracking-wide" }, " Register ", -1 /* HOISTED */)
+const _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", { class: "text-gray-800 font-semibold text-2xl uppercase tracking-wide mb-8 mt-5" }, " Register ", -1 /* HOISTED */)
 const _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Full name")
 const _hoisted_5 = { class: "mt-4" }
 const _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Email")
@@ -60589,7 +60567,7 @@ const _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVN
 const _hoisted_9 = { class: "mt-4" }
 const _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Confirm password")
 const _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Register")
-const _hoisted_12 = { class: "mt-8 text-center text-base font-medium text-gray-700" }
+const _hoisted_12 = { class: "mt-8 text-center text-base font-medium text-gray-700 uppercase tracking-wide" }
 const _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Already registered? ")
 const _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Sign in")
 
@@ -60678,7 +60656,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           class: "mt-8 text-center"
         }, null, 8 /* PROPS */, ["errors"]),
         (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
-          class: "w-full sm:max-w-xs sm:mx-auto mt-8",
+          class: "w-full sm:max-w-xs sm:mx-auto mt-10",
           loading: $data.loading,
           onSubmit: $options.register
         }, {
@@ -60786,7 +60764,7 @@ const render = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $setup
           textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.user.name)
         }, null, 8 /* PROPS */, ["textContent"]),
         (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", {
-          class: "block text-gray-700 text-lg font-light",
+          class: "block text-gray-800 text-lg font-light",
           textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.user.email)
         }, null, 8 /* PROPS */, ["textContent"]),
         (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
