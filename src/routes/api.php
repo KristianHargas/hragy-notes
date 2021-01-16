@@ -21,6 +21,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('auth:sanctum')->apiResource('notes', NoteController::class);
-Route::middleware('auth:sanctum')->apiResource('categories', CategoryController::class);
-Route::middleware('auth:sanctum')->apiResource('checklists', ChecklistController::class);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::apiResource('notes', NoteController::class);
+    Route::apiResource('categories', CategoryController::class);
+    Route::apiResource('checklists', ChecklistController::class);
+});

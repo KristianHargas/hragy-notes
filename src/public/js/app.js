@@ -32963,6 +32963,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var latestChecklist;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -32981,15 +32982,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 });
 
               case 7:
-                _this.$router.push({
-                  name: 'ChecklistList'
+                latestChecklist = _this.$store.getters['checklist/getLatest'];
+
+                _this.$router.replace({
+                  name: 'ChecklistView',
+                  params: {
+                    id: latestChecklist.id
+                  }
                 });
 
-                _context.next = 13;
+                _context.next = 14;
                 break;
 
-              case 10:
-                _context.prev = 10;
+              case 11:
+                _context.prev = 11;
                 _context.t0 = _context["catch"](3);
 
                 if ((0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_5__.is422)(_context.t0) && (0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_5__.hasValidationErr)(_context.t0, 'title')) {
@@ -32998,17 +33004,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   _this.errors.others.push('Network or server error, try again later!');
                 }
 
-              case 13:
+              case 14:
                 _this.loading = false;
 
                 _this.$emit('stopLoading');
 
-              case 15:
+              case 16:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[3, 10]]);
+        }, _callee, null, [[3, 11]]);
       }))();
     },
     resetErrors: function resetErrors() {
@@ -33521,6 +33527,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var latestNote;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -33538,15 +33545,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 });
 
               case 6:
-                _this.$router.push({
-                  name: 'NoteList'
+                latestNote = _this.$store.getters['note/getLatest'];
+
+                _this.$router.replace({
+                  name: 'NoteView',
+                  params: {
+                    id: latestNote.id
+                  }
                 });
 
-                _context.next = 12;
+                _context.next = 13;
                 break;
 
-              case 9:
-                _context.prev = 9;
+              case 10:
+                _context.prev = 10;
                 _context.t0 = _context["catch"](3);
 
                 if ((0,_shared_utils_response__WEBPACK_IMPORTED_MODULE_3__.is422)(_context.t0)) {
@@ -33556,17 +33568,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   _this.errors.others.push('Network or server error, try again later!');
                 }
 
-              case 12:
+              case 13:
                 _this.loading = false;
 
                 _this.$emit('stopLoading');
 
-              case 14:
+              case 15:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[3, 9]]);
+        }, _callee, null, [[3, 10]]);
       }))();
     },
     resetErrors: function resetErrors() {
@@ -35547,6 +35559,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           return categories.includes(id);
         });
       };
+    },
+    getLatest: function getLatest(state) {
+      return state.checklists[0];
     }
   }
 });
@@ -35728,6 +35743,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           return categories.includes(id);
         });
       };
+    },
+    getLatest: function getLatest(state) {
+      return state.notes[0];
     }
   }
 });

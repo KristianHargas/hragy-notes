@@ -100,7 +100,12 @@ export default {
         await this.$store.dispatch('note/store', {
           note: this.newNote
         })
-        this.$router.push({ name: 'NoteList' })
+
+        const latestNote = this.$store.getters['note/getLatest']
+        this.$router.replace({
+          name: 'NoteView',
+          params: { id: latestNote.id }
+        })
       } catch (err) {
         if (is422(err)) {
           hasValidationErr(err, 'title') &&

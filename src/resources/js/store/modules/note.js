@@ -55,6 +55,9 @@ export default {
         const categories = note.categories.map((category) => category.id)
         return categories.includes(id)
       })
+    },
+    getLatest(state) {
+      return state.notes[0]
     }
   }
 }

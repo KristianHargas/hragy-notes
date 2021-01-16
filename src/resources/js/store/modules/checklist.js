@@ -72,6 +72,9 @@ export default {
         const categories = checklist.categories.map((category) => category.id)
         return categories.includes(id)
       })
+    },
+    getLatest(state) {
+      return state.checklists[0]
     }
   }
 }

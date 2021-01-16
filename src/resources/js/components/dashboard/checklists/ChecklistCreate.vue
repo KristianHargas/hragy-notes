@@ -132,7 +132,12 @@ export default {
         await this.$store.dispatch('checklist/store', {
           checklist: this.newChecklist
         })
-        this.$router.push({ name: 'ChecklistList' })
+
+        const latestChecklist = this.$store.getters['checklist/getLatest']
+        this.$router.replace({
+          name: 'ChecklistView',
+          params: { id: latestChecklist.id }
+        })
       } catch (err) {
         if (is422(err) && hasValidationErr(err, 'title')) {
           this.errors.title = getValidationErrArr(err, 'title')
