@@ -32949,7 +32949,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   methods: {
     addItem: function addItem(newItem) {
+      var now = new Date();
       this.items.push({
+        id: now.getTime(),
         checked: false,
         text: newItem
       });
@@ -33220,6 +33222,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       });
       var itemsCopy = this.checklist.items.map(function (item) {
         return {
+          id: item.id,
           checked: item.checked,
           text: item.text
         };
@@ -33238,7 +33241,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   methods: {
     addItem: function addItem(newItem) {
+      var now = new Date();
       this.editedChecklist.items.push({
+        id: now.getTime(),
         checked: false,
         text: newItem
       });
@@ -61426,19 +61431,18 @@ const _hoisted_4 = { class: "mt-4" }
 const _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Items")
 const _hoisted_6 = { id: "items" }
 const _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", { class: "mt-4 mb-4 border-t-2 border-gray-300 w-full" }, null, -1 /* HOISTED */)
-const _hoisted_8 = { class: "space-y-2" }
-const _hoisted_9 = { class: "mt-4" }
-const _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Color")
-const _hoisted_11 = {
+const _hoisted_8 = { class: "mt-4" }
+const _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Color")
+const _hoisted_10 = {
   key: 0,
   class: "mt-4"
 }
-const _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Categories")
-const _hoisted_13 = {
+const _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Categories")
+const _hoisted_12 = {
   id: "categories",
   class: "flex flex-row flex-wrap"
 }
-const _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Create")
+const _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Create")
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_DashboardTitle = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("DashboardTitle")
@@ -61488,24 +61492,33 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           }),
           _hoisted_7,
           (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" List of items. "),
-          (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", _hoisted_8, [
-            ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.items, (item, index) => {
-              return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_ChecklistShowItem, {
-                key: 'item' + index,
-                text: item.text,
-                checked: item.checked,
-                onCheckChange: $event => (item.checked = $event),
-                onTextChange: $event => ($options.updateItem($event, item)),
-                onItemRemoval: $event => ($options.removeItem(item))
-              }, null, 8 /* PROPS */, ["text", "checked", "onCheckChange", "onTextChange", "onItemRemoval"]))
-            }), 128 /* KEYED_FRAGMENT */))
-          ])
+          (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.TransitionGroup, {
+            "enter-active-class": "animate__animated animate__backInLeft",
+            "leave-active-class": "animate__animated animate__backOutLeft",
+            name: "items-list",
+            tag: "ul",
+            class: "space-y-2"
+          }, {
+            default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
+              ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.items, (item) => {
+                return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_ChecklistShowItem, {
+                  key: item.id,
+                  text: item.text,
+                  checked: item.checked,
+                  onCheckChange: $event => (item.checked = $event),
+                  onTextChange: $event => ($options.updateItem($event, item)),
+                  onItemRemoval: $event => ($options.removeItem(item))
+                }, null, 8 /* PROPS */, ["text", "checked", "onCheckChange", "onTextChange", "onItemRemoval"]))
+              }), 128 /* KEYED_FRAGMENT */))
+            ]),
+            _: 1
+          })
         ])
       ]),
-      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_9, [
+      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_8, [
         (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormLabel, { for: "color" }, {
           default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
-            _hoisted_10
+            _hoisted_9
           ]),
           _: 1
         }),
@@ -61516,14 +61529,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }, null, 8 /* PROPS */, ["modelValue"])
       ]),
       ($options.categories.length)
-        ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_11, [
+        ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_10, [
             (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormLabel, { for: "categories" }, {
               default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
-                _hoisted_12
+                _hoisted_11
               ]),
               _: 1
             }),
-            (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_13, [
+            (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_12, [
               ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($options.categories, (category) => {
                 return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_CheckablePill, {
                   key: category.id,
@@ -61550,7 +61563,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         onSubmit: $options.createChecklist
       }, {
         default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
-          _hoisted_14
+          _hoisted_13
         ]),
         _: 1
       }, 8 /* PROPS */, ["loading", "onSubmit"])
@@ -61773,29 +61786,28 @@ const _hoisted_4 = { class: "mt-4" }
 const _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Items")
 const _hoisted_6 = { id: "items" }
 const _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", { class: "mt-4 mb-4 border-t-2 border-gray-300 w-full" }, null, -1 /* HOISTED */)
-const _hoisted_8 = { class: "space-y-2" }
-const _hoisted_9 = { class: "mt-4" }
-const _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Color")
-const _hoisted_11 = {
+const _hoisted_8 = { class: "mt-4" }
+const _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Color")
+const _hoisted_10 = {
   key: 0,
   class: "mt-4"
 }
-const _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Categories")
-const _hoisted_13 = {
+const _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Categories")
+const _hoisted_12 = {
   id: "categories",
   class: "flex flex-row flex-wrap"
 }
-const _hoisted_14 = { class: "mt-4 flex justify-between text-base font-light text-gray-700" }
-const _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", { class: "uppercase" }, "Created at:", -1 /* HOISTED */)
-const _hoisted_16 = { class: "mt-2 flex justify-between text-base font-light text-gray-700" }
-const _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", { class: "uppercase" }, "Updated at:", -1 /* HOISTED */)
-const _hoisted_18 = { class: "flex justify-between mt-8" }
-const _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+const _hoisted_13 = { class: "mt-4 flex justify-between text-base font-light text-gray-700" }
+const _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", { class: "uppercase" }, "Created at:", -1 /* HOISTED */)
+const _hoisted_15 = { class: "mt-2 flex justify-between text-base font-light text-gray-700" }
+const _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", { class: "uppercase" }, "Updated at:", -1 /* HOISTED */)
+const _hoisted_17 = { class: "flex justify-between mt-8" }
+const _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
   src: _static_img_delete_white_svg__WEBPACK_IMPORTED_MODULE_1__.default,
   alt: "Delete icon.",
   class: "h-8"
 }, null, -1 /* HOISTED */)
-const _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Save")
+const _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Save")
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_DashboardTitle = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("DashboardTitle")
@@ -61846,24 +61858,33 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
               }),
               _hoisted_7,
               (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" List of items. "),
-              (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", _hoisted_8, [
-                ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.editedChecklist.items, (item, index) => {
-                  return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_ChecklistShowItem, {
-                    key: 'item' + index,
-                    text: item.text,
-                    checked: item.checked,
-                    onCheckChange: $event => (item.checked = $event),
-                    onTextChange: $event => ($options.updateItem($event, item)),
-                    onItemRemoval: $event => ($options.removeItem(item))
-                  }, null, 8 /* PROPS */, ["text", "checked", "onCheckChange", "onTextChange", "onItemRemoval"]))
-                }), 128 /* KEYED_FRAGMENT */))
-              ])
+              (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.TransitionGroup, {
+                "enter-active-class": "animate__animated animate__backInLeft",
+                "leave-active-class": "animate__animated animate__backOutLeft",
+                name: "items-list",
+                tag: "ul",
+                class: "space-y-2"
+              }, {
+                default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
+                  ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.editedChecklist.items, (item) => {
+                    return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_ChecklistShowItem, {
+                      key: item.id,
+                      text: item.text,
+                      checked: item.checked,
+                      onCheckChange: $event => (item.checked = $event),
+                      onTextChange: $event => ($options.updateItem($event, item)),
+                      onItemRemoval: $event => ($options.removeItem(item))
+                    }, null, 8 /* PROPS */, ["text", "checked", "onCheckChange", "onTextChange", "onItemRemoval"]))
+                  }), 128 /* KEYED_FRAGMENT */))
+                ]),
+                _: 1
+              })
             ])
           ]),
-          (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_9, [
+          (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_8, [
             (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormLabel, { for: "color" }, {
               default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
-                _hoisted_10
+                _hoisted_9
               ]),
               _: 1
             }),
@@ -61874,14 +61895,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             }, null, 8 /* PROPS */, ["modelValue"])
           ]),
           ($options.categories.length)
-            ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_11, [
+            ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_10, [
                 (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormLabel, { for: "categories" }, {
                   default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
-                    _hoisted_12
+                    _hoisted_11
                   ]),
                   _: 1
                 }),
-                (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_13, [
+                (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_12, [
                   ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($options.categories, (category) => {
                     return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_CheckablePill, {
                       key: category.id,
@@ -61898,19 +61919,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                 ])
               ]))
             : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true),
-          (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_14, [
-            _hoisted_15,
+          (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_13, [
+            _hoisted_14,
             (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.formatDate($options.checklist.created_at)), 1 /* TEXT */)
           ]),
-          (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_16, [
-            _hoisted_17,
+          (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_15, [
+            _hoisted_16,
             (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.formatDate($options.checklist.updated_at)), 1 /* TEXT */)
           ]),
           (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormErrors, {
             class: "mt-8 text-center",
             errors: $data.errors.others
           }, null, 8 /* PROPS */, ["errors"]),
-          (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_18, [
+          (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_17, [
             (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
               class: "w-13",
               normalBgClass: "bg-gray-600",
@@ -61918,7 +61939,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
               onSubmit: $options.removeChecklist
             }, {
               default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
-                _hoisted_19
+                _hoisted_18
               ]),
               _: 1
             }, 8 /* PROPS */, ["loading", "onSubmit"]),
@@ -61927,7 +61948,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
               onSubmit: $options.updateChecklist
             }, {
               default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
-                _hoisted_20
+                _hoisted_19
               ]),
               _: 1
             }, 8 /* PROPS */, ["loading", "onSubmit"])
@@ -62041,7 +62062,7 @@ const _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)
 }, null, -1 /* HOISTED */)
 const _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", { class: "text-gray-700 font-semibold text-base uppercase tracking-wide no-select" }, "Edit checklist", -1 /* HOISTED */)
 const _hoisted_5 = { class: "text-white text-2xl font-semibold tracking-wide" }
-const _hoisted_6 = { class: "mt-1 divide-y divide-white" }
+const _hoisted_6 = { class: "mt-2 divide-y divide-white" }
 const _hoisted_7 = { class: "w-6 h-6" }
 const _hoisted_8 = {
   key: 0,
@@ -62058,7 +62079,7 @@ const _hoisted_9 = {
 const _hoisted_10 = { class: "w-0 flex-grow overflow-hidden text-xl font-light text-white ml-2" }
 const _hoisted_11 = {
   key: 0,
-  class: "flex flex-row flex-wrap mt-1 -ml-1"
+  class: "flex flex-row flex-wrap mt-4 -ml-1"
 }
 const _hoisted_12 = { class: "mt-4 flex justify-between text-base font-light text-white" }
 const _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", { class: "uppercase" }, "Created at:", -1 /* HOISTED */)

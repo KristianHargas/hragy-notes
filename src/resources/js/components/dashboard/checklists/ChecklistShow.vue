@@ -22,17 +22,23 @@
           <div class="mt-4 mb-4 border-t-2 border-gray-300 w-full"></div>
 
           <!-- List of items. -->
-          <ul class="space-y-2">
+          <transition-group
+            enter-active-class="animate__animated animate__backInLeft"
+            leave-active-class="animate__animated animate__backOutLeft"
+            name="items-list"
+            tag="ul"
+            class="space-y-2"
+          >
             <ChecklistShowItem
-              v-for="(item, index) in editedChecklist.items"
-              :key="'item' + index"
+              v-for="item in editedChecklist.items"
+              :key="item.id"
               :text="item.text"
               :checked="item.checked"
               @checkChange="item.checked = $event"
               @textChange="updateItem($event, item)"
               @itemRemoval="removeItem(item)"
             />
-          </ul>
+          </transition-group>
         </div>
       </div>
 
@@ -140,6 +146,7 @@ export default {
       )
 
       const itemsCopy = this.checklist.items.map((item) => ({
+        id: item.id,
         checked: item.checked,
         text: item.text
       }))
@@ -156,7 +163,12 @@ export default {
   },
   methods: {
     addItem(newItem) {
-      this.editedChecklist.items.push({ checked: false, text: newItem })
+      const now = new Date()
+      this.editedChecklist.items.push({
+        id: now.getTime(),
+        checked: false,
+        text: newItem
+      })
     },
     updateItem(newText, item) {
       if (!newText) this.removeItem(item)

@@ -31,7 +31,7 @@
       </h3>
 
       <!-- Items. -->
-      <ul class="mt-1 divide-y divide-white">
+      <ul class="mt-2 divide-y divide-white">
         <li
           v-for="item in checklist.items"
           :key="item.id"
@@ -61,7 +61,7 @@
 
       <div
         v-if="checklist.categories.length"
-        class="flex flex-row flex-wrap mt-1 -ml-1"
+        class="flex flex-row flex-wrap mt-4 -ml-1"
       >
         <div
           v-for="category in checklist.categories"
