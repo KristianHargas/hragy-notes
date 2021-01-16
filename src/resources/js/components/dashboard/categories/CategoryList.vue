@@ -10,15 +10,22 @@
 
       <div class="mt-6 mb-8 border-t-2 border-gray-300 w-full"></div>
 
-      <ul class="space-y-6">
+      <transition-group
+        enter-active-class="animate__animated animate__backInLeft"
+        leave-active-class="animate__animated animate__backOutLeft"
+        name="category-list"
+        tag="ul"
+        class="space-y-4"
+      >
         <CategoryShowRow
+          class="category-item"
           v-for="category in categories"
           :key="category.id"
           :category="category"
           @startLoading="$emit('startLoading')"
           @stopLoading="$emit('stopLoading')"
         />
-      </ul>
+      </transition-group>
     </div>
   </div>
 </template>
@@ -43,4 +50,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.category-item {
+  transition: all 0.4s ease;
+}
+</style>
