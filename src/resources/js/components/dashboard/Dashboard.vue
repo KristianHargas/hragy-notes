@@ -70,10 +70,16 @@
     </FormErrors>
 
     <router-view
+      v-slot="{ Component }"
       v-if="dataFetchingFinished && dataFetchingSuccess"
+      :key="$route.fullPath"
       @startLoading="loading = true"
       @stopLoading="loading = false"
-    ></router-view>
+    >
+      <transition name="fade" mode="out-in" appear>
+        <component :is="Component" />
+      </transition>
+    </router-view>
   </main>
 </template>
 
@@ -169,5 +175,15 @@ export default {
 
 .main-fill {
   min-height: calc(100vh - 4.5rem);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

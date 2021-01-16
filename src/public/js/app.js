@@ -35834,7 +35834,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".top-margin[data-v-376ddb84] {\n  margin-top: 4.5rem;\n}\n.toolbar[data-v-376ddb84] {\n  position: fixed;\n  z-index: 20;\n  top: 0;\n  right: 0;\n  left: 0;\n  height: 4.5rem;\n  box-sizing: border-box;\n}\n.navigation-drawer[data-v-376ddb84] {\n  position: fixed;\n  z-index: 10;\n  top: 4.5rem;\n  left: 0;\n  bottom: 0;\n  box-sizing: border-box;\n  overflow-y: auto;\n}\n.navigation-drawer.open[data-v-376ddb84] {\n  transform: translateX(0);\n}\n.router-link-exact-active[data-v-376ddb84] {\n  background-color: #c81e1e;\n  color: white;\n}\n.main-fill[data-v-376ddb84] {\n  min-height: calc(100vh - 4.5rem);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".top-margin[data-v-376ddb84] {\n  margin-top: 4.5rem;\n}\n.toolbar[data-v-376ddb84] {\n  position: fixed;\n  z-index: 20;\n  top: 0;\n  right: 0;\n  left: 0;\n  height: 4.5rem;\n  box-sizing: border-box;\n}\n.navigation-drawer[data-v-376ddb84] {\n  position: fixed;\n  z-index: 10;\n  top: 4.5rem;\n  left: 0;\n  bottom: 0;\n  box-sizing: border-box;\n  overflow-y: auto;\n}\n.navigation-drawer.open[data-v-376ddb84] {\n  transform: translateX(0);\n}\n.router-link-exact-active[data-v-376ddb84] {\n  background-color: #c81e1e;\n  color: white;\n}\n.main-fill[data-v-376ddb84] {\n  min-height: calc(100vh - 4.5rem);\n}\n.fade-enter-active[data-v-376ddb84],\n.fade-leave-active[data-v-376ddb84] {\n  transition: opacity 0.5s ease-in-out;\n}\n.fade-enter-from[data-v-376ddb84],\n.fade-leave-to[data-v-376ddb84] {\n  opacity: 0;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -61021,9 +61021,23 @@ const render = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $setup
         : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true),
       ($data.dataFetchingFinished && $data.dataFetchingSuccess)
         ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_router_view, {
-            key: 1,
+            key: _ctx.$route.fullPath,
             onStartLoading: _cache[4] || (_cache[4] = $event => ($data.loading = true)),
             onStopLoading: _cache[5] || (_cache[5] = $event => ($data.loading = false))
+          }, {
+            default: _withId(({ Component }) => [
+              (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.Transition, {
+                name: "fade",
+                mode: "out-in",
+                appear: ""
+              }, {
+                default: _withId(() => [
+                  ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveDynamicComponent)(Component)))
+                ]),
+                _: 2
+              }, 1024 /* DYNAMIC_SLOTS */)
+            ]),
+            _: 1
           }))
         : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)
     ])
