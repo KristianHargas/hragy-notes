@@ -6,50 +6,80 @@
       :open="navigationDrawer"
       @toggle="navigationDrawer = !navigationDrawer"
     ></HamburgerButton>
-    <Logo :to="{ name: 'Dashboard' }" class="ml-4"></Logo>
+    <Logo :to="{ name: 'Dashboard' }" class="ml-4 lg:ml-0"></Logo>
+    <div class="flex-grow"></div>
+    <LoadingSpinner
+      v-if="loading"
+      class="animate-spin h-10 w-10 text-red-700"
+    />
+    <img
+      v-else
+      class="h-12 w-12 cursor-pointer -mr-1"
+      src="../../../static/img/refresh-white.svg"
+      alt="Refresh icon."
+      @click="refresh"
+    />
   </header>
 
   <!-- Navigation drawer -->
   <aside
-    class="navigation-drawer p-4 w-72 shadow-lg bg-red-100 transition duration-200 ease-out transform -translate-x-full lg:translate-x-0"
+    class="navigation-drawer py-4 w-72 shadow-lg bg-red-100 transition duration-200 ease-out transform -translate-x-full lg:translate-x-0"
     :class="{ open: navigationDrawer }"
   >
-    <section>
+    <section class="px-6">
       <span
-        class="block text-gray-800 text-2xl font-semibold"
+        class="block text-gray-800 text-2xl font-medium"
         v-text="user.name"
       ></span>
       <span
-        class="block text-gray-600 text-lg font-medium"
+        class="block text-gray-800 text-lg font-light"
         v-text="user.email"
       ></span>
 
       <div
-        class="inline-block text-lg uppercase no-select text-center tracking-wider cursor-pointer shadow-sm bg-white rounded-r-full py-2 px-6 mt-3 font-semibold text-gray-700 hover:shadow-md focus:shadow-md"
+        class="inline-block text-lg uppercase no-select text-center tracking-wider cursor-pointer shadow-sm bg-white rounded-lg py-2 px-6 mt-3 font-medium text-gray-800 hover:shadow-md focus:shadow-md"
         @click="logout"
       >
         Logout
       </div>
     </section>
 
-    <nav class="mt-12">
-      <router-link
-        :to="{ name: 'NoteList' }"
-        class="block uppercase tracking-wide text-xl mb-4 no-select text-center cursor-pointer shadow-sm bg-white rounded py-2 font-semibold text-gray-700 hover:shadow-md focus:shadow-md"
-        >Notes</router-link
-      >
+    <div class="mt-8 mb-4 border-t-2 border-gray-700 opacity-25 w-full"></div>
 
-      <router-link
-        :to="{ name: 'NoteCreate' }"
-        class="block uppercase tracking-wide text-xl mb-4 no-select text-center cursor-pointer shadow-sm bg-white rounded py-2 font-semibold text-gray-700 hover:shadow-md focus:shadow-md"
-        >Add note</router-link
+    <nav class="px-3">
+      <DashboardNavItem :navigateTo="{ name: 'CategoryList' }"
+        >Categories</DashboardNavItem
+      >
+      <DashboardNavItem :navigateTo="{ name: 'NoteList' }"
+        >Notes</DashboardNavItem
+      >
+      <DashboardNavItem :navigateTo="{ name: 'ChecklistList' }"
+        >Checklists</DashboardNavItem
       >
     </nav>
   </aside>
 
   <!-- Main content -->
-  <main class="top-margin lg:ml-72 p-4 bg-gray-100 main-fill">
-    <router-view></router-view>
+  <main class="top-margin lg:ml-72 py-4 px-4 md:px-6 bg-gray-100 main-fill">
+    <FormErrors
+      v-if="dataFetchingFinished && !dataFetchingSuccess"
+      :errors="[
+        'Error while loading data, please check your internet connection and refresh again later!'
+      ]"
+    >
+    </FormErrors>
+
+    <router-view
+      v-slot="{ Component }"
+      v-if="dataFetchingFinished && dataFetchingSuccess"
+      :key="$route.fullPath"
+      @startLoading="loading = true"
+      @stopLoading="loading = false"
+    >
+      <transition name="fade" mode="out-in" appear>
+        <component :is="Component" />
+      </transition>
+    </router-view>
   </main>
 </template>
 
@@ -57,20 +87,47 @@
 import { createNamespacedHelpers } from 'vuex'
 const Auth = createNamespacedHelpers('auth')
 import HamburgerButton from '../../shared/components/HamburgerButton'
+import DashboardNavItem from './DashboardNavItem'
 
 export default {
   components: {
-    HamburgerButton
+    HamburgerButton,
+    DashboardNavItem
   },
   data() {
     return {
-      navigationDrawer: false
+      navigationDrawer: false,
+      loading: false,
+      dataFetchingFinished: false,
+      dataFetchingSuccess: false
     }
   },
   computed: {
     ...Auth.mapState(['user'])
   },
+  async mounted() {
+    await this.refresh()
+  },
   methods: {
+    async refresh() {
+      this.dataFetchingFinished = false
+      this.loading = true
+
+      try {
+        await Promise.all([
+          this.$store.dispatch('note/index'),
+          this.$store.dispatch('category/index'),
+          this.$store.dispatch('checklist/index')
+        ])
+
+        this.dataFetchingSuccess = true
+      } catch (err) {
+        this.dataFetchingSuccess = false
+      }
+
+      this.dataFetchingFinished = true
+      this.loading = false
+    },
     async logout() {
       await this.$store.dispatch('auth/logout')
       this.$router.replace({ name: 'Login' })
@@ -118,5 +175,15 @@ export default {
 
 .main-fill {
   min-height: calc(100vh - 4.5rem);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

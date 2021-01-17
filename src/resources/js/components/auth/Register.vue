@@ -7,7 +7,7 @@
       <header>
         <Logo :to="{ name: 'Home' }"></Logo>
         <h1
-          class="mt-5 mb-8 text-gray-800 font-medium text-2xl uppercase tracking-wide"
+          class="text-gray-800 font-semibold text-2xl uppercase tracking-wide mb-8 mt-5"
         >
           Register
         </h1>
@@ -16,7 +16,7 @@
       <!-- Main form -->
       <form>
         <div>
-          <FormLabel for="name">Full name</FormLabel>
+          <FormLabel for="name">Full name*</FormLabel>
           <FormInput
             v-model="formData.name"
             type="text"
@@ -27,7 +27,7 @@
         </div>
 
         <div class="mt-4">
-          <FormLabel for="email">Email</FormLabel>
+          <FormLabel for="email">Email*</FormLabel>
           <FormInput
             v-model="formData.email"
             type="email"
@@ -38,23 +38,26 @@
         </div>
 
         <div class="mt-4">
-          <FormLabel for="password">Password</FormLabel>
+          <FormLabel for="password">Password*</FormLabel>
           <FormInput
             v-model="formData.password"
             type="password"
             id="password"
             name="password"
             :errors="errors.password"
+            placeholder="ENTER DUMMY PASSWORD!"
           ></FormInput>
         </div>
 
         <div class="mt-4">
-          <FormLabel for="password_confirmation">Confirm password</FormLabel>
+          <FormLabel for="password_confirmation">Confirm password*</FormLabel>
           <FormInput
             v-model="formData.password_confirmation"
             type="password"
             id="password_confirmation"
             name="password_confirmation"
+            :errors="errors.password_confirmation"
+            placeholder="ENTER DUMMY PASSWORD!"
           ></FormInput>
         </div>
 
@@ -64,14 +67,16 @@
         ></FormErrors>
 
         <FormButton
-          class="w-full sm:max-w-xs sm:mx-auto mt-8 py-3"
+          class="w-full sm:max-w-xs sm:mx-auto mt-10"
           :loading="loading"
           @submit="register"
           >Register</FormButton
         >
       </form>
 
-      <div class="mt-8 text-center text-base font-medium text-gray-700">
+      <div
+        class="mt-8 text-center text-base font-medium text-gray-700 uppercase tracking-wide"
+      >
         <span
           >Already registered?
           <router-link
@@ -86,7 +91,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import {
   is422,
   getValidationErrArr,
@@ -106,6 +110,7 @@ export default {
         name: [],
         email: [],
         password: [],
+        password_confirmation: [],
         others: []
       },
       loading: false
@@ -113,8 +118,11 @@ export default {
   },
   methods: {
     async register() {
-      this.loading = true
       this.resetErrors()
+
+      if (!this.validateRequiredFields()) return
+
+      this.loading = true
 
       try {
         await this.$store.dispatch('auth/register', this.formData)
@@ -136,10 +144,38 @@ export default {
 
       this.loading = false
     },
+    validateRequiredFields() {
+      let valid = true
+
+      if (!this.formData.email) {
+        this.errors.email.push('The email field is required.')
+        valid = false
+      }
+
+      if (!this.formData.name) {
+        this.errors.name.push('The full name field is required.')
+        valid = false
+      }
+
+      if (!this.formData.password) {
+        this.errors.password.push('The password field is required.')
+        valid = false
+      }
+
+      if (!this.formData.password_confirmation) {
+        this.errors.password_confirmation.push(
+          'The password confirmation field is required.'
+        )
+        valid = false
+      }
+
+      return valid
+    },
     resetErrors() {
       this.errors.name = []
       this.errors.email = []
       this.errors.password = []
+      this.errors.password_confirmation = []
       this.errors.others = []
     }
   }

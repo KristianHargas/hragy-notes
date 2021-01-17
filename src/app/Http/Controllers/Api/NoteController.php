@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Note;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class NoteController extends Controller
 {
@@ -15,7 +15,8 @@ class NoteController extends Controller
      */
     public function index(Request $request)
     {
-        $notes = $request->user()->notes()->orderBy('created_at', 'desc')->get();
+        $notes = $request->user()->notes()->with('categories:id,title')
+            ->latest()->get();
 
         return response()->json($notes, 200);
     }
@@ -31,13 +32,35 @@ class NoteController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'text' => 'max:1024',
+            'color' => 'required|max:32',
+            'categories' => 'present|array',
+            'categories.*' => 'exists:categories,id',
         ]);
 
-        $note = Note::create([
-            'title' => $validatedData['title'],
-            'text' => $validatedData['text'],
-            'user_id' => $request->user()->id,
-        ]);
+        // Check if all passed categories belong to the current user.
+        $userCategories = $request->user()->categories()->pluck('id');
+
+        foreach ($validatedData['categories'] as $category) {
+            if (!$userCategories->contains($category)) {
+                return response()->json([], 400);
+            }
+        }
+
+        $note = null;
+
+        DB::transaction(function () use ($request, $validatedData, &$note) {
+            $note = $request->user()->notes()->create([
+                'title' => $validatedData['title'],
+                'text' => $validatedData['text'],
+                'color' => $validatedData['color'],
+            ]);
+
+            // Assign newly created note with categories.
+            $note->categories()->attach($validatedData['categories']);
+
+            // Load basic category information.
+            $note->load('categories:id,title');
+        });
 
         return response()->json($note, 201);
     }
@@ -50,7 +73,8 @@ class NoteController extends Controller
      */
     public function show(Request $request, $id)
     {
-        $note = $request->user()->notes()->where('id', $id)->first();
+        $note = $request->user()->notes()->with('categories:id,title')
+            ->where('id', $id)->first();
 
         if ($note === null) {
             return response()->json([], 404);
@@ -68,7 +92,8 @@ class NoteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $note = $request->user()->notes()->where('id', $id)->first();
+        $note = $request->user()->notes()->with('categories:id,title')
+            ->where('id', $id)->first();
 
         if ($note === null) {
             return response()->json([], 404);
@@ -77,11 +102,33 @@ class NoteController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'text' => 'max:1024',
+            'color' => 'required|max:32',
+            'categories' => 'present|array',
+            'categories.*' => 'exists:categories,id',
         ]);
 
-        $note->title = $validatedData['title'];
-        $note->text = $validatedData['text'];
-        $note->save();
+        // Check if all passed categories belong to the current user.
+        $userCategories = $request->user()->categories()->pluck('id');
+
+        foreach ($validatedData['categories'] as $category) {
+            if (!$userCategories->contains($category)) {
+                return response()->json([], 400);
+            }
+        }
+
+        DB::transaction(function () use ($validatedData, &$note) {
+            $note->title = $validatedData['title'];
+            $note->text = $validatedData['text'];
+            $note->color = $validatedData['color'];
+            $note->save();
+
+            // Assign newly created note with categories.
+            $note->categories()->detach($note->categories->pluck('id'));
+            $note->categories()->attach($validatedData['categories']);
+
+            // Load basic category information.
+            $note->load('categories:id,title');
+        });
 
         return response()->json($note, 200);
     }

@@ -1,0 +1,16 @@
+docker-compose pull
+docker-compose build
+docker-compose run --rm -v $(pwd)/src:/var/www/html --user $(id -u):$(id -g) composer install
+docker-compose run --rm npm install
+docker-compose up -d phpmyadmin
+Create hragynotes db with utf8mb4_unicode_ci collation.
+docker-compose run --rm artisan migrate
+docker-compose up -d nginx
+docker-compose run --rm npm run watch
+
+Install Fira Code font.
+Download VS Code, install Settings Sync extension, log in with Github and select gist.
+Install required extensions using WSL2.
+Run: sudo apt update, and then using: php -v, get php bin for formatter.
+
+Switch git branch to: git checkout dev.

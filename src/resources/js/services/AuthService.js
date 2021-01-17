@@ -11,6 +11,7 @@ export const register = async function (data) {
 }
 
 export const logout = async function () {
+  await axios.get('/sanctum/csrf-cookie')
   await axios.post('/logout')
 }
 

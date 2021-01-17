@@ -3,9 +3,15 @@ import Home from '../components/Home'
 import Login from '../components/auth/Login'
 import Register from '../components/auth/Register'
 import Dashboard from '../components/dashboard/Dashboard'
-import NoteList from '../components/dashboard/NoteList'
-import NoteCreate from '../components/dashboard/NoteCreate'
-import NoteShow from '../components/dashboard/NoteShow'
+import NoteList from '../components/dashboard/notes/NoteList'
+import NoteCreate from '../components/dashboard/notes/NoteCreate'
+import NoteShow from '../components/dashboard/notes/NoteShow'
+import NoteView from '../components/dashboard/notes/NoteView'
+import CategoryList from '../components/dashboard/categories/CategoryList'
+import ChecklistList from '../components/dashboard/checklists/ChecklistList'
+import ChecklistCreate from '../components/dashboard/checklists/ChecklistCreate'
+import ChecklistShow from '../components/dashboard/checklists/ChecklistShow'
+import ChecklistView from '../components/dashboard/checklists/ChecklistView'
 import store from '../store/index'
 
 const routes = [
@@ -48,14 +54,44 @@ const routes = [
         name: 'NoteList'
       },
       {
-        path: 'notes/:id',
+        path: 'notes/:id/edit',
         component: NoteShow,
         name: 'NoteShow'
+      },
+      {
+        path: 'notes/:id/view',
+        component: NoteView,
+        name: 'NoteView'
       },
       {
         path: 'notes/create',
         component: NoteCreate,
         name: 'NoteCreate'
+      },
+      {
+        path: 'checklists',
+        component: ChecklistList,
+        name: 'ChecklistList'
+      },
+      {
+        path: 'checklists/:id/edit',
+        component: ChecklistShow,
+        name: 'ChecklistShow'
+      },
+      {
+        path: 'checklists/:id/view',
+        component: ChecklistView,
+        name: 'ChecklistView'
+      },
+      {
+        path: 'checklists/create',
+        component: ChecklistCreate,
+        name: 'ChecklistCreate'
+      },
+      {
+        path: 'categories',
+        component: CategoryList,
+        name: 'CategoryList'
       }
     ]
   },
