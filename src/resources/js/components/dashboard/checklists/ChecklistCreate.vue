@@ -6,7 +6,7 @@
 
     <form class="max-w-xl">
       <div>
-        <FormLabel for="title">Title</FormLabel>
+        <FormLabel for="title">Title*</FormLabel>
         <FormInput
           v-model="newChecklist.title"
           type="text"

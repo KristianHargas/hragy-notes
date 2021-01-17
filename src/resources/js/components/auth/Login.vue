@@ -16,7 +16,7 @@
       <!-- Main form -->
       <form>
         <div>
-          <FormLabel for="email">Email</FormLabel>
+          <FormLabel for="email">Email*</FormLabel>
           <FormInput
             v-model="formData.email"
             type="email"
@@ -27,7 +27,7 @@
         </div>
 
         <div class="mt-4">
-          <FormLabel for="password">Password</FormLabel>
+          <FormLabel for="password">Password*</FormLabel>
           <FormInput
             v-model="formData.password"
             type="password"
@@ -90,8 +90,12 @@ export default {
   },
   methods: {
     async login() {
-      this.loading = true
       this.resetErrors()
+
+      // Client side required field validation.
+      if (!this.validateRequiredFields()) return
+
+      this.loading = true
 
       try {
         await this.$store.dispatch('auth/login', this.formData)
@@ -112,6 +116,19 @@ export default {
       }
 
       this.loading = false
+    },
+    validateRequiredFields() {
+      if (!this.formData.email || !this.formData.password) {
+        !this.formData.email &&
+          this.errors.email.push('The email field is required.')
+
+        !this.formData.password &&
+          this.errors.password.push('The password field is required.')
+
+        return false
+      }
+
+      return true
     },
     resetErrors() {
       this.errors.email = []
